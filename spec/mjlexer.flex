@@ -37,7 +37,7 @@ import java_cup.runtime.Symbol;
 "\f" 	{ }
 
 // Comments --------------------------------------------------
-"//" [^\n\r]* [\n\r] { }
+"//" .* [\n\r] {  }
 
 // Keywords --------------------------------------------------
 
@@ -97,7 +97,7 @@ import java_cup.runtime.Symbol;
 
 [0-9]+             { return new_symbol(sym.NUMBER, new Integer (yytext())); }
 ("true" | "false") { return (yytext().equals("true"))? new_symbol(sym.BOOL, true) : new_symbol(sym.BOOL, false);}
-'\ [^\'\n\r\\] '\  { return symbol(sym.CHAR, yytext().charAt(1)); }
+\' [^\'\n\r\\] \'  { return new_symbol(sym.CHAR, yytext().charAt(1)); }
 
 // Identifiers -----------------------------------------------
 
