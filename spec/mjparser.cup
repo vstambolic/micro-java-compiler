@@ -112,11 +112,12 @@ nonterminal ExprList;
 nonterminal VarArgs;
 nonterminal ExprOrNothing;
 nonterminal NumConstList;
-
+nonterminal FormParsOrError;
+nonterminal ConditionOrError;
 
 Program ::=
     // (Program)
-    PROG IDENT:programIdentifier DeclList LBRACE MethodDeclList RBRACE;
+    PROG IDENT:ident DeclList LBRACE MethodDeclList RBRACE;
 
 DeclList ::=
     // (_DeclList)
@@ -193,7 +194,11 @@ VarDecl ::=
     // (_VarDecl)
     Type:type Var VarList SEMICOLON
     |
-    // (ConstAssignmentListError)
+    // (VarDeclErrorSemicolonRecovery)
+    error COMMA:l
+    {: parser.report_error("SYNTAX ERROR: one or more invalid var declarations on line: " + lleft , null); :}
+    |
+    // (VarDeclErrorSemicolonRecovery)
     error SEMICOLON:l
     {: parser.report_error("SYNTAX ERROR: one or more invalid var declarations on line: " + lleft , null); :};
 
@@ -223,8 +228,13 @@ VarDeclList ::=
     /* Ɛ */;
 
 ClassDecl ::=
-    // (ClassDecl)
-    CLASS IDENT:ident Extends LBRACE VarDeclList ConstructorDeclAndMethodDeclListWrapper RBRACE;
+    // (ClassDeclValid)
+    CLASS IDENT:ident Extends LBRACE VarDeclList ConstructorDeclAndMethodDeclListWrapper RBRACE
+    |
+    // (ClassDeclError)
+    CLASS IDENT:ident EXTENDS error:l {: parser.report_error("SYNTAX ERROR: invalid EXTENDS syntax on line: " + lleft , null); :}
+    LBRACE VarDeclList ConstructorDeclAndMethodDeclListWrapper RBRACE
+    ;
 
 Extends ::=
     // (_Extends)
@@ -241,8 +251,10 @@ ConstructorDeclAndMethodDeclListWrapper ::=
     /* Ɛ */;
 
 ConstructorDeclAndMethodDeclList ::=
+    // (_ConstructorAndMethodDeclList)
     ConstructorDecl MethodDeclList
     |
+    // (MethodDeclListWithoutConstructorDecl)
     MethodDeclList;
 
 ConstructorDecl ::=
@@ -258,8 +270,15 @@ MethodDeclList ::=
 
 MethodDecl ::=
     // (MethodDecl)
-    TypeOrVoid IDENT:ident LPAREN FormPars RPAREN VarDeclList LBRACE StatementList RBRACE;
+    TypeOrVoid IDENT:ident FormParsOrError VarDeclList LBRACE StatementList RBRACE;
 
+FormParsOrError ::=
+    // (FormPars)
+    LPAREN FormPars RPAREN
+    |
+    // (FormParsErrorRPAREN)
+    LPAREN error:l {: parser.report_error("SYNTAX ERROR: one or more invalid formal parameter declarations on line: " + lleft , null); :} RPAREN
+    ;
 
 FormPars ::=
     // (MultipleFormPars)
@@ -267,6 +286,9 @@ FormPars ::=
     |
     // (MultipleFormParsAndVarArgs)
     FormParList COMMA VarArgs
+    |
+    // (FormParsErrorCOMMA)
+    error:l {: parser.report_error("SYNTAX ERROR: one or more invalid formal parameter declarations on line: " + lleft , null); :} COMMA
     |
     // (SingleFormPar)
     FormPar
@@ -296,7 +318,7 @@ StatementList ::=
     // (_StatementList)
     StatementList Statement
     |
-    //(NoStatementList)
+    // (NoStatementList)
     /* Ɛ */;
 
 Statement ::=
@@ -308,13 +330,16 @@ Statement ::=
 
 MatchedStatement ::=
     // (MatchedIfStatement)
-    IF LPAREN Condition RPAREN MatchedStatement ELSE MatchedStatement
+    IF ConditionOrError MatchedStatement ELSE MatchedStatement
     |
     // (BodyStatement)
     LBRACE StatementList RBRACE
     |
     // (DesignatorStatement)
     Designator DesignatorOperation SEMICOLON
+    |
+    // (DesignatorAssignStatementError)
+    Designator Assignop error:l {: parser.report_info("SYNTAX ERROR: one or more invalid assign operations on line: " + lleft, null); :} SEMICOLON
     |
     // (DoWhileStatement)
     DO StatementList WHILE LPAREN Condition RPAREN SEMICOLON
@@ -336,11 +361,17 @@ MatchedStatement ::=
 
 UnmatchedStatement ::=
     // (UnmatchedIfStatement)
-    IF LPAREN Condition RPAREN Statement
+    IF ConditionOrError Statement
     |
     // (UnmatchedIfElseStatement)
-    IF LPAREN Condition RPAREN MatchedStatement ELSE UnmatchedStatement;
+    IF ConditionOrError MatchedStatement ELSE UnmatchedStatement;
 
+ConditionOrError ::=
+    // (ConditionValid)
+    LPAREN Condition RPAREN
+    |
+    // (ConditionError)
+    LPAREN error:l {: parser.report_info("SYNTAX ERROR: one or more invalid assign operations on line: " + lleft, null); :} RPAREN;
 
 DesignatorOperation ::=
     // (DesignatorAssignOperation)
@@ -534,5 +565,4 @@ Expop ::=
     // (Exp)
     EXP;
 
-
-    // TODO errors add gitignore
+// TODO introduce class declarations
