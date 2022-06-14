@@ -116,453 +116,451 @@ nonterminal FormParsOrError;
 nonterminal ConditionOrError;
 
 Program ::=
-    // (Program)
+    (Program)
     PROG IDENT:ident DeclList LBRACE MethodDeclList RBRACE;
 
 DeclList ::=
-    // (_DeclList)
+    (_DeclList)
     DeclList Decl
     |
-    // (NoDeclList)
+    (NoDeclList)
     /* Ɛ */;
 
 Decl ::=
-    // (ConstDeclaration)
+    (ConstDeclaration)
     ConstDecl
     |
-    // (VarDeclaration)
+    (VarDeclaration)
     VarDecl
     |
-    // (ClassDeclaration)
+    (ClassDeclaration)
     ClassDecl
     |
-    // (RecordDeclarataion)
+    (RecordDeclarataion)
     RecordDecl;
 
 RecordDecl ::=
-    // (RecordDecl)
+    (RecordDecl)
     RECORD IDENT:ident LBRACE VarDeclList RBRACE;
 
 ConstDecl ::=
-    // (_ConstDecl)
+    (_ConstDecl)
     CONST Type:type ConstAssignment ConstAssignmentList SEMICOLON
 //  |
-//    // (ConstDeclError)
+//    (ConstDeclError)
 //    CONST error SEMICOLON:l
 //    {: parser.report_error("SYNTAX ERROR: one or more invalid const declarations on line: " + lleft , null); :}
     ;
 
 ConstAssignment ::=
-    // (ConstAssignment)
+    (ConstAssignment)
     IDENT:ident ASSIGN Literal;
 
 ConstAssignmentList ::=
-    // (_ConstAssignmentList)
+    (_ConstAssignmentList)
     ConstAssignmentList COMMA ConstAssignment
     |
-    // (NoConstAssignmentList)
+    (NoConstAssignmentList)
     /* Ɛ */;
 
 NumConstList ::=
-    // (_NumConstList)
+    (_NumConstList)
     NumConstList COMMA NUMBER
     |
     /* Ɛ */;
 
 Literal ::=
-    // (NumConst)
+    (NumConst)
     NUMBER:numVal
     |
-    // (CharConst)
+    (CharConst)
     CHAR:charVal
     |
-    // (BoolConst)
+    (BoolConst)
     BOOL:boolVal;
 
 Type ::=
-    // (Type)
+    (Type)
     IDENT:ident;
 
 TypeOrVoid ::=
-    // (TypeOrVoid_Type)
+    (TypeOrVoid_Type)
     Type:type
-    // (TypeOrVoid_Void)
     |
+    (TypeOrVoid_Void)
     VOID;
 
 VarDecl ::=
-    // (_VarDecl)
+    (_VarDecl)
     Type:type Var VarList SEMICOLON
     |
-    // (VarDeclErrorSemicolonRecovery)
+    (VarDeclErrorCommaRecovery)
     error COMMA:l
     {: parser.report_error("SYNTAX ERROR: one or more invalid var declarations on line: " + lleft , null); :}
     |
-    // (VarDeclErrorSemicolonRecovery)
+    (VarDeclErrorSemicolonRecovery)
     error SEMICOLON:l
     {: parser.report_error("SYNTAX ERROR: one or more invalid var declarations on line: " + lleft , null); :};
 
 Var ::=
-    // (Var)
+    (Var)
     IDENT:ident Brackets;
 
 Brackets ::=
-    // (_Brackets)
+    (_Brackets)
     LBRACKET RBRACKET
     |
-    // (NoBrackets)
+    (NoBrackets)
     /* Ɛ */;
 
 VarList ::=
-    // (_VarList)
+    (_VarList)
     VarList COMMA Var
     |
-    // (NoVarList)
+    (NoVarList)
     /* Ɛ */;
 
 VarDeclList ::=
-    // (_VarDeclList)
+    (_VarDeclList)
     VarDeclList VarDecl
     |
-    // (NoVarDeclList)
+    (NoVarDeclList)
     /* Ɛ */;
 
 ClassDecl ::=
-    // (ClassDeclValid)
+    (ClassDeclValid)
     CLASS IDENT:ident Extends LBRACE VarDeclList ConstructorDeclAndMethodDeclListWrapper RBRACE
     |
-    // (ClassDeclError)
+    (ClassDeclError)
     CLASS IDENT:ident EXTENDS error:l {: parser.report_error("SYNTAX ERROR: invalid EXTENDS syntax on line: " + lleft , null); :}
     LBRACE VarDeclList ConstructorDeclAndMethodDeclListWrapper RBRACE
     ;
 
 Extends ::=
-    // (_Extends)
+    (_Extends)
     EXTENDS Type:ident
     |
-    // (NoExtends)
+    (NoExtends)
     /* Ɛ */;
 
 ConstructorDeclAndMethodDeclListWrapper ::=
-    // (_ConstructorDeclAndMethodDeclListWrapper)
+    (_ConstructorDeclAndMethodDeclListWrapper)
     LBRACE ConstructorDeclAndMethodDeclList RBRACE
     |
-    // (NoConstructorDeclAndMethodDeclListWrapper)
+    (NoConstructorDeclAndMethodDeclListWrapper)
     /* Ɛ */;
 
 ConstructorDeclAndMethodDeclList ::=
-    // (_ConstructorAndMethodDeclList)
+    (_ConstructorAndMethodDeclList)
     ConstructorDecl MethodDeclList
     |
-    // (MethodDeclListWithoutConstructorDecl)
+    (MethodDeclListWithoutConstructorDecl)
     MethodDeclList;
 
 ConstructorDecl ::=
-    // (_ConstructorDecl)
+    (_ConstructorDecl)
     IDENT:ident LPAREN RPAREN VarDeclList LBRACE StatementList RBRACE;
 
 MethodDeclList ::=
-    // (_MethodDeclList)
+    (_MethodDeclList)
     MethodDecl MethodDeclList
     |
-    // (NoMethodDeclList)
+    (NoMethodDeclList)
     /* Ɛ */;
 
 MethodDecl ::=
-    // (MethodDecl)
+    (MethodDecl)
     TypeOrVoid IDENT:ident FormParsOrError VarDeclList LBRACE StatementList RBRACE;
 
 FormParsOrError ::=
-    // (FormPars)
+    (FormPars)
     LPAREN FormPars RPAREN
     |
-    // (FormParsErrorRPAREN)
+    (FormParsErrorRPAREN)
     LPAREN error:l {: parser.report_error("SYNTAX ERROR: one or more invalid formal parameter declarations on line: " + lleft , null); :} RPAREN
     ;
 
 FormPars ::=
-    // (MultipleFormPars)
+    (MultipleFormPars)
     FormParList COMMA FormPar
     |
-    // (MultipleFormParsAndVarArgs)
+    (MultipleFormParsAndVarArgs)
     FormParList COMMA VarArgs
     |
-    // (FormParsErrorCOMMA)
+    (FormParsErrorCOMMA)
     error:l {: parser.report_error("SYNTAX ERROR: one or more invalid formal parameter declarations on line: " + lleft , null); :} COMMA
     |
-    // (SingleFormPar)
+    (SingleFormPar)
     FormPar
     |
-    // (SingleVarArg)
+    (SingleVarArg)
     VarArgs
     |
-    // (NoFormPars)
+    (NoFormPars)
     /* Ɛ */;
 
 FormParList ::=
-    // (FormParListMultiple)
+    (FormParListMultiple)
     FormParList COMMA FormPar
     |
-    // (FirstFormPar)
+    (FirstFormPar)
     FormPar;
 
 FormPar ::=
-    // (FormPar)
+    (FormPar)
     Type:type IDENT:ident Brackets;
 
 VarArgs ::=
-    // (VarArgs)
+    (VarArgs)
     Type:type VARARGS IDENT:ident;
 
 StatementList ::=
-    // (_StatementList)
+    (_StatementList)
     StatementList Statement
     |
-    // (NoStatementList)
+    (NoStatementList)
     /* Ɛ */;
 
 Statement ::=
-    // (MatchedStatement)
+    (MatchedStatement)
     MatchedStatement
     |
-    // (UnmatchedStatement)
+    (UnmatchedStatement)
     UnmatchedStatement;
 
 MatchedStatement ::=
-    // (MatchedIfStatement)
+    (MatchedIfStatement)
     IF ConditionOrError MatchedStatement ELSE MatchedStatement
     |
-    // (BodyStatement)
+    (BodyStatement)
     LBRACE StatementList RBRACE
     |
-    // (DesignatorStatement)
+    (DesignatorStatement)
     Designator DesignatorOperation SEMICOLON
     |
-    // (DesignatorAssignStatementError)
+    (DesignatorAssignStatementError)
     Designator Assignop error:l {: parser.report_info("SYNTAX ERROR: one or more invalid assign operations on line: " + lleft, null); :} SEMICOLON
     |
-    // (DoWhileStatement)
+    (DoWhileStatement)
     DO StatementList WHILE LPAREN Condition RPAREN SEMICOLON
     |
-    // (BreakStatement)
+    (BreakStatement)
     BREAK SEMICOLON
     |
-    // (ContinueStatement)
+    (ContinueStatement)
     CONTINUE SEMICOLON
     |
-    // (ReturnStatement)
+    (ReturnStatement)
     RETURN ExprOrNothing SEMICOLON
     |
-    // (ReadStatement)
+    (ReadStatement)
     READ LPAREN Designator RPAREN SEMICOLON
     |
-    // (PrintStatement)
+    (PrintStatement)
     PRINT LPAREN Expr NumConstList RPAREN SEMICOLON;
 
 UnmatchedStatement ::=
-    // (UnmatchedIfStatement)
+    (UnmatchedIfStatement)
     IF ConditionOrError Statement
     |
-    // (UnmatchedIfElseStatement)
+    (UnmatchedIfElseStatement)
     IF ConditionOrError MatchedStatement ELSE UnmatchedStatement;
 
 ConditionOrError ::=
-    // (ConditionValid)
+    (ConditionValid)
     LPAREN Condition RPAREN
     |
-    // (ConditionError)
+    (ConditionError)
     LPAREN error:l {: parser.report_info("SYNTAX ERROR: one or more invalid assign operations on line: " + lleft, null); :} RPAREN;
 
 DesignatorOperation ::=
-    // (DesignatorAssignOperation)
+    (DesignatorAssignOperation)
     Assignop Expr
     |
-    // (DesignatorFuncCallOperation)
+    (DesignatorFuncCallOperation)
     LPAREN ActParsOrNothing RPAREN
     |
-    // (DesignatorIncOperation)
+    (DesignatorIncOperation)
     INC
     |
-    // (DesignatorDecOperation)
+    (DesignatorDecOperation)
     DEC;
 
 ActParsOrNothing ::=
-    // (ActPars)
+    (ActPars)
     Expr ExprList
     |
-    // (NoActPars)
+    (NoActPars)
     /* Ɛ */;
 
 ExprList ::=
-    // (_ExprList)
+    (_ExprList)
     ExprList COMMA Expr
     |
-    // (NoExprList)
+    (NoExprList)
     /* Ɛ */;
 
 ExprOrNothing ::=
-    // (ExprIndeed)
+    (ExprIndeed)
     Expr
     |
     /* Ɛ */;
 
 Designator ::=
-    // (DesignatorMemberReference)
+    (DesignatorMemberReference)
     Designator DOT IDENT
     |
-    // (DesignatorArrayReference)
+    (DesignatorArrayReference)
     Designator LBRACKET Expr RBRACKET
     |
-    // (DesignatorIdent)
+    (DesignatorIdent)
     IDENT:ident;
 
 Condition ::=
-    // (Condition)
+    (Condition)
     CondTerm OrCondTermList;
 
 CondTerm ::=
-    // (CondTerm)
+    (CondTerm)
     CondFact AndCondFactList;
 
 OrCondTermList ::=
-    // (_OrCondTermList)
+    (_OrCondTermList)
     OrCondTermList OR CondTerm
     |
-    // (NoOrCondTermList)
+    (NoOrCondTermList)
     /* Ɛ */;
 
 AndCondFactList ::=
-    // (_AndCondFactList)
+    (_AndCondFactList)
     AndCondFactList AND CondFact
     |
-    // (NoAndCondTermList)
+    (NoAndCondTermList)
     /* Ɛ */;
 
 CondFact ::=
-    // (ExprCondFact)
+    (ExprCondFact)
     Expr RelopExpr
     |
-    // (InstanceOfCondFact)
+    (InstanceOfCondFact)
     Designator INSTANCEOF Type:type;
 
 RelopExpr ::=
-    // (_RelopExpr)
+    (_RelopExpr)
     Relop Expr
     |
-    // (NoRelopExpr)
+    (NoRelopExpr)
     /* Ɛ */;
 
 Expr ::=
-    // (NegativeExpr)
+    (NegativeExpr)
     SUB Term AddopTermList
     |
-    // (PositiveExpr)
+    (PositiveExpr)
     Term AddopTermList;
 
 Term ::=
-    // (Term)
+    (Term)
     Factor MulopFactorList;
 
 MulopFactorList ::=
-    // (_MulopFactorList)
+    (_MulopFactorList)
     MulopFactorList Mulop Factor
     |
-    // (NoMulopFactorList)
+    (NoMulopFactorList)
     /* Ɛ */;
 
 Factor ::=
-    // (Factor)
+    (Factor)
     BaseExp ExpopBaseExpList;
 
 ExpopBaseExpList ::=
-    // (_ExpopBaseExpList)
+    (_ExpopBaseExpList)
     ExpopBaseExpList Expop BaseExp
     |
-    // (NoExpopBaseExpList)
+    (NoExpopBaseExpList)
     /* Ɛ */;
 
 BaseExp ::=
-    // (BaseExpDesignator)
+    (BaseExpDesignator)
     Designator FuncCallOrNothing
     |
-    // (BaseExpNumber)
+    (BaseExpNumber)
     NUMBER
     |
-    // (BaseExpChar)
+    (BaseExpChar)
     CHAR
     |
-    // (BaseExpBool)
+    (BaseExpBool)
     BOOL
     |
-    // (BaseExpNewInstance)
+    (BaseExpNewInstance)
     NEW Type BracketsWithExprOrNothing
     |
-    // (BaseExpExpr)
+    (BaseExpExpr)
     LPAREN Expr RPAREN;
 
 FuncCallOrNothing ::=
-    // (FuncCall)
+    (FuncCall)
     LPAREN ActParsOrNothing RPAREN
     |
-    // (NoFuncCall)
+    (NoFuncCall)
     /* Ɛ */;
 
 BracketsWithExprOrNothing ::=
-    // (BracketsWithExpr)
+    (BracketsWithExpr)
     LBRACKET Expr RBRACKET
     |
-    // (NoBracketsWithExpr)
+    (NoBracketsWithExpr)
     /* Ɛ */;
 
 AddopTermList ::=
-    // (_AddopTermList)
+    (_AddopTermList)
     AddopTermList Addop Term
     |
-    // (NoAddopTermList)
+    (NoAddopTermList)
     /* Ɛ */;
 
 Addop ::=
-    // (Add)
+    (Add)
     ADD
     |
-    // (Sub)
+    (Sub)
     SUB;
 
 Assignop ::=
-    // (Assign)
+    (Assign)
     ASSIGN;
 
 Relop ::=
-    // (Eq)
+    (Eq)
     EQ
     |
-    // (Neq)
+    (Neq)
     NEQ
     |
-    // (Gt)
+    (Gt)
     GT
     |
-    // (Gte)
+    (Gte)
     GTE
     |
-    // (Lt)
+    (Lt)
     LT
     |
-    // (Lte)
+    (Lte)
     LTE;
 
 Mulop ::=
-    // (Mul)
+    (Mul)
     MUL
     |
-    // (Div)
+    (Div)
     DIV
     |
-    // (Mod)
+    (Mod)
     MOD;
 
 Expop ::=
-    // (Exp)
+    (Exp)
     EXP;
-
-// TODO introduce class declarations
