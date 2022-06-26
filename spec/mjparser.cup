@@ -54,9 +54,14 @@ scan with {:
 :}
 
 
-terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,THIS,SUPER,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,EXP,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE,NUMBER,BOOL,CHAR,IDENT;
+terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,THIS,SUPER,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,EXP,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
+terminal String IDENT;
+terminal Integer NUMBER;
+terminal Boolean BOOL;
+terminal Character CHAR;
 
 nonterminal Program;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramDecl;
 nonterminal DeclList;
 nonterminal Decl;
 nonterminal MethodDeclList;
@@ -64,7 +69,7 @@ nonterminal ConstDecl;
 nonterminal VarDecl;
 nonterminal ClassDecl;
 nonterminal RecordDecl;
-nonterminal Type;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal ConstAssignment;
 nonterminal ConstAssignmentList;
 nonterminal Literal;
@@ -117,10 +122,14 @@ nonterminal ConditionOrError;
 
 Program ::=
     (Program)
-    PROG IDENT:ident DeclList LBRACE MethodDeclList RBRACE;
+    ProgramDecl DeclList LBRACE MethodDeclList RBRACE;
+
+ProgramDecl ::=
+    (ProgramDecl)
+    PROG IDENT:ident;
 
 DeclList ::=
-    (_DeclList)
+    (DeclListIndeed)
     DeclList Decl
     |
     (NoDeclList)
@@ -144,7 +153,7 @@ RecordDecl ::=
     RECORD IDENT:ident LBRACE VarDeclList RBRACE;
 
 ConstDecl ::=
-    (_ConstDecl)
+    (ConstDecl)
     CONST Type:type ConstAssignment ConstAssignmentList SEMICOLON
 //  |
 //    (ConstDeclError)
@@ -157,14 +166,14 @@ ConstAssignment ::=
     IDENT:ident ASSIGN Literal;
 
 ConstAssignmentList ::=
-    (_ConstAssignmentList)
+    (ConstAssignmentListIndeed)
     ConstAssignmentList COMMA ConstAssignment
     |
     (NoConstAssignmentList)
     /* Ɛ */;
 
 NumConstList ::=
-    (_NumConstList)
+    (NumConstListIndeed)
     NumConstList COMMA NUMBER
     |
     /* Ɛ */;
@@ -181,7 +190,8 @@ Literal ::=
 
 Type ::=
     (Type)
-    IDENT:ident;
+    IDENT:ident
+    ;
 
 TypeOrVoid ::=
     (TypeOrVoid_Type)
@@ -191,8 +201,8 @@ TypeOrVoid ::=
     VOID;
 
 VarDecl ::=
-    (_VarDecl)
-    Type:type Var VarList SEMICOLON
+    (VarDeclValid)
+    Type Var VarList SEMICOLON
     |
     (VarDeclErrorCommaRecovery)
     error COMMA:l
@@ -202,26 +212,28 @@ VarDecl ::=
     error SEMICOLON:l
     {: parser.report_error("SYNTAX ERROR: one or more invalid var declarations on line: " + lleft , null); :};
 
+
 Var ::=
     (Var)
-    IDENT:ident Brackets;
+    IDENT:ident Brackets
+    ;
 
 Brackets ::=
-    (_Brackets)
+    (BracketsIndeed)
     LBRACKET RBRACKET
     |
     (NoBrackets)
     /* Ɛ */;
 
 VarList ::=
-    (_VarList)
+    (VarListIndeed)
     VarList COMMA Var
     |
     (NoVarList)
     /* Ɛ */;
 
 VarDeclList ::=
-    (_VarDeclList)
+    (VarDeclListIndeed)
     VarDeclList VarDecl
     |
     (NoVarDeclList)
@@ -237,32 +249,32 @@ ClassDecl ::=
     ;
 
 Extends ::=
-    (_Extends)
+    (ExtendsIndeed)
     EXTENDS Type:ident
     |
     (NoExtends)
     /* Ɛ */;
 
 ConstructorDeclAndMethodDeclListWrapper ::=
-    (_ConstructorDeclAndMethodDeclListWrapper)
+    (ConstructorDeclAndMethodDeclListWrapperIndeed)
     LBRACE ConstructorDeclAndMethodDeclList RBRACE
     |
     (NoConstructorDeclAndMethodDeclListWrapper)
     /* Ɛ */;
 
 ConstructorDeclAndMethodDeclList ::=
-    (_ConstructorAndMethodDeclList)
+    (ConstructorAndMethodDeclListIndeed)
     ConstructorDecl MethodDeclList
     |
     (MethodDeclListWithoutConstructorDecl)
     MethodDeclList;
 
 ConstructorDecl ::=
-    (_ConstructorDecl)
+    (ConstructorDecl)
     IDENT:ident LPAREN RPAREN VarDeclList LBRACE StatementList RBRACE;
 
 MethodDeclList ::=
-    (_MethodDeclList)
+    (MethodDeclListIndeed)
     MethodDecl MethodDeclList
     |
     (NoMethodDeclList)
@@ -273,7 +285,7 @@ MethodDecl ::=
     TypeOrVoid IDENT:ident FormParsOrError VarDeclList LBRACE StatementList RBRACE;
 
 FormParsOrError ::=
-    (FormPars)
+    (FormParsFormPars)
     LPAREN FormPars RPAREN
     |
     (FormParsErrorRPAREN)
@@ -315,17 +327,17 @@ VarArgs ::=
     Type:type VARARGS IDENT:ident;
 
 StatementList ::=
-    (_StatementList)
+    (StatementListIndeed)
     StatementList Statement
     |
     (NoStatementList)
     /* Ɛ */;
 
 Statement ::=
-    (MatchedStatement)
+    (StatementMatchedStatement)
     MatchedStatement
     |
-    (UnmatchedStatement)
+    (StatementUnmatchedStatement)
     UnmatchedStatement;
 
 MatchedStatement ::=
@@ -394,7 +406,7 @@ ActParsOrNothing ::=
     /* Ɛ */;
 
 ExprList ::=
-    (_ExprList)
+    (ExprListIndeed)
     ExprList COMMA Expr
     |
     (NoExprList)
@@ -425,14 +437,14 @@ CondTerm ::=
     CondFact AndCondFactList;
 
 OrCondTermList ::=
-    (_OrCondTermList)
+    (OrCondTermListIndeed)
     OrCondTermList OR CondTerm
     |
     (NoOrCondTermList)
     /* Ɛ */;
 
 AndCondFactList ::=
-    (_AndCondFactList)
+    (AndCondFactListIndeed)
     AndCondFactList AND CondFact
     |
     (NoAndCondTermList)
@@ -446,7 +458,7 @@ CondFact ::=
     Designator INSTANCEOF Type:type;
 
 RelopExpr ::=
-    (_RelopExpr)
+    (RelopExprIndeed)
     Relop Expr
     |
     (NoRelopExpr)
@@ -464,7 +476,7 @@ Term ::=
     Factor MulopFactorList;
 
 MulopFactorList ::=
-    (_MulopFactorList)
+    (MulopFactorListIndeed)
     MulopFactorList Mulop Factor
     |
     (NoMulopFactorList)
@@ -475,7 +487,7 @@ Factor ::=
     BaseExp ExpopBaseExpList;
 
 ExpopBaseExpList ::=
-    (_ExpopBaseExpList)
+    (ExpopBaseExpListIndeed)
     ExpopBaseExpList Expop BaseExp
     |
     (NoExpopBaseExpList)
@@ -515,7 +527,7 @@ BracketsWithExprOrNothing ::=
     /* Ɛ */;
 
 AddopTermList ::=
-    (_AddopTermList)
+    (AddopTermListIndeed)
     AddopTermList Addop Term
     |
     (NoAddopTermList)

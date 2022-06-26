@@ -1,84 +1,10 @@
 program p
-const int size = 10;
 int x;
-int x x;    // VARDECL error
-class Table {
-    int pos[], neg[];
-    int x x; // Class property declaration error
-    {
-         void putp (int X X, int idx, int X X) { pos[idx] = a; } // FORMPARS error (COMMA and RPAREN recovery)
-         void putn (int a, int idx) { neg[idx] = a; }
-         int getp (int idx) { return pos[idx]; }
-         int getn (int idx) { return neg[idx]; }
-    }
-}
 
-class Derived extends x Base { // EXTENDS error
-
-}
-
-record Board {
-    int rows, columns;
-}
-
-Table val;
-Board board;
-
-{
-    void f(char ch, int a, int arg) int x;
-    {
-        x = arg;
-    }
-
-    void main() int x, i; char c;
-    {
-        val = new Table;
-        val.pos = new int [size];
-        val.neg = new int [size];
-        val.neg = new int [size];
-        val.neg = new int [size];
-        val.neg = new int [size];
-
-        read(x);
-        if (x x)    // If condition error
-            return;
-        if(x > 5)
-        {
-         val = new Table;
-         val = new Table;
-         val = new Table;
-        }
-        i = 0;
-        i = 0;
-        do{
-        val.putp(0, i);
-         val.putn(0, i);
-         i++;
-        }while(i<size);
-
-        board = new Board;
-        read(board.rows);
-        x = board.rows;
-
-        do{
-         if(2 <= 3 ) break;
-            if (x)
-            {
-            val.putp(val.getp(x)+1);
-            }
-            else if (-size < x && x < 0)
-             {
-            val.putn(val.getn(-x)+1);
-             }
-        read(x);
-         }while(true);
+const int y = 5;
+int z;
+int y;
 
 
-
-}
-
-
-
-
-
-}
+const bool b = true, c = false;
+{}

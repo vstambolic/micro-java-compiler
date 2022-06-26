@@ -103,7 +103,7 @@ import java_cup.runtime.Symbol;
 
 ([a-z]|[A-Z])[a-zA-Z0-9_]* 	{return new_symbol (sym.IDENT, yytext()); }
 
-// Error
+// Error -----------------------------------------------------
 . { System.err.println("Leksicka greska ("+yytext()+") u liniji "+(yyline+1)); }
 
 

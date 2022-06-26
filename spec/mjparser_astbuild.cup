@@ -54,9 +54,14 @@ scan with {:
 :}
 
 
-terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,THIS,SUPER,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,EXP,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE,NUMBER,BOOL,CHAR,IDENT;
+terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,THIS,SUPER,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,EXP,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
+terminal String IDENT;
+terminal Integer NUMBER;
+terminal Boolean BOOL;
+terminal Character CHAR;
 
 nonterminal Program Program;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgramDecl;
 nonterminal DeclList DeclList;
 nonterminal Decl Decl;
 nonterminal MethodDeclList MethodDeclList;
@@ -64,7 +69,7 @@ nonterminal ConstDecl ConstDecl;
 nonterminal VarDecl VarDecl;
 nonterminal ClassDecl ClassDecl;
 nonterminal RecordDecl RecordDecl;
-nonterminal Type Type;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal ConstAssignment ConstAssignment;
 nonterminal ConstAssignmentList ConstAssignmentList;
 nonterminal Literal Literal;
@@ -117,13 +122,17 @@ nonterminal ConditionOrError ConditionOrError;
 
 Program ::=
     (Program)
-    PROG IDENT:ident DeclList:D1 LBRACE MethodDeclList:M2 RBRACE {: RESULT=new Program(D1, M2); RESULT.setLine(D1left); :};
+    ProgramDecl:P1 DeclList:D2 LBRACE MethodDeclList:M3 RBRACE {: RESULT=new Program(P1, D2, M3); RESULT.setLine(P1left); :};
+
+ProgramDecl ::=
+    (ProgramDecl)
+    PROG IDENT:ident {: RESULT=new ProgramDecl(ident); RESULT.setLine(identleft); :};
 
 DeclList ::=
-    (_DeclList)
-    DeclList Decl
+    (DeclListIndeed)
+    DeclList:D1 Decl:D2 {: RESULT=new DeclListIndeed(D1, D2); RESULT.setLine(D1left); :}
     |
-    (NoDeclList)
+    (NoDeclList) {: RESULT=new NoDeclList(); :}
     /* Æ? */;
 
 Decl ::=
@@ -141,11 +150,11 @@ Decl ::=
 
 RecordDecl ::=
     (RecordDecl)
-    RECORD IDENT:ident LBRACE VarDeclList:V1 RBRACE {: RESULT=new RecordDecl(V1); RESULT.setLine(V1left); :};
+    RECORD IDENT:ident LBRACE VarDeclList:V1 RBRACE {: RESULT=new RecordDecl(ident, V1); RESULT.setLine(identleft); :};
 
 ConstDecl ::=
-    (_ConstDecl)
-    CONST Type:type ConstAssignment ConstAssignmentList SEMICOLON
+    (ConstDecl)
+    CONST Type:type ConstAssignment:C1 ConstAssignmentList:C2 SEMICOLON {: RESULT=new ConstDecl(type, C1, C2); RESULT.setLine(typeleft); :}
 //  |
 //    (ConstDeclError)
 //    CONST error SEMICOLON:l
@@ -154,127 +163,130 @@ ConstDecl ::=
 
 ConstAssignment ::=
     (ConstAssignment)
-    IDENT:ident ASSIGN Literal:L1 {: RESULT=new ConstAssignment(L1); RESULT.setLine(L1left); :};
+    IDENT:ident ASSIGN Literal:L1 {: RESULT=new ConstAssignment(ident, L1); RESULT.setLine(identleft); :};
 
 ConstAssignmentList ::=
-    (_ConstAssignmentList)
-    ConstAssignmentList COMMA ConstAssignment
+    (ConstAssignmentListIndeed)
+    ConstAssignmentList:C1 COMMA ConstAssignment:C2 {: RESULT=new ConstAssignmentListIndeed(C1, C2); RESULT.setLine(C1left); :}
     |
-    (NoConstAssignmentList)
+    (NoConstAssignmentList) {: RESULT=new NoConstAssignmentList(); :}
     /* Æ? */;
 
 NumConstList ::=
-    (_NumConstList)
-    NumConstList COMMA NUMBER
-    |
+    (NumConstListIndeed)
+    NumConstList:N1 COMMA NUMBER:N2 {: RESULT=new NumConstListIndeed(N1, N2); RESULT.setLine(N1left); :}
+    | {: RESULT=new NumConstListDerived1(); :}
     /* Æ? */;
 
 Literal ::=
     (NumConst)
-    NUMBER:numVal {: RESULT=new NumConst(); :}
+    NUMBER:numVal {: RESULT=new NumConst(numVal); RESULT.setLine(numValleft); :}
     |
     (CharConst)
-    CHAR:charVal {: RESULT=new CharConst(); :}
+    CHAR:charVal {: RESULT=new CharConst(charVal); RESULT.setLine(charValleft); :}
     |
     (BoolConst)
-    BOOL:boolVal {: RESULT=new BoolConst(); :};
+    BOOL:boolVal {: RESULT=new BoolConst(boolVal); RESULT.setLine(boolValleft); :};
 
 Type ::=
     (Type)
-    IDENT:ident {: RESULT=new Type(); :};
+    IDENT:ident {: RESULT=new Type(ident); RESULT.setLine(identleft); :}
+    ;
 
 TypeOrVoid ::=
     (TypeOrVoid_Type)
-    Type:type
-    (TypeOrVoid_Void)
+    Type:type {: RESULT=new TypeOrVoid_Type(type); RESULT.setLine(typeleft); :}
     |
-    VOID; {: RESULT=new TypeOrVoid_Type(Type); RESULT.setLine(Typeleft); :} {: RESULT=new TypeOrVoidDerived1(); :}
+    (TypeOrVoid_Void)
+    VOID {: RESULT=new TypeOrVoid_Void(); :};
 
 VarDecl ::=
-    (_VarDecl)
-    Type:type Var VarList SEMICOLON
+    (VarDeclValid)
+    Type:T1 Var:V2 VarList:V3 SEMICOLON {: RESULT=new VarDeclValid(T1, V2, V3); RESULT.setLine(T1left); :}
     |
-    (VarDeclErrorSemicolonRecovery)
+    (VarDeclErrorCommaRecovery)
     error COMMA:l
-    {: parser.report_error("SYNTAX ERROR: one or more invalid var declarations on line: " + lleft , null); :}
+    {: parser.report_error("SYNTAX ERROR: one or more invalid var declarations on line: " + lleft , null); :} {: RESULT=new VarDeclErrorCommaRecovery(); :}
     |
     (VarDeclErrorSemicolonRecovery)
     error SEMICOLON:l
-    {: parser.report_error("SYNTAX ERROR: one or more invalid var declarations on line: " + lleft , null); :};
+    {: parser.report_error("SYNTAX ERROR: one or more invalid var declarations on line: " + lleft , null); :} {: RESULT=new VarDeclErrorSemicolonRecovery(); :};
+
 
 Var ::=
     (Var)
-    IDENT:ident Brackets:B1 {: RESULT=new Var(B1); RESULT.setLine(B1left); :};
+    IDENT:ident Brackets:B1 {: RESULT=new Var(ident, B1); RESULT.setLine(identleft); :}
+    ;
 
 Brackets ::=
-    (_Brackets)
-    LBRACKET RBRACKET
+    (BracketsIndeed)
+    LBRACKET RBRACKET {: RESULT=new BracketsIndeed(); :}
     |
-    (NoBrackets)
+    (NoBrackets) {: RESULT=new NoBrackets(); :}
     /* Æ? */;
 
 VarList ::=
-    (_VarList)
-    VarList COMMA Var
+    (VarListIndeed)
+    VarList:V1 COMMA Var:V2 {: RESULT=new VarListIndeed(V1, V2); RESULT.setLine(V1left); :}
     |
-    (NoVarList)
+    (NoVarList) {: RESULT=new NoVarList(); :}
     /* Æ? */;
 
 VarDeclList ::=
-    (_VarDeclList)
-    VarDeclList VarDecl
+    (VarDeclListIndeed)
+    VarDeclList:V1 VarDecl:V2 {: RESULT=new VarDeclListIndeed(V1, V2); RESULT.setLine(V1left); :}
     |
-    (NoVarDeclList)
+    (NoVarDeclList) {: RESULT=new NoVarDeclList(); :}
     /* Æ? */;
 
 ClassDecl ::=
     (ClassDeclValid)
-    CLASS IDENT:ident Extends:E1 LBRACE VarDeclList:V2 ConstructorDeclAndMethodDeclListWrapper:C3 RBRACE {: RESULT=new ClassDeclValid(E1, V2, C3); RESULT.setLine(E1left); :}
+    CLASS IDENT:ident Extends:E1 LBRACE VarDeclList:V2 ConstructorDeclAndMethodDeclListWrapper:C3 RBRACE {: RESULT=new ClassDeclValid(ident, E1, V2, C3); RESULT.setLine(identleft); :}
     |
     (ClassDeclError)
     CLASS IDENT:ident EXTENDS error:l {: parser.report_error("SYNTAX ERROR: invalid EXTENDS syntax on line: " + lleft , null); :}
-    LBRACE VarDeclList:V1 ConstructorDeclAndMethodDeclListWrapper:C2 RBRACE {: RESULT=new ClassDeclError(V1, C2); RESULT.setLine(V1left); :}
+    LBRACE VarDeclList:V1 ConstructorDeclAndMethodDeclListWrapper:C2 RBRACE {: RESULT=new ClassDeclError(ident, V1, C2); RESULT.setLine(identleft); :}
     ;
 
 Extends ::=
-    (_Extends)
-    EXTENDS Type:ident
+    (ExtendsIndeed)
+    EXTENDS Type:ident {: RESULT=new ExtendsIndeed(ident); RESULT.setLine(identleft); :}
     |
-    (NoExtends)
+    (NoExtends) {: RESULT=new NoExtends(); :}
     /* Æ? */;
 
 ConstructorDeclAndMethodDeclListWrapper ::=
-    (_ConstructorDeclAndMethodDeclListWrapper)
-    LBRACE ConstructorDeclAndMethodDeclList RBRACE
+    (ConstructorDeclAndMethodDeclListWrapperIndeed)
+    LBRACE ConstructorDeclAndMethodDeclList:C1 RBRACE {: RESULT=new ConstructorDeclAndMethodDeclListWrapperIndeed(C1); RESULT.setLine(C1left); :}
     |
-    (NoConstructorDeclAndMethodDeclListWrapper)
+    (NoConstructorDeclAndMethodDeclListWrapper) {: RESULT=new NoConstructorDeclAndMethodDeclListWrapper(); :}
     /* Æ? */;
 
 ConstructorDeclAndMethodDeclList ::=
-    (_ConstructorAndMethodDeclList)
-    ConstructorDecl MethodDeclList
+    (ConstructorAndMethodDeclListIndeed)
+    ConstructorDecl:C1 MethodDeclList:M2 {: RESULT=new ConstructorAndMethodDeclListIndeed(C1, M2); RESULT.setLine(C1left); :}
     |
     (MethodDeclListWithoutConstructorDecl)
-    MethodDeclList;
+    MethodDeclList:M1 {: RESULT=new MethodDeclListWithoutConstructorDecl(M1); RESULT.setLine(M1left); :};
 
 ConstructorDecl ::=
-    (_ConstructorDecl)
-    IDENT:ident LPAREN RPAREN VarDeclList LBRACE StatementList RBRACE;
+    (ConstructorDecl)
+    IDENT:ident LPAREN RPAREN VarDeclList:V1 LBRACE StatementList:S2 RBRACE {: RESULT=new ConstructorDecl(ident, V1, S2); RESULT.setLine(identleft); :};
 
 MethodDeclList ::=
-    (_MethodDeclList)
-    MethodDecl MethodDeclList
+    (MethodDeclListIndeed)
+    MethodDecl:M1 MethodDeclList:M2 {: RESULT=new MethodDeclListIndeed(M1, M2); RESULT.setLine(M1left); :}
     |
-    (NoMethodDeclList)
+    (NoMethodDeclList) {: RESULT=new NoMethodDeclList(); :}
     /* Æ? */;
 
 MethodDecl ::=
     (MethodDecl)
-    TypeOrVoid:T1 IDENT:ident FormParsOrError:F2 VarDeclList:V3 LBRACE StatementList:S4 RBRACE {: RESULT=new MethodDecl(T1, F2, V3, S4); RESULT.setLine(T1left); :};
+    TypeOrVoid:T1 IDENT:ident FormParsOrError:F2 VarDeclList:V3 LBRACE StatementList:S4 RBRACE {: RESULT=new MethodDecl(T1, ident, F2, V3, S4); RESULT.setLine(T1left); :};
 
 FormParsOrError ::=
-    (FormPars)
-    LPAREN FormPars:F1 RPAREN {: RESULT=new FormPars(F1); RESULT.setLine(F1left); :}
+    (FormParsFormPars)
+    LPAREN FormPars:F1 RPAREN {: RESULT=new FormParsFormPars(F1); RESULT.setLine(F1left); :}
     |
     (FormParsErrorRPAREN)
     LPAREN error:l {: parser.report_error("SYNTAX ERROR: one or more invalid formal parameter declarations on line: " + lleft , null); :} RPAREN {: RESULT=new FormParsErrorRPAREN(); :}
@@ -308,25 +320,25 @@ FormParList ::=
 
 FormPar ::=
     (FormPar)
-    Type:type IDENT:ident Brackets:B1 {: RESULT=new FormPar(type, B1); RESULT.setLine(typeleft); :};
+    Type:type IDENT:ident Brackets:B1 {: RESULT=new FormPar(type, ident, B1); RESULT.setLine(typeleft); :};
 
 VarArgs ::=
     (VarArgs)
-    Type:type VARARGS IDENT:ident {: RESULT=new VarArgs(type); RESULT.setLine(typeleft); :};
+    Type:type VARARGS IDENT:ident {: RESULT=new VarArgs(type, ident); RESULT.setLine(typeleft); :};
 
 StatementList ::=
-    (_StatementList)
-    StatementList Statement
+    (StatementListIndeed)
+    StatementList:S1 Statement:S2 {: RESULT=new StatementListIndeed(S1, S2); RESULT.setLine(S1left); :}
     |
-    (NoStatementList)
+    (NoStatementList) {: RESULT=new NoStatementList(); :}
     /* Æ? */;
 
 Statement ::=
-    (MatchedStatement)
-    MatchedStatement:M1 {: RESULT=new MatchedStatement(M1); RESULT.setLine(M1left); :}
+    (StatementMatchedStatement)
+    MatchedStatement:M1 {: RESULT=new StatementMatchedStatement(M1); RESULT.setLine(M1left); :}
     |
-    (UnmatchedStatement)
-    UnmatchedStatement:U1 {: RESULT=new UnmatchedStatement(U1); RESULT.setLine(U1left); :};
+    (StatementUnmatchedStatement)
+    UnmatchedStatement:U1 {: RESULT=new StatementUnmatchedStatement(U1); RESULT.setLine(U1left); :};
 
 MatchedStatement ::=
     (MatchedIfStatement)
@@ -394,10 +406,10 @@ ActParsOrNothing ::=
     /* Æ? */;
 
 ExprList ::=
-    (_ExprList)
-    ExprList COMMA Expr
+    (ExprListIndeed)
+    ExprList:E1 COMMA Expr:E2 {: RESULT=new ExprListIndeed(E1, E2); RESULT.setLine(E1left); :}
     |
-    (NoExprList)
+    (NoExprList) {: RESULT=new NoExprList(); :}
     /* Æ? */;
 
 ExprOrNothing ::=
@@ -408,13 +420,13 @@ ExprOrNothing ::=
 
 Designator ::=
     (DesignatorMemberReference)
-    Designator:D1 DOT IDENT {: RESULT=new DesignatorMemberReference(D1); RESULT.setLine(D1left); :}
+    Designator:D1 DOT IDENT:I2 {: RESULT=new DesignatorMemberReference(D1, I2); RESULT.setLine(D1left); :}
     |
     (DesignatorArrayReference)
     Designator:D1 LBRACKET Expr:E2 RBRACKET {: RESULT=new DesignatorArrayReference(D1, E2); RESULT.setLine(D1left); :}
     |
     (DesignatorIdent)
-    IDENT:ident {: RESULT=new DesignatorIdent(); :};
+    IDENT:ident {: RESULT=new DesignatorIdent(ident); RESULT.setLine(identleft); :};
 
 Condition ::=
     (Condition)
@@ -425,17 +437,17 @@ CondTerm ::=
     CondFact:C1 AndCondFactList:A2 {: RESULT=new CondTerm(C1, A2); RESULT.setLine(C1left); :};
 
 OrCondTermList ::=
-    (_OrCondTermList)
-    OrCondTermList OR CondTerm
+    (OrCondTermListIndeed)
+    OrCondTermList:O1 OR CondTerm:C2 {: RESULT=new OrCondTermListIndeed(O1, C2); RESULT.setLine(O1left); :}
     |
-    (NoOrCondTermList)
+    (NoOrCondTermList) {: RESULT=new NoOrCondTermList(); :}
     /* Æ? */;
 
 AndCondFactList ::=
-    (_AndCondFactList)
-    AndCondFactList AND CondFact
+    (AndCondFactListIndeed)
+    AndCondFactList:A1 AND CondFact:C2 {: RESULT=new AndCondFactListIndeed(A1, C2); RESULT.setLine(A1left); :}
     |
-    (NoAndCondTermList)
+    (NoAndCondTermList) {: RESULT=new NoAndCondTermList(); :}
     /* Æ? */;
 
 CondFact ::=
@@ -446,10 +458,10 @@ CondFact ::=
     Designator:D1 INSTANCEOF Type:type {: RESULT=new InstanceOfCondFact(D1, type); RESULT.setLine(D1left); :};
 
 RelopExpr ::=
-    (_RelopExpr)
-    Relop Expr
+    (RelopExprIndeed)
+    Relop:R1 Expr:E2 {: RESULT=new RelopExprIndeed(R1, E2); RESULT.setLine(R1left); :}
     |
-    (NoRelopExpr)
+    (NoRelopExpr) {: RESULT=new NoRelopExpr(); :}
     /* Æ? */;
 
 Expr ::=
@@ -464,10 +476,10 @@ Term ::=
     Factor:F1 MulopFactorList:M2 {: RESULT=new Term(F1, M2); RESULT.setLine(F1left); :};
 
 MulopFactorList ::=
-    (_MulopFactorList)
-    MulopFactorList Mulop Factor
+    (MulopFactorListIndeed)
+    MulopFactorList:M1 Mulop:M2 Factor:F3 {: RESULT=new MulopFactorListIndeed(M1, M2, F3); RESULT.setLine(M1left); :}
     |
-    (NoMulopFactorList)
+    (NoMulopFactorList) {: RESULT=new NoMulopFactorList(); :}
     /* Æ? */;
 
 Factor ::=
@@ -475,10 +487,10 @@ Factor ::=
     BaseExp:B1 ExpopBaseExpList:E2 {: RESULT=new Factor(B1, E2); RESULT.setLine(B1left); :};
 
 ExpopBaseExpList ::=
-    (_ExpopBaseExpList)
-    ExpopBaseExpList Expop BaseExp
+    (ExpopBaseExpListIndeed)
+    ExpopBaseExpList:E1 Expop:E2 BaseExp:B3 {: RESULT=new ExpopBaseExpListIndeed(E1, E2, B3); RESULT.setLine(E1left); :}
     |
-    (NoExpopBaseExpList)
+    (NoExpopBaseExpList) {: RESULT=new NoExpopBaseExpList(); :}
     /* Æ? */;
 
 BaseExp ::=
@@ -486,13 +498,13 @@ BaseExp ::=
     Designator:D1 FuncCallOrNothing:F2 {: RESULT=new BaseExpDesignator(D1, F2); RESULT.setLine(D1left); :}
     |
     (BaseExpNumber)
-    NUMBER {: RESULT=new BaseExpNumber(); :}
+    NUMBER:N1 {: RESULT=new BaseExpNumber(N1); RESULT.setLine(N1left); :}
     |
     (BaseExpChar)
-    CHAR {: RESULT=new BaseExpChar(); :}
+    CHAR:C1 {: RESULT=new BaseExpChar(C1); RESULT.setLine(C1left); :}
     |
     (BaseExpBool)
-    BOOL {: RESULT=new BaseExpBool(); :}
+    BOOL:B1 {: RESULT=new BaseExpBool(B1); RESULT.setLine(B1left); :}
     |
     (BaseExpNewInstance)
     NEW Type:T1 BracketsWithExprOrNothing:B2 {: RESULT=new BaseExpNewInstance(T1, B2); RESULT.setLine(T1left); :}
@@ -515,10 +527,10 @@ BracketsWithExprOrNothing ::=
     /* Æ? */;
 
 AddopTermList ::=
-    (_AddopTermList)
-    AddopTermList Addop Term
+    (AddopTermListIndeed)
+    AddopTermList:A1 Addop:A2 Term:T3 {: RESULT=new AddopTermListIndeed(A1, A2, T3); RESULT.setLine(A1left); :}
     |
-    (NoAddopTermList)
+    (NoAddopTermList) {: RESULT=new NoAddopTermList(); :}
     /* Æ? */;
 
 Addop ::=
@@ -564,5 +576,3 @@ Mulop ::=
 Expop ::=
     (Exp)
     EXP {: RESULT=new Exp(); :};
-
-// TODO errors add gitignore

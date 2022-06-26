@@ -5,7 +5,7 @@
         <delete>
             <fileset dir="src/rs/ac/bg/etf/pp1">
                 <exclude name="util/Log4JUtils.java"/>
-                <exclude name="SemanticPass.java"/>
+                <exclude name="SemanticAnalyzer.java"/>
                 <exclude name="CodeGenerator.java"/>
             </fileset>
         </delete>
@@ -17,7 +17,7 @@
         </delete>
     </target>
 
-    <target name="lexerGen" depends="parserGen">
+    <target name="lexerGen" depends="delete">
         <java jar="lib/JFlex.jar" fork="true">
             <arg value="-d"/>
             <arg value="./src/rs/ac/bg/etf/pp1"/>
@@ -25,7 +25,7 @@
         </java>
     </target>
 
-    <target name="parserGen" depends="delete">
+    <target name="parserGen" depends="lexerGen">
         <java jar="lib/cup_v10k.jar" fork="true">
             <arg value="-destdir"/>
             <arg value="src/rs/ac/bg/etf/pp1"/>
@@ -41,12 +41,13 @@
     </target>
 
 
-    <target name="compile" depends="lexerGen">
+    <target name="compile" depends="parserGen">
         <javac srcdir="src/rs/ac/bg/etf/pp1" includeantruntime="false">
             <classpath>
                 <pathelement path="lib/JFlex.jar"/>
                 <pathelement path="lib/cup_v10k.jar"/>
                 <pathelement path="lib/log4j-1.2.17.jar"/>
+                <pathelement path="lib/symboltable-1-1.jar"/>
             </classpath>
         </javac>
     </target>
