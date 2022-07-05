@@ -211,6 +211,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (this.currentClass != null && this.currentClass.shouldImportSuperMethods()) {
 			// TODO importuj sve super metode
 		}
+
 		*/
 
 		Obj currMethodObj = new Obj(Obj.Meth, identifier, this.currType,0,0);
