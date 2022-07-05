@@ -69,6 +69,7 @@ nonterminal ConstDecl;
 nonterminal VarDecl;
 nonterminal ClassDecl;
 nonterminal RecordDecl;
+nonterminal RecordDeclStart;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal ConstAssignment;
 nonterminal ConstAssignmentList;
@@ -82,7 +83,8 @@ nonterminal ConstructorDeclAndMethodDeclListWrapper;
 nonterminal ConstructorDeclAndMethodDeclList;
 nonterminal ConstructorDecl;
 nonterminal StatementList;
-nonterminal MethodDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclStart;
 nonterminal TypeOrVoid;
 nonterminal FormPars;
 nonterminal FormParList;
@@ -150,7 +152,11 @@ Decl ::=
 
 RecordDecl ::=
     (RecordDecl)
-    RECORD IDENT:ident LBRACE VarDeclList RBRACE;
+    RECORD RecordDeclStart LBRACE VarDeclList RBRACE;
+
+RecordDeclStart ::=
+    (RecordDeclStart)
+    IDENT:ident;
 
 ConstDecl ::=
     (ConstDecl)
@@ -282,7 +288,11 @@ MethodDeclList ::=
 
 MethodDecl ::=
     (MethodDecl)
-    TypeOrVoid IDENT:ident FormParsOrError VarDeclList LBRACE StatementList RBRACE;
+    TypeOrVoid MethodDeclStart FormParsOrError VarDeclList LBRACE StatementList RBRACE;
+
+MethodDeclStart ::=
+    (MethodDeclStart)
+    IDENT:ident;
 
 FormParsOrError ::=
     (FormParsFormPars)
