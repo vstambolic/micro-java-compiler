@@ -175,6 +175,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		this.report_info( "Const declared (" + identifier + ")", constAssignment);
 	}
 
+	// todo record neka bude class ali da bi naglasio da iz njega ne moze nista da se izvodi upisi nesto u onaj elemtype
+	// todo testirati sa globalnim metodama
 
 	public void visit(TypeOrVoid_Void TypeOrVoid_Void) {
 		this.currType = Tab.noType;
@@ -286,6 +288,22 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		methodDecl.obj = this.currentMethod.getCurrMethod();
 		this.currentMethod = null;
+	}
+
+
+	public void visit(ClassDeclStart classDeclStart) {
+		// todo otvoriti novi opseg, dodati klasu u tabelu simbola, proveriti je l' vec postoji ovaj tip
+	}
+	public void visit(Extends ext) {
+		if (ext instanceof ExtendsIndeed) {
+			// todo dodati sva polja ove klase u tabelu simbola
+		}
+	}
+
+	public void visit(VarDeclList varDeclList) {
+		if (varDeclList.getParent() instanceof ClassDecl) {
+			// todo proveriti da li ovo radi i ako da, ucitati metode super klase
+		}
 	}
 	// helper methods --------------------------------
 
