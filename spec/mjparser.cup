@@ -71,7 +71,7 @@ nonterminal ClassDecl;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassDeclStart;
 nonterminal ClassVarDeclList;
 nonterminal RecordDecl;
-nonterminal RecordDeclStart;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj RecordDeclStart;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal ConstAssignment;
 nonterminal ConstAssignmentList;

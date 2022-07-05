@@ -5,6 +5,15 @@ const int y = 5;
 int z;
 int y;
 const bool b = true, c = false;
+
+record Rec {
+    int x;
+    int y;
+    int z;
+}
+class InvalidDerived extends Rec {
+
+}
 class Base {
     int x;
     int y;

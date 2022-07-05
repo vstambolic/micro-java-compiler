@@ -18,7 +18,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	// Constants ---------------------------------
 	private static final String THIS = "this";
 	public static final int RECORD = 8;
-	private static final Struct recordStruct = new Struct(RECORD);
+	private static final Struct RECORD_STRUCT = new Struct(RECORD);
 
 	// Helpers -----------------------------------
 	private Stack<Scope> scopeStack = new Stack<>();
@@ -308,8 +308,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 	public void visit(ExtendsIndeed extendsIndeed) {
-		if (currType.getKind() != Struct.Class || currType.getElemType().equals(recordStruct)) {
-			report_error(extendsIndeed.getType().getIdent()+" ain't no class |", extendsIndeed);
+		if (currType.getKind() != Struct.Class ) {
+			report_error(extendsIndeed.getType().getIdent()+" ain't declared |", extendsIndeed);
+			return;
+		}
+		if (currType.getElemType() != null && currType.getElemType().equals(RECORD_STRUCT)) {
+			report_error(extendsIndeed.getType().getIdent()+" ain't no class, it's record |", extendsIndeed);
 			return;
 		}
 
@@ -364,11 +368,27 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	// RECORD ---------------------------------------------------------------
 	public void visit(RecordDeclStart recordDeclStart) {
+		String identifier = recordDeclStart.getIdent();
+		if (SemanticAnalyzer.isAlreadyDeclared(identifier)) {
+			report_error("Symbol " +identifier+" already declared |", recordDeclStart);
+			return;
+		}
 
+		int kind = Obj.Type;
+		Struct type = new Struct(Struct.Class);
+		type.setElementType(RECORD_STRUCT);
+		Obj obj = Tab.insert(kind, identifier, type); // type node
+
+		this.currentClass = new CurrentClass(obj);
+		recordDeclStart.obj = obj;
+
+		this.openScope(Scope.RECORD);
 	}
 
 	public void visit(RecordDecl recordDecl) {
-
+		Tab.chainLocalSymbols(this.currentClass.getCurrClass().getType());
+		this.closeScope();
+		currentClass = null;
 	}
 
 	// helper methods --------------------------------

@@ -71,7 +71,7 @@ nonterminal ClassDecl ClassDecl;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassDeclStart;
 nonterminal ClassVarDeclList ClassVarDeclList;
 nonterminal RecordDecl RecordDecl;
-nonterminal RecordDeclStart RecordDeclStart;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj RecordDeclStart;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal ConstAssignment ConstAssignment;
 nonterminal ConstAssignmentList ConstAssignmentList;
@@ -154,11 +154,11 @@ Decl ::=
 
 RecordDecl ::=
     (RecordDecl)
-    RECORD RecordDeclStart:R1 LBRACE VarDeclList:V2 RBRACE {: RESULT=new RecordDecl(R1, V2); RESULT.setLine(R1left); :};
+    RecordDeclStart:R1 LBRACE VarDeclList:V2 RBRACE {: RESULT=new RecordDecl(R1, V2); RESULT.setLine(R1left); :};
 
 RecordDeclStart ::=
     (RecordDeclStart)
-    IDENT:ident {: RESULT=new RecordDeclStart(ident); RESULT.setLine(identleft); :};
+    RECORD IDENT:ident {: RESULT=new RecordDeclStart(ident); RESULT.setLine(identleft); :};
 
 ConstDecl ::=
     (ConstDecl)
