@@ -2,22 +2,33 @@ package rs.ac.bg.etf.pp1;
 import org.apache.log4j.Logger;
 
 import rs.ac.bg.etf.pp1.ast.*;
+import rs.ac.bg.etf.pp1.semantic_analyzer_utils.CurrentClass;
+import rs.ac.bg.etf.pp1.semantic_analyzer_utils.CurrentMethod;
+import rs.ac.bg.etf.pp1.semantic_analyzer_utils.Scope;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
+
+import java.lang.reflect.Array;
+import java.util.*;
+import java.util.stream.Collectors;
+
 public class SemanticAnalyzer extends VisitorAdaptor {
 
-	private enum Scope {PROGRAM, CLASS, RECORD, METHOD};
-	private Scope currScope = null;
+	// Constants ---------------------------------
+	private static final String THIS = "this";
 
 	// Helpers -----------------------------------
+	private Stack<Scope> scopeStack = new Stack<>();
+	private CurrentClass currentClass = null;
+	private CurrentMethod currentMethod = null;
+
 	private Struct currType = Tab.noType;
 	boolean errorDetected = false;
-	int printCallCount = 0;
-	Obj currentMethod = null;
-	boolean returnFound = false;
+
 	int nVars;
 
+	// Currents ----------------------------
 
 	Logger log = Logger.getLogger(getClass());
 
@@ -50,7 +61,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(ProgramDecl programDecl) {
 		programDecl.obj = Tab.insert(Obj.Prog, programDecl.getIdent(), Tab.noType);
 		Tab.openScope();
-		this.currScope = Scope.PROGRAM;
+		this.scopeStack.push(Scope.PROGRAM);
 	}
 
 	/**
@@ -61,6 +72,20 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		nVars = Tab.currentScope.getnVars();
 		Tab.chainLocalSymbols(program.getProgramDecl().obj); // Iz currentScopa prebacuje sve u dati cvor kao locals
 		Tab.closeScope();
+
+		Obj mainMethod = program.getProgramDecl().obj.getLocalSymbols().stream().filter(obj -> obj.getName().equals("main") && obj.getKind() == Obj.Meth).findFirst().orElse(null);
+		if (mainMethod == null) {
+			report_error("Main method not found ", null);
+			return;
+		}
+		if (!mainMethod.getType().equals(Tab.noType)) {
+			report_error("Main method must be declared as void ", null);
+			return;
+		}
+		if (mainMethod.getLevel() != 0) {
+			report_error("Main method must not have formal parameters ", null);
+			return;
+		}
 	}
 
 	/**
@@ -92,19 +117,17 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	 */
 	public void visit(Var var) {
 		String identifier = var.getIdent();
-
 		if (SemanticAnalyzer.isAlreadyDeclared(identifier)) {
 			report_error("Symbol " +identifier+" already declared |", var);
 			return;
 		}
 
-		Obj obj = Tab.insert(
-				Obj.Var,
-				identifier,
-				(var.getBrackets() instanceof BracketsIndeed ? new Struct(Struct.Array, currType) : currType)
-		);
+		int kind = this.getCurrScope().equals(Scope.CLASS)? Obj.Fld : Obj.Var;
+		Struct type = (var.getBrackets() instanceof BracketsIndeed ? new Struct(Struct.Array, currType) : currType);
 
-		this.report_info( (this.isGlobal()?"Global":"Local") + " variable declared (" + identifier + ").", var);
+		Obj obj = Tab.insert(kind,identifier,type);
+
+		this.report_info( (this.getCurrScope().equals(Scope.PROGRAM)?"Global":"Local") + " variable declared (" + identifier + ").", var);
 
 		// todo if is method signature
 	}
@@ -153,14 +176,124 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 
+	public void visit(TypeOrVoid_Void TypeOrVoid_Void) {
+		this.currType = Tab.noType;
+	}
+	public void visit(MethodDeclStart methodDeclStart) {
+		String identifier = methodDeclStart.getIdent();
+
+		if (this.getCurrScope().equals(Scope.PROGRAM))
+			if (SemanticAnalyzer.isAlreadyDeclared(identifier)) {
+				report_error("Symbol " + identifier + " already declared ", methodDeclStart);
+				return;
+			}
+		else
+			if (this.getCurrScope().equals(Scope.CLASS)) {
+				if (identifier.equals(currentClass.getCurrClass().getName())) { // error je kada se metod zove isto kao klasa
+					report_error("Invalid method identifier (" + identifier + ")", methodDeclStart);
+					return;
+				}
+				Obj alreadyDeclaredObj = Tab.currentScope().findSymbol(identifier);
+				if (alreadyDeclaredObj != null && (alreadyDeclaredObj.getKind() != Obj.Meth // vec postoji objekat istog imena koji nije tipa meth
+							|| alreadyDeclaredObj.getType() != currType // vec postoji objekat istog imena koji jeste tipa meth i nije istog tipa
+								|| !this.currentClass.hasSuperClass()  // postoji identifier koji jeste tipa meth i jeste istog tipa ali nije u pitanju nasledjeni zato sto nema natklase
+									|| this.currentClass.getSuperClass().getMembers().stream().noneMatch(obj -> obj.getKind() == Obj.Meth && obj.getName().equals(identifier) && obj.getType().equals(currType))  // postoji identifier koji jeste tipa meth i jeste istog tipa ali nije u pitanju nasledjeni
+										|| alreadyDeclaredObj.getLocalSymbols().stream().findFirst().get().getType().equals(currentClass.getCurrClass().getType()))) // postoji identifier koji jeste tipa meth i jeste istog tipa i on vec overrideuje metod natklase
+				{
+						report_error("Symbol " + identifier + " already declared ", methodDeclStart);
+						return;
+				}
+			}
+
+
+		/*
+		TODO ovo ne treba da stoji ovde nego kada se dodje do LBRACE u klasi
+		if (this.currentClass != null && this.currentClass.shouldImportSuperMethods()) {
+			// TODO importuj sve super metode
+		}
+		*/
+
+		Obj currMethodObj = new Obj(Obj.Meth, identifier, this.currType,0,0);
+		this.currentMethod = new CurrentMethod(currMethodObj);
+		methodDeclStart.obj = currMethodObj; // TODO koji ce mi ovo djavo
+		Tab.openScope();
+		if (this.scopeStack.peek().equals(Scope.CLASS)) {
+			Tab.insert(Obj.Var, THIS, currentClass.getCurrClass().getType());
+			this.currentMethod.incFormalParameterCnt();
+		}
+		this.scopeStack.push(Scope.METHOD);
+	}
+
+	public void visit(FormPar formPar) {
+		this.currentMethod.incFormalParameterCnt();
+		String identifier = formPar.getIdent();
+		if (SemanticAnalyzer.isAlreadyDeclared(identifier)) {
+			report_error("Symbol " +identifier+" already declared |", formPar);
+			return;
+		}
+
+		int kind = Obj.Var;
+		Struct type = (formPar.getBrackets() instanceof BracketsIndeed ? new Struct(Struct.Array, currType) : currType);
+
+		Obj obj = Tab.insert(kind, identifier, type);
+
+		this.report_info(" Formal parameter declared (" + identifier + ").", formPar);
+	}
+	public void visit(MethodDecl methodDecl) {
+		if (this.getCurrScope().equals(Scope.CLASS)) {
+			Obj superMethod = Tab.currentScope().getOuter().findSymbol(methodDecl.getMethodDeclStart().getIdent());
+			if (superMethod != null) {
+				// check formal parameters
+				if (superMethod.getLevel() != this.currentMethod.getFormalParameterCnt()) {
+					report_error("Method " +methodDecl.getMethodDeclStart().getIdent()+" does not have the same signature as its super method |", methodDecl);
+					return;
+				}
+				else {
+					List<Obj> superFormParams = superMethod.getLocalSymbols().stream().limit(superMethod.getLevel()).collect(Collectors.toList());
+					List<Obj> methodFormParams = Tab.currentScope().getLocals().symbols().stream().limit(superMethod.getLevel()).collect(Collectors.toList());
+					for (int i=1; i < superMethod.getLevel(); i++) {
+						Obj superFormParam = superFormParams.get(i);
+						Obj methodFormParam = methodFormParams.get(i);
+						if (!superFormParam.getType().equals(methodFormParam.getType())) {
+							report_error("Method " +methodDecl.getMethodDeclStart().getIdent()+" does not have the same signature as its super method |", methodDecl);
+							return;
+						}
+					}
+				}
+			}
+		}
+
+		if (this.getCurrScope().equals(Scope.CLASS)) {
+			Obj superMethod = Tab.currentScope().getOuter().findSymbol(methodDecl.getMethodDeclStart().getIdent());
+			if (superMethod != null) {
+				// change superMethod locals
+				Tab.chainLocalSymbols(superMethod);
+			}
+			else {
+				this.currentMethod.setFormalParameterCnt();
+				Tab.chainLocalSymbols(this.currentMethod.getCurrMethod());
+				Tab.currentScope().getOuter().addToLocals(this.currentMethod.getCurrMethod());
+			}
+		}
+		else {
+			this.currentMethod.setFormalParameterCnt();
+			Tab.chainLocalSymbols(this.currentMethod.getCurrMethod());
+			Tab.currentScope().getOuter().addToLocals(this.currentMethod.getCurrMethod());
+		}
+		Tab.closeScope();
+		this.scopeStack.pop();
+
+		methodDecl.obj = this.currentMethod.getCurrMethod();
+		this.currentMethod = null;
+	}
 	// helper methods --------------------------------
 
-	private boolean isGlobal() {
-		return this.currScope.equals(Scope.PROGRAM);
+	private Scope getCurrScope() {
+		return this.scopeStack.peek();
 	}
 
 	private int getCurrentLevel() {
-		return this.currScope.equals(Scope.METHOD)? 1:0;
+		return this.getCurrScope().equals(Scope.METHOD)? 1:0;
 	}
 
 	private static boolean isAlreadyDeclared(String identifier) {

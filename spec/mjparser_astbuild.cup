@@ -69,6 +69,7 @@ nonterminal ConstDecl ConstDecl;
 nonterminal VarDecl VarDecl;
 nonterminal ClassDecl ClassDecl;
 nonterminal RecordDecl RecordDecl;
+nonterminal RecordDeclStart RecordDeclStart;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal ConstAssignment ConstAssignment;
 nonterminal ConstAssignmentList ConstAssignmentList;
@@ -83,6 +84,7 @@ nonterminal ConstructorDeclAndMethodDeclList ConstructorDeclAndMethodDeclList;
 nonterminal ConstructorDecl ConstructorDecl;
 nonterminal StatementList StatementList;
 nonterminal MethodDecl MethodDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclStart;
 nonterminal TypeOrVoid TypeOrVoid;
 nonterminal FormPars FormPars;
 nonterminal FormParList FormParList;
@@ -150,7 +152,11 @@ Decl ::=
 
 RecordDecl ::=
     (RecordDecl)
-    RECORD IDENT:ident LBRACE VarDeclList:V1 RBRACE {: RESULT=new RecordDecl(ident, V1); RESULT.setLine(identleft); :};
+    RECORD RecordDeclStart:R1 LBRACE VarDeclList:V2 RBRACE {: RESULT=new RecordDecl(R1, V2); RESULT.setLine(R1left); :};
+
+RecordDeclStart ::=
+    (RecordDeclStart)
+    IDENT:ident {: RESULT=new RecordDeclStart(ident); RESULT.setLine(identleft); :};
 
 ConstDecl ::=
     (ConstDecl)
@@ -282,7 +288,11 @@ MethodDeclList ::=
 
 MethodDecl ::=
     (MethodDecl)
-    TypeOrVoid:T1 IDENT:ident FormParsOrError:F2 VarDeclList:V3 LBRACE StatementList:S4 RBRACE {: RESULT=new MethodDecl(T1, ident, F2, V3, S4); RESULT.setLine(T1left); :};
+    TypeOrVoid:T1 MethodDeclStart:M2 FormParsOrError:F3 VarDeclList:V4 LBRACE StatementList:S5 RBRACE {: RESULT=new MethodDecl(T1, M2, F3, V4, S5); RESULT.setLine(T1left); :};
+
+MethodDeclStart ::=
+    (MethodDeclStart)
+    IDENT:ident {: RESULT=new MethodDeclStart(ident); RESULT.setLine(identleft); :};
 
 FormParsOrError ::=
     (FormParsFormPars)

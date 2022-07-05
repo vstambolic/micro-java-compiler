@@ -1,36 +1,36 @@
-INFO  20:49:36,027 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program.mj
-INFO  20:49:36,204 - #2 program
-INFO  20:49:36,204 - #50 p
-INFO  20:49:36,205 - #50 int
-INFO  20:49:36,208 - #50 x
-INFO  20:49:36,209 - #39 ;
-INFO  20:49:36,213 - #7 const
-INFO  20:49:36,214 - #50 int
-INFO  20:49:36,214 - #50 y
-INFO  20:49:36,214 - #38 =
-INFO  20:49:36,214 - #51 5
-INFO  20:49:36,214 - #39 ;
-INFO  20:49:36,216 - #50 int
-INFO  20:49:36,218 - #50 z
-INFO  20:49:36,219 - #39 ;
-INFO  20:49:36,219 - #50 int
-INFO  20:49:36,219 - #50 y
-INFO  20:49:36,219 - #39 ;
-INFO  20:49:36,219 - #7 const
-INFO  20:49:36,219 - #50 bool
-INFO  20:49:36,220 - #50 b
-INFO  20:49:36,220 - #38 =
-INFO  20:49:36,220 - #52 true
-INFO  20:49:36,220 - #41 ,
-INFO  20:49:36,220 - #50 c
-INFO  20:49:36,220 - #38 =
-INFO  20:49:36,221 - #52 false
-INFO  20:49:36,221 - #39 ;
-INFO  20:49:36,221 - #48 {
-INFO  20:49:36,221 - #49 }
-INFO  20:49:36,246 - Global variable declared (x). line 2
-INFO  20:49:36,246 - Const declared (y) line 4
-INFO  20:49:36,246 - Global variable declared (z). line 5
-ERROR 20:49:36,246 - Symbol y already declared | line 6
-INFO  20:49:36,246 - Const declared (b) line 9
-INFO  20:49:36,246 - Const declared (c) line 9
+INFO  22:49:27,690 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program.mj
+INFO  22:49:28,224 - #2 program
+INFO  22:49:28,224 - #50 p
+INFO  22:49:28,224 - #50 int
+INFO  22:49:28,232 - #50 x
+INFO  22:49:28,234 - #39 ;
+INFO  22:49:28,234 - #7 const
+INFO  22:49:28,234 - #50 int
+INFO  22:49:28,242 - #50 y
+INFO  22:49:28,242 - #38 =
+INFO  22:49:28,242 - #51 5
+INFO  22:49:28,242 - #39 ;
+INFO  22:49:28,244 - #50 int
+INFO  22:49:28,244 - #50 z
+INFO  22:49:28,244 - #39 ;
+INFO  22:49:28,244 - #50 int
+INFO  22:49:28,244 - #50 y
+INFO  22:49:28,244 - #39 ;
+INFO  22:49:28,244 - #7 const
+INFO  22:49:28,244 - #50 bool
+INFO  22:49:28,244 - #50 b
+INFO  22:49:28,244 - #38 =
+INFO  22:49:28,244 - #52 true
+INFO  22:49:28,244 - #41 ,
+INFO  22:49:28,244 - #50 c
+INFO  22:49:28,244 - #38 =
+INFO  22:49:28,244 - #52 false
+INFO  22:49:28,244 - #39 ;
+INFO  22:49:28,244 - #48 {
+INFO  22:49:28,244 - #49 }
+INFO  22:49:28,274 - Global variable declared (x). line 2
+INFO  22:49:28,274 - Const declared (y) line 4
+INFO  22:49:28,274 - Global variable declared (z). line 5
+ERROR 22:49:28,274 - Symbol y already declared | line 6
+INFO  22:49:28,274 - Const declared (b) line 9
+INFO  22:49:28,274 - Const declared (c) line 9
