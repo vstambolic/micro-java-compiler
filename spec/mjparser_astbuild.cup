@@ -68,6 +68,8 @@ nonterminal MethodDeclList MethodDeclList;
 nonterminal ConstDecl ConstDecl;
 nonterminal VarDecl VarDecl;
 nonterminal ClassDecl ClassDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassDeclStart;
+nonterminal ClassVarDeclList ClassVarDeclList;
 nonterminal RecordDecl RecordDecl;
 nonterminal RecordDeclStart RecordDeclStart;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
@@ -83,7 +85,7 @@ nonterminal ConstructorDeclAndMethodDeclListWrapper ConstructorDeclAndMethodDecl
 nonterminal ConstructorDeclAndMethodDeclList ConstructorDeclAndMethodDeclList;
 nonterminal ConstructorDecl ConstructorDecl;
 nonterminal StatementList StatementList;
-nonterminal MethodDecl MethodDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclStart;
 nonterminal TypeOrVoid TypeOrVoid;
 nonterminal FormPars FormPars;
@@ -247,11 +249,21 @@ VarDeclList ::=
 
 ClassDecl ::=
     (ClassDeclValid)
-    CLASS IDENT:ident Extends:E1 LBRACE VarDeclList:V2 ConstructorDeclAndMethodDeclListWrapper:C3 RBRACE {: RESULT=new ClassDeclValid(ident, E1, V2, C3); RESULT.setLine(identleft); :}
+    ClassDeclStart:C1 Extends:E2 LBRACE ClassVarDeclList:C3 ConstructorDeclAndMethodDeclListWrapper:C4 RBRACE {: RESULT=new ClassDeclValid(C1, E2, C3, C4); RESULT.setLine(C1left); :}
     |
     (ClassDeclError)
-    CLASS IDENT:ident EXTENDS error:l {: parser.report_error("SYNTAX ERROR: invalid EXTENDS syntax on line: " + lleft , null); :}
-    LBRACE VarDeclList:V1 ConstructorDeclAndMethodDeclListWrapper:C2 RBRACE {: RESULT=new ClassDeclError(ident, V1, C2); RESULT.setLine(identleft); :}
+    ClassDeclStart:C1 EXTENDS error:l {: parser.report_error("SYNTAX ERROR: invalid EXTENDS syntax on line: " + lleft , null); :}
+    LBRACE VarDeclList:V2 ConstructorDeclAndMethodDeclListWrapper:C3 RBRACE {: RESULT=new ClassDeclError(C1, V2, C3); RESULT.setLine(C1left); :}
+    ;
+
+ClassDeclStart ::=
+    (ClassDeclStart)
+    CLASS IDENT:ident {: RESULT=new ClassDeclStart(ident); RESULT.setLine(identleft); :}
+    ;
+
+ClassVarDeclList ::=
+    (ClassVarDeclList)
+    VarDeclList:V1 {: RESULT=new ClassVarDeclList(V1); RESULT.setLine(V1left); :}
     ;
 
 Extends ::=

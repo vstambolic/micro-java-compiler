@@ -68,7 +68,8 @@ nonterminal MethodDeclList;
 nonterminal ConstDecl;
 nonterminal VarDecl;
 nonterminal ClassDecl;
-nonterminal ClassDeclStart;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassDeclStart;
+nonterminal ClassVarDeclList;
 nonterminal RecordDecl;
 nonterminal RecordDeclStart;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
@@ -153,11 +154,11 @@ Decl ::=
 
 RecordDecl ::=
     (RecordDecl)
-    RECORD RecordDeclStart LBRACE VarDeclList RBRACE;
+    RecordDeclStart LBRACE VarDeclList RBRACE;
 
 RecordDeclStart ::=
     (RecordDeclStart)
-    IDENT:ident;
+    RECORD IDENT:ident;
 
 ConstDecl ::=
     (ConstDecl)
@@ -248,16 +249,21 @@ VarDeclList ::=
 
 ClassDecl ::=
     (ClassDeclValid)
-    ClassDeclStart Extends LBRACE VarDeclList ConstructorDeclAndMethodDeclListWrapper RBRACE
+    ClassDeclStart Extends LBRACE ClassVarDeclList ConstructorDeclAndMethodDeclListWrapper RBRACE
     |
     (ClassDeclError)
-    CLASS IDENT:ident EXTENDS error:l {: parser.report_error("SYNTAX ERROR: invalid EXTENDS syntax on line: " + lleft , null); :}
+    ClassDeclStart EXTENDS error:l {: parser.report_error("SYNTAX ERROR: invalid EXTENDS syntax on line: " + lleft , null); :}
     LBRACE VarDeclList ConstructorDeclAndMethodDeclListWrapper RBRACE
     ;
 
 ClassDeclStart ::=
     (ClassDeclStart)
     CLASS IDENT:ident
+    ;
+
+ClassVarDeclList ::=
+    (ClassVarDeclList)
+    VarDeclList
     ;
 
 Extends ::=

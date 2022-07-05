@@ -1,36 +1,138 @@
-INFO  22:49:27,690 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program.mj
-INFO  22:49:28,224 - #2 program
-INFO  22:49:28,224 - #50 p
-INFO  22:49:28,224 - #50 int
-INFO  22:49:28,232 - #50 x
-INFO  22:49:28,234 - #39 ;
-INFO  22:49:28,234 - #7 const
-INFO  22:49:28,234 - #50 int
-INFO  22:49:28,242 - #50 y
-INFO  22:49:28,242 - #38 =
-INFO  22:49:28,242 - #51 5
-INFO  22:49:28,242 - #39 ;
-INFO  22:49:28,244 - #50 int
-INFO  22:49:28,244 - #50 z
-INFO  22:49:28,244 - #39 ;
-INFO  22:49:28,244 - #50 int
-INFO  22:49:28,244 - #50 y
-INFO  22:49:28,244 - #39 ;
-INFO  22:49:28,244 - #7 const
-INFO  22:49:28,244 - #50 bool
-INFO  22:49:28,244 - #50 b
-INFO  22:49:28,244 - #38 =
-INFO  22:49:28,244 - #52 true
-INFO  22:49:28,244 - #41 ,
-INFO  22:49:28,244 - #50 c
-INFO  22:49:28,244 - #38 =
-INFO  22:49:28,244 - #52 false
-INFO  22:49:28,244 - #39 ;
-INFO  22:49:28,244 - #48 {
-INFO  22:49:28,244 - #49 }
-INFO  22:49:28,274 - Global variable declared (x). line 2
-INFO  22:49:28,274 - Const declared (y) line 4
-INFO  22:49:28,274 - Global variable declared (z). line 5
-ERROR 22:49:28,274 - Symbol y already declared | line 6
-INFO  22:49:28,274 - Const declared (b) line 9
-INFO  22:49:28,274 - Const declared (c) line 9
+INFO  19:10:53,528 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program.mj
+INFO  19:10:53,687 - #2 program
+INFO  19:10:53,687 - #50 p
+INFO  19:10:53,687 - #50 int
+INFO  19:10:53,689 - #50 x
+INFO  19:10:53,691 - #39 ;
+INFO  19:10:53,695 - #7 const
+INFO  19:10:53,696 - #50 int
+INFO  19:10:53,696 - #50 y
+INFO  19:10:53,696 - #38 =
+INFO  19:10:53,696 - #51 5
+INFO  19:10:53,696 - #39 ;
+INFO  19:10:53,699 - #50 int
+INFO  19:10:53,700 - #50 z
+INFO  19:10:53,700 - #39 ;
+INFO  19:10:53,701 - #50 int
+INFO  19:10:53,701 - #50 y
+INFO  19:10:53,701 - #39 ;
+INFO  19:10:53,701 - #7 const
+INFO  19:10:53,701 - #50 bool
+INFO  19:10:53,701 - #50 b
+INFO  19:10:53,701 - #38 =
+INFO  19:10:53,701 - #52 true
+INFO  19:10:53,702 - #41 ,
+INFO  19:10:53,702 - #50 c
+INFO  19:10:53,702 - #38 =
+INFO  19:10:53,702 - #52 false
+INFO  19:10:53,702 - #39 ;
+INFO  19:10:53,702 - #4 class
+INFO  19:10:53,702 - #50 Base
+INFO  19:10:53,703 - #48 {
+INFO  19:10:53,705 - #50 int
+INFO  19:10:53,706 - #50 x
+INFO  19:10:53,706 - #39 ;
+INFO  19:10:53,707 - #50 int
+INFO  19:10:53,707 - #50 y
+INFO  19:10:53,707 - #39 ;
+INFO  19:10:53,707 - #50 char
+INFO  19:10:53,707 - #50 s
+INFO  19:10:53,707 - #39 ;
+INFO  19:10:53,707 - #48 {
+INFO  19:10:53,709 - #15 void
+INFO  19:10:53,709 - #50 m1
+INFO  19:10:53,710 - #44 (
+INFO  19:10:53,711 - #45 )
+INFO  19:10:53,712 - #48 {
+INFO  19:10:53,713 - #49 }
+INFO  19:10:53,714 - #15 void
+INFO  19:10:53,715 - #50 m2
+INFO  19:10:53,720 - #44 (
+INFO  19:10:53,720 - #50 int
+INFO  19:10:53,720 - #50 x
+INFO  19:10:53,720 - #45 )
+INFO  19:10:53,722 - #48 {
+INFO  19:10:53,722 - #49 }
+INFO  19:10:53,722 - #49 }
+INFO  19:10:53,723 - #49 }
+INFO  19:10:53,724 - #4 class
+INFO  19:10:53,724 - #50 Deri
+INFO  19:10:53,724 - #16 extends
+INFO  19:10:53,724 - #50 Base
+INFO  19:10:53,724 - #48 {
+INFO  19:10:53,724 - #50 int
+INFO  19:10:53,725 - #50 dint
+INFO  19:10:53,725 - #39 ;
+INFO  19:10:53,725 - #48 {
+INFO  19:10:53,725 - #50 int
+INFO  19:10:53,725 - #50 newMethod
+INFO  19:10:53,725 - #44 (
+INFO  19:10:53,725 - #45 )
+INFO  19:10:53,725 - #48 {
+INFO  19:10:53,725 - #49 }
+INFO  19:10:53,725 - #15 void
+INFO  19:10:53,725 - #50 m1
+INFO  19:10:53,725 - #44 (
+INFO  19:10:53,726 - #45 )
+INFO  19:10:53,726 - #50 int
+INFO  19:10:53,726 - #50 x
+INFO  19:10:53,726 - #39 ;
+INFO  19:10:53,726 - #48 {
+INFO  19:10:53,726 - #49 }
+INFO  19:10:53,726 - #49 }
+INFO  19:10:53,726 - #49 }
+INFO  19:10:53,726 - #48 {
+INFO  19:10:53,726 - #50 int
+INFO  19:10:53,726 - #50 f
+INFO  19:10:53,727 - #44 (
+INFO  19:10:53,727 - #50 int
+INFO  19:10:53,727 - #50 y
+INFO  19:10:53,727 - #41 ,
+INFO  19:10:53,727 - #50 int
+INFO  19:10:53,727 - #50 z
+INFO  19:10:53,727 - #41 ,
+INFO  19:10:53,727 - #50 char
+INFO  19:10:53,727 - #50 e
+INFO  19:10:53,727 - #41 ,
+INFO  19:10:53,728 - #50 Base
+INFO  19:10:53,728 - #50 b
+INFO  19:10:53,728 - #45 )
+INFO  19:10:53,728 - #50 int
+INFO  19:10:53,728 - #50 s
+INFO  19:10:53,728 - #41 ,
+INFO  19:10:53,728 - #50 p
+INFO  19:10:53,728 - #41 ,
+INFO  19:10:53,729 - #50 das
+INFO  19:10:53,729 - #39 ;
+INFO  19:10:53,729 - #50 char
+INFO  19:10:53,729 - #50 x
+INFO  19:10:53,729 - #39 ;
+INFO  19:10:53,729 - #48 {
+INFO  19:10:53,729 - #49 }
+INFO  19:10:53,729 - #15 void
+INFO  19:10:53,729 - #50 main
+INFO  19:10:53,729 - #44 (
+INFO  19:10:53,729 - #45 )
+INFO  19:10:53,729 - #48 {
+INFO  19:10:53,729 - #49 }
+INFO  19:10:53,729 - #49 }
+INFO  19:10:53,746 - Global variable declared (x). line 2
+INFO  19:10:53,746 - Const declared (y) line 4
+INFO  19:10:53,746 - Global variable declared (z). line 5
+ERROR 19:10:53,746 - Symbol y already declared | line 6
+INFO  19:10:53,746 - Const declared (b) line 7
+INFO  19:10:53,747 - Const declared (c) line 7
+INFO  19:10:53,748 - Local variable declared (x). line 9
+INFO  19:10:53,748 - Local variable declared (y). line 10
+INFO  19:10:53,748 - Local variable declared (s). line 11
+INFO  19:10:53,751 -  Formal parameter declared (x). line 16
+INFO  19:10:53,837 - Local variable declared (dint). line 23
+INFO  19:10:53,841 - Local variable declared (x). line 28
+INFO  19:10:53,848 -  Formal parameter declared (y). line 36
+INFO  19:10:53,848 -  Formal parameter declared (z). line 36
+INFO  19:10:53,848 -  Formal parameter declared (e). line 36
+INFO  19:10:53,848 -  Formal parameter declared (b). line 36
+INFO  19:10:53,848 - Local variable declared (s). line 36
+INFO  19:10:53,848 - Local variable declared (p). line 36
+INFO  19:10:53,848 - Local variable declared (das). line 36
+INFO  19:10:53,848 - Local variable declared (x). line 36

@@ -44,6 +44,8 @@
 
     <target name="compile" depends="parserGen">
         <javac srcdir="src/rs/ac/bg/etf/pp1" includeantruntime="false">
+            <include name="semantic_analyzer_utils/**"/>
+
             <classpath>
                 <pathelement path="lib/JFlex.jar"/>
                 <pathelement path="lib/cup_v10k.jar"/>

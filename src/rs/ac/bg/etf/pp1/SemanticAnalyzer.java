@@ -8,8 +8,8 @@ import rs.ac.bg.etf.pp1.semantic_analyzer_utils.Scope;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
+import rs.etf.pp1.symboltable.structure.SymbolDataStructure;
 
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -17,6 +17,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	// Constants ---------------------------------
 	private static final String THIS = "this";
+	public static final int RECORD = 8;
+	private static final Struct recordStruct = new Struct(RECORD);
 
 	// Helpers -----------------------------------
 	private Stack<Scope> scopeStack = new Stack<>();
@@ -54,6 +56,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 
+
+	// PROGRAM ---------------------------------------------------------------
 	/**
 	 * Opening program scope
 	 * @param programDecl
@@ -93,6 +97,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	 * kako bi nako
 	 * @param type
 	 */
+
+	// TYPE ---------------------------------------------------------------
+
 	public void visit(Type type) {
 		Obj typeNodeFromSymbolTable = Tab.find(type.getIdent());
 		if (typeNodeFromSymbolTable == Tab.noObj) { // Ukoliko nije pronadjeno nista u taebeli simbola sa datim identifikatorom
@@ -111,6 +118,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 
+	// VAR ---------------------------------------------------------------
 	/**
 	 * Poziva se prilikom deklaracije varijable
 	 * @param var
@@ -132,6 +140,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		// todo if is method signature
 	}
 
+	// CONST ---------------------------------------------------------------
 	public void visit(ConstAssignment constAssignment) {
 		String identifier = constAssignment.getIdent();
 		if (SemanticAnalyzer.isAlreadyDeclared(identifier)) {
@@ -176,8 +185,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	// todo record neka bude class ali da bi naglasio da iz njega ne moze nista da se izvodi upisi nesto u onaj elemtype
-	// todo testirati sa globalnim metodama
 
+
+	// METHOD ---------------------------------------------------------------
 	public void visit(TypeOrVoid_Void TypeOrVoid_Void) {
 		this.currType = Tab.noType;
 	}
@@ -207,20 +217,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				}
 			}
 
-
-		/*
-		TODO ovo ne treba da stoji ovde nego kada se dodje do LBRACE u klasi
-		if (this.currentClass != null && this.currentClass.shouldImportSuperMethods()) {
-			// TODO importuj sve super metode
-		}
-
-		*/
-
 		Obj currMethodObj = new Obj(Obj.Meth, identifier, this.currType,0,0);
 		this.currentMethod = new CurrentMethod(currMethodObj);
 		methodDeclStart.obj = currMethodObj; // TODO koji ce mi ovo djavo
 		Tab.openScope();
-		if (this.scopeStack.peek().equals(Scope.CLASS)) {
+		if (this.getCurrScope().equals(Scope.CLASS)) {
 			Tab.insert(Obj.Var, THIS, currentClass.getCurrClass().getType());
 			this.currentMethod.incFormalParameterCnt();
 		}
@@ -243,12 +244,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		this.report_info(" Formal parameter declared (" + identifier + ").", formPar);
 	}
 	public void visit(MethodDecl methodDecl) {
+		this.scopeStack.pop();
 		if (this.getCurrScope().equals(Scope.CLASS)) {
 			Obj superMethod = Tab.currentScope().getOuter().findSymbol(methodDecl.getMethodDeclStart().getIdent());
 			if (superMethod != null) {
 				// check formal parameters
 				if (superMethod.getLevel() != this.currentMethod.getFormalParameterCnt()) {
-					report_error("Method " +methodDecl.getMethodDeclStart().getIdent()+" does not have the same signature as its super method |", methodDecl);
+					report_error("Method " + methodDecl.getMethodDeclStart().getIdent()+" does not have the same signature as its super method |", methodDecl);
 					return;
 				}
 				else {
@@ -284,31 +286,103 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			Tab.currentScope().getOuter().addToLocals(this.currentMethod.getCurrMethod());
 		}
 		Tab.closeScope();
-		this.scopeStack.pop();
-
 		methodDecl.obj = this.currentMethod.getCurrMethod();
 		this.currentMethod = null;
 	}
 
-
+	// CLASS ---------------------------------------------------------------
 	public void visit(ClassDeclStart classDeclStart) {
-		// todo otvoriti novi opseg, dodati klasu u tabelu simbola, proveriti je l' vec postoji ovaj tip
-	}
-	public void visit(Extends ext) {
-		if (ext instanceof ExtendsIndeed) {
-			// todo dodati sva polja ove klase u tabelu simbola
+		if (!(classDeclStart.getParent() instanceof ClassDeclError)) {
+			String identifier = classDeclStart.getIdent();
+			if (SemanticAnalyzer.isAlreadyDeclared(identifier)) {
+				report_error("Symbol " +identifier+" already declared |", classDeclStart);
+				return;
+			}
+
+			Obj obj = Tab.insert(Obj.Type, identifier, new Struct(Struct.Class)); // type node
+			this.currentClass = new CurrentClass(obj);
+			classDeclStart.obj = obj;
+
+			this.openScope(Scope.CLASS);
+			// Tab.insert(Obj.Fld, "TVF", className.obj.getType()); TODO WAS IST DAS
 		}
+	}
+	public void visit(ExtendsIndeed extendsIndeed) {
+		if (currType.getKind() != Struct.Class || currType.getElemType().equals(recordStruct)) {
+			report_error(extendsIndeed.getType().getIdent()+" ain't no class |", extendsIndeed);
+			return;
+		}
+
+		// set parent class
+		this.currentClass.getCurrClass().getType().setElementType(currType);
+		// copy all super fields
+		currType.getMembers()
+				.stream()
+				.filter(obj -> obj.getKind() == Obj.Fld)
+				.forEachOrdered(obj -> Tab.insert(Obj.Fld, obj.getName(), obj.getType()));
+	}
+	public void visit(ClassVarDeclList classVarDeclList) {
+			if (this.currentClass.hasSuperClass()) {
+				this.currentClass.getSuperClass()
+						.getMembers()
+						.stream()
+						.filter(obj -> obj.getKind() == Obj.Meth)
+						.forEachOrdered(superMethod -> {
+							Obj copiedMethod = Tab.insert(Obj.Meth, superMethod.getName(), superMethod.getType());
+							copiedMethod.setLevel(superMethod.getLevel());
+							copiedMethod.setAdr(superMethod.getAdr());
+
+							// copy locals
+							Tab.openScope();
+							superMethod.getLocalSymbols().forEach(local -> Tab.insert(local.getKind(), local.getName(), local.getType()));
+							Tab.chainLocalSymbols(copiedMethod);
+							Tab.closeScope();
+						});
+			}
 	}
 
-	public void visit(VarDeclList varDeclList) {
-		if (varDeclList.getParent() instanceof ClassDecl) {
-			// todo proveriti da li ovo radi i ako da, ucitati metode super klase
-		}
+	public void visit(ClassDeclValid classDeclValid) {
+		// foreach method update this reference
+		SymbolDataStructure currentScopeLocals = Tab.currentScope().getLocals();
+		if (currentScopeLocals != null)
+			currentScopeLocals.symbols()
+				.stream()
+				.filter(obj -> obj.getKind() == Obj.Meth)
+				.forEach(methodObj -> {
+					// Update THIS reference
+					Tab.openScope();
+					Tab.insert(Obj.Var, THIS, currentClass.getCurrClass().getType());
+					methodObj.getLocalSymbols().stream().skip(1).forEach(local -> Tab.insert(local.getKind(), local.getName(), local.getType()));
+					Tab.chainLocalSymbols(methodObj);
+					Tab.closeScope();
+				});
+
+		Tab.chainLocalSymbols(this.currentClass.getCurrClass().getType());
+		this.closeScope();
+		currentClass = null;
 	}
+
+	// RECORD ---------------------------------------------------------------
+	public void visit(RecordDeclStart recordDeclStart) {
+
+	}
+
+	public void visit(RecordDecl recordDecl) {
+
+	}
+
 	// helper methods --------------------------------
 
 	private Scope getCurrScope() {
 		return this.scopeStack.peek();
+	}
+	private void openScope(Scope scope) {
+		this.scopeStack.push(scope);
+		Tab.openScope();
+	}
+	private void closeScope() {
+		this.scopeStack.pop();
+		Tab.closeScope();
 	}
 
 	private int getCurrentLevel() {
