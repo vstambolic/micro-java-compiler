@@ -46,7 +46,7 @@ public class MJParserTest {
 			prog.traverseBottomUp(semanticCheck);
 
 //	        log.info("Print calls = " + semanticCheck.printCallCount);
-	        Tab.dump();
+	     //   Tab.dump();
 	        
 //	        if (!p.errorDetected && semanticCheck.passed()) {
 //	        	File objFile = new File(args[1]);

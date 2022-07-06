@@ -1,537 +1,685 @@
-INFO  22:43:56,248 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program2.mj
-INFO  22:43:56,403 - #2 program
-INFO  22:43:56,403 - #50 p
-INFO  22:43:56,403 - #4 class
-INFO  22:43:56,403 - #50 Base
-INFO  22:43:56,403 - #48 {
-INFO  22:43:56,413 - #48 {
-INFO  22:43:56,413 - #15 void
-INFO  22:43:56,413 - #50 m1
-INFO  22:43:56,417 - #44 (
-INFO  22:43:56,417 - #45 )
-INFO  22:43:56,417 - #48 {
-INFO  22:43:56,417 - #49 }
-INFO  22:43:56,423 - #49 }
-INFO  22:43:56,423 - #49 }
-INFO  22:43:56,423 - #4 class
-INFO  22:43:56,428 - #50 Derived
-INFO  22:43:56,428 - #16 extends
-INFO  22:43:56,428 - #50 Base
-INFO  22:43:56,428 - #48 {
-INFO  22:43:56,428 - #48 {
-INFO  22:43:56,428 - #15 void
-INFO  22:43:56,428 - #50 m1
-INFO  22:43:56,428 - #44 (
-INFO  22:43:56,428 - #45 )
-INFO  22:43:56,428 - #48 {
-INFO  22:43:56,428 - #49 }
-INFO  22:43:56,428 - #49 }
-INFO  22:43:56,428 - #49 }
-INFO  22:43:56,428 - #48 {
-INFO  22:43:56,428 - #15 void
-INFO  22:43:56,428 - #50 f
-INFO  22:43:56,433 - #44 (
-INFO  22:43:56,433 - #45 )
-INFO  22:43:56,433 - #48 {
-INFO  22:43:56,433 - #49 }
-INFO  22:43:56,433 - #15 void
-INFO  22:43:56,433 - #50 main
-INFO  22:43:56,433 - #44 (
-INFO  22:43:56,433 - #45 )
-INFO  22:43:56,433 - #48 {
-INFO  22:43:56,433 - #49 }
-INFO  22:43:56,433 - #15 void
-INFO  22:43:56,433 - #50 f2
-INFO  22:43:56,433 - #44 (
-INFO  22:43:56,433 - #50 int
-INFO  22:43:56,433 - #50 x
-INFO  22:43:56,433 - #41 ,
-INFO  22:43:56,438 - #50 Base
-INFO  22:43:56,443 - #50 b
-INFO  22:43:56,443 - #45 )
-INFO  22:43:56,443 - #48 {
-INFO  22:43:56,443 - #49 }
-INFO  22:43:56,443 - #15 void
-INFO  22:43:56,443 - #50 formParamCallTest
-INFO  22:43:56,443 - #44 (
-INFO  22:43:56,453 - #45 )
-INFO  22:43:56,453 - #50 Base
-INFO  22:43:56,453 - #50 b
-INFO  22:43:56,453 - #39 ;
-INFO  22:43:56,458 - #50 Derived
-INFO  22:43:56,458 - #50 d
-INFO  22:43:56,458 - #39 ;
-INFO  22:43:56,458 - #48 {
-INFO  22:43:56,458 - #50 b
-INFO  22:43:56,458 - #38 =
-INFO  22:43:56,458 - #50 d
-INFO  22:43:56,463 - #39 ;
-INFO  22:43:56,473 - #50 b
-INFO  22:43:56,473 - #38 =
-INFO  22:43:56,473 - #50 b
-INFO  22:43:56,473 - #39 ;
-INFO  22:43:56,473 - #50 f2
-INFO  22:43:56,473 - #44 (
-INFO  22:43:56,473 - #51 5
-INFO  22:43:56,473 - #41 ,
-INFO  22:43:56,473 - #50 d
-INFO  22:43:56,473 - #45 )
-INFO  22:43:56,473 - #39 ;
-INFO  22:43:56,473 - #50 f
-INFO  22:43:56,473 - #44 (
-INFO  22:43:56,473 - #45 )
-INFO  22:43:56,478 - #39 ;
-INFO  22:43:56,478 - #50 b
-INFO  22:43:56,478 - #43 .
-INFO  22:43:56,478 - #50 m1
-INFO  22:43:56,478 - #44 (
-INFO  22:43:56,478 - #45 )
-INFO  22:43:56,478 - #39 ;
-INFO  22:43:56,478 - #50 f
-INFO  22:43:56,478 - #44 (
-INFO  22:43:56,478 - #51 5
-INFO  22:43:56,478 - #45 )
-INFO  22:43:56,478 - #39 ;
-INFO  22:43:56,478 - #50 f2
-INFO  22:43:56,478 - #44 (
-INFO  22:43:56,478 - #45 )
-INFO  22:43:56,478 - #39 ;
-INFO  22:43:56,478 - #50 f2
-INFO  22:43:56,483 - #44 (
-INFO  22:43:56,483 - #53 x
-INFO  22:43:56,483 - #41 ,
-INFO  22:43:56,483 - #51 5
-INFO  22:43:56,483 - #45 )
-INFO  22:43:56,483 - #39 ;
-INFO  22:43:56,483 - #50 f2
-INFO  22:43:56,483 - #44 (
-INFO  22:43:56,483 - #51 5
-INFO  22:43:56,483 - #41 ,
-INFO  22:43:56,483 - #50 b
-INFO  22:43:56,483 - #45 )
-INFO  22:43:56,483 - #39 ;
-INFO  22:43:56,483 - #49 }
-INFO  22:43:56,483 - #15 void
-INFO  22:43:56,483 - #50 assignTest
-INFO  22:43:56,483 - #44 (
-INFO  22:43:56,483 - #45 )
-INFO  22:43:56,483 - #50 Base
-INFO  22:43:56,483 - #50 base
-INFO  22:43:56,483 - #39 ;
-INFO  22:43:56,483 - #50 Derived
-INFO  22:43:56,483 - #50 derived
-INFO  22:43:56,483 - #39 ;
-INFO  22:43:56,483 - #48 {
-INFO  22:43:56,483 - #50 base
-INFO  22:43:56,483 - #38 =
-INFO  22:43:56,483 - #50 derived
-INFO  22:43:56,483 - #39 ;
-INFO  22:43:56,483 - #50 derived
-INFO  22:43:56,483 - #38 =
-INFO  22:43:56,483 - #50 base
-INFO  22:43:56,488 - #39 ;
-INFO  22:43:56,488 - #49 }
-INFO  22:43:56,488 - #15 void
-INFO  22:43:56,488 - #50 breakContinueTEst
-INFO  22:43:56,488 - #44 (
-INFO  22:43:56,488 - #45 )
-INFO  22:43:56,488 - #48 {
-INFO  22:43:56,488 - #9 do
-INFO  22:43:56,488 - #48 {
-INFO  22:43:56,488 - #3 break
-INFO  22:43:56,488 - #39 ;
-INFO  22:43:56,488 - #17 continue
-INFO  22:43:56,488 - #39 ;
-INFO  22:43:56,488 - #49 }
-INFO  22:43:56,493 - #10 while
-INFO  22:43:56,493 - #44 (
-INFO  22:43:56,493 - #52 true
-INFO  22:43:56,493 - #45 )
-INFO  22:43:56,493 - #39 ;
-INFO  22:43:56,493 - #3 break
-INFO  22:43:56,493 - #39 ;
-INFO  22:43:56,493 - #17 continue
-INFO  22:43:56,493 - #39 ;
-INFO  22:43:56,493 - #49 }
-INFO  22:43:56,493 - #15 void
-INFO  22:43:56,493 - #50 printReadTest
-INFO  22:43:56,493 - #44 (
-INFO  22:43:56,493 - #45 )
-INFO  22:43:56,493 - #50 Base
-INFO  22:43:56,493 - #50 b
-INFO  22:43:56,493 - #39 ;
-INFO  22:43:56,493 - #50 int
-INFO  22:43:56,493 - #50 i
-INFO  22:43:56,493 - #39 ;
-INFO  22:43:56,493 - #50 char
-INFO  22:43:56,493 - #50 c
-INFO  22:43:56,493 - #39 ;
-INFO  22:43:56,493 - #50 bool
-INFO  22:43:56,493 - #50 bo
-INFO  22:43:56,493 - #39 ;
-INFO  22:43:56,493 - #48 {
-INFO  22:43:56,493 - #13 read
-INFO  22:43:56,493 - #44 (
-INFO  22:43:56,493 - #50 b
-INFO  22:43:56,493 - #45 )
-INFO  22:43:56,493 - #39 ;
-INFO  22:43:56,493 - #13 read
-INFO  22:43:56,493 - #44 (
-INFO  22:43:56,493 - #50 i
-INFO  22:43:56,493 - #45 )
-INFO  22:43:56,493 - #39 ;
-INFO  22:43:56,493 - #13 read
-INFO  22:43:56,493 - #44 (
-INFO  22:43:56,493 - #50 c
-INFO  22:43:56,493 - #45 )
-INFO  22:43:56,493 - #39 ;
-INFO  22:43:56,503 - #13 read
-INFO  22:43:56,503 - #44 (
-INFO  22:43:56,503 - #50 bo
-INFO  22:43:56,503 - #45 )
-INFO  22:43:56,503 - #39 ;
-INFO  22:43:56,503 - #12 print
-INFO  22:43:56,503 - #44 (
-INFO  22:43:56,503 - #50 b
-INFO  22:43:56,503 - #45 )
-INFO  22:43:56,503 - #39 ;
-INFO  22:43:56,503 - #12 print
-INFO  22:43:56,503 - #44 (
-INFO  22:43:56,503 - #50 i
-INFO  22:43:56,503 - #45 )
-INFO  22:43:56,503 - #39 ;
-INFO  22:43:56,503 - #12 print
-INFO  22:43:56,503 - #44 (
-INFO  22:43:56,503 - #50 c
-INFO  22:43:56,503 - #45 )
-INFO  22:43:56,503 - #39 ;
-INFO  22:43:56,503 - #12 print
-INFO  22:43:56,503 - #44 (
-INFO  22:43:56,503 - #50 bo
-INFO  22:43:56,503 - #45 )
-INFO  22:43:56,503 - #39 ;
-INFO  22:43:56,503 - #12 print
-INFO  22:43:56,503 - #44 (
-INFO  22:43:56,503 - #51 5
-INFO  22:43:56,503 - #45 )
-INFO  22:43:56,503 - #39 ;
-INFO  22:43:56,503 - #49 }
-INFO  22:43:56,503 - #15 void
-INFO  22:43:56,503 - #50 returnStatementTest1
-INFO  22:43:56,503 - #44 (
-INFO  22:43:56,503 - #45 )
-INFO  22:43:56,508 - #48 {
-INFO  22:43:56,508 - #14 return
-INFO  22:43:56,508 - #51 5
-INFO  22:43:56,508 - #39 ;
-INFO  22:43:56,508 - #14 return
-INFO  22:43:56,508 - #39 ;
-INFO  22:43:56,508 - #49 }
-INFO  22:43:56,508 - #50 int
-INFO  22:43:56,508 - #50 returnStatementTest2
-INFO  22:43:56,508 - #44 (
-INFO  22:43:56,508 - #45 )
-INFO  22:43:56,508 - #48 {
-INFO  22:43:56,508 - #14 return
-INFO  22:43:56,508 - #39 ;
-INFO  22:43:56,508 - #14 return
-INFO  22:43:56,508 - #51 5
-INFO  22:43:56,508 - #39 ;
-INFO  22:43:56,508 - #49 }
-INFO  22:43:56,508 - #50 Base
-INFO  22:43:56,508 - #50 returnStatementTest3
-INFO  22:43:56,508 - #44 (
-INFO  22:43:56,508 - #45 )
-INFO  22:43:56,508 - #50 Derived
-INFO  22:43:56,508 - #50 d
-INFO  22:43:56,508 - #39 ;
-INFO  22:43:56,508 - #48 {
-INFO  22:43:56,508 - #14 return
-INFO  22:43:56,508 - #39 ;
-INFO  22:43:56,508 - #14 return
-INFO  22:43:56,508 - #51 5
-INFO  22:43:56,508 - #39 ;
-INFO  22:43:56,508 - #14 return
-INFO  22:43:56,508 - #50 d
-INFO  22:43:56,508 - #39 ;
-INFO  22:43:56,517 - #49 }
-INFO  22:43:56,517 - #15 void
-INFO  22:43:56,517 - #50 conditionTest
-INFO  22:43:56,517 - #44 (
-INFO  22:43:56,517 - #45 )
-INFO  22:43:56,517 - #50 Base
-INFO  22:43:56,517 - #50 b
-INFO  22:43:56,517 - #39 ;
-INFO  22:43:56,517 - #50 Derived
-INFO  22:43:56,517 - #50 d
-INFO  22:43:56,517 - #39 ;
-INFO  22:43:56,517 - #50 int
-INFO  22:43:56,517 - #50 arr1
-INFO  22:43:56,517 - #46 [
-INFO  22:43:56,517 - #47 ]
-INFO  22:43:56,517 - #41 ,
-INFO  22:43:56,517 - #50 arr2
-INFO  22:43:56,517 - #46 [
-INFO  22:43:56,517 - #47 ]
-INFO  22:43:56,517 - #39 ;
-INFO  22:43:56,517 - #50 char
-INFO  22:43:56,517 - #50 arr3
-INFO  22:43:56,517 - #46 [
-INFO  22:43:56,517 - #47 ]
-INFO  22:43:56,517 - #39 ;
-INFO  22:43:56,517 - #50 Base
-INFO  22:43:56,517 - #50 barr1
-INFO  22:43:56,517 - #46 [
-INFO  22:43:56,517 - #47 ]
-INFO  22:43:56,517 - #41 ,
-INFO  22:43:56,523 - #50 barr2
-INFO  22:43:56,523 - #46 [
-INFO  22:43:56,523 - #47 ]
-INFO  22:43:56,523 - #39 ;
-INFO  22:43:56,523 - #50 Derived
-INFO  22:43:56,523 - #50 darr1
-INFO  22:43:56,523 - #46 [
-INFO  22:43:56,523 - #47 ]
-INFO  22:43:56,523 - #39 ;
-INFO  22:43:56,523 - #48 {
-INFO  22:43:56,523 - #8 if
-INFO  22:43:56,523 - #44 (
-INFO  22:43:56,523 - #50 barr1
-INFO  22:43:56,523 - #30 ==
-INFO  22:43:56,523 - #50 barr2
-INFO  22:43:56,528 - #45 )
-INFO  22:43:56,528 - #48 {
-INFO  22:43:56,528 - #49 }
-INFO  22:43:56,528 - #6 else
-INFO  22:43:56,528 - #8 if
-INFO  22:43:56,528 - #44 (
-INFO  22:43:56,528 - #50 barr1
-INFO  22:43:56,528 - #30 ==
-INFO  22:43:56,528 - #50 darr1
-INFO  22:43:56,528 - #45 )
-INFO  22:43:56,528 - #48 {
-INFO  22:43:56,528 - #49 }
-INFO  22:43:56,528 - #8 if
-INFO  22:43:56,528 - #44 (
-INFO  22:43:56,528 - #50 darr1
-INFO  22:43:56,528 - #30 ==
-INFO  22:43:56,528 - #50 barr1
-INFO  22:43:56,528 - #45 )
-INFO  22:43:56,528 - #48 {
-INFO  22:43:56,528 - #49 }
-INFO  22:43:56,528 - #8 if
-INFO  22:43:56,528 - #44 (
-INFO  22:43:56,528 - #50 arr1
-INFO  22:43:56,528 - #30 ==
-INFO  22:43:56,528 - #50 arr2
-INFO  22:43:56,528 - #45 )
-INFO  22:43:56,528 - #48 {
-INFO  22:43:56,528 - #49 }
-INFO  22:43:56,528 - #6 else
-INFO  22:43:56,528 - #8 if
-INFO  22:43:56,528 - #44 (
-INFO  22:43:56,528 - #50 arr1
-INFO  22:43:56,528 - #30 ==
-INFO  22:43:56,533 - #50 arr3
-INFO  22:43:56,533 - #45 )
-INFO  22:43:56,533 - #48 {
-INFO  22:43:56,533 - #49 }
-INFO  22:43:56,533 - #6 else
-INFO  22:43:56,533 - #8 if
-INFO  22:43:56,533 - #44 (
-INFO  22:43:56,533 - #50 arr1
-INFO  22:43:56,533 - #33 >
-INFO  22:43:56,533 - #50 arr2
-INFO  22:43:56,533 - #45 )
-INFO  22:43:56,533 - #48 {
-INFO  22:43:56,533 - #49 }
-INFO  22:43:56,533 - #8 if
-INFO  22:43:56,533 - #44 (
-INFO  22:43:56,533 - #51 5
-INFO  22:43:56,533 - #45 )
-INFO  22:43:56,533 - #48 {
-INFO  22:43:56,533 - #49 }
-INFO  22:43:56,533 - #6 else
-INFO  22:43:56,533 - #8 if
-INFO  22:43:56,533 - #44 (
-INFO  22:43:56,533 - #51 5
-INFO  22:43:56,533 - #33 >
-INFO  22:43:56,533 - #51 5
-INFO  22:43:56,533 - #45 )
-INFO  22:43:56,533 - #48 {
-INFO  22:43:56,533 - #49 }
-INFO  22:43:56,533 - #6 else
-INFO  22:43:56,533 - #8 if
-INFO  22:43:56,533 - #44 (
-INFO  22:43:56,533 - #51 5
-INFO  22:43:56,533 - #33 >
-INFO  22:43:56,533 - #53 t
-INFO  22:43:56,533 - #45 )
-INFO  22:43:56,533 - #48 {
-INFO  22:43:56,533 - #49 }
-INFO  22:43:56,533 - #6 else
-INFO  22:43:56,533 - #8 if
-INFO  22:43:56,533 - #44 (
-INFO  22:43:56,533 - #50 b
-INFO  22:43:56,533 - #30 ==
-INFO  22:43:56,538 - #50 d
-INFO  22:43:56,538 - #45 )
-INFO  22:43:56,538 - #48 {
-INFO  22:43:56,538 - #49 }
-INFO  22:43:56,538 - #6 else
-INFO  22:43:56,538 - #8 if
-INFO  22:43:56,538 - #44 (
-INFO  22:43:56,538 - #50 b
-INFO  22:43:56,538 - #33 >
-INFO  22:43:56,538 - #50 d
-INFO  22:43:56,538 - #45 )
-INFO  22:43:56,538 - #48 {
-INFO  22:43:56,538 - #49 }
-INFO  22:43:56,538 - #6 else
-INFO  22:43:56,538 - #8 if
-INFO  22:43:56,538 - #44 (
-INFO  22:43:56,538 - #50 b
-INFO  22:43:56,538 - #30 ==
-INFO  22:43:56,538 - #50 b
-INFO  22:43:56,538 - #45 )
-INFO  22:43:56,538 - #48 {
-INFO  22:43:56,538 - #49 }
-INFO  22:43:56,538 - #49 }
-INFO  22:43:56,538 - #15 void
-INFO  22:43:56,538 - #50 exprTest
-INFO  22:43:56,538 - #44 (
-INFO  22:43:56,538 - #45 )
-INFO  22:43:56,538 - #50 int
-INFO  22:43:56,538 - #50 x
-INFO  22:43:56,538 - #39 ;
-INFO  22:43:56,538 - #50 char
-INFO  22:43:56,538 - #50 c
-INFO  22:43:56,538 - #39 ;
-INFO  22:43:56,538 - #48 {
-INFO  22:43:56,538 - #50 x
-INFO  22:43:56,538 - #38 =
-INFO  22:43:56,538 - #25 -
-INFO  22:43:56,538 - #50 x
-INFO  22:43:56,538 - #39 ;
-INFO  22:43:56,538 - #50 c
-INFO  22:43:56,538 - #38 =
-INFO  22:43:56,538 - #25 -
-INFO  22:43:56,538 - #50 c
-INFO  22:43:56,538 - #39 ;
-INFO  22:43:56,538 - #50 x
-INFO  22:43:56,538 - #38 =
-INFO  22:43:56,538 - #50 x
-INFO  22:43:56,538 - #24 +
-INFO  22:43:56,538 - #50 x
-INFO  22:43:56,543 - #39 ;
-INFO  22:43:56,543 - #50 x
-INFO  22:43:56,543 - #38 =
-INFO  22:43:56,543 - #50 c
-INFO  22:43:56,543 - #24 +
-INFO  22:43:56,543 - #50 c
-INFO  22:43:56,543 - #24 +
-INFO  22:43:56,543 - #50 c
-INFO  22:43:56,543 - #39 ;
-INFO  22:43:56,543 - #50 x
-INFO  22:43:56,543 - #38 =
-INFO  22:43:56,543 - #50 x
-INFO  22:43:56,543 - #26 *
-INFO  22:43:56,543 - #50 c
-INFO  22:43:56,548 - #39 ;
-INFO  22:43:56,548 - #50 x
-INFO  22:43:56,548 - #38 =
-INFO  22:43:56,548 - #50 c
-INFO  22:43:56,548 - #26 *
-INFO  22:43:56,548 - #50 c
-INFO  22:43:56,548 - #39 ;
-INFO  22:43:56,548 - #49 }
-INFO  22:43:56,548 - #15 void
-INFO  22:43:56,548 - #50 newInstanceTest
-INFO  22:43:56,548 - #44 (
-INFO  22:43:56,548 - #45 )
-INFO  22:43:56,548 - #50 Base
-INFO  22:43:56,548 - #50 b
-INFO  22:43:56,548 - #41 ,
-INFO  22:43:56,548 - #50 barr
-INFO  22:43:56,548 - #46 [
-INFO  22:43:56,548 - #47 ]
-INFO  22:43:56,548 - #39 ;
-INFO  22:43:56,548 - #48 {
-INFO  22:43:56,548 - #50 b
-INFO  22:43:56,548 - #38 =
-INFO  22:43:56,548 - #11 new
-INFO  22:43:56,548 - #50 Derived
-INFO  22:43:56,548 - #39 ;
-INFO  22:43:56,553 - #50 barr
-INFO  22:43:56,553 - #38 =
-INFO  22:43:56,553 - #11 new
-INFO  22:43:56,553 - #50 Derived
-INFO  22:43:56,553 - #46 [
-INFO  22:43:56,553 - #51 5
-INFO  22:43:56,553 - #47 ]
-INFO  22:43:56,553 - #39 ;
-INFO  22:43:56,553 - #50 barr
-INFO  22:43:56,553 - #38 =
-INFO  22:43:56,553 - #11 new
-INFO  22:43:56,553 - #50 Derived
-INFO  22:43:56,553 - #46 [
-INFO  22:43:56,553 - #53 x
-INFO  22:43:56,553 - #47 ]
-INFO  22:43:56,553 - #39 ;
-INFO  22:43:56,553 - #49 }
-INFO  22:43:56,553 - #49 }
-INFO  22:43:56,690 -  Formal parameter declared (x). line 28
-INFO  22:43:56,690 -  Formal parameter declared (b). line 28
-INFO  22:43:56,690 - Local variable declared (b). line 32
-INFO  22:43:56,690 - Local variable declared (d). line 32
-INFO  22:43:56,693 - Global function call - f2() line 35
-INFO  22:43:56,693 - Global function call - f() line 36
-INFO  22:43:56,693 - Member reference: b DOT m1 line 37
-ERROR 22:43:56,693 - Invalid method call - Method f() called with invalid number of arguments. line 38
-ERROR 22:43:56,693 - Invalid method call - Method f2() called with invalid number of arguments. line 39
-ERROR 22:43:56,693 - Invalid method call - Method f2() called with invalid arguments. line 40
-INFO  22:43:56,693 - Global function call - f2() line 41
-INFO  22:43:56,693 - Local variable declared (base). line 44
-INFO  22:43:56,693 - Local variable declared (derived). line 44
-ERROR 22:43:56,693 - Incompatible assignment operation types. line 46
-ERROR 22:43:56,698 - Break statement must be inside do-while loop.
-ERROR 22:43:56,698 - Continue statement must be inside do-while loop.
-INFO  22:43:56,698 - Local variable declared (b). line 57
-INFO  22:43:56,698 - Local variable declared (i). line 57
-INFO  22:43:56,698 - Local variable declared (c). line 57
-INFO  22:43:56,698 - Local variable declared (bo). line 57
-ERROR 22:43:56,698 - Invalid read statement - Identifier (b) must be either int, char or bool type. line 58
-ERROR 22:43:56,698 - Invalid print statement - expression inside the statement must be either int, char or bool type. line 62
-ERROR 22:43:56,698 - Invalid return statement - returned type does not match method/function type. line 70
-ERROR 22:43:56,698 - Invalid return statement - return statement must return a value. line 8
-INFO  22:43:56,698 - Local variable declared (d). line 80
-ERROR 22:43:56,698 - Invalid return statement - return statement must return a value. line 8
-ERROR 22:43:56,698 - Invalid return statement - returned type does not match method/function type. line 82
-INFO  22:43:56,698 - Local variable declared (b). line 86
-INFO  22:43:56,698 - Local variable declared (d). line 86
-INFO  22:43:56,698 - Local variable declared (arr1). line 86
-INFO  22:43:56,698 - Local variable declared (arr2). line 86
-INFO  22:43:56,698 - Local variable declared (arr3). line 86
-INFO  22:43:56,698 - Local variable declared (barr1). line 86
-INFO  22:43:56,698 - Local variable declared (barr2). line 86
-INFO  22:43:56,698 - Local variable declared (darr1). line 86
-ERROR 22:43:56,698 - Invalid condition statement - expressions must be compatible. line 99
-ERROR 22:43:56,698 - Invalid condition statement - class objects and arrays can be compared only using '==' or '!=' operators. line 102
-ERROR 22:43:56,698 - Invalid condition statement - expression must be bool type. line 105
-ERROR 22:43:56,698 - Invalid condition statement - expressions must be compatible. line 113
-ERROR 22:43:56,698 - Invalid condition statement - class objects and arrays can be compared only using '==' or '!=' operators. line 120
-INFO  22:43:56,698 - Local variable declared (x). line 127
-INFO  22:43:56,698 - Local variable declared (c). line 127
-ERROR 22:43:56,698 - Invalid expression - negated term must have int type. line 130
-ERROR 22:43:56,698 - Incompatible assignment operation types. line 130
-ERROR 22:43:56,698 - Invalid expression - term in add operation must have int type. line 12
-ERROR 22:43:56,698 - Invalid expression - term in add operation must have int type. line 12
-ERROR 22:43:56,698 - Invalid expression - terms in add operation must have int type. line 12
-ERROR 22:43:56,698 - Incompatible assignment operation types. line 133
-ERROR 22:43:56,703 - Invalid expression - factor in mul operation must have int type. line 12
-ERROR 22:43:56,703 - Invalid expression - factor in mul operation must have int type. line 12
-ERROR 22:43:56,703 - Invalid expression - factor in mul operation must have int type. line 12
-ERROR 22:43:56,703 - Incompatible assignment operation types. line 137
-INFO  22:43:56,703 - Local variable declared (b). line 140
-INFO  22:43:56,703 - Local variable declared (barr). line 140
-ERROR 22:43:56,703 - Expression inside brackets must have int type. line 144
+INFO  00:27:42,783 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program2.mj
+INFO  00:27:42,958 - #2 program
+INFO  00:27:42,958 - #50 p
+INFO  00:27:42,958 - #50 int
+INFO  00:27:42,958 - #50 x
+INFO  00:27:42,958 - #39 ;
+INFO  00:27:42,968 - #50 int
+INFO  00:27:42,968 - #50 global
+INFO  00:27:42,968 - #39 ;
+INFO  00:27:42,968 - #20 record
+INFO  00:27:42,968 - #50 R
+INFO  00:27:42,968 - #48 {
+INFO  00:27:42,968 - #50 int
+INFO  00:27:42,968 - #50 x
+INFO  00:27:42,968 - #39 ;
+INFO  00:27:42,973 - #49 }
+INFO  00:27:42,973 - #4 class
+INFO  00:27:42,973 - #50 Base
+INFO  00:27:42,973 - #48 {
+INFO  00:27:42,978 - #50 int
+INFO  00:27:42,978 - #50 x
+INFO  00:27:42,978 - #46 [
+INFO  00:27:42,978 - #47 ]
+INFO  00:27:42,978 - #39 ;
+INFO  00:27:42,978 - #50 int
+INFO  00:27:42,978 - #50 field
+INFO  00:27:42,978 - #39 ;
+INFO  00:27:42,978 - #48 {
+INFO  00:27:42,978 - #15 void
+INFO  00:27:42,978 - #50 m1
+INFO  00:27:42,978 - #44 (
+INFO  00:27:42,978 - #50 int
+INFO  00:27:42,978 - #50 formal
+INFO  00:27:42,978 - #45 )
+INFO  00:27:42,978 - #50 int
+INFO  00:27:42,978 - #50 var
+INFO  00:27:42,978 - #39 ;
+INFO  00:27:42,978 - #48 {
+INFO  00:27:42,978 - #50 formal
+INFO  00:27:42,988 - #22 ++
+INFO  00:27:42,988 - #39 ;
+INFO  00:27:42,988 - #50 var
+INFO  00:27:42,993 - #22 ++
+INFO  00:27:42,993 - #39 ;
+INFO  00:27:42,993 - #50 field
+INFO  00:27:42,993 - #22 ++
+INFO  00:27:42,993 - #39 ;
+INFO  00:27:42,993 - #50 global
+INFO  00:27:42,993 - #22 ++
+INFO  00:27:42,993 - #39 ;
+INFO  00:27:42,993 - #49 }
+INFO  00:27:42,993 - #49 }
+INFO  00:27:42,998 - #49 }
+INFO  00:27:42,998 - #4 class
+INFO  00:27:42,998 - #50 Derived
+INFO  00:27:42,998 - #16 extends
+INFO  00:27:42,998 - #50 Base
+INFO  00:27:42,998 - #48 {
+INFO  00:27:42,998 - #48 {
+INFO  00:27:42,998 - #15 void
+INFO  00:27:42,998 - #50 m1
+INFO  00:27:42,998 - #44 (
+INFO  00:27:42,998 - #45 )
+INFO  00:27:42,998 - #48 {
+INFO  00:27:42,998 - #49 }
+INFO  00:27:42,998 - #49 }
+INFO  00:27:42,998 - #49 }
+INFO  00:27:42,998 - #48 {
+INFO  00:27:42,998 - #15 void
+INFO  00:27:42,998 - #50 f
+INFO  00:27:42,998 - #44 (
+INFO  00:27:42,998 - #45 )
+INFO  00:27:42,998 - #48 {
+INFO  00:27:42,998 - #49 }
+INFO  00:27:42,998 - #15 void
+INFO  00:27:42,998 - #50 main
+INFO  00:27:42,998 - #44 (
+INFO  00:27:42,998 - #45 )
+INFO  00:27:42,998 - #48 {
+INFO  00:27:42,998 - #49 }
+INFO  00:27:42,998 - #15 void
+INFO  00:27:42,998 - #50 f2
+INFO  00:27:42,998 - #44 (
+INFO  00:27:42,998 - #50 int
+INFO  00:27:42,998 - #50 x
+INFO  00:27:42,998 - #41 ,
+INFO  00:27:42,998 - #50 Base
+INFO  00:27:42,998 - #50 b
+INFO  00:27:42,998 - #45 )
+INFO  00:27:42,998 - #48 {
+INFO  00:27:42,998 - #49 }
+INFO  00:27:42,998 - #15 void
+INFO  00:27:42,998 - #50 formParamCallTest
+INFO  00:27:42,998 - #44 (
+INFO  00:27:42,998 - #45 )
+INFO  00:27:42,998 - #50 Base
+INFO  00:27:42,998 - #50 b
+INFO  00:27:42,998 - #39 ;
+INFO  00:27:42,998 - #50 Derived
+INFO  00:27:42,998 - #50 d
+INFO  00:27:42,998 - #39 ;
+INFO  00:27:42,998 - #48 {
+INFO  00:27:42,998 - #50 b
+INFO  00:27:42,998 - #38 =
+INFO  00:27:42,998 - #50 d
+INFO  00:27:43,008 - #39 ;
+INFO  00:27:43,014 - #50 b
+INFO  00:27:43,014 - #38 =
+INFO  00:27:43,018 - #50 b
+INFO  00:27:43,018 - #39 ;
+INFO  00:27:43,018 - #49 }
+INFO  00:27:43,018 - #15 void
+INFO  00:27:43,018 - #50 assignTest
+INFO  00:27:43,018 - #44 (
+INFO  00:27:43,018 - #45 )
+INFO  00:27:43,018 - #50 Base
+INFO  00:27:43,018 - #50 base
+INFO  00:27:43,018 - #39 ;
+INFO  00:27:43,018 - #50 Derived
+INFO  00:27:43,018 - #50 derived
+INFO  00:27:43,018 - #39 ;
+INFO  00:27:43,018 - #48 {
+INFO  00:27:43,018 - #50 base
+INFO  00:27:43,018 - #38 =
+INFO  00:27:43,018 - #50 derived
+INFO  00:27:43,018 - #39 ;
+INFO  00:27:43,018 - #50 derived
+INFO  00:27:43,018 - #38 =
+INFO  00:27:43,018 - #50 base
+INFO  00:27:43,018 - #39 ;
+INFO  00:27:43,018 - #49 }
+INFO  00:27:43,018 - #15 void
+INFO  00:27:43,018 - #50 breakContinueTEst
+INFO  00:27:43,018 - #44 (
+INFO  00:27:43,018 - #45 )
+INFO  00:27:43,018 - #48 {
+INFO  00:27:43,018 - #9 do
+INFO  00:27:43,018 - #48 {
+INFO  00:27:43,018 - #3 break
+INFO  00:27:43,018 - #39 ;
+INFO  00:27:43,018 - #17 continue
+INFO  00:27:43,018 - #39 ;
+INFO  00:27:43,018 - #49 }
+INFO  00:27:43,028 - #10 while
+INFO  00:27:43,028 - #44 (
+INFO  00:27:43,028 - #52 true
+INFO  00:27:43,028 - #45 )
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #3 break
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #17 continue
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #49 }
+INFO  00:27:43,038 - #15 void
+INFO  00:27:43,038 - #50 printReadTest
+INFO  00:27:43,038 - #44 (
+INFO  00:27:43,038 - #45 )
+INFO  00:27:43,038 - #50 Base
+INFO  00:27:43,038 - #50 b
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #50 int
+INFO  00:27:43,038 - #50 i
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #50 char
+INFO  00:27:43,038 - #50 c
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #50 bool
+INFO  00:27:43,038 - #50 bo
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #48 {
+INFO  00:27:43,038 - #13 read
+INFO  00:27:43,038 - #44 (
+INFO  00:27:43,038 - #50 b
+INFO  00:27:43,038 - #45 )
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #13 read
+INFO  00:27:43,038 - #44 (
+INFO  00:27:43,038 - #50 i
+INFO  00:27:43,038 - #45 )
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #13 read
+INFO  00:27:43,038 - #44 (
+INFO  00:27:43,038 - #50 c
+INFO  00:27:43,038 - #45 )
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #13 read
+INFO  00:27:43,038 - #44 (
+INFO  00:27:43,038 - #50 bo
+INFO  00:27:43,038 - #45 )
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #12 print
+INFO  00:27:43,038 - #44 (
+INFO  00:27:43,038 - #50 b
+INFO  00:27:43,038 - #45 )
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #12 print
+INFO  00:27:43,038 - #44 (
+INFO  00:27:43,038 - #50 i
+INFO  00:27:43,038 - #45 )
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #12 print
+INFO  00:27:43,038 - #44 (
+INFO  00:27:43,038 - #50 c
+INFO  00:27:43,038 - #45 )
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #12 print
+INFO  00:27:43,038 - #44 (
+INFO  00:27:43,038 - #50 bo
+INFO  00:27:43,038 - #45 )
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #12 print
+INFO  00:27:43,038 - #44 (
+INFO  00:27:43,038 - #51 5
+INFO  00:27:43,038 - #45 )
+INFO  00:27:43,038 - #39 ;
+INFO  00:27:43,038 - #49 }
+INFO  00:27:43,038 - #15 void
+INFO  00:27:43,038 - #50 returnStatementTest1
+INFO  00:27:43,038 - #44 (
+INFO  00:27:43,038 - #45 )
+INFO  00:27:43,038 - #48 {
+INFO  00:27:43,038 - #14 return
+INFO  00:27:43,038 - #51 5
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #14 return
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #49 }
+INFO  00:27:43,048 - #50 int
+INFO  00:27:43,048 - #50 returnStatementTest2
+INFO  00:27:43,048 - #44 (
+INFO  00:27:43,048 - #45 )
+INFO  00:27:43,048 - #48 {
+INFO  00:27:43,048 - #14 return
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #14 return
+INFO  00:27:43,048 - #51 5
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #49 }
+INFO  00:27:43,048 - #50 Base
+INFO  00:27:43,048 - #50 returnStatementTest3
+INFO  00:27:43,048 - #44 (
+INFO  00:27:43,048 - #45 )
+INFO  00:27:43,048 - #50 Derived
+INFO  00:27:43,048 - #50 d
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #48 {
+INFO  00:27:43,048 - #14 return
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #14 return
+INFO  00:27:43,048 - #51 5
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #14 return
+INFO  00:27:43,048 - #50 d
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #49 }
+INFO  00:27:43,048 - #15 void
+INFO  00:27:43,048 - #50 conditionTest
+INFO  00:27:43,048 - #44 (
+INFO  00:27:43,048 - #45 )
+INFO  00:27:43,048 - #50 Base
+INFO  00:27:43,048 - #50 b
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #50 Derived
+INFO  00:27:43,048 - #50 d
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #50 int
+INFO  00:27:43,048 - #50 arr1
+INFO  00:27:43,048 - #46 [
+INFO  00:27:43,048 - #47 ]
+INFO  00:27:43,048 - #41 ,
+INFO  00:27:43,048 - #50 arr2
+INFO  00:27:43,048 - #46 [
+INFO  00:27:43,048 - #47 ]
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #50 char
+INFO  00:27:43,048 - #50 arr3
+INFO  00:27:43,048 - #46 [
+INFO  00:27:43,048 - #47 ]
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #50 Base
+INFO  00:27:43,048 - #50 barr1
+INFO  00:27:43,048 - #46 [
+INFO  00:27:43,048 - #47 ]
+INFO  00:27:43,048 - #41 ,
+INFO  00:27:43,048 - #50 barr2
+INFO  00:27:43,048 - #46 [
+INFO  00:27:43,048 - #47 ]
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #50 Derived
+INFO  00:27:43,048 - #50 darr1
+INFO  00:27:43,048 - #46 [
+INFO  00:27:43,048 - #47 ]
+INFO  00:27:43,048 - #39 ;
+INFO  00:27:43,048 - #48 {
+INFO  00:27:43,048 - #8 if
+INFO  00:27:43,048 - #44 (
+INFO  00:27:43,048 - #50 barr1
+INFO  00:27:43,048 - #30 ==
+INFO  00:27:43,048 - #50 barr2
+INFO  00:27:43,058 - #45 )
+INFO  00:27:43,058 - #48 {
+INFO  00:27:43,058 - #49 }
+INFO  00:27:43,058 - #6 else
+INFO  00:27:43,058 - #8 if
+INFO  00:27:43,058 - #44 (
+INFO  00:27:43,058 - #50 barr1
+INFO  00:27:43,058 - #30 ==
+INFO  00:27:43,058 - #50 darr1
+INFO  00:27:43,058 - #45 )
+INFO  00:27:43,058 - #48 {
+INFO  00:27:43,058 - #49 }
+INFO  00:27:43,058 - #8 if
+INFO  00:27:43,058 - #44 (
+INFO  00:27:43,058 - #50 darr1
+INFO  00:27:43,058 - #30 ==
+INFO  00:27:43,058 - #50 barr1
+INFO  00:27:43,058 - #45 )
+INFO  00:27:43,058 - #48 {
+INFO  00:27:43,058 - #49 }
+INFO  00:27:43,058 - #8 if
+INFO  00:27:43,058 - #44 (
+INFO  00:27:43,058 - #50 arr1
+INFO  00:27:43,058 - #30 ==
+INFO  00:27:43,058 - #50 arr2
+INFO  00:27:43,058 - #45 )
+INFO  00:27:43,058 - #48 {
+INFO  00:27:43,058 - #49 }
+INFO  00:27:43,058 - #6 else
+INFO  00:27:43,058 - #8 if
+INFO  00:27:43,058 - #44 (
+INFO  00:27:43,058 - #50 arr1
+INFO  00:27:43,058 - #30 ==
+INFO  00:27:43,058 - #50 arr3
+INFO  00:27:43,058 - #45 )
+INFO  00:27:43,058 - #48 {
+INFO  00:27:43,058 - #49 }
+INFO  00:27:43,058 - #6 else
+INFO  00:27:43,058 - #8 if
+INFO  00:27:43,058 - #44 (
+INFO  00:27:43,058 - #50 arr1
+INFO  00:27:43,058 - #33 >
+INFO  00:27:43,058 - #50 arr2
+INFO  00:27:43,058 - #45 )
+INFO  00:27:43,058 - #48 {
+INFO  00:27:43,058 - #49 }
+INFO  00:27:43,058 - #8 if
+INFO  00:27:43,058 - #44 (
+INFO  00:27:43,058 - #51 5
+INFO  00:27:43,058 - #45 )
+INFO  00:27:43,058 - #48 {
+INFO  00:27:43,058 - #49 }
+INFO  00:27:43,058 - #6 else
+INFO  00:27:43,058 - #8 if
+INFO  00:27:43,058 - #44 (
+INFO  00:27:43,058 - #51 5
+INFO  00:27:43,058 - #33 >
+INFO  00:27:43,058 - #51 5
+INFO  00:27:43,058 - #45 )
+INFO  00:27:43,058 - #48 {
+INFO  00:27:43,058 - #49 }
+INFO  00:27:43,058 - #6 else
+INFO  00:27:43,058 - #8 if
+INFO  00:27:43,058 - #44 (
+INFO  00:27:43,058 - #51 5
+INFO  00:27:43,058 - #33 >
+INFO  00:27:43,058 - #53 t
+INFO  00:27:43,058 - #45 )
+INFO  00:27:43,058 - #48 {
+INFO  00:27:43,058 - #49 }
+INFO  00:27:43,058 - #6 else
+INFO  00:27:43,058 - #8 if
+INFO  00:27:43,058 - #44 (
+INFO  00:27:43,068 - #50 b
+INFO  00:27:43,068 - #30 ==
+INFO  00:27:43,068 - #50 d
+INFO  00:27:43,068 - #45 )
+INFO  00:27:43,068 - #48 {
+INFO  00:27:43,068 - #49 }
+INFO  00:27:43,068 - #6 else
+INFO  00:27:43,068 - #8 if
+INFO  00:27:43,068 - #44 (
+INFO  00:27:43,068 - #50 b
+INFO  00:27:43,068 - #33 >
+INFO  00:27:43,068 - #50 d
+INFO  00:27:43,068 - #45 )
+INFO  00:27:43,068 - #48 {
+INFO  00:27:43,068 - #49 }
+INFO  00:27:43,068 - #6 else
+INFO  00:27:43,068 - #8 if
+INFO  00:27:43,068 - #44 (
+INFO  00:27:43,068 - #50 b
+INFO  00:27:43,068 - #30 ==
+INFO  00:27:43,068 - #50 b
+INFO  00:27:43,068 - #45 )
+INFO  00:27:43,068 - #48 {
+INFO  00:27:43,068 - #49 }
+INFO  00:27:43,068 - #49 }
+INFO  00:27:43,068 - #15 void
+INFO  00:27:43,068 - #50 exprTest
+INFO  00:27:43,068 - #44 (
+INFO  00:27:43,068 - #45 )
+INFO  00:27:43,068 - #50 int
+INFO  00:27:43,068 - #50 x
+INFO  00:27:43,068 - #39 ;
+INFO  00:27:43,068 - #50 char
+INFO  00:27:43,068 - #50 c
+INFO  00:27:43,068 - #39 ;
+INFO  00:27:43,068 - #48 {
+INFO  00:27:43,068 - #50 x
+INFO  00:27:43,068 - #38 =
+INFO  00:27:43,068 - #25 -
+INFO  00:27:43,068 - #50 x
+INFO  00:27:43,068 - #39 ;
+INFO  00:27:43,068 - #50 c
+INFO  00:27:43,068 - #38 =
+INFO  00:27:43,068 - #25 -
+INFO  00:27:43,068 - #50 c
+INFO  00:27:43,068 - #39 ;
+INFO  00:27:43,068 - #50 x
+INFO  00:27:43,068 - #38 =
+INFO  00:27:43,068 - #50 x
+INFO  00:27:43,068 - #24 +
+INFO  00:27:43,068 - #50 x
+INFO  00:27:43,073 - #39 ;
+INFO  00:27:43,073 - #50 x
+INFO  00:27:43,073 - #38 =
+INFO  00:27:43,073 - #50 c
+INFO  00:27:43,073 - #24 +
+INFO  00:27:43,073 - #50 c
+INFO  00:27:43,073 - #24 +
+INFO  00:27:43,073 - #50 c
+INFO  00:27:43,073 - #39 ;
+INFO  00:27:43,073 - #50 x
+INFO  00:27:43,073 - #38 =
+INFO  00:27:43,073 - #50 x
+INFO  00:27:43,073 - #26 *
+INFO  00:27:43,073 - #50 c
+INFO  00:27:43,073 - #39 ;
+INFO  00:27:43,078 - #50 x
+INFO  00:27:43,078 - #38 =
+INFO  00:27:43,078 - #50 c
+INFO  00:27:43,078 - #26 *
+INFO  00:27:43,078 - #50 c
+INFO  00:27:43,078 - #39 ;
+INFO  00:27:43,078 - #49 }
+INFO  00:27:43,078 - #15 void
+INFO  00:27:43,078 - #50 newInstanceTest
+INFO  00:27:43,078 - #44 (
+INFO  00:27:43,078 - #45 )
+INFO  00:27:43,078 - #50 Base
+INFO  00:27:43,078 - #50 b
+INFO  00:27:43,078 - #41 ,
+INFO  00:27:43,078 - #50 barr
+INFO  00:27:43,078 - #46 [
+INFO  00:27:43,078 - #47 ]
+INFO  00:27:43,078 - #39 ;
+INFO  00:27:43,078 - #48 {
+INFO  00:27:43,078 - #50 b
+INFO  00:27:43,078 - #38 =
+INFO  00:27:43,078 - #11 new
+INFO  00:27:43,078 - #50 Derived
+INFO  00:27:43,078 - #39 ;
+INFO  00:27:43,078 - #50 barr
+INFO  00:27:43,078 - #38 =
+INFO  00:27:43,078 - #11 new
+INFO  00:27:43,078 - #50 Derived
+INFO  00:27:43,078 - #46 [
+INFO  00:27:43,078 - #51 5
+INFO  00:27:43,078 - #47 ]
+INFO  00:27:43,078 - #39 ;
+INFO  00:27:43,083 - #50 barr
+INFO  00:27:43,083 - #38 =
+INFO  00:27:43,083 - #11 new
+INFO  00:27:43,083 - #50 Derived
+INFO  00:27:43,083 - #46 [
+INFO  00:27:43,083 - #53 x
+INFO  00:27:43,083 - #47 ]
+INFO  00:27:43,083 - #39 ;
+INFO  00:27:43,083 - #50 barr
+INFO  00:27:43,083 - #38 =
+INFO  00:27:43,083 - #11 new
+INFO  00:27:43,083 - #50 Derived
+INFO  00:27:43,083 - #46 [
+INFO  00:27:43,083 - #50 exprTest
+INFO  00:27:43,083 - #44 (
+INFO  00:27:43,083 - #45 )
+INFO  00:27:43,083 - #47 ]
+INFO  00:27:43,083 - #39 ;
+INFO  00:27:43,083 - #49 }
+INFO  00:27:43,083 - #15 void
+INFO  00:27:43,083 - #50 a1Test
+INFO  00:27:43,083 - #44 (
+INFO  00:27:43,083 - #45 )
+INFO  00:27:43,083 - #50 Base
+INFO  00:27:43,083 - #50 arr
+INFO  00:27:43,083 - #46 [
+INFO  00:27:43,083 - #47 ]
+INFO  00:27:43,083 - #39 ;
+INFO  00:27:43,083 - #48 {
+INFO  00:27:43,083 - #50 arr
+INFO  00:27:43,083 - #38 =
+INFO  00:27:43,083 - #11 new
+INFO  00:27:43,083 - #50 Base
+INFO  00:27:43,083 - #46 [
+INFO  00:27:43,083 - #51 5
+INFO  00:27:43,083 - #47 ]
+INFO  00:27:43,083 - #39 ;
+INFO  00:27:43,083 - #50 arr
+INFO  00:27:43,083 - #46 [
+INFO  00:27:43,083 - #51 2
+INFO  00:27:43,083 - #47 ]
+INFO  00:27:43,083 - #43 .
+INFO  00:27:43,088 - #50 x
+INFO  00:27:43,088 - #46 [
+INFO  00:27:43,088 - #51 5
+INFO  00:27:43,088 - #47 ]
+INFO  00:27:43,088 - #22 ++
+INFO  00:27:43,088 - #39 ;
+INFO  00:27:43,088 - #49 }
+INFO  00:27:43,088 - #15 void
+INFO  00:27:43,088 - #50 a2Test
+INFO  00:27:43,088 - #44 (
+INFO  00:27:43,088 - #45 )
+INFO  00:27:43,088 - #50 int
+INFO  00:27:43,088 - #50 y
+INFO  00:27:43,088 - #39 ;
+INFO  00:27:43,088 - #50 R
+INFO  00:27:43,088 - #50 r
+INFO  00:27:43,088 - #39 ;
+INFO  00:27:43,088 - #48 {
+INFO  00:27:43,088 - #12 print
+INFO  00:27:43,088 - #44 (
+INFO  00:27:43,088 - #50 x
+INFO  00:27:43,088 - #45 )
+INFO  00:27:43,088 - #39 ;
+INFO  00:27:43,088 - #12 print
+INFO  00:27:43,088 - #44 (
+INFO  00:27:43,088 - #50 y
+INFO  00:27:43,088 - #45 )
+INFO  00:27:43,093 - #39 ;
+INFO  00:27:43,093 - #50 a1Test
+INFO  00:27:43,093 - #44 (
+INFO  00:27:43,093 - #45 )
+INFO  00:27:43,093 - #39 ;
+INFO  00:27:43,093 - #50 r
+INFO  00:27:43,093 - #43 .
+INFO  00:27:43,093 - #50 x
+INFO  00:27:43,093 - #22 ++
+INFO  00:27:43,093 - #39 ;
+INFO  00:27:43,093 - #49 }
+INFO  00:27:43,093 - #49 }
+INFO  00:27:43,118 - Global variable declared (x). line 4
+INFO  00:27:43,118 - Global variable declared (global). line 6
+INFO  00:27:43,118 - Record declared (R) line 8
+INFO  00:27:43,118 - Local variable declared (x). line 9
+INFO  00:27:43,118 - Local variable declared (x). line 13
+INFO  00:27:43,118 - Local variable declared (field). line 14
+INFO  00:27:43,118 -  Formal parameter declared (formal). line 16
+INFO  00:27:43,118 - Local variable declared (var). line 16
+INFO  00:27:45,422 - Formal parameter detected (formal) line 17
+INFO  00:27:45,422 - Local variable detected (var) line 18
+INFO  00:27:45,422 - Class member detected (field) line 19
+INFO  00:27:45,422 - Global variable detected (global) line 20
+ERROR 00:27:45,508 - Method m1 does not have the same signature as its super method | line 26
+INFO  00:27:45,508 -  Formal parameter declared (x). line 41
+INFO  00:27:45,508 -  Formal parameter declared (b). line 41
+INFO  00:27:45,508 - Local variable declared (b). line 45
+INFO  00:27:45,508 - Local variable declared (d). line 45
+INFO  00:27:45,508 - Local variable detected (b) line 46
+INFO  00:27:45,508 - Local variable detected (d) line 46
+INFO  00:27:45,516 - Local variable detected (b) line 47
+INFO  00:27:45,516 - Local variable detected (b) line 47
+INFO  00:27:45,516 - Local variable declared (base). line 57
+INFO  00:27:45,516 - Local variable declared (derived). line 57
+INFO  00:27:45,516 - Local variable detected (base) line 58
+INFO  00:27:45,516 - Local variable detected (derived) line 58
+INFO  00:27:45,516 - Local variable detected (derived) line 59
+INFO  00:27:45,516 - Local variable detected (base) line 59
+ERROR 00:27:45,516 - Incompatible assignment operation types. line 59
+ERROR 00:27:45,516 - Break statement must be inside do-while loop.
+ERROR 00:27:45,516 - Continue statement must be inside do-while loop.
+INFO  00:27:45,516 - Local variable declared (b). line 70
+INFO  00:27:45,516 - Local variable declared (i). line 70
+INFO  00:27:45,516 - Local variable declared (c). line 70
+INFO  00:27:45,516 - Local variable declared (bo). line 70
+INFO  00:27:45,516 - Local variable detected (b) line 71
+ERROR 00:27:45,516 - Invalid read statement - Identifier (b) must be either int, char or bool type. line 71
+INFO  00:27:45,516 - Local variable detected (i) line 72
+INFO  00:27:45,516 - Local variable detected (c) line 73
+INFO  00:27:45,516 - Local variable detected (bo) line 74
+INFO  00:27:45,516 - Local variable detected (b) line 75
+ERROR 00:27:45,516 - Invalid print statement - expression inside the statement must be either int, char or bool type. line 75
+INFO  00:27:45,516 - Local variable detected (i) line 76
+INFO  00:27:45,516 - Local variable detected (c) line 77
+INFO  00:27:45,516 - Local variable detected (bo) line 78
+ERROR 00:27:45,516 - Invalid return statement - returned type does not match method/function type. line 83
+ERROR 00:27:45,516 - Invalid return statement - return statement must return a value. line 8
+INFO  00:27:45,516 - Local variable declared (d). line 93
+ERROR 00:27:45,516 - Invalid return statement - return statement must return a value. line 8
+ERROR 00:27:45,516 - Invalid return statement - returned type does not match method/function type. line 95
+INFO  00:27:45,516 - Local variable detected (d) line 96
+INFO  00:27:45,516 - Local variable declared (b). line 99
+INFO  00:27:45,516 - Local variable declared (d). line 99
+INFO  00:27:45,516 - Local variable declared (arr1). line 99
+INFO  00:27:45,516 - Local variable declared (arr2). line 99
+INFO  00:27:45,516 - Local variable declared (arr3). line 99
+INFO  00:27:45,516 - Local variable declared (barr1). line 99
+INFO  00:27:45,516 - Local variable declared (barr2). line 99
+INFO  00:27:45,516 - Local variable declared (darr1). line 99
+INFO  00:27:45,516 - Local variable detected (barr1) line 100
+INFO  00:27:45,516 - Local variable detected (barr2) line 100
+INFO  00:27:45,516 - Local variable detected (barr1) line 103
+INFO  00:27:45,516 - Local variable detected (darr1) line 103
+INFO  00:27:45,516 - Local variable detected (darr1) line 105
+INFO  00:27:45,516 - Local variable detected (barr1) line 105
+INFO  00:27:45,518 - Local variable detected (arr1) line 109
+INFO  00:27:45,518 - Local variable detected (arr2) line 109
+INFO  00:27:45,518 - Local variable detected (arr1) line 112
+INFO  00:27:45,518 - Local variable detected (arr3) line 112
+ERROR 00:27:45,518 - Invalid condition statement - expressions must be compatible. line 112
+INFO  00:27:45,518 - Local variable detected (arr1) line 115
+INFO  00:27:45,518 - Local variable detected (arr2) line 115
+ERROR 00:27:45,518 - Invalid condition statement - class objects and arrays can be compared only using '==' or '!=' operators. line 115
+ERROR 00:27:45,518 - Invalid condition statement - expression must be bool type. line 118
+ERROR 00:27:45,518 - Invalid condition statement - expressions must be compatible. line 126
+INFO  00:27:45,518 - Local variable detected (b) line 130
+INFO  00:27:45,518 - Local variable detected (d) line 130
+INFO  00:27:45,518 - Local variable detected (b) line 133
+INFO  00:27:45,518 - Local variable detected (d) line 133
+ERROR 00:27:45,518 - Invalid condition statement - class objects and arrays can be compared only using '==' or '!=' operators. line 133
+INFO  00:27:45,518 - Local variable detected (b) line 136
+INFO  00:27:45,518 - Local variable detected (b) line 136
+INFO  00:27:45,518 - Local variable declared (x). line 140
+INFO  00:27:45,518 - Local variable declared (c). line 140
+INFO  00:27:45,518 - Local variable detected (x) line 142
+INFO  00:27:45,518 - Local variable detected (x) line 142
+INFO  00:27:45,518 - Local variable detected (c) line 143
+INFO  00:27:45,518 - Local variable detected (c) line 143
+ERROR 00:27:45,518 - Invalid expression - negated term must have int type. line 143
+ERROR 00:27:45,518 - Incompatible assignment operation types. line 143
+INFO  00:27:45,518 - Local variable detected (x) line 145
+INFO  00:27:45,518 - Local variable detected (x) line 145
+INFO  00:27:45,518 - Local variable detected (x) line 145
+INFO  00:27:45,518 - Local variable detected (x) line 146
+INFO  00:27:45,518 - Local variable detected (c) line 146
+INFO  00:27:45,518 - Local variable detected (c) line 146
+ERROR 00:27:45,518 - Invalid expression - term in add operation must have int type. line 12
+INFO  00:27:45,518 - Local variable detected (c) line 146
+ERROR 00:27:45,518 - Invalid expression - term in add operation must have int type. line 12
+ERROR 00:27:45,518 - Invalid expression - terms in add operation must have int type. line 12
+ERROR 00:27:45,518 - Incompatible assignment operation types. line 146
+INFO  00:27:45,518 - Local variable detected (x) line 149
+INFO  00:27:45,518 - Local variable detected (x) line 149
+INFO  00:27:45,518 - Local variable detected (c) line 149
+ERROR 00:27:45,518 - Invalid expression - factor in mul operation must have int type. line 12
+INFO  00:27:45,518 - Local variable detected (x) line 150
+INFO  00:27:45,518 - Local variable detected (c) line 150
+INFO  00:27:45,518 - Local variable detected (c) line 150
+ERROR 00:27:45,518 - Invalid expression - factor in mul operation must have int type. line 12
+ERROR 00:27:45,518 - Invalid expression - factor in mul operation must have int type. line 12
+ERROR 00:27:45,518 - Incompatible assignment operation types. line 150
+INFO  00:27:45,518 - Local variable declared (b). line 153
+INFO  00:27:45,518 - Local variable declared (barr). line 153
+INFO  00:27:45,518 - Local variable detected (b) line 154
+INFO  00:27:55,983 - New instance of class (Derived) detected. line 154
+INFO  00:27:55,983 - Local variable detected (barr) line 155
+INFO  00:27:55,983 - Local variable detected (barr) line 157
+ERROR 00:27:55,983 - Expression inside brackets must have int type. line 157
+INFO  00:27:55,983 - Local variable detected (barr) line 158
+ERROR 00:27:55,983 - Expression inside brackets must have int type. line 158
+INFO  00:27:55,983 - Local variable declared (arr). line 161
+INFO  00:27:55,983 - Local variable detected (arr) line 162
+INFO  00:27:55,983 - Local variable detected (arr) line 163
+INFO  00:27:55,983 - Array reference: arr[]  line 163
+INFO  00:27:55,984 - Member reference detected: arr DOT x line 163
+INFO  00:27:55,985 - Array reference: x[]  line 163
+INFO  00:27:55,985 - Local variable declared (y). line 166
+INFO  00:27:55,985 - Local variable declared (r). line 166
+INFO  00:27:55,985 - Class member detected (x) line 167
+ERROR 00:27:55,985 - Invalid print statement - expression inside the statement must be either int, char or bool type. line 167
+INFO  00:27:55,985 - Local variable detected (y) line 168
+INFO  00:27:58,048 - Global function call detected - a1Test() line 169
+INFO  00:27:58,048 - Local variable detected (r) line 170
+INFO  00:27:58,048 - Record detected (r) line 170
+INFO  00:27:58,048 - Member reference detected: r DOT x line 170

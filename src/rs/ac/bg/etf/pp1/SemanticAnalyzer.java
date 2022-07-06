@@ -55,6 +55,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			msg.append (" line ").append(line);
 		log.info(msg.toString());
 	}
+	private void report_info(String s, SyntaxNode syntaxNode, Obj obj) {
+		report_info(s, syntaxNode);
+		// todo print obj
+	}
 
 
 
@@ -137,8 +141,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Obj obj = Tab.insert(kind, identifier, type);
 
 		this.report_info( (this.getCurrScope().equals(Scope.PROGRAM)?"Global":"Local") + " variable declared (" + identifier + ").", var);
-
-		// todo if is method signature
 	}
 
 	// CONST ---------------------------------------------------------------
@@ -424,7 +426,32 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 		designatorIdent.obj = obj;
+
+		if (obj.getKind() == Obj.Fld) {
+			report_info("Class member detected (" + identifier + ")", designatorIdent, obj);
+			if (isRecord(obj.getType())) {
+				report_info("Record detected (" + identifier + ")", designatorIdent, obj);
+			}
+		}
+		else
+			if (obj.getKind() == Obj.Var) {
+				if (Tab.currentScope().findSymbol(obj.getName()) != null) // local variable
+					if (isFormalParameter(obj))
+						report_info("Formal parameter detected (" + identifier + ")", designatorIdent, obj);
+					else
+						report_info("Local variable detected (" + identifier + ")", designatorIdent, obj);
+				else
+					report_info("Global variable detected (" + identifier + ")", designatorIdent, obj);
+				if (isRecord(obj.getType())) {
+					report_info("Record detected (" + identifier + ")", designatorIdent, obj);
+				}
+			}
+
 	}
+
+
+
+
 	public void visit(DesignatorMemberReference designatorMemberReference) {
 		String identifier = designatorMemberReference.getIdent();
 		Designator designator = designatorMemberReference.getDesignator();
@@ -448,7 +475,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		designatorMemberReference.obj = obj;
 
-		report_info("Member reference: " + designatorObj.getName() + " DOT " + identifier, designatorMemberReference);
+		report_info("Member reference detected: " + designatorObj.getName() + " DOT " + identifier, designatorMemberReference);
 	}
 
 	public void visit(DesignatorArrayReference designatorArrayReference) {
@@ -509,6 +536,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				// get formal parameters
 				List<Struct> formalParametersTypeList = designatorObj.getLocalSymbols()
 						.stream()
+						.limit(designatorObj.getLevel()) // formal parameters only
 						.filter(obj -> !obj.getName().equals(THIS)) // skip this
 						.map(Obj::getType)
 						.collect(Collectors.toList());
@@ -545,7 +573,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 				// report_info global function call
 				if (designatorStatement.getDesignator() instanceof DesignatorIdent && !this.scopeStack.contains(Scope.CLASS)) {
-					report_info("Global function call - " + designatorObj.getName() + "()", designatorStatement);
+					report_info("Global function call detected - " + designatorObj.getName() + "()", designatorStatement);
 				}
 				// else in every other case its method call
 				// todo what if constructor call?
@@ -663,13 +691,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		else { // new A
 			baseExpNewInstance.struct = baseExpNewInstance.getType().struct;
-
 			if (baseExpNewInstance.getType().struct.getKind() != Struct.Class) {
 				report_error("Type " + baseExpNewInstance.getType().getIdent() + " is not a class.", baseExpNewInstance);
 				return;
 			}
+
+			report_info("New instance of class (" + baseExpNewInstance.getType().getIdent() + ") detected.",baseExpNewInstance, Tab.find(baseExpNewInstance.getType().getIdent()));
 		}
-		// TODO NEW INSTANCE REPORT INFO
 	}
 
 
@@ -757,6 +785,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return false;
 		return srcType.getElemType().equals(RECORD_STRUCT);
 	}
+	private boolean isFormalParameter(Obj variable) {
+		int formalParameterCnt = this.currentMethod.getFormalParameterCnt();
+		return variable.getAdr() < formalParameterCnt;
+	}
+
+	private boolean insideClass() {
+		return this.scopeStack.contains(Scope.CLASS);
+	}
 
 	private Scope getCurrScope() {
 		return this.scopeStack.peek();
@@ -770,88 +806,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Tab.closeScope();
 	}
 
-	private int getCurrentLevel() {
-		return this.getCurrScope().equals(Scope.METHOD)? 1:0;
-	}
-
 	private static boolean isAlreadyDeclared(String identifier) {
 		return Tab.currentScope().findSymbol(identifier) != null;
 	}
-
-
-
-
-
-
-//	public void visit(PrintStmt printStmt){
-//		printCallCount++;
-//	}
-
-//	public void visit(ReturnExpr returnExpr){
-//		returnFound = true;
-//		Struct currMethType = currentMethod.getType();
-//		if (!currMethType.compatibleWith(returnExpr.getExpr().struct)) {
-//			report_error("Greska na liniji " + returnExpr.getLine() + " : " + "tip izraza u return naredbi ne slaze se sa tipom povratne vrednosti funkcije " + currentMethod.getName(), null);
-//		}
-//	}
-//
-//	public void visit(ProcCall procCall){
-//		Obj func = procCall.getDesignator().obj;
-//		if (Obj.Meth == func.getKind()) {
-//			report_info("Pronadjen poziv funkcije " + func.getName() + " na liniji " + procCall.getLine(), null);
-//			//RESULT = func.getType();
-//		}
-//		else {
-//			report_error("Greska na liniji " + procCall.getLine()+" : ime " + func.getName() + " nije funkcija!", null);
-//			//RESULT = Tab.noType;
-//		}
-//	}
-//
-//	public void visit(AddExpr addExpr) {
-//		Struct te = addExpr.getExpr().struct;
-//		Struct t = addExpr.getTerm().struct;
-//		if (te.equals(t) && te == Tab.intType)
-//			addExpr.struct = te;
-//		else {
-//			report_error("Greska na liniji "+ addExpr.getLine()+" : nekompatibilni tipovi u izrazu za sabiranje.", null);
-//			addExpr.struct = Tab.noType;
-//		}
-//	}
-//
-//	public void visit(TermExpr termExpr) {
-//		termExpr.struct = termExpr.getTerm().struct;
-//	}
-//
-//	public void visit(Term term) {
-//		term.struct = term.getFactor().struct;
-//	}
-//
-//	public void visit(Const cnst){
-//		cnst.struct = Tab.intType;
-//	}
-//
-//	public void visit(Var var) {
-//		var.struct = var.getDesignator().obj.getType();
-//	}
-//
-//	public void visit(FuncCall funcCall){
-//		Obj func = funcCall.getDesignator().obj;
-//		if (Obj.Meth == func.getKind()) {
-//			report_info("Pronadjen poziv funkcije " + func.getName() + " na liniji " + funcCall.getLine(), null);
-//			funcCall.struct = func.getType();
-//		}
-//		else {
-//			report_error("Greska na liniji " + funcCall.getLine()+" : ime " + func.getName() + " nije funkcija!", null);
-//			funcCall.struct = Tab.noType;
-//		}
-//
-//	}
-//
-
-//
-//	public boolean passed() {
-//		return !errorDetected;
-//	}
-
 }
 

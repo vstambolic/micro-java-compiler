@@ -25,4 +25,5 @@ public class CurrentClass {
     public Struct getSuperClass() {
         return this.currClass.getType().getElemType();
     }
+
 }

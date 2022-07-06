@@ -1,10 +1,23 @@
 program p
 
 
+int x;
+
+int global;
+
+record R {
+    int x;
+}
 
 class Base {
+    int x[];
+    int field;
     {
-        void m1() {
+        void m1(int formal) int var; {
+            formal++;
+            var++;
+            field++;
+            global++;
         }
     }
 }
@@ -32,13 +45,13 @@ class Derived extends Base {
     void formParamCallTest() Base b; Derived d; {
         b = d;
         b = b;
-        f2(5, d);
-        f();
-        b.m1();
-        f(5);
-        f2();
-        f2('x',5);
-        f2(5, b);
+        //f2(5, d);
+        //f();
+       // b.m1();
+       // f(5);
+      //  f2();
+      //  f2('x',5);
+        //f2(5, b);
     }
 
     void assignTest() Base base; Derived derived; {
@@ -142,6 +155,20 @@ class Derived extends Base {
         barr = new Derived[5];
 
         barr = new Derived['x'];
+        barr = new Derived[exprTest()];
+    }
+
+    void a1Test() Base arr[]; {
+        arr = new Base[5];
+        arr[2].x[5]++;
+    }
+
+    void a2Test() int y; R r;{
+        print(x); // global variable
+        print(y); // local variable
+        a1Test();
+        r.x++;
+
     }
 }
 
