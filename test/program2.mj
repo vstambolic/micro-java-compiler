@@ -1,0 +1,40 @@
+program p
+
+
+
+class Base {
+    {
+        void m1() {
+        }
+    }
+}
+class Derived extends Base {
+
+}
+
+{
+
+    void f() {
+
+    }
+
+    void main() {
+
+    }
+
+    void f2(int x, Base b) {
+
+    }
+
+    void formParamCallTest() Base b; Derived d; {
+        b = d;
+        f2(5, d);
+        f();
+        b.m1();
+        f(5);
+        f2();
+        f2('x',5);
+        f2(5, b);
+    }
+
+}

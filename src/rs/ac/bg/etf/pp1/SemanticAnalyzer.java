@@ -441,6 +441,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		if (obj == null) {
 			report_error("Identifier (" + identifier + ") is not a member of a class/record " + designatorObj.getName(), designatorMemberReference);
+			designatorMemberReference.obj = Tab.noObj;
 			return;
 		}
 
@@ -475,9 +476,74 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				report_error("Incompatible assignment operation types.", designatorStatement);
 				return;
 			}
-
-
 		}
+		else
+		if (designatorStatement.getDesignatorOperation() instanceof DesignatorIncOperation || designatorStatement.getDesignatorOperation() instanceof DesignatorDecOperation) {
+			Obj designatorObj = designatorStatement.getDesignator().obj;
+			int designatorKind = designatorObj.getKind();
+			if (designatorKind != Obj.Fld && designatorKind != Obj.Elem && designatorKind !=Obj.Var) {
+				report_error("Invalid INC/DEC operation - Identifier (" + designatorObj.getName() + ") must be either a class/record member, an array element or a variable.", designatorStatement.getDesignator());
+				return;
+			}
+			Struct designatorType = designatorObj.getType();
+			if (!designatorType.equals(Tab.intType)) {
+				report_error("Invalid INC/DEC operation - Identifier (" + designatorObj.getName() + ") must be int type.", designatorStatement.getDesignator());
+				return;
+			}
+		}
+		else
+			if (designatorStatement.getDesignatorOperation() instanceof DesignatorFuncCallOperation) {
+				Obj designatorObj = designatorStatement.getDesignator().obj;
+				int designatorKind = designatorObj.getKind();
+				if (designatorKind != Obj.Meth) {
+					report_error("Invalid method call - Identifier (" + designatorObj.getName() + ") ain't no method.", designatorStatement.getDesignator());
+					return;
+				}
+				// get formal parameters
+				List<Struct> formalParametersTypeList = designatorObj.getLocalSymbols()
+						.stream()
+						.filter(obj -> !obj.getName().equals(THIS)) // skip this
+						.map(Obj::getType)
+						.collect(Collectors.toList());
+
+				// actual parameters
+				List<Struct> actualParametersList = new ArrayList<>();
+
+				if (((DesignatorFuncCallOperation) designatorStatement.getDesignatorOperation()).getActParsOrNothing() instanceof ActPars) {
+					ActPars actPars = (ActPars) ((DesignatorFuncCallOperation) designatorStatement.getDesignatorOperation()).getActParsOrNothing();
+					Struct firstActualParameter = actPars.getExpr().struct;
+
+					ExprList exprList = actPars.getExprList();
+					while (exprList instanceof ExprListIndeed) {
+						ExprListIndeed exprListIndeed = (ExprListIndeed) exprList;
+						actualParametersList.add(exprListIndeed.getExpr().struct);
+						exprList = exprListIndeed.getExprList();
+					}
+					actualParametersList.add(firstActualParameter);
+					Collections.reverse(actualParametersList);
+				}
+
+				if (formalParametersTypeList.size() != actualParametersList.size()) {
+					report_error("Invalid method call - Method " + designatorObj.getName() + "() called with invalid number of arguments.", designatorStatement.getDesignator());
+					return;
+				}
+				for (int i=0; i < formalParametersTypeList.size(); i++) {
+					Struct dstType = formalParametersTypeList.get(i);
+					Struct srcType = actualParametersList.get(i);
+					if (!SemanticAnalyzer.isAssignable(dstType,srcType)) {
+						report_error("Invalid method call - Method " + designatorObj.getName() + "() called with invalid arguments.", designatorStatement.getDesignator());
+						return;
+					}
+				}
+
+				// report_info global function call
+				if (designatorStatement.getDesignator() instanceof DesignatorIdent && !this.scopeStack.contains(Scope.CLASS)) {
+					report_info("Global function call - " + designatorObj.getName() + "()", designatorStatement);
+				}
+				// else in every other case its method call
+				// todo what if constructor call?
+			}
+
 	}
 
 
@@ -526,6 +592,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	// helper methods --------------------------------
 
 	private static boolean isAssignable(Struct dstType, Struct srcType) {
+		// todo ovo ne radi zato sto ulazi u rekurziju ako proveravas this
 		return srcType.assignableTo(dstType) || isDerivedClass(srcType, dstType);
 	}
 

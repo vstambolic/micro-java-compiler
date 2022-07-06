@@ -75,5 +75,14 @@ class Deri extends Base {
         b = d;
 
     }
+    int incDecTes() Base b; {
+        z++;
+        b++;
+    }
+
+    void methodCallTest()  Base b; {
+        b.m1();
+        arrayReferenceTest();
+    }
 
 }

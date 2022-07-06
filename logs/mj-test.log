@@ -1,302 +1,106 @@
-INFO  02:42:48,230 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program.mj
-INFO  02:42:48,397 - #2 program
-INFO  02:42:48,402 - #50 p
-INFO  02:42:48,402 - #50 int
-INFO  02:42:48,402 - #50 x
-INFO  02:42:48,402 - #39 ;
-INFO  02:42:48,407 - #7 const
-INFO  02:42:48,411 - #50 int
-INFO  02:42:48,411 - #50 y
-INFO  02:42:48,411 - #38 =
-INFO  02:42:48,411 - #51 5
-INFO  02:42:48,411 - #39 ;
-INFO  02:42:48,415 - #50 int
-INFO  02:42:48,415 - #50 z
-INFO  02:42:48,415 - #39 ;
-INFO  02:42:48,415 - #50 int
-INFO  02:42:48,415 - #50 y
-INFO  02:42:48,415 - #39 ;
-INFO  02:42:48,415 - #7 const
-INFO  02:42:48,415 - #50 bool
-INFO  02:42:48,415 - #50 b
-INFO  02:42:48,415 - #38 =
-INFO  02:42:48,415 - #52 true
-INFO  02:42:48,425 - #41 ,
-INFO  02:42:48,425 - #50 c
-INFO  02:42:48,425 - #38 =
-INFO  02:42:48,425 - #52 false
-INFO  02:42:48,425 - #39 ;
-INFO  02:42:48,430 - #20 record
-INFO  02:42:48,430 - #50 Rec1
-INFO  02:42:48,430 - #48 {
-INFO  02:42:48,431 - #50 int
-INFO  02:42:48,431 - #50 x
-INFO  02:42:48,431 - #39 ;
-INFO  02:42:48,431 - #49 }
-INFO  02:42:48,431 - #20 record
-INFO  02:42:48,435 - #50 Rec
-INFO  02:42:48,435 - #48 {
-INFO  02:42:48,435 - #50 int
-INFO  02:42:48,435 - #50 x
-INFO  02:42:48,435 - #39 ;
-INFO  02:42:48,435 - #50 int
-INFO  02:42:48,435 - #50 y
-INFO  02:42:48,435 - #39 ;
-INFO  02:42:48,435 - #50 int
-INFO  02:42:48,435 - #50 z
-INFO  02:42:48,435 - #39 ;
-INFO  02:42:48,435 - #50 Rec1
-INFO  02:42:48,435 - #50 rec1
-INFO  02:42:48,440 - #46 [
-INFO  02:42:48,440 - #47 ]
-INFO  02:42:48,440 - #39 ;
-INFO  02:42:48,440 - #49 }
-INFO  02:42:48,445 - #4 class
-INFO  02:42:48,445 - #50 Base
-INFO  02:42:48,445 - #48 {
-INFO  02:42:48,445 - #50 int
-INFO  02:42:48,445 - #50 x
-INFO  02:42:48,445 - #39 ;
-INFO  02:42:48,445 - #50 int
-INFO  02:42:48,450 - #50 y
-INFO  02:42:48,450 - #39 ;
-INFO  02:42:48,450 - #50 char
-INFO  02:42:48,450 - #50 s
-INFO  02:42:48,450 - #39 ;
-INFO  02:42:48,450 - #50 Rec
-INFO  02:42:48,455 - #50 rec
-INFO  02:42:48,455 - #39 ;
-INFO  02:42:48,455 - #48 {
-INFO  02:42:48,455 - #50 Base
-INFO  02:42:48,455 - #44 (
-INFO  02:42:48,455 - #45 )
-INFO  02:42:48,455 - #50 int
-INFO  02:42:48,455 - #50 x
-INFO  02:42:48,455 - #41 ,
-INFO  02:42:48,455 - #50 y
-INFO  02:42:48,455 - #39 ;
-INFO  02:42:48,455 - #48 {
-INFO  02:42:48,455 - #49 }
-INFO  02:42:48,460 - #15 void
-INFO  02:42:48,462 - #50 m1
-INFO  02:42:48,463 - #44 (
-INFO  02:42:48,463 - #45 )
-INFO  02:42:48,468 - #48 {
-INFO  02:42:48,468 - #49 }
-INFO  02:42:48,468 - #15 void
-INFO  02:42:48,468 - #50 m2
-INFO  02:42:48,468 - #44 (
-INFO  02:42:48,468 - #50 int
-INFO  02:42:48,468 - #50 x
-INFO  02:42:48,468 - #45 )
-INFO  02:42:48,473 - #48 {
-INFO  02:42:48,473 - #49 }
-INFO  02:42:48,473 - #49 }
-INFO  02:42:48,473 - #49 }
-INFO  02:42:48,473 - #4 class
-INFO  02:42:48,473 - #50 Deri
-INFO  02:42:48,473 - #16 extends
-INFO  02:42:48,473 - #50 Base
-INFO  02:42:48,473 - #48 {
-INFO  02:42:48,473 - #50 int
-INFO  02:42:48,473 - #50 dint
-INFO  02:42:48,473 - #39 ;
-INFO  02:42:48,473 - #48 {
-INFO  02:42:48,473 - #50 int
-INFO  02:42:48,473 - #50 newMethod
-INFO  02:42:48,478 - #44 (
-INFO  02:42:48,478 - #45 )
-INFO  02:42:48,478 - #48 {
-INFO  02:42:48,478 - #49 }
-INFO  02:42:48,478 - #15 void
-INFO  02:42:48,478 - #50 m1
-INFO  02:42:48,478 - #44 (
-INFO  02:42:48,478 - #45 )
-INFO  02:42:48,478 - #50 int
-INFO  02:42:48,478 - #50 x
-INFO  02:42:48,478 - #39 ;
-INFO  02:42:48,478 - #48 {
-INFO  02:42:48,478 - #49 }
-INFO  02:42:48,478 - #49 }
-INFO  02:42:48,478 - #49 }
-INFO  02:42:48,478 - #48 {
-INFO  02:42:48,478 - #50 int
-INFO  02:42:48,478 - #50 f
-INFO  02:42:48,478 - #44 (
-INFO  02:42:48,478 - #50 int
-INFO  02:42:48,478 - #50 y
-INFO  02:42:48,478 - #41 ,
-INFO  02:42:48,478 - #50 int
-INFO  02:42:48,478 - #50 z
-INFO  02:42:48,478 - #41 ,
-INFO  02:42:48,478 - #50 char
-INFO  02:42:48,478 - #50 e
-INFO  02:42:48,478 - #41 ,
-INFO  02:42:48,478 - #50 Base
-INFO  02:42:48,478 - #50 b
-INFO  02:42:48,478 - #45 )
-INFO  02:42:48,478 - #50 int
-INFO  02:42:48,483 - #50 s
-INFO  02:42:48,483 - #41 ,
-INFO  02:42:48,483 - #50 p
-INFO  02:42:48,483 - #41 ,
-INFO  02:42:48,483 - #50 das
-INFO  02:42:48,483 - #39 ;
-INFO  02:42:48,483 - #50 char
-INFO  02:42:48,483 - #50 x
-INFO  02:42:48,483 - #39 ;
-INFO  02:42:48,483 - #48 {
-INFO  02:42:48,483 - #49 }
-INFO  02:42:48,483 - #15 void
-INFO  02:42:48,483 - #50 main
-INFO  02:42:48,483 - #44 (
-INFO  02:42:48,483 - #45 )
-INFO  02:42:48,483 - #48 {
-INFO  02:42:48,483 - #49 }
-INFO  02:42:48,483 - #50 int
-INFO  02:42:48,483 - #50 memberReferenceTest
-INFO  02:42:48,483 - #44 (
-INFO  02:42:48,483 - #45 )
-INFO  02:42:48,483 - #50 Base
-INFO  02:42:48,483 - #50 b
-INFO  02:42:48,483 - #39 ;
-INFO  02:42:48,483 - #50 int
-INFO  02:42:48,483 - #50 sss
-INFO  02:42:48,483 - #39 ;
-INFO  02:42:48,483 - #48 {
-INFO  02:42:48,483 - #50 sss
-INFO  02:42:48,483 - #38 =
-INFO  02:42:48,483 - #50 b
-INFO  02:42:48,488 - #43 .
-INFO  02:42:48,488 - #50 rec
-INFO  02:42:48,488 - #43 .
-INFO  02:42:48,488 - #50 rec1
-INFO  02:42:48,488 - #43 .
-INFO  02:42:48,488 - #50 x
-INFO  02:42:48,488 - #39 ;
-INFO  02:42:48,498 - #49 }
-INFO  02:42:48,498 - #50 int
-INFO  02:42:48,498 - #50 arrayReferenceTest
-INFO  02:42:48,498 - #44 (
-INFO  02:42:48,498 - #45 )
-INFO  02:42:48,498 - #50 Base
-INFO  02:42:48,498 - #50 b
-INFO  02:42:48,498 - #46 [
-INFO  02:42:48,498 - #47 ]
-INFO  02:42:48,498 - #39 ;
-INFO  02:42:48,498 - #50 int
-INFO  02:42:48,498 - #50 sss
-INFO  02:42:48,498 - #39 ;
-INFO  02:42:48,498 - #48 {
-INFO  02:42:48,498 - #50 sss
-INFO  02:42:48,498 - #38 =
-INFO  02:42:48,498 - #50 b
-INFO  02:42:48,498 - #46 [
-INFO  02:42:48,498 - #51 5
-INFO  02:42:48,498 - #47 ]
-INFO  02:42:48,498 - #43 .
-INFO  02:42:48,498 - #50 rec
-INFO  02:42:48,498 - #43 .
-INFO  02:42:48,498 - #50 rec1
-INFO  02:42:48,498 - #46 [
-INFO  02:42:48,498 - #51 2
-INFO  02:42:48,498 - #47 ]
-INFO  02:42:48,503 - #43 .
-INFO  02:42:48,503 - #50 x
-INFO  02:42:48,503 - #39 ;
-INFO  02:42:48,503 - #49 }
-INFO  02:42:48,503 - #50 int
-INFO  02:42:48,503 - #50 invalidAssignmentTest
-INFO  02:42:48,503 - #44 (
-INFO  02:42:48,503 - #45 )
-INFO  02:42:48,503 - #50 int
-INFO  02:42:48,503 - #50 i
-INFO  02:42:48,503 - #39 ;
-INFO  02:42:48,503 - #50 char
-INFO  02:42:48,503 - #50 c
-INFO  02:42:48,503 - #39 ;
-INFO  02:42:48,503 - #50 Base
-INFO  02:42:48,503 - #50 b
-INFO  02:42:48,503 - #39 ;
-INFO  02:42:48,503 - #50 Deri
-INFO  02:42:48,503 - #50 d
-INFO  02:42:48,503 - #39 ;
-INFO  02:42:48,503 - #48 {
-INFO  02:42:48,503 - #50 i
-INFO  02:42:48,503 - #38 =
-INFO  02:42:48,503 - #53 s
-INFO  02:42:48,503 - #39 ;
-INFO  02:42:48,503 - #50 c
-INFO  02:42:48,503 - #38 =
-INFO  02:42:48,503 - #51 5
-INFO  02:42:48,503 - #39 ;
-INFO  02:42:48,503 - #50 i
-INFO  02:42:48,503 - #38 =
-INFO  02:42:48,503 - #50 c
-INFO  02:42:48,503 - #39 ;
-INFO  02:42:48,503 - #50 b
-INFO  02:42:48,503 - #38 =
-INFO  02:42:48,503 - #50 i
-INFO  02:42:48,503 - #39 ;
-INFO  02:42:48,503 - #50 d
-INFO  02:42:48,503 - #38 =
-INFO  02:42:48,503 - #50 b
-INFO  02:42:48,503 - #39 ;
-INFO  02:42:48,503 - #50 b
-INFO  02:42:48,503 - #38 =
-INFO  02:42:48,503 - #50 d
-INFO  02:42:48,503 - #39 ;
-INFO  02:42:48,503 - #49 }
-INFO  02:42:48,503 - #49 }
-INFO  02:42:48,535 - Global variable declared (x). line 2
-INFO  02:42:48,535 - Const declared (y) line 4
-INFO  02:42:48,535 - Global variable declared (z). line 5
-ERROR 02:42:48,535 - Symbol y already declared | line 6
-INFO  02:42:48,535 - Const declared (b) line 7
-INFO  02:42:48,540 - Const declared (c) line 7
-INFO  02:42:48,540 - Record declared (Rec1) line 9
-INFO  02:42:48,540 - Local variable declared (x). line 10
-INFO  02:42:48,540 - Record declared (Rec) line 13
-INFO  02:42:48,540 - Local variable declared (x). line 14
-INFO  02:42:48,540 - Local variable declared (y). line 15
-INFO  02:42:48,540 - Local variable declared (z). line 16
-INFO  02:42:48,540 - Local variable declared (rec1). line 17
-INFO  02:42:48,540 - Local variable declared (x). line 22
-INFO  02:42:48,540 - Local variable declared (y). line 23
-INFO  02:42:48,540 - Local variable declared (s). line 24
-INFO  02:42:48,540 - Local variable declared (rec). line 25
-INFO  02:42:48,540 - Local variable declared (x). line 27
-INFO  02:42:48,540 - Local variable declared (y). line 27
-INFO  02:42:48,545 -  Formal parameter declared (x). line 31
-INFO  02:42:48,641 - Local variable declared (dint). line 38
-INFO  02:42:48,650 - Local variable declared (x). line 43
-INFO  02:42:48,660 -  Formal parameter declared (y). line 51
-INFO  02:42:48,660 -  Formal parameter declared (z). line 51
-INFO  02:42:48,660 -  Formal parameter declared (e). line 51
-INFO  02:42:48,660 -  Formal parameter declared (b). line 51
-INFO  02:42:48,660 - Local variable declared (s). line 51
-INFO  02:42:48,660 - Local variable declared (p). line 51
-INFO  02:42:48,660 - Local variable declared (das). line 51
-INFO  02:42:48,660 - Local variable declared (x). line 51
-INFO  02:42:48,660 - Local variable declared (b). line 59
-INFO  02:42:48,660 - Local variable declared (sss). line 59
-INFO  02:42:48,660 - Member reference: b DOT rec line 60
-INFO  02:42:48,660 - Member reference: rec DOT rec1 line 60
-ERROR 02:42:48,660 - Identifier (rec1) is not a class/record. line 60
-ERROR 02:42:48,660 - Incompatible assignment operation types. line 60
-INFO  02:42:48,665 - Local variable declared (b). line 65
-INFO  02:42:48,665 - Local variable declared (sss). line 65
-INFO  02:42:48,665 - Array reference: b[]  line 66
-INFO  02:42:48,665 - Member reference: b DOT rec line 66
-INFO  02:42:48,665 - Member reference: rec DOT rec1 line 66
-INFO  02:42:48,665 - Array reference: rec1[]  line 66
-INFO  02:42:48,665 - Member reference: rec1 DOT x line 66
-INFO  02:42:48,665 - Local variable declared (i). line 69
-INFO  02:42:48,665 - Local variable declared (c). line 69
-INFO  02:42:48,665 - Local variable declared (b). line 69
-INFO  02:42:48,665 - Local variable declared (d). line 69
-ERROR 02:42:48,665 - Incompatible assignment operation types. line 70
-ERROR 02:42:48,665 - Incompatible assignment operation types. line 71
-ERROR 02:42:48,665 - Incompatible assignment operation types. line 72
-ERROR 02:42:48,665 - Incompatible assignment operation types. line 73
-ERROR 02:42:48,665 - Incompatible assignment operation types. line 74
+INFO  04:36:03,919 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program2.mj
+INFO  04:36:04,065 - #2 program
+INFO  04:36:04,065 - #50 p
+INFO  04:36:04,065 - #4 class
+INFO  04:36:04,067 - #50 Base
+INFO  04:36:04,067 - #48 {
+INFO  04:36:04,071 - #48 {
+INFO  04:36:04,074 - #15 void
+INFO  04:36:04,074 - #50 m1
+INFO  04:36:04,075 - #44 (
+INFO  04:36:04,076 - #45 )
+INFO  04:36:04,077 - #48 {
+INFO  04:36:04,078 - #49 }
+INFO  04:36:04,079 - #49 }
+INFO  04:36:04,082 - #49 }
+INFO  04:36:04,083 - #4 class
+INFO  04:36:04,084 - #50 Derived
+INFO  04:36:04,084 - #16 extends
+INFO  04:36:04,084 - #50 Base
+INFO  04:36:04,084 - #48 {
+INFO  04:36:04,085 - #49 }
+INFO  04:36:04,087 - #48 {
+INFO  04:36:04,087 - #15 void
+INFO  04:36:04,119 - #50 f
+INFO  04:36:04,119 - #44 (
+INFO  04:36:04,120 - #45 )
+INFO  04:36:04,120 - #48 {
+INFO  04:36:04,120 - #49 }
+INFO  04:36:04,120 - #15 void
+INFO  04:36:04,120 - #50 main
+INFO  04:36:04,120 - #44 (
+INFO  04:36:04,120 - #45 )
+INFO  04:36:04,120 - #48 {
+INFO  04:36:04,120 - #49 }
+INFO  04:36:04,121 - #15 void
+INFO  04:36:04,121 - #50 f2
+INFO  04:36:04,121 - #44 (
+INFO  04:36:04,121 - #50 int
+INFO  04:36:04,121 - #50 x
+INFO  04:36:04,121 - #41 ,
+INFO  04:36:04,125 - #50 Base
+INFO  04:36:04,125 - #50 b
+INFO  04:36:04,125 - #45 )
+INFO  04:36:04,126 - #48 {
+INFO  04:36:04,126 - #49 }
+INFO  04:36:04,126 - #15 void
+INFO  04:36:04,126 - #50 formParamCallTest
+INFO  04:36:04,126 - #44 (
+INFO  04:36:04,126 - #45 )
+INFO  04:36:04,126 - #50 Base
+INFO  04:36:04,126 - #50 b
+INFO  04:36:04,127 - #39 ;
+INFO  04:36:04,129 - #50 Derived
+INFO  04:36:04,130 - #50 d
+INFO  04:36:04,130 - #39 ;
+INFO  04:36:04,130 - #48 {
+INFO  04:36:04,130 - #50 b
+INFO  04:36:04,130 - #38 =
+INFO  04:36:04,131 - #50 d
+INFO  04:36:04,133 - #39 ;
+INFO  04:36:04,143 - #50 f2
+INFO  04:36:04,144 - #44 (
+INFO  04:36:04,144 - #51 5
+INFO  04:36:04,145 - #41 ,
+INFO  04:36:04,146 - #50 d
+INFO  04:36:04,146 - #45 )
+INFO  04:36:04,147 - #39 ;
+INFO  04:36:04,147 - #50 f
+INFO  04:36:04,148 - #44 (
+INFO  04:36:04,148 - #45 )
+INFO  04:36:04,150 - #39 ;
+INFO  04:36:04,150 - #50 b
+INFO  04:36:04,150 - #43 .
+INFO  04:36:04,150 - #50 m1
+INFO  04:36:04,151 - #44 (
+INFO  04:36:04,151 - #45 )
+INFO  04:36:04,151 - #39 ;
+INFO  04:36:04,151 - #50 f
+INFO  04:36:04,151 - #44 (
+INFO  04:36:04,152 - #51 5
+INFO  04:36:04,152 - #45 )
+INFO  04:36:04,152 - #39 ;
+INFO  04:36:04,152 - #50 f2
+INFO  04:36:04,153 - #44 (
+INFO  04:36:04,153 - #45 )
+INFO  04:36:04,153 - #39 ;
+INFO  04:36:04,153 - #50 f2
+INFO  04:36:04,153 - #44 (
+INFO  04:36:04,154 - #53 x
+INFO  04:36:04,154 - #41 ,
+INFO  04:36:04,154 - #51 5
+INFO  04:36:04,154 - #45 )
+INFO  04:36:04,154 - #39 ;
+INFO  04:36:04,154 - #50 f2
+INFO  04:36:04,154 - #44 (
+INFO  04:36:04,154 - #51 5
+INFO  04:36:04,154 - #41 ,
+INFO  04:36:04,155 - #50 b
+INFO  04:36:04,155 - #45 )
+INFO  04:36:04,156 - #39 ;
+INFO  04:36:04,156 - #49 }
+INFO  04:36:04,156 - #49 }
+INFO  04:36:04,298 -  Formal parameter declared (x). line 25
+INFO  04:36:04,298 -  Formal parameter declared (b). line 25
+INFO  04:36:04,298 - Local variable declared (b). line 29
+INFO  04:36:04,298 - Local variable declared (d). line 29
