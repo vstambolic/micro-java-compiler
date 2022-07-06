@@ -124,6 +124,7 @@ nonterminal ExprOrNothing ExprOrNothing;
 nonterminal NumConstList NumConstList;
 nonterminal FormParsOrError FormParsOrError;
 nonterminal ConditionOrError ConditionOrError;
+nonterminal DoWhileStatementStart DoWhileStatementStart;
 
 Program ::=
     (Program)
@@ -381,7 +382,7 @@ MatchedStatement ::=
     Designator:D1 Assignop:A2 error:l {: parser.report_info("SYNTAX ERROR: one or more invalid assign operations on line: " + lleft, null); :} SEMICOLON {: RESULT=new DesignatorAssignStatementError(D1, A2); RESULT.setLine(D1left); :}
     |
     (DoWhileStatement)
-    DO StatementList:S1 WHILE LPAREN Condition:C2 RPAREN SEMICOLON {: RESULT=new DoWhileStatement(S1, C2); RESULT.setLine(S1left); :}
+    DoWhileStatementStart:D1 StatementList:S2 WHILE LPAREN Condition:C3 RPAREN SEMICOLON {: RESULT=new DoWhileStatement(D1, S2, C3); RESULT.setLine(D1left); :}
     |
     (BreakStatement)
     BREAK SEMICOLON {: RESULT=new BreakStatement(); :}
@@ -604,3 +605,7 @@ Mulop ::=
 Expop ::=
     (Exp)
     EXP {: RESULT=new Exp(); :};
+
+DoWhileStatementStart ::=
+    (DoWhileStatementStart)
+    DO {: RESULT=new DoWhileStatementStart(); :};

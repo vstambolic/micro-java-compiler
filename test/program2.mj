@@ -9,7 +9,10 @@ class Base {
     }
 }
 class Derived extends Base {
-
+   {
+           void m1() {
+           }
+       }
 }
 
 {
@@ -37,4 +40,20 @@ class Derived extends Base {
         f2(5, b);
     }
 
+    void assignTest() Base base; Derived derived; {
+       base = derived;
+       derived = base;
+    }
+
+    void breakContinueTEst() {
+        do {
+            break;
+            continue;
+        } while (true);
+        break;
+        continue;
+    }
+
 }
+
+

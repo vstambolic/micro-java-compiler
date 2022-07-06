@@ -347,6 +347,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				.filter(obj -> obj.getKind() == Obj.Fld)
 				.forEachOrdered(obj -> Tab.insert(Obj.Fld, obj.getName(), obj.getType()));
 	}
+
 	public void visit(ClassVarDeclList classVarDeclList) {
 			if (this.currentClass.hasSuperClass()) {
 				this.currentClass.getSuperClass()
@@ -428,8 +429,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		String identifier = designatorMemberReference.getIdent();
 		Designator designator = designatorMemberReference.getDesignator();
 		Obj designatorObj = designator.obj; // cvor u tabeli simbola
-		if (designatorObj.getType().getKind() != Struct.Class) {
-			report_error("Identifier (" + designatorObj.getName() + ") is not a class/record.", designatorMemberReference);
+		if (designatorObj == null || designatorObj.getType().getKind() != Struct.Class) {
+			report_error("Identifier (" + (designatorObj== null?"null":designatorObj.getName()) + ") is not a class/record.", designatorMemberReference);
 			designatorMemberReference.obj = Tab.noObj;
 			return;
 		}
@@ -543,9 +544,25 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				// else in every other case its method call
 				// todo what if constructor call?
 			}
-
 	}
 
+
+	public void visit(BreakStatement breakStatement) {
+		if (!this.getCurrScope().equals(Scope.DO_WHILE)) {
+			report_error("Break statement must be inside do-while loop.",breakStatement);
+		}
+	}
+	public void visit(ContinueStatement continueStatement) {
+		if (!this.getCurrScope().equals(Scope.DO_WHILE)) {
+			report_error("Continue statement must be inside do-while loop.",continueStatement);
+		}
+	}
+	public void visit(DoWhileStatementStart doWhileStatementStart) { // needed for continue and break statements
+		this.scopeStack.push(Scope.DO_WHILE);
+	}
+	public void visit(DoWhileStatement doWhileStatement) {
+		this.scopeStack.pop();
+	}
 
 	public void visit(BaseExpNumber baseExp) {
 		baseExp.struct = Tab.intType;
@@ -568,6 +585,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 
+	
 	public void visit(NegativeExpr negativeExpr) {
 		negativeExpr.struct = negativeExpr.getTerm().struct;
 	}
@@ -592,8 +610,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	// helper methods --------------------------------
 
 	private static boolean isAssignable(Struct dstType, Struct srcType) {
-		// todo ovo ne radi zato sto ulazi u rekurziju ako proveravas this
-		return srcType.assignableTo(dstType) || isDerivedClass(srcType, dstType);
+		if (isDerivedClass(dstType, srcType))
+			return false;
+		return  isDerivedClass(srcType, dstType) || srcType.assignableTo(dstType);
 	}
 
 	private static boolean isDerivedClass(Struct srcType, Struct dstType) {
