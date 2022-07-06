@@ -123,6 +123,26 @@ class Derived extends Base {
                     if (b==b) {
                     }
     }
+
+    void exprTest() int x; char c;{
+
+        x = -x;
+        c = -c; // error
+
+        x = x + x;
+        x = c + c + c; // error
+
+
+        x = x * c;
+        x = c * c;
+    }
+
+    void newInstanceTest() Base b, barr[]; {
+        b = new Derived;
+        barr = new Derived[5];
+
+        barr = new Derived['x'];
+    }
 }
 
 

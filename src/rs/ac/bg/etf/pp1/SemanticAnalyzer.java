@@ -455,7 +455,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Designator designator = designatorArrayReference.getDesignator();
 		Obj designatorObj = designator.obj; // cvor u tabeli simbola
 		if (designatorObj.getType().getKind() != Struct.Array) {
+			designatorArrayReference.obj = Tab.noObj;
 			report_error("Identifier (" + designatorObj.getName() + ") ain't no array.", designatorArrayReference);
+			return;
+		}
+		if (!designatorArrayReference.getExpr().struct.equals(Tab.intType)) {
+			designatorArrayReference.obj = Tab.noObj;
+			report_error("Expression inside brackets must have int type.", designatorArrayReference);
 			return;
 		}
 		designatorArrayReference.obj = new Obj(Obj.Elem, designatorObj.getName(), designatorObj.getType().getElemType());
@@ -647,24 +653,66 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(BaseExpNewInstance baseExpNewInstance) {
 		// new int[5]
 		if (baseExpNewInstance.getBracketsWithExprOrNothing() instanceof BracketsWithExprIndeed) {
-			baseExpNewInstance.struct = baseExpNewInstance.getType().struct;
+			baseExpNewInstance.struct = new Struct(Struct.Array, baseExpNewInstance.getType().struct);
+
+			BracketsWithExprIndeed bracketsWithExprIndeed = (BracketsWithExprIndeed) baseExpNewInstance.getBracketsWithExprOrNothing();
+			if (!bracketsWithExprIndeed.getExpr().struct.equals(Tab.intType)) {
+				report_error("Expression inside brackets must have int type.", baseExpNewInstance);
+				return;
+			}
 		}
 		else { // new A
-			baseExpNewInstance.struct = new Struct(Struct.Array, baseExpNewInstance.getType().struct);
+			baseExpNewInstance.struct = baseExpNewInstance.getType().struct;
+
+			if (baseExpNewInstance.getType().struct.getKind() != Struct.Class) {
+				report_error("Type " + baseExpNewInstance.getType().getIdent() + " is not a class.", baseExpNewInstance);
+				return;
+			}
 		}
 		// TODO NEW INSTANCE REPORT INFO
 	}
 
 
-	
+	public void visit(AddopTermListIndeed addopTermListIndeed) {
+		if (!addopTermListIndeed.getTerm().struct.equals(Tab.intType)) {
+			report_error("Invalid expression - term in add operation must have int type.", addopTermListIndeed);
+			return;
+		}
+	}
+	public void visit(MulopFactorListIndeed mulopFactorListIndeed) {
+		if (!mulopFactorListIndeed.getFactor().struct.equals(Tab.intType)) {
+			report_error("Invalid expression - factor in mul operation must have int type.", mulopFactorListIndeed);
+			return;
+		}
+	}
 	public void visit(NegativeExpr negativeExpr) {
-		negativeExpr.struct = negativeExpr.getTerm().struct;
+		if (!negativeExpr.getTerm().struct.equals(Tab.intType)) {
+			report_error("Invalid expression - negated term must have int type.", negativeExpr);
+			negativeExpr.struct = Tab.noType;
+			return;
+		}
+		negativeExpr.struct = Tab.intType;
 	}
 
 	public void visit(PositiveExpr positiveExpr) {
+		if (positiveExpr.getAddopTermList() instanceof AddopTermListIndeed) {
+			if (!positiveExpr.getTerm().struct.equals(Tab.intType)) {
+				positiveExpr.struct = Tab.noType;
+				report_error("Invalid expression - terms in add operation must have int type.", positiveExpr.getAddopTermList());
+				return;
+			}
+		}
 		positiveExpr.struct = positiveExpr.getTerm().struct;
 	}
+
 	public void visit(Term term) {
+		if (term.getMulopFactorList() instanceof MulopFactorListIndeed) {
+			if (!term.getFactor().struct.equals(Tab.intType)) {
+				term.struct = Tab.noType;
+				report_error("Invalid expression - factor in mul operation must have int type.", term.getMulopFactorList());
+				return;
+			}
+		}
 		term.struct = term.getFactor().struct;
 	}
 	public void visit(Factor factor) {
