@@ -31,6 +31,7 @@ class Derived extends Base {
 
     void formParamCallTest() Base b; Derived d; {
         b = d;
+        b = b;
         f2(5, d);
         f();
         b.m1();
@@ -80,6 +81,47 @@ class Derived extends Base {
         return;
         return 5;
         return d;
+    }
+
+    void conditionTest() Base b; Derived d; int arr1[], arr2[]; char arr3[]; Base barr1[], barr2[]; Derived darr1[]; {
+        if (barr1 == barr2) {
+        }
+        else
+        if (barr1 == darr1) {
+        }
+        if (darr1 == barr1) {}
+
+
+
+        if (arr1 == arr2) {
+        }
+        else
+            if (arr1 == arr3) {
+            }
+            else
+            if (arr1 > arr2) {
+            }
+
+        if (5) {
+            // error
+        }
+        else
+            if (5>5) {
+
+            }
+            else
+                if (5> 't') {
+                    // error
+                }
+                else
+                    if (b == d) {
+                    }
+                    else
+                    if (b > d) {
+                    }
+                    else
+                    if (b==b) {
+                    }
     }
 }
 

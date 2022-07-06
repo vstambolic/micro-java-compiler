@@ -562,6 +562,35 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 
+	public void visit(ExprCondFact exprCondFact) {
+		Struct expr1Struct = exprCondFact.getExpr().struct;
+
+		RelopExprOrNothing relopExprOrNothing = exprCondFact.getRelopExprOrNothing();
+		if (relopExprOrNothing instanceof NoRelopExpr) {
+			if (!expr1Struct.equals(BOOL_STRUCT)) {
+				report_error("Invalid condition statement - expression must be bool type.", exprCondFact);
+				return;
+			}
+		}
+		else {
+			RelopExprIndeed relopExprIndeed = (RelopExprIndeed) relopExprOrNothing;
+			Struct expr2Struct = relopExprIndeed.getExpr().struct;
+
+			if (!areCompatible(expr1Struct, expr2Struct)) {
+				report_error("Invalid condition statement - expressions must be compatible.", exprCondFact);
+				return;
+			}
+			if (expr1Struct.getKind() == Struct.Array || expr1Struct.getKind() == Struct.Class) {
+				Relop relop = relopExprIndeed.getRelop();
+				if (!(relop instanceof Eq) && !(relop instanceof Neq)) {
+					report_error("Invalid condition statement - class objects and arrays can be compared only using '==' or '!=' operators.", exprCondFact);
+					return;
+				}
+			}
+		}
+	}
+
+
 	public void visit(ReturnStatement returnStatement) {
 		if (!this.scopeStack.contains(Scope.METHOD)) {
 			report_error("Invalid return statement - return statement outside of function/method.", returnStatement);
@@ -656,6 +685,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return false;
 		return  isDerivedClass(srcType, dstType) || srcType.assignableTo(dstType);
 	}
+	private boolean areCompatible(Struct struct1, Struct struct2) {
+		return isDerivedClass(struct1, struct2) || isDerivedClass(struct2, struct1) || struct1.compatibleWith(struct2);
+	}
 
 	private static boolean isDerivedClass(Struct srcType, Struct dstType) {
 		if (srcType.getKind() == Struct.Class && dstType.getKind() == Struct.Class && (!isRecord(srcType) && !isRecord(dstType))) {
@@ -665,6 +697,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 					return true;
 			}
 		}
+		else
+			if (srcType.getKind() == Struct.Array && dstType.getKind() == Struct.Array) {
+				return isDerivedClass(srcType.getElemType(), dstType.getElemType());
+			}
 		return false;
 	}
 
