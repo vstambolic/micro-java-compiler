@@ -83,7 +83,8 @@ nonterminal Brackets;
 nonterminal Extends;
 nonterminal ConstructorDeclAndMethodDeclListWrapper;
 nonterminal ConstructorDeclAndMethodDeclList;
-nonterminal ConstructorDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ConstructorDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ConstructorDeclStart;
 nonterminal StatementList;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclStart;
@@ -95,24 +96,24 @@ nonterminal Statement;
 nonterminal MatchedStatement;
 nonterminal UnmatchedStatement;
 nonterminal Condition;
-nonterminal Designator;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator;
 nonterminal DesignatorOperation;
 nonterminal CondTerm;
 nonterminal CondFact;
-nonterminal Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr;
 nonterminal OrCondTermList;
 nonterminal AndCondFactList;
 nonterminal RelopExpr;
-nonterminal Term;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Term;
 nonterminal AddopTermList;
 nonterminal Addop;
 nonterminal Relop;
 nonterminal Mulop;
 nonterminal Assignop;
 nonterminal Expop;
-nonterminal Factor;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor;
 nonterminal MulopFactorList;
-nonterminal BaseExp;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct BaseExp;
 nonterminal ExpopBaseExpList;
 nonterminal ActParsOrNothing;
 nonterminal BracketsWithExprOrNothing;
@@ -289,8 +290,12 @@ ConstructorDeclAndMethodDeclList ::=
 
 ConstructorDecl ::=
     (ConstructorDecl)
-    IDENT:ident LPAREN RPAREN VarDeclList LBRACE StatementList RBRACE;
+    ConstructorDeclStart LPAREN RPAREN VarDeclList LBRACE StatementList RBRACE;
 
+ConstructorDeclStart ::=
+    (ConstructorDeclStart)
+    IDENT:ident
+    ;
 MethodDeclList ::=
     (MethodDeclListIndeed)
     MethodDecl MethodDeclList
@@ -438,11 +443,12 @@ ExprOrNothing ::=
     (ExprIndeed)
     Expr
     |
+    (NoExpr)
     /* Ɛ */;
 
 Designator ::=
     (DesignatorMemberReference)
-    Designator DOT IDENT
+    Designator DOT IDENT:ident
     |
     (DesignatorArrayReference)
     Designator LBRACKET Expr RBRACKET
@@ -542,7 +548,7 @@ FuncCallOrNothing ::=
     /* Ɛ */;
 
 BracketsWithExprOrNothing ::=
-    (BracketsWithExpr)
+    (BracketsWithExprIndeed)
     LBRACKET Expr RBRACKET
     |
     (NoBracketsWithExpr)

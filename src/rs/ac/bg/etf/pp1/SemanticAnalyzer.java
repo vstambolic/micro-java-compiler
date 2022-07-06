@@ -19,6 +19,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	private static final String THIS = "this";
 	public static final int RECORD = 8;
 	private static final Struct RECORD_STRUCT = new Struct(RECORD);
+	private static final Struct BOOL_STRUCT = new Struct(Struct.Bool);
 
 	// Helpers -----------------------------------
 	private Stack<Scope> scopeStack = new Stack<>();
@@ -36,7 +37,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 
 	public SemanticAnalyzer() {
-		Tab.currentScope().addToLocals(new Obj(Obj.Type,"bool", new Struct(Struct.Bool)));
+		Tab.currentScope().addToLocals(new Obj(Obj.Type,"bool", BOOL_STRUCT));
 	}
 
 	public void report_error(String message, SyntaxNode info) {
@@ -133,7 +134,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		int kind = this.getCurrScope().equals(Scope.CLASS)? Obj.Fld : Obj.Var;
 		Struct type = (var.getBrackets() instanceof BracketsIndeed ? new Struct(Struct.Array, currType) : currType);
 
-		Obj obj = Tab.insert(kind,identifier,type);
+		Obj obj = Tab.insert(kind, identifier, type);
 
 		this.report_info( (this.getCurrScope().equals(Scope.PROGRAM)?"Global":"Local") + " variable declared (" + identifier + ").", var);
 
@@ -184,21 +185,42 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		this.report_info( "Const declared (" + identifier + ")", constAssignment);
 	}
 
-	// todo record neka bude class ali da bi naglasio da iz njega ne moze nista da se izvodi upisi nesto u onaj elemtype
-
-
 	// METHOD ---------------------------------------------------------------
+	public void visit(ConstructorDeclStart constructorDeclStart) {
+		String identifier = constructorDeclStart.getIdent();
+		if (!identifier.equals(currentClass.getCurrClass().getName())) { // error je kada se metod zove isto kao klasa
+			report_error("Constructor (" + identifier + ") must have the same identifier as its class (" + currentClass.getCurrClass().getName() + ")", constructorDeclStart);
+			return;
+		}
+
+		Obj currMethodObj = Tab.insert(Obj.Meth, identifier, Tab.noType);
+		this.currentMethod = new CurrentMethod(currMethodObj);
+		constructorDeclStart.obj = currMethodObj; // TODO koji ce mi ovo djavo
+
+		this.openScope(Scope.METHOD);
+		Tab.insert(Obj.Var, THIS, currentClass.getCurrClass().getType());
+		this.currentMethod.incFormalParameterCnt();
+	}
+	public void visit(ConstructorDecl constructorDecl) {
+		this.currentMethod.setFormalParameterCnt();
+		Tab.chainLocalSymbols(this.currentMethod.getCurrMethod());
+		this.closeScope();
+		constructorDecl.obj = this.currentMethod.getCurrMethod();
+		this.currentMethod = null;
+
+	}
 	public void visit(TypeOrVoid_Void TypeOrVoid_Void) {
 		this.currType = Tab.noType;
 	}
 	public void visit(MethodDeclStart methodDeclStart) {
 		String identifier = methodDeclStart.getIdent();
 
-		if (this.getCurrScope().equals(Scope.PROGRAM))
+		if (this.getCurrScope().equals(Scope.PROGRAM)) {
 			if (SemanticAnalyzer.isAlreadyDeclared(identifier)) {
 				report_error("Symbol " + identifier + " already declared ", methodDeclStart);
 				return;
 			}
+		}
 		else
 			if (this.getCurrScope().equals(Scope.CLASS)) {
 				if (identifier.equals(currentClass.getCurrClass().getName())) { // error je kada se metod zove isto kao klasa
@@ -382,7 +404,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		this.currentClass = new CurrentClass(obj);
 		recordDeclStart.obj = obj;
 
-		this.openScope(Scope.RECORD);
+		this.openScope(Scope.CLASS);
+		this.report_info( "Record declared (" + identifier + ")", recordDeclStart);
 	}
 
 	public void visit(RecordDecl recordDecl) {
@@ -391,7 +414,137 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		currentClass = null;
 	}
 
+	// -------------------------------------------------------
+	public void visit(DesignatorIdent designatorIdent) {
+		String identifier = designatorIdent.getIdent();
+		Obj obj = Tab.find(identifier);
+		if (obj.equals(Tab.noObj)) {
+			report_error("Identifier " + identifier + " used but never declared.",designatorIdent);
+			return;
+		}
+		designatorIdent.obj = obj;
+	}
+	public void visit(DesignatorMemberReference designatorMemberReference) {
+		String identifier = designatorMemberReference.getIdent();
+		Designator designator = designatorMemberReference.getDesignator();
+		Obj designatorObj = designator.obj; // cvor u tabeli simbola
+		if (designatorObj.getType().getKind() != Struct.Class) {
+			report_error("Identifier (" + designatorObj.getName() + ") is not a class/record.", designatorMemberReference);
+			designatorMemberReference.obj = Tab.noObj;
+			return;
+		}
+		Obj obj = designatorObj.getType().getMembers()
+				.stream()
+				.filter(member -> /*member.getKind() == Obj.Fld && */member.getName().equals(identifier))
+				.findFirst()
+				.orElse(null);
+
+		if (obj == null) {
+			report_error("Identifier (" + identifier + ") is not a member of a class/record " + designatorObj.getName(), designatorMemberReference);
+			return;
+		}
+
+		designatorMemberReference.obj = obj;
+
+		report_info("Member reference: " + designatorObj.getName() + " DOT " + identifier, designatorMemberReference);
+	}
+
+	public void visit(DesignatorArrayReference designatorArrayReference) {
+		Designator designator = designatorArrayReference.getDesignator();
+		Obj designatorObj = designator.obj; // cvor u tabeli simbola
+		if (designatorObj.getType().getKind() != Struct.Array) {
+			report_error("Identifier (" + designatorObj.getName() + ") ain't no array.", designatorArrayReference);
+			return;
+		}
+		designatorArrayReference.obj = new Obj(Obj.Elem, designatorObj.getName(), designatorObj.getType().getElemType());
+		report_info("Array reference: " + designatorObj.getName() + "[] ", designatorArrayReference);
+	}
+
+	public void visit(DesignatorStatement designatorStatement) {
+		if (designatorStatement.getDesignatorOperation() instanceof DesignatorAssignOperation) {
+			Obj designatorObj = designatorStatement.getDesignator().obj;
+			int designatorKind = designatorObj.getKind();
+			if (designatorKind != Obj.Fld && designatorKind != Obj.Elem && designatorKind !=Obj.Var) {
+				report_error("Identifier (" + designatorObj.getName() + ") must be either a class/record member, an array element or a variable.", designatorStatement.getDesignator());
+				return;
+			}
+			Struct dstType = designatorObj.getType();
+			Struct srcType = ((DesignatorAssignOperation) designatorStatement.getDesignatorOperation()).getExpr().struct;
+
+			if (!isAssignable(dstType, srcType)) {
+				report_error("Incompatible assignment operation types.", designatorStatement);
+				return;
+			}
+
+
+		}
+	}
+
+
+	public void visit(BaseExpNumber baseExp) {
+		baseExp.struct = Tab.intType;
+	}
+	public void visit(BaseExpChar baseExp) {
+		baseExp.struct = Tab.charType;
+	}
+	public void visit(BaseExpBool baseExp) {
+		baseExp.struct = BOOL_STRUCT;
+	}
+	public void visit(BaseExpNewInstance baseExpNewInstance) {
+		// new int[5]
+		if (baseExpNewInstance.getBracketsWithExprOrNothing() instanceof BracketsWithExprIndeed) {
+			baseExpNewInstance.struct = baseExpNewInstance.getType().struct;
+		}
+		else { // new A
+			baseExpNewInstance.struct = new Struct(Struct.Array, baseExpNewInstance.getType().struct);
+		}
+		// TODO NEW INSTANCE REPORT INFO
+	}
+
+
+	public void visit(NegativeExpr negativeExpr) {
+		negativeExpr.struct = negativeExpr.getTerm().struct;
+	}
+
+	public void visit(PositiveExpr positiveExpr) {
+		positiveExpr.struct = positiveExpr.getTerm().struct;
+	}
+	public void visit(Term term) {
+		term.struct = term.getFactor().struct;
+	}
+	public void visit(Factor factor) {
+		factor.struct = factor.getBaseExp().struct;
+	}
+	public void visit(BaseExpExpr baseExpExpr) {
+		baseExpExpr.struct = baseExpExpr.getExpr().struct;
+	}
+
+	public void visit(BaseExpDesignator baseExpDesignator) {
+		baseExpDesignator.struct = baseExpDesignator.getDesignator().obj.getType();
+	}
+
 	// helper methods --------------------------------
+
+	private static boolean isAssignable(Struct dstType, Struct srcType) {
+		return srcType.assignableTo(dstType) || isDerivedClass(srcType, dstType);
+	}
+
+	private static boolean isDerivedClass(Struct srcType, Struct dstType) {
+		if (srcType.getKind() == Struct.Class && dstType.getKind() == Struct.Class && (!isRecord(srcType) && !isRecord(dstType))) {
+			while (srcType.getElemType() != null) {
+				srcType = srcType.getElemType();
+				if (srcType.equals(dstType))
+					return true;
+			}
+		}
+		return false;
+	}
+
+	private static boolean isRecord(Struct srcType) {
+		if (srcType.getElemType() == null)
+			return false;
+		return srcType.getElemType().equals(RECORD_STRUCT);
+	}
 
 	private Scope getCurrScope() {
 		return this.scopeStack.peek();
@@ -413,31 +566,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		return Tab.currentScope().findSymbol(identifier) != null;
 	}
 
-//
-//	public void visit(MethodDecl methodDecl) {
-//		if (!returnFound && currentMethod.getType() != Tab.noType) {
-//			report_error("Semanticka greska na liniji " + methodDecl.getLine() + ": funcija " + currentMethod.getName() + " nema return iskaz!", null);
-//		}
-//
-//		Tab.chainLocalSymbols(currentMethod);
-//		Tab.closeScope();
-//
-//		returnFound = false;
-//		currentMethod = null;
-//	}
-//
-//	public void visit(MethodTypeName methodTypeName) {
-//		currentMethod = Tab.insert(Obj.Meth, methodTypeName.getMethName(), methodTypeName.getType().struct);
-//		methodTypeName.obj = currentMethod;
-//		Tab.openScope();
-//		report_info("Obradjuje se funkcija " + methodTypeName.getMethName(), methodTypeName);
-//	}
-//
-//	public void visit(Assignment assignment) {
-//		if (!assignment.getExpr().struct.assignableTo(assignment.getDesignator().obj.getType()))
-//			report_error("Greska na liniji " + assignment.getLine() + " : " + " nekompatibilni tipovi u dodeli vrednosti ", null);
-//	}
-//
+
+
+
+
+
 //	public void visit(PrintStmt printStmt){
 //		printCallCount++;
 //	}
@@ -502,13 +635,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 //
 //	}
 //
-//	public void visit(Designator designator){
-//		Obj obj = Tab.find(designator.getName());
-//		if (obj == Tab.noObj) {
-//			report_error("Greska na liniji " + designator.getLine()+ " : ime "+designator.getName()+" nije deklarisano! ", null);
-//		}
-//		designator.obj = obj;
-//	}
+
 //
 //	public boolean passed() {
 //		return !errorDetected;

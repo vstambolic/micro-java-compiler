@@ -6,19 +6,25 @@ int z;
 int y;
 const bool b = true, c = false;
 
+record Rec1 {
+    int x;
+}
+
 record Rec {
     int x;
     int y;
     int z;
+    Rec1 rec1[];
 }
-class InvalidDerived extends Rec {
 
-}
+
 class Base {
     int x;
     int y;
     char s;
+    Rec rec;
     {
+        Base() int x, y; {}
         void m1() {
 
         }
@@ -47,6 +53,26 @@ class Deri extends Base {
     }
 
     void main() {
+
+    }
+
+    int memberReferenceTest() Base b; int sss; {
+        sss = b.rec.rec1.x;
+        //b.daspld;
+
+    }
+
+    int arrayReferenceTest() Base b[]; int sss; {
+        sss = b[5].rec.rec1[2].x;
+    }
+
+    int invalidAssignmentTest() int i; char c; Base b; Deri d;{
+        i = 's';
+        c = 5;
+        i = c;
+        b = i;
+        d = b;
+        b = d;
 
     }
 

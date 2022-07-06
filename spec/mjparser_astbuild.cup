@@ -83,7 +83,8 @@ nonterminal Brackets Brackets;
 nonterminal Extends Extends;
 nonterminal ConstructorDeclAndMethodDeclListWrapper ConstructorDeclAndMethodDeclListWrapper;
 nonterminal ConstructorDeclAndMethodDeclList ConstructorDeclAndMethodDeclList;
-nonterminal ConstructorDecl ConstructorDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ConstructorDecl;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ConstructorDeclStart;
 nonterminal StatementList StatementList;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDecl;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclStart;
@@ -95,24 +96,24 @@ nonterminal Statement Statement;
 nonterminal MatchedStatement MatchedStatement;
 nonterminal UnmatchedStatement UnmatchedStatement;
 nonterminal Condition Condition;
-nonterminal Designator Designator;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator;
 nonterminal DesignatorOperation DesignatorOperation;
 nonterminal CondTerm CondTerm;
 nonterminal CondFact CondFact;
-nonterminal Expr Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr;
 nonterminal OrCondTermList OrCondTermList;
 nonterminal AndCondFactList AndCondFactList;
 nonterminal RelopExpr RelopExpr;
-nonterminal Term Term;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Term;
 nonterminal AddopTermList AddopTermList;
 nonterminal Addop Addop;
 nonterminal Relop Relop;
 nonterminal Mulop Mulop;
 nonterminal Assignop Assignop;
 nonterminal Expop Expop;
-nonterminal Factor Factor;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor;
 nonterminal MulopFactorList MulopFactorList;
-nonterminal BaseExp BaseExp;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct BaseExp;
 nonterminal ExpopBaseExpList ExpopBaseExpList;
 nonterminal ActParsOrNothing ActParsOrNothing;
 nonterminal BracketsWithExprOrNothing BracketsWithExprOrNothing;
@@ -289,8 +290,12 @@ ConstructorDeclAndMethodDeclList ::=
 
 ConstructorDecl ::=
     (ConstructorDecl)
-    IDENT:ident LPAREN RPAREN VarDeclList:V1 LBRACE StatementList:S2 RBRACE {: RESULT=new ConstructorDecl(ident, V1, S2); RESULT.setLine(identleft); :};
+    ConstructorDeclStart:C1 LPAREN RPAREN VarDeclList:V2 LBRACE StatementList:S3 RBRACE {: RESULT=new ConstructorDecl(C1, V2, S3); RESULT.setLine(C1left); :};
 
+ConstructorDeclStart ::=
+    (ConstructorDeclStart)
+    IDENT:ident {: RESULT=new ConstructorDeclStart(ident); RESULT.setLine(identleft); :}
+    ;
 MethodDeclList ::=
     (MethodDeclListIndeed)
     MethodDecl:M1 MethodDeclList:M2 {: RESULT=new MethodDeclListIndeed(M1, M2); RESULT.setLine(M1left); :}
@@ -437,12 +442,13 @@ ExprList ::=
 ExprOrNothing ::=
     (ExprIndeed)
     Expr:E1 {: RESULT=new ExprIndeed(E1); RESULT.setLine(E1left); :}
-    | {: RESULT=new ExprOrNothingDerived1(); :}
+    |
+    (NoExpr) {: RESULT=new NoExpr(); :}
     /* Æ? */;
 
 Designator ::=
     (DesignatorMemberReference)
-    Designator:D1 DOT IDENT:I2 {: RESULT=new DesignatorMemberReference(D1, I2); RESULT.setLine(D1left); :}
+    Designator:D1 DOT IDENT:ident {: RESULT=new DesignatorMemberReference(D1, ident); RESULT.setLine(D1left); :}
     |
     (DesignatorArrayReference)
     Designator:D1 LBRACKET Expr:E2 RBRACKET {: RESULT=new DesignatorArrayReference(D1, E2); RESULT.setLine(D1left); :}
@@ -542,8 +548,8 @@ FuncCallOrNothing ::=
     /* Æ? */;
 
 BracketsWithExprOrNothing ::=
-    (BracketsWithExpr)
-    LBRACKET Expr:E1 RBRACKET {: RESULT=new BracketsWithExpr(E1); RESULT.setLine(E1left); :}
+    (BracketsWithExprIndeed)
+    LBRACKET Expr:E1 RBRACKET {: RESULT=new BracketsWithExprIndeed(E1); RESULT.setLine(E1left); :}
     |
     (NoBracketsWithExpr) {: RESULT=new NoBracketsWithExpr(); :}
     /* Æ? */;
