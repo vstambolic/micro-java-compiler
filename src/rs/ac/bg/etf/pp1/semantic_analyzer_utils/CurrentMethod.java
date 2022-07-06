@@ -1,5 +1,6 @@
 package rs.ac.bg.etf.pp1.semantic_analyzer_utils;
 
+import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 
 public class CurrentMethod {
@@ -24,5 +25,9 @@ public class CurrentMethod {
 
     public int getFormalParameterCnt() {
         return this.formalParameterCnt;
+    }
+
+    public boolean isVoid() {
+        return this.getCurrMethod().getType().equals(Tab.noType);
     }
 }

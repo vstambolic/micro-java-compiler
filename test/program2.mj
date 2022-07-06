@@ -53,7 +53,34 @@ class Derived extends Base {
         break;
         continue;
     }
+    void printReadTest() Base b; int i; char c; bool bo; {
+        read(b); //error
+        read(i);
+        read(c);
+        read(bo);
+        print(b); //error
+        print(i);
+        print(c);
+        print(bo);
+        print(5);
+    }
 
+    void returnStatementTest1() {
+        return 5;
+        return;
+    }
+
+
+    int returnStatementTest2() {
+        return;
+        return 5;
+    }
+
+    Base returnStatementTest3() Derived d; {
+        return;
+        return 5;
+        return d;
+    }
 }
 
 

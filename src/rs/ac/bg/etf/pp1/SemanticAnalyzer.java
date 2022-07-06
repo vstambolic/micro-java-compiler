@@ -546,6 +546,48 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			}
 	}
 
+	public void visit(ReadStatement readStatement) {
+		Obj designatorObj = readStatement.getDesignator().obj;
+		if (designatorObj == null)
+			return;
+		int designatorKind = designatorObj.getKind();
+		if (designatorKind != Obj.Fld && designatorKind != Obj.Elem && designatorKind !=Obj.Var) {
+			report_error("Invalid read statement - Identifier (" + designatorObj.getName() + ") must be either a class/record member, an array element or a variable.", readStatement);
+			return;
+		}
+		Struct designatorType = designatorObj.getType();
+		if (!designatorType.equals(Tab.intType) && !designatorType.equals(Tab.charType) && !designatorType.equals(BOOL_STRUCT)) {
+			report_error("Invalid read statement - Identifier (" + designatorObj.getName() + ") must be either int, char or bool type.", readStatement);
+			return;
+		}
+	}
+
+	public void visit(ReturnStatement returnStatement) {
+		if (!this.scopeStack.contains(Scope.METHOD)) {
+			report_error("Invalid return statement - return statement outside of function/method.", returnStatement);
+			return;
+		}
+
+		if (returnStatement.getExprOrNothing() instanceof NoExpr && !this.currentMethod.isVoid()) {
+			report_error("Invalid return statement - return statement must return a value.", returnStatement);
+			return;
+		}
+		else
+			if (returnStatement.getExprOrNothing() instanceof ExprIndeed) {
+				Struct exprStruct = ((ExprIndeed) returnStatement.getExprOrNothing()).getExpr().struct;
+				if (!isAssignable(this.currentMethod.getCurrMethod().getType(), exprStruct)) {
+					report_error("Invalid return statement - returned type does not match method/function type.", returnStatement);
+					return;
+				}
+			}
+	}
+	public void visit(PrintStatement printStatement) {
+		Struct exprStruct = printStatement.getExpr().struct;
+		if (!exprStruct.equals(Tab.intType) && !exprStruct.equals(Tab.charType) && !exprStruct.equals(BOOL_STRUCT)) {
+			report_error("Invalid print statement - expression inside the statement must be either int, char or bool type.", printStatement);
+			return;
+		}
+	}
 
 	public void visit(BreakStatement breakStatement) {
 		if (!this.getCurrScope().equals(Scope.DO_WHILE)) {

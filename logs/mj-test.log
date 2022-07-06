@@ -1,168 +1,281 @@
-INFO  18:47:41,216 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program2.mj
-INFO  18:47:41,337 - #2 program
-INFO  18:47:41,338 - #50 p
-INFO  18:47:41,338 - #4 class
-INFO  18:47:41,340 - #50 Base
-INFO  18:47:41,340 - #48 {
-INFO  18:47:41,343 - #48 {
-INFO  18:47:41,345 - #15 void
-INFO  18:47:41,345 - #50 m1
-INFO  18:47:41,346 - #44 (
-INFO  18:47:41,347 - #45 )
-INFO  18:47:41,348 - #48 {
-INFO  18:47:41,348 - #49 }
-INFO  18:47:41,349 - #49 }
-INFO  18:47:41,351 - #49 }
-INFO  18:47:41,351 - #4 class
-INFO  18:47:41,352 - #50 Derived
-INFO  18:47:41,352 - #16 extends
-INFO  18:47:41,352 - #50 Base
-INFO  18:47:41,352 - #48 {
-INFO  18:47:41,354 - #48 {
-INFO  18:47:41,354 - #15 void
-INFO  18:47:41,373 - #50 m1
-INFO  18:47:41,373 - #44 (
-INFO  18:47:41,373 - #45 )
-INFO  18:47:41,373 - #48 {
-INFO  18:47:41,373 - #49 }
-INFO  18:47:41,373 - #49 }
-INFO  18:47:41,373 - #49 }
-INFO  18:47:41,373 - #48 {
-INFO  18:47:41,373 - #15 void
-INFO  18:47:41,374 - #50 f
-INFO  18:47:41,374 - #44 (
-INFO  18:47:41,374 - #45 )
-INFO  18:47:41,374 - #48 {
-INFO  18:47:41,374 - #49 }
-INFO  18:47:41,374 - #15 void
-INFO  18:47:41,374 - #50 main
-INFO  18:47:41,374 - #44 (
-INFO  18:47:41,374 - #45 )
-INFO  18:47:41,374 - #48 {
-INFO  18:47:41,375 - #49 }
-INFO  18:47:41,375 - #15 void
-INFO  18:47:41,375 - #50 f2
-INFO  18:47:41,375 - #44 (
-INFO  18:47:41,375 - #50 int
-INFO  18:47:41,375 - #50 x
-INFO  18:47:41,375 - #41 ,
-INFO  18:47:41,379 - #50 Base
-INFO  18:47:41,383 - #50 b
-INFO  18:47:41,383 - #45 )
-INFO  18:47:41,384 - #48 {
-INFO  18:47:41,384 - #49 }
-INFO  18:47:41,384 - #15 void
-INFO  18:47:41,384 - #50 formParamCallTest
-INFO  18:47:41,384 - #44 (
-INFO  18:47:41,384 - #45 )
-INFO  18:47:41,384 - #50 Base
-INFO  18:47:41,384 - #50 b
-INFO  18:47:41,384 - #39 ;
-INFO  18:47:41,387 - #50 Derived
-INFO  18:47:41,387 - #50 d
-INFO  18:47:41,387 - #39 ;
-INFO  18:47:41,387 - #48 {
-INFO  18:47:41,388 - #50 b
-INFO  18:47:41,388 - #38 =
-INFO  18:47:41,388 - #50 d
-INFO  18:47:41,390 - #39 ;
-INFO  18:47:41,397 - #50 f2
-INFO  18:47:41,398 - #44 (
-INFO  18:47:41,398 - #51 5
-INFO  18:47:41,398 - #41 ,
-INFO  18:47:41,399 - #50 d
-INFO  18:47:41,399 - #45 )
-INFO  18:47:41,399 - #39 ;
-INFO  18:47:41,399 - #50 f
-INFO  18:47:41,399 - #44 (
-INFO  18:47:41,400 - #45 )
-INFO  18:47:41,401 - #39 ;
-INFO  18:47:41,401 - #50 b
-INFO  18:47:41,401 - #43 .
-INFO  18:47:41,401 - #50 m1
-INFO  18:47:41,401 - #44 (
-INFO  18:47:41,401 - #45 )
-INFO  18:47:41,401 - #39 ;
-INFO  18:47:41,401 - #50 f
-INFO  18:47:41,402 - #44 (
-INFO  18:47:41,402 - #51 5
-INFO  18:47:41,402 - #45 )
-INFO  18:47:41,402 - #39 ;
-INFO  18:47:41,402 - #50 f2
-INFO  18:47:41,402 - #44 (
-INFO  18:47:41,402 - #45 )
-INFO  18:47:41,402 - #39 ;
-INFO  18:47:41,402 - #50 f2
-INFO  18:47:41,402 - #44 (
-INFO  18:47:41,403 - #53 x
-INFO  18:47:41,403 - #41 ,
-INFO  18:47:41,403 - #51 5
-INFO  18:47:41,403 - #45 )
-INFO  18:47:41,403 - #39 ;
-INFO  18:47:41,403 - #50 f2
-INFO  18:47:41,403 - #44 (
-INFO  18:47:41,404 - #51 5
-INFO  18:47:41,404 - #41 ,
-INFO  18:47:41,404 - #50 b
-INFO  18:47:41,404 - #45 )
-INFO  18:47:41,404 - #39 ;
-INFO  18:47:41,404 - #49 }
-INFO  18:47:41,404 - #15 void
-INFO  18:47:41,404 - #50 assignTest
-INFO  18:47:41,404 - #44 (
-INFO  18:47:41,404 - #45 )
-INFO  18:47:41,404 - #50 Base
-INFO  18:47:41,404 - #50 base
-INFO  18:47:41,405 - #39 ;
-INFO  18:47:41,405 - #50 Derived
-INFO  18:47:41,405 - #50 derived
-INFO  18:47:41,405 - #39 ;
-INFO  18:47:41,405 - #48 {
-INFO  18:47:41,405 - #50 base
-INFO  18:47:41,405 - #38 =
-INFO  18:47:41,405 - #50 derived
-INFO  18:47:41,405 - #39 ;
-INFO  18:47:41,405 - #50 derived
-INFO  18:47:41,405 - #38 =
-INFO  18:47:41,405 - #50 base
-INFO  18:47:41,406 - #39 ;
-INFO  18:47:41,406 - #49 }
-INFO  18:47:41,406 - #15 void
-INFO  18:47:41,406 - #50 breakContinueTEst
-INFO  18:47:41,406 - #44 (
-INFO  18:47:41,406 - #45 )
-INFO  18:47:41,406 - #48 {
-INFO  18:47:41,406 - #9 do
-INFO  18:47:41,406 - #48 {
-INFO  18:47:41,407 - #3 break
-INFO  18:47:41,407 - #39 ;
-INFO  18:47:41,407 - #17 continue
-INFO  18:47:41,408 - #39 ;
-INFO  18:47:41,408 - #49 }
-INFO  18:47:41,409 - #10 while
-INFO  18:47:41,409 - #44 (
-INFO  18:47:41,409 - #52 true
-INFO  18:47:41,409 - #45 )
-INFO  18:47:41,415 - #39 ;
-INFO  18:47:41,415 - #3 break
-INFO  18:47:41,415 - #39 ;
-INFO  18:47:41,415 - #17 continue
-INFO  18:47:41,415 - #39 ;
-INFO  18:47:41,415 - #49 }
-INFO  18:47:41,415 - #49 }
-INFO  18:47:41,550 -  Formal parameter declared (x). line 28
-INFO  18:47:41,550 -  Formal parameter declared (b). line 28
-INFO  18:47:41,550 - Local variable declared (b). line 32
-INFO  18:47:41,550 - Local variable declared (d). line 32
-INFO  18:47:41,553 - Global function call - f2() line 34
-INFO  18:47:41,553 - Global function call - f() line 35
-INFO  18:47:41,554 - Member reference: b DOT m1 line 36
-ERROR 18:47:41,555 - Invalid method call - Method f() called with invalid number of arguments. line 37
-ERROR 18:47:41,555 - Invalid method call - Method f2() called with invalid number of arguments. line 38
-ERROR 18:47:41,555 - Invalid method call - Method f2() called with invalid arguments. line 39
-INFO  18:47:41,555 - Global function call - f2() line 40
-INFO  18:47:41,555 - Local variable declared (base). line 43
-INFO  18:47:41,555 - Local variable declared (derived). line 43
-ERROR 18:47:41,555 - Incompatible assignment operation types. line 45
-ERROR 18:47:41,555 - Break statement must be inside do-while loop.
-ERROR 18:47:41,555 - Continue statement must be inside do-while loop.
+INFO  19:23:41,273 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program2.mj
+INFO  19:23:41,422 - #2 program
+INFO  19:23:41,422 - #50 p
+INFO  19:23:41,422 - #4 class
+INFO  19:23:41,422 - #50 Base
+INFO  19:23:41,422 - #48 {
+INFO  19:23:41,432 - #48 {
+INFO  19:23:41,432 - #15 void
+INFO  19:23:41,432 - #50 m1
+INFO  19:23:41,432 - #44 (
+INFO  19:23:41,432 - #45 )
+INFO  19:23:41,432 - #48 {
+INFO  19:23:41,432 - #49 }
+INFO  19:23:41,441 - #49 }
+INFO  19:23:41,442 - #49 }
+INFO  19:23:41,442 - #4 class
+INFO  19:23:41,442 - #50 Derived
+INFO  19:23:41,442 - #16 extends
+INFO  19:23:41,442 - #50 Base
+INFO  19:23:41,442 - #48 {
+INFO  19:23:41,442 - #48 {
+INFO  19:23:41,442 - #15 void
+INFO  19:23:41,473 - #50 m1
+INFO  19:23:41,473 - #44 (
+INFO  19:23:41,473 - #45 )
+INFO  19:23:41,473 - #48 {
+INFO  19:23:41,473 - #49 }
+INFO  19:23:41,473 - #49 }
+INFO  19:23:41,473 - #49 }
+INFO  19:23:41,473 - #48 {
+INFO  19:23:41,473 - #15 void
+INFO  19:23:41,473 - #50 f
+INFO  19:23:41,473 - #44 (
+INFO  19:23:41,473 - #45 )
+INFO  19:23:41,473 - #48 {
+INFO  19:23:41,473 - #49 }
+INFO  19:23:41,473 - #15 void
+INFO  19:23:41,473 - #50 main
+INFO  19:23:41,473 - #44 (
+INFO  19:23:41,473 - #45 )
+INFO  19:23:41,473 - #48 {
+INFO  19:23:41,473 - #49 }
+INFO  19:23:41,473 - #15 void
+INFO  19:23:41,473 - #50 f2
+INFO  19:23:41,473 - #44 (
+INFO  19:23:41,473 - #50 int
+INFO  19:23:41,473 - #50 x
+INFO  19:23:41,473 - #41 ,
+INFO  19:23:41,483 - #50 Base
+INFO  19:23:41,487 - #50 b
+INFO  19:23:41,487 - #45 )
+INFO  19:23:41,487 - #48 {
+INFO  19:23:41,487 - #49 }
+INFO  19:23:41,487 - #15 void
+INFO  19:23:41,487 - #50 formParamCallTest
+INFO  19:23:41,487 - #44 (
+INFO  19:23:41,487 - #45 )
+INFO  19:23:41,487 - #50 Base
+INFO  19:23:41,487 - #50 b
+INFO  19:23:41,487 - #39 ;
+INFO  19:23:41,492 - #50 Derived
+INFO  19:23:41,492 - #50 d
+INFO  19:23:41,492 - #39 ;
+INFO  19:23:41,492 - #48 {
+INFO  19:23:41,492 - #50 b
+INFO  19:23:41,492 - #38 =
+INFO  19:23:41,492 - #50 d
+INFO  19:23:41,492 - #39 ;
+INFO  19:23:41,503 - #50 f2
+INFO  19:23:41,503 - #44 (
+INFO  19:23:41,503 - #51 5
+INFO  19:23:41,503 - #41 ,
+INFO  19:23:41,503 - #50 d
+INFO  19:23:41,503 - #45 )
+INFO  19:23:41,503 - #39 ;
+INFO  19:23:41,503 - #50 f
+INFO  19:23:41,503 - #44 (
+INFO  19:23:41,503 - #45 )
+INFO  19:23:41,503 - #39 ;
+INFO  19:23:41,503 - #50 b
+INFO  19:23:41,503 - #43 .
+INFO  19:23:41,503 - #50 m1
+INFO  19:23:41,503 - #44 (
+INFO  19:23:41,503 - #45 )
+INFO  19:23:41,503 - #39 ;
+INFO  19:23:41,503 - #50 f
+INFO  19:23:41,503 - #44 (
+INFO  19:23:41,503 - #51 5
+INFO  19:23:41,503 - #45 )
+INFO  19:23:41,503 - #39 ;
+INFO  19:23:41,503 - #50 f2
+INFO  19:23:41,503 - #44 (
+INFO  19:23:41,503 - #45 )
+INFO  19:23:41,503 - #39 ;
+INFO  19:23:41,503 - #50 f2
+INFO  19:23:41,503 - #44 (
+INFO  19:23:41,503 - #53 x
+INFO  19:23:41,503 - #41 ,
+INFO  19:23:41,503 - #51 5
+INFO  19:23:41,503 - #45 )
+INFO  19:23:41,503 - #39 ;
+INFO  19:23:41,503 - #50 f2
+INFO  19:23:41,503 - #44 (
+INFO  19:23:41,503 - #51 5
+INFO  19:23:41,503 - #41 ,
+INFO  19:23:41,503 - #50 b
+INFO  19:23:41,503 - #45 )
+INFO  19:23:41,511 - #39 ;
+INFO  19:23:41,511 - #49 }
+INFO  19:23:41,511 - #15 void
+INFO  19:23:41,511 - #50 assignTest
+INFO  19:23:41,511 - #44 (
+INFO  19:23:41,511 - #45 )
+INFO  19:23:41,511 - #50 Base
+INFO  19:23:41,511 - #50 base
+INFO  19:23:41,511 - #39 ;
+INFO  19:23:41,511 - #50 Derived
+INFO  19:23:41,511 - #50 derived
+INFO  19:23:41,511 - #39 ;
+INFO  19:23:41,511 - #48 {
+INFO  19:23:41,511 - #50 base
+INFO  19:23:41,511 - #38 =
+INFO  19:23:41,512 - #50 derived
+INFO  19:23:41,512 - #39 ;
+INFO  19:23:41,512 - #50 derived
+INFO  19:23:41,512 - #38 =
+INFO  19:23:41,512 - #50 base
+INFO  19:23:41,512 - #39 ;
+INFO  19:23:41,512 - #49 }
+INFO  19:23:41,512 - #15 void
+INFO  19:23:41,512 - #50 breakContinueTEst
+INFO  19:23:41,512 - #44 (
+INFO  19:23:41,512 - #45 )
+INFO  19:23:41,512 - #48 {
+INFO  19:23:41,512 - #9 do
+INFO  19:23:41,512 - #48 {
+INFO  19:23:41,512 - #3 break
+INFO  19:23:41,512 - #39 ;
+INFO  19:23:41,512 - #17 continue
+INFO  19:23:41,512 - #39 ;
+INFO  19:23:41,512 - #49 }
+INFO  19:23:41,512 - #10 while
+INFO  19:23:41,512 - #44 (
+INFO  19:23:41,512 - #52 true
+INFO  19:23:41,512 - #45 )
+INFO  19:23:41,522 - #39 ;
+INFO  19:23:41,522 - #3 break
+INFO  19:23:41,522 - #39 ;
+INFO  19:23:41,522 - #17 continue
+INFO  19:23:41,522 - #39 ;
+INFO  19:23:41,522 - #49 }
+INFO  19:23:41,522 - #15 void
+INFO  19:23:41,522 - #50 printReadTest
+INFO  19:23:41,522 - #44 (
+INFO  19:23:41,522 - #45 )
+INFO  19:23:41,522 - #50 Base
+INFO  19:23:41,522 - #50 b
+INFO  19:23:41,522 - #39 ;
+INFO  19:23:41,522 - #50 int
+INFO  19:23:41,522 - #50 i
+INFO  19:23:41,522 - #39 ;
+INFO  19:23:41,522 - #50 char
+INFO  19:23:41,522 - #50 c
+INFO  19:23:41,522 - #39 ;
+INFO  19:23:41,522 - #50 bool
+INFO  19:23:41,522 - #50 bo
+INFO  19:23:41,522 - #39 ;
+INFO  19:23:41,522 - #48 {
+INFO  19:23:41,522 - #13 read
+INFO  19:23:41,522 - #44 (
+INFO  19:23:41,522 - #50 b
+INFO  19:23:41,522 - #45 )
+INFO  19:23:41,522 - #39 ;
+INFO  19:23:41,522 - #13 read
+INFO  19:23:41,522 - #44 (
+INFO  19:23:41,522 - #50 i
+INFO  19:23:41,522 - #45 )
+INFO  19:23:41,522 - #39 ;
+INFO  19:23:41,522 - #13 read
+INFO  19:23:41,522 - #44 (
+INFO  19:23:41,522 - #50 c
+INFO  19:23:41,522 - #45 )
+INFO  19:23:41,522 - #39 ;
+INFO  19:23:41,522 - #13 read
+INFO  19:23:41,522 - #44 (
+INFO  19:23:41,522 - #50 bo
+INFO  19:23:41,522 - #45 )
+INFO  19:23:41,522 - #39 ;
+INFO  19:23:41,522 - #12 print
+INFO  19:23:41,522 - #44 (
+INFO  19:23:41,522 - #50 b
+INFO  19:23:41,522 - #45 )
+INFO  19:23:41,522 - #39 ;
+INFO  19:23:41,522 - #12 print
+INFO  19:23:41,522 - #44 (
+INFO  19:23:41,522 - #50 i
+INFO  19:23:41,522 - #45 )
+INFO  19:23:41,522 - #39 ;
+INFO  19:23:41,531 - #12 print
+INFO  19:23:41,531 - #44 (
+INFO  19:23:41,531 - #50 c
+INFO  19:23:41,531 - #45 )
+INFO  19:23:41,531 - #39 ;
+INFO  19:23:41,531 - #12 print
+INFO  19:23:41,531 - #44 (
+INFO  19:23:41,532 - #50 bo
+INFO  19:23:41,533 - #45 )
+INFO  19:23:41,533 - #39 ;
+INFO  19:23:41,533 - #12 print
+INFO  19:23:41,533 - #44 (
+INFO  19:23:41,533 - #51 5
+INFO  19:23:41,533 - #45 )
+INFO  19:23:41,533 - #39 ;
+INFO  19:23:41,533 - #49 }
+INFO  19:23:41,533 - #15 void
+INFO  19:23:41,533 - #50 returnStatementTest1
+INFO  19:23:41,533 - #44 (
+INFO  19:23:41,533 - #45 )
+INFO  19:23:41,533 - #48 {
+INFO  19:23:41,533 - #14 return
+INFO  19:23:41,533 - #51 5
+INFO  19:23:41,533 - #39 ;
+INFO  19:23:41,533 - #14 return
+INFO  19:23:41,533 - #39 ;
+INFO  19:23:41,533 - #49 }
+INFO  19:23:41,533 - #50 int
+INFO  19:23:41,533 - #50 returnStatementTest2
+INFO  19:23:41,533 - #44 (
+INFO  19:23:41,533 - #45 )
+INFO  19:23:41,533 - #48 {
+INFO  19:23:41,533 - #14 return
+INFO  19:23:41,533 - #39 ;
+INFO  19:23:41,533 - #14 return
+INFO  19:23:41,533 - #51 5
+INFO  19:23:41,533 - #39 ;
+INFO  19:23:41,533 - #49 }
+INFO  19:23:41,533 - #50 Base
+INFO  19:23:41,533 - #50 returnStatementTest3
+INFO  19:23:41,533 - #44 (
+INFO  19:23:41,533 - #45 )
+INFO  19:23:41,533 - #50 Derived
+INFO  19:23:41,533 - #50 d
+INFO  19:23:41,533 - #39 ;
+INFO  19:23:41,533 - #48 {
+INFO  19:23:41,533 - #14 return
+INFO  19:23:41,533 - #39 ;
+INFO  19:23:41,533 - #14 return
+INFO  19:23:41,533 - #51 5
+INFO  19:23:41,533 - #39 ;
+INFO  19:23:41,533 - #14 return
+INFO  19:23:41,533 - #50 d
+INFO  19:23:41,533 - #39 ;
+INFO  19:23:41,533 - #49 }
+INFO  19:23:41,533 - #49 }
+INFO  19:23:41,652 -  Formal parameter declared (x). line 28
+INFO  19:23:41,652 -  Formal parameter declared (b). line 28
+INFO  19:23:41,652 - Local variable declared (b). line 32
+INFO  19:23:41,652 - Local variable declared (d). line 32
+INFO  19:23:41,663 - Global function call - f2() line 34
+INFO  19:23:41,663 - Global function call - f() line 35
+INFO  19:23:41,663 - Member reference: b DOT m1 line 36
+ERROR 19:23:41,663 - Invalid method call - Method f() called with invalid number of arguments. line 37
+ERROR 19:23:41,663 - Invalid method call - Method f2() called with invalid number of arguments. line 38
+ERROR 19:23:41,663 - Invalid method call - Method f2() called with invalid arguments. line 39
+INFO  19:23:41,663 - Global function call - f2() line 40
+INFO  19:23:41,663 - Local variable declared (base). line 43
+INFO  19:23:41,663 - Local variable declared (derived). line 43
+ERROR 19:23:41,663 - Incompatible assignment operation types. line 45
+ERROR 19:23:41,663 - Break statement must be inside do-while loop.
+ERROR 19:23:41,663 - Continue statement must be inside do-while loop.
+INFO  19:23:41,663 - Local variable declared (b). line 56
+INFO  19:23:41,663 - Local variable declared (i). line 56
+INFO  19:23:41,663 - Local variable declared (c). line 56
+INFO  19:23:41,663 - Local variable declared (bo). line 56
+ERROR 19:23:41,663 - Invalid read statement - Identifier (b) must be either int, char or bool type. line 57
+ERROR 19:23:41,663 - Invalid print statement - expression inside the statement must be either int, char or bool type. line 61
+ERROR 19:23:41,663 - Invalid return statement - returned type does not match method/function type. line 69
+ERROR 19:23:41,663 - Invalid return statement - return statement must return a value. line 8
+INFO  19:23:41,663 - Local variable declared (d). line 79
+ERROR 19:23:41,663 - Invalid return statement - return statement must return a value. line 8
+ERROR 19:23:41,663 - Invalid return statement - returned type does not match method/function type. line 81

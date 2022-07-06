@@ -103,7 +103,7 @@ nonterminal CondFact;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr;
 nonterminal OrCondTermList;
 nonterminal AndCondFactList;
-nonterminal RelopExpr;
+nonterminal RelopExprOrNothing;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Term;
 nonterminal AddopTermList;
 nonterminal Addop;
@@ -481,12 +481,12 @@ AndCondFactList ::=
 
 CondFact ::=
     (ExprCondFact)
-    Expr RelopExpr
+    Expr RelopExprOrNothing
     |
     (InstanceOfCondFact)
     Designator INSTANCEOF Type:type;
 
-RelopExpr ::=
+RelopExprOrNothing ::=
     (RelopExprIndeed)
     Relop Expr
     |
