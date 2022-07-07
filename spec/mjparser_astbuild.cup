@@ -54,7 +54,7 @@ scan with {:
 :}
 
 
-terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,THIS,SUPER,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,EXP,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
+terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,EXP,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
 terminal String IDENT;
 terminal Integer NUMBER;
 terminal Boolean BOOL;
@@ -397,7 +397,8 @@ MatchedStatement ::=
     READ LPAREN Designator:D1 RPAREN SEMICOLON {: RESULT=new ReadStatement(D1); RESULT.setLine(D1left); :}
     |
     (PrintStatement)
-    PRINT LPAREN Expr:E1 NumConstList:N2 RPAREN SEMICOLON {: RESULT=new PrintStatement(E1, N2); RESULT.setLine(E1left); :};
+    PRINT LPAREN Expr:E1 NumConstList:N2 RPAREN SEMICOLON {: RESULT=new PrintStatement(E1, N2); RESULT.setLine(E1left); :}
+    ;
 
 UnmatchedStatement ::=
     (UnmatchedIfStatement)
@@ -539,7 +540,8 @@ BaseExp ::=
     NEW Type:T1 BracketsWithExprOrNothing:B2 {: RESULT=new BaseExpNewInstance(T1, B2); RESULT.setLine(T1left); :}
     |
     (BaseExpExpr)
-    LPAREN Expr:E1 RPAREN {: RESULT=new BaseExpExpr(E1); RESULT.setLine(E1left); :};
+    LPAREN Expr:E1 RPAREN {: RESULT=new BaseExpExpr(E1); RESULT.setLine(E1left); :}
+    ;
 
 FuncCallOrNothing ::=
     (FuncCall)

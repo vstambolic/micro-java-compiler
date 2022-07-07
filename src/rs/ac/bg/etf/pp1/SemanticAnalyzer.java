@@ -35,7 +35,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	Logger log = Logger.getLogger(getClass());
 
-
 	public SemanticAnalyzer() {
 		Tab.currentScope().addToLocals(new Obj(Obj.Type,"bool", BOOL_STRUCT));
 	}
@@ -57,6 +56,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 	private void report_info(String s, SyntaxNode syntaxNode, Obj obj) {
 		report_info(s, syntaxNode);
+
 		// todo print obj
 	}
 
@@ -192,6 +192,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		String identifier = constructorDeclStart.getIdent();
 		if (!identifier.equals(currentClass.getCurrClass().getName())) { // error je kada se metod zove isto kao klasa
 			report_error("Constructor (" + identifier + ") must have the same identifier as its class (" + currentClass.getCurrClass().getName() + ")", constructorDeclStart);
+
 			return;
 		}
 
@@ -204,11 +205,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		this.currentMethod.incFormalParameterCnt();
 	}
 	public void visit(ConstructorDecl constructorDecl) {
-		this.currentMethod.setFormalParameterCnt();
-		Tab.chainLocalSymbols(this.currentMethod.getCurrMethod());
-		this.closeScope();
-		constructorDecl.obj = this.currentMethod.getCurrMethod();
-		this.currentMethod = null;
+		if (this.currentMethod!=null) {
+			this.currentMethod.setFormalParameterCnt();
+			Tab.chainLocalSymbols(this.currentMethod.getCurrMethod());
+			this.closeScope();
+			constructorDecl.obj = this.currentMethod.getCurrMethod();
+			this.currentMethod = null;
+		}
 
 	}
 	public void visit(TypeOrVoid_Void TypeOrVoid_Void) {
@@ -251,7 +254,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		this.scopeStack.push(Scope.METHOD);
 	}
-
 	public void visit(FormPar formPar) {
 		this.currentMethod.incFormalParameterCnt();
 		String identifier = formPar.getIdent();
@@ -352,10 +354,20 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	public void visit(ClassVarDeclList classVarDeclList) {
 			if (this.currentClass.hasSuperClass()) {
+				String superClassName = Tab.currentScope()
+						.getOuter()
+						.getLocals()
+						.symbols()
+						.stream()
+						.filter(obj -> obj.getKind() == Obj.Type && obj.getType().equals(this.currentClass.getSuperClass()))
+						.findFirst()
+						.get()
+						.getName();
 				this.currentClass.getSuperClass()
 						.getMembers()
 						.stream()
 						.filter(obj -> obj.getKind() == Obj.Meth)
+						.filter(obj -> !obj.getName().equals(superClassName)) // don't copy constructors
 						.forEachOrdered(superMethod -> {
 							Obj copiedMethod = Tab.insert(Obj.Meth, superMethod.getName(), superMethod.getType());
 							copiedMethod.setLevel(superMethod.getLevel());
@@ -420,8 +432,46 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	// -------------------------------------------------------
 	public void visit(DesignatorIdent designatorIdent) {
 		String identifier = designatorIdent.getIdent();
+		superCall=false;
+		if (identifier.equals("super")) {
+			if (!this.insideClass()) {
+				designatorIdent.obj = Tab.noObj;
+				report_error("'super' reference used outside of class.",designatorIdent);
+				return;
+			}
+			if (!this.currentClass.hasSuperClass()) {
+				designatorIdent.obj = Tab.noObj;
+				report_error("'super' reference used inside of class with no super class.",designatorIdent);
+				return;
+			}
+
+			Obj obj;
+			if (this.insideConstructor()) {
+				 obj = this.currentClass.getCurrClass().getType().getElemType().getMembers()
+						.stream()
+						.filter(o -> o.getKind() == Obj.Meth)
+						.findFirst()
+						.orElse(null);
+				 superCall = true;
+			}
+			else
+			 obj = this.currentClass.getCurrClass().getType().getElemType().getMembers()
+					.stream()
+					.filter(o -> o.getKind() == Obj.Meth && o.getName().equals(this.currentMethod.getCurrMethod().getName()))
+					.findFirst()
+					.orElse(null);
+
+			if (obj == null) {
+				designatorIdent.obj = Tab.noObj;
+				report_error("Invalid 'super' reference used - Method "+this.currentMethod.getCurrMethod().getName()+" does not override another method.", designatorIdent);
+				return;
+			}
+			designatorIdent.obj = obj;
+			return;
+		}
 		Obj obj = Tab.find(identifier);
 		if (obj.equals(Tab.noObj)) {
+			designatorIdent.obj = Tab.noObj;
 			report_error("Identifier " + identifier + " used but never declared.",designatorIdent);
 			return;
 		}
@@ -451,7 +501,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 
 
-
 	public void visit(DesignatorMemberReference designatorMemberReference) {
 		String identifier = designatorMemberReference.getIdent();
 		Designator designator = designatorMemberReference.getDesignator();
@@ -461,11 +510,21 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			designatorMemberReference.obj = Tab.noObj;
 			return;
 		}
-		Obj obj = designatorObj.getType().getMembers()
-				.stream()
-				.filter(member -> /*member.getKind() == Obj.Fld && */member.getName().equals(identifier))
-				.findFirst()
-				.orElse(null);
+		Obj obj;
+		if (designatorObj.getName().equals(THIS)) {
+			if (!this.insideClass()) {
+				report_error("'this' reference detected outside of class.", designatorMemberReference);
+				designatorMemberReference.obj = Tab.noObj;
+				return;
+			}
+			obj = Tab.currentScope().getOuter().findSymbol(identifier);
+		}
+		else
+			obj = designatorObj.getType().getMembers()
+					.stream()
+					.filter(member -> /*member.getKind() == Obj.Fld && */member.getName().equals(identifier))
+					.findFirst()
+					.orElse(null);
 
 		if (obj == null) {
 			report_error("Identifier (" + identifier + ") is not a member of a class/record " + designatorObj.getName(), designatorMemberReference);
@@ -530,7 +589,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				Obj designatorObj = designatorStatement.getDesignator().obj;
 				int designatorKind = designatorObj.getKind();
 				if (designatorKind != Obj.Meth) {
-					report_error("Invalid method call - Identifier (" + designatorObj.getName() + ") ain't no method.", designatorStatement.getDesignator());
+					report_error("Invalid method call - Identifier (" +  designatorObj.getName() + ") ain't no method.", designatorStatement.getDesignator());
 					return;
 				}
 				// get formal parameters
@@ -575,8 +634,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				if (designatorStatement.getDesignator() instanceof DesignatorIdent && !this.scopeStack.contains(Scope.CLASS)) {
 					report_info("Global function call detected - " + designatorObj.getName() + "()", designatorStatement);
 				}
-				// else in every other case its method call
-				// todo what if constructor call?
+				else
+					if (designatorStatement.getDesignator() instanceof DesignatorIdent && superCall)
+					{
+						report_info("Super call detected inside a constructor " + designatorObj.getName() + "()", designatorStatement);
+					}
 			}
 	}
 
@@ -793,6 +855,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	private boolean insideClass() {
 		return this.scopeStack.contains(Scope.CLASS);
 	}
+	private boolean insideConstructor() {
+		if (!this.insideClass())
+			return false;
+		return this.currentMethod.getCurrMethod().getName().equals(this.currentClass.getCurrClass().getName());
+	}
 
 	private Scope getCurrScope() {
 		return this.scopeStack.peek();
@@ -805,6 +872,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		this.scopeStack.pop();
 		Tab.closeScope();
 	}
+
+	private boolean superCall = false;
 
 	private static boolean isAlreadyDeclared(String identifier) {
 		return Tab.currentScope().findSymbol(identifier) != null;

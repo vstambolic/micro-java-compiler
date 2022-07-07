@@ -1,0 +1,46 @@
+program p
+
+class Base {
+
+    {
+        Base() {
+
+        }
+        void m1()  {
+
+        }
+        void m2(int x) {
+
+        }
+    }
+}
+class Derived extends Base {
+    int x;
+   {
+       Derived() {
+            super();
+       }
+       void f() {
+            super();
+       }
+       void m1() {
+            super();
+            this.x++;
+            //this.f();
+       }
+       void m2(int x) {
+            super();
+            this.Derived();
+            this.Base();
+       }
+   }
+}
+
+{
+    void main() {
+
+    }
+
+}
+
+
