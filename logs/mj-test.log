@@ -1,79 +1,215 @@
-INFO  03:45:19,552 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
-INFO  03:45:19,737 - #2 program
-INFO  03:45:19,737 - #48 p
-INFO  03:45:19,738 - #4 class
-INFO  03:45:19,740 - #48 A
-INFO  03:45:19,740 - #46 {
-INFO  03:45:19,742 - #48 int
-INFO  03:45:19,743 - #48 i
-INFO  03:45:19,744 - #37 ;
-INFO  03:45:19,749 - #47 }
-INFO  03:45:19,751 - #4 class
-INFO  03:45:19,752 - #48 B
-INFO  03:45:19,752 - #46 {
-INFO  03:45:19,752 - #48 A
-INFO  03:45:19,752 - #48 an
-INFO  03:45:19,752 - #44 [
-INFO  03:45:19,753 - #45 ]
-INFO  03:45:19,753 - #37 ;
-INFO  03:45:19,754 - #48 char
-INFO  03:45:19,754 - #48 arr
-INFO  03:45:19,754 - #44 [
-INFO  03:45:19,754 - #45 ]
-INFO  03:45:19,754 - #37 ;
-INFO  03:45:19,755 - #47 }
-INFO  03:45:19,755 - #4 class
-INFO  03:45:19,755 - #48 C
-INFO  03:45:19,755 - #46 {
-INFO  03:45:19,755 - #48 B
-INFO  03:45:19,755 - #48 b
-INFO  03:45:19,756 - #37 ;
-INFO  03:45:19,756 - #47 }
-INFO  03:45:19,756 - #46 {
-INFO  03:45:19,756 - #15 void
-INFO  03:45:19,756 - #48 main
-INFO  03:45:19,758 - #42 (
-INFO  03:45:19,759 - #43 )
-INFO  03:45:19,760 - #48 C
-INFO  03:45:19,761 - #48 cn
-INFO  03:45:19,761 - #44 [
-INFO  03:45:19,761 - #45 ]
-INFO  03:45:19,761 - #37 ;
-INFO  03:45:19,761 - #48 C
-INFO  03:45:19,761 - #48 c
-INFO  03:45:19,761 - #37 ;
-INFO  03:45:19,762 - #48 A
-INFO  03:45:19,762 - #48 a
-INFO  03:45:19,762 - #37 ;
-INFO  03:45:19,762 - #46 {
-INFO  03:45:19,762 - #48 a
-INFO  03:45:19,768 - #36 =
-INFO  03:45:19,768 - #48 cn
-INFO  03:45:19,770 - #44 [
-INFO  03:45:19,770 - #49 3
-INFO  03:45:19,771 - #45 ]
-INFO  03:45:19,779 - #41 .
-INFO  03:45:19,780 - #48 b
-INFO  03:45:19,780 - #41 .
-INFO  03:45:19,780 - #48 an
-INFO  03:45:19,780 - #44 [
-INFO  03:45:19,780 - #49 4
-INFO  03:45:19,780 - #45 ]
-INFO  03:45:19,780 - #37 ;
-INFO  03:45:19,782 - #47 }
-INFO  03:45:19,782 - #47 }
-INFO  03:45:19,814 - Local variable declared (i). line 5
-INFO  03:45:19,919 - Local variable declared (an). line 8
-INFO  03:45:19,919 - Local variable declared (arr). line 9
-INFO  03:45:19,919 - Local variable declared (b). line 12
-INFO  03:45:19,919 - Local variable declared (cn). line 17
-INFO  03:45:19,919 - Local variable declared (c). line 17
-INFO  03:45:19,919 - Local variable declared (a). line 17
-INFO  03:45:19,919 - Local variable detected (a) line 20
-INFO  03:45:19,919 - Local variable detected (cn) line 20
-INFO  03:45:19,919 - Array reference: cn[]  line 20
-INFO  03:45:19,924 - Member reference detected: cn DOT b line 20
-INFO  03:45:19,924 - Member reference detected: b DOT an line 20
-INFO  03:45:19,924 - Array reference: an[]  line 20
-INFO  03:45:19,929 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
-INFO  03:45:19,949 - MJ compiler finished with success.
+INFO  00:40:32,892 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
+INFO  00:40:33,043 - #2 program
+INFO  00:40:33,043 - #48 p
+INFO  00:40:33,048 - #4 class
+INFO  00:40:33,048 - #48 A
+INFO  00:40:33,048 - #46 {
+INFO  00:40:33,053 - #48 int
+INFO  00:40:33,053 - #48 i
+INFO  00:40:33,053 - #37 ;
+INFO  00:40:33,058 - #47 }
+INFO  00:40:33,063 - #4 class
+INFO  00:40:33,063 - #48 B
+INFO  00:40:33,063 - #46 {
+INFO  00:40:33,063 - #48 A
+INFO  00:40:33,063 - #48 an
+INFO  00:40:33,063 - #44 [
+INFO  00:40:33,063 - #45 ]
+INFO  00:40:33,063 - #37 ;
+INFO  00:40:33,063 - #48 char
+INFO  00:40:33,063 - #48 arr
+INFO  00:40:33,063 - #44 [
+INFO  00:40:33,063 - #45 ]
+INFO  00:40:33,063 - #37 ;
+INFO  00:40:33,070 - #47 }
+INFO  00:40:33,070 - #4 class
+INFO  00:40:33,070 - #48 C
+INFO  00:40:33,072 - #46 {
+INFO  00:40:33,072 - #48 B
+INFO  00:40:33,072 - #48 b
+INFO  00:40:33,072 - #37 ;
+INFO  00:40:33,072 - #46 {
+INFO  00:40:33,072 - #47 }
+INFO  00:40:33,073 - #47 }
+INFO  00:40:33,073 - #4 class
+INFO  00:40:33,073 - #48 Base
+INFO  00:40:33,073 - #46 {
+INFO  00:40:33,073 - #46 {
+INFO  00:40:33,073 - #48 int
+INFO  00:40:33,073 - #48 m
+INFO  00:40:33,073 - #42 (
+INFO  00:40:33,073 - #48 int
+INFO  00:40:33,073 - #48 z
+INFO  00:40:33,078 - #43 )
+INFO  00:40:33,078 - #46 {
+INFO  00:40:33,078 - #47 }
+INFO  00:40:33,078 - #47 }
+INFO  00:40:33,083 - #47 }
+INFO  00:40:33,083 - #4 class
+INFO  00:40:33,083 - #48 Derived
+INFO  00:40:33,083 - #16 extends
+INFO  00:40:33,088 - #48 Base
+INFO  00:40:33,088 - #46 {
+INFO  00:40:33,088 - #48 int
+INFO  00:40:33,088 - #48 x
+INFO  00:40:33,088 - #37 ;
+INFO  00:40:33,088 - #48 char
+INFO  00:40:33,088 - #48 c
+INFO  00:40:33,088 - #37 ;
+INFO  00:40:33,093 - #46 {
+INFO  00:40:33,093 - #48 int
+INFO  00:40:33,093 - #48 f1
+INFO  00:40:33,093 - #42 (
+INFO  00:40:33,093 - #48 int
+INFO  00:40:33,093 - #48 x
+INFO  00:40:33,095 - #43 )
+INFO  00:40:33,095 - #46 {
+INFO  00:40:33,095 - #47 }
+INFO  00:40:33,095 - #48 int
+INFO  00:40:33,095 - #48 m
+INFO  00:40:33,095 - #42 (
+INFO  00:40:33,095 - #48 int
+INFO  00:40:33,095 - #48 z
+INFO  00:40:33,095 - #43 )
+INFO  00:40:33,095 - #46 {
+INFO  00:40:33,095 - #48 f1
+INFO  00:40:33,095 - #42 (
+INFO  00:40:33,095 - #49 6666
+INFO  00:40:33,095 - #43 )
+INFO  00:40:33,105 - #37 ;
+INFO  00:40:33,105 - #48 this
+INFO  00:40:33,105 - #41 .
+INFO  00:40:33,105 - #48 f1
+INFO  00:40:33,105 - #42 (
+INFO  00:40:33,105 - #49 777
+INFO  00:40:33,105 - #43 )
+INFO  00:40:33,105 - #37 ;
+INFO  00:40:33,105 - #48 z
+INFO  00:40:33,105 - #36 =
+INFO  00:40:33,105 - #48 f1
+INFO  00:40:33,112 - #42 (
+INFO  00:40:33,112 - #49 5
+INFO  00:40:33,112 - #43 )
+INFO  00:40:33,112 - #37 ;
+INFO  00:40:33,113 - #47 }
+INFO  00:40:33,113 - #47 }
+INFO  00:40:33,113 - #47 }
+INFO  00:40:33,113 - #46 {
+INFO  00:40:33,113 - #15 void
+INFO  00:40:33,113 - #48 f1
+INFO  00:40:33,115 - #42 (
+INFO  00:40:33,115 - #48 int
+INFO  00:40:33,115 - #48 x
+INFO  00:40:33,115 - #43 )
+INFO  00:40:33,115 - #46 {
+INFO  00:40:33,115 - #47 }
+INFO  00:40:33,115 - #48 int
+INFO  00:40:33,115 - #48 f2
+INFO  00:40:33,115 - #42 (
+INFO  00:40:33,115 - #48 int
+INFO  00:40:33,115 - #48 x
+INFO  00:40:33,115 - #43 )
+INFO  00:40:33,115 - #46 {
+INFO  00:40:33,115 - #47 }
+INFO  00:40:33,115 - #15 void
+INFO  00:40:33,115 - #48 main
+INFO  00:40:33,115 - #42 (
+INFO  00:40:33,115 - #43 )
+INFO  00:40:33,115 - #48 Base
+INFO  00:40:33,115 - #48 b
+INFO  00:40:33,115 - #37 ;
+INFO  00:40:33,115 - #48 Derived
+INFO  00:40:33,115 - #48 d
+INFO  00:40:33,115 - #37 ;
+INFO  00:40:33,115 - #48 int
+INFO  00:40:33,115 - #48 x
+INFO  00:40:33,115 - #37 ;
+INFO  00:40:33,115 - #48 int
+INFO  00:40:33,115 - #48 iarr
+INFO  00:40:33,115 - #44 [
+INFO  00:40:33,115 - #45 ]
+INFO  00:40:33,115 - #37 ;
+INFO  00:40:33,115 - #48 char
+INFO  00:40:33,115 - #48 carr
+INFO  00:40:33,115 - #44 [
+INFO  00:40:33,115 - #45 ]
+INFO  00:40:33,115 - #37 ;
+INFO  00:40:33,115 - #48 C
+INFO  00:40:33,115 - #48 cn
+INFO  00:40:33,120 - #44 [
+INFO  00:40:33,120 - #45 ]
+INFO  00:40:33,120 - #37 ;
+INFO  00:40:33,120 - #48 C
+INFO  00:40:33,120 - #48 c
+INFO  00:40:33,120 - #37 ;
+INFO  00:40:33,120 - #48 A
+INFO  00:40:33,120 - #48 a
+INFO  00:40:33,120 - #37 ;
+INFO  00:40:33,120 - #46 {
+INFO  00:40:33,120 - #48 f1
+INFO  00:40:33,122 - #42 (
+INFO  00:40:33,122 - #49 1234
+INFO  00:40:33,122 - #43 )
+INFO  00:40:33,122 - #37 ;
+INFO  00:40:33,122 - #48 f2
+INFO  00:40:33,122 - #42 (
+INFO  00:40:33,122 - #49 5
+INFO  00:40:33,122 - #43 )
+INFO  00:40:33,122 - #37 ;
+INFO  00:40:33,122 - #48 x
+INFO  00:40:33,122 - #36 =
+INFO  00:40:33,123 - #48 f2
+INFO  00:40:33,123 - #42 (
+INFO  00:40:33,123 - #49 5
+INFO  00:40:33,123 - #43 )
+INFO  00:40:33,123 - #37 ;
+INFO  00:40:33,123 - #48 b
+INFO  00:40:33,123 - #41 .
+INFO  00:40:33,123 - #48 m
+INFO  00:40:33,123 - #42 (
+INFO  00:40:33,123 - #49 6
+INFO  00:40:33,123 - #43 )
+INFO  00:40:33,123 - #37 ;
+INFO  00:40:33,123 - #48 x
+INFO  00:40:33,123 - #36 =
+INFO  00:40:33,123 - #48 b
+INFO  00:40:33,123 - #41 .
+INFO  00:40:33,123 - #48 m
+INFO  00:40:33,123 - #42 (
+INFO  00:40:33,123 - #49 6
+INFO  00:40:33,123 - #43 )
+INFO  00:40:33,125 - #37 ;
+INFO  00:40:33,125 - #47 }
+INFO  00:40:33,125 - #47 }
+INFO  00:40:33,156 - Local variable declared (i). line 4
+INFO  00:40:33,256 - Local variable declared (an). line 8
+INFO  00:40:33,256 - Local variable declared (arr). line 9
+INFO  00:40:33,256 - Local variable declared (b). line 13
+INFO  00:40:33,258 -  Formal parameter declared (z). line 25
+INFO  00:40:33,263 - Local variable declared (x). line 32
+INFO  00:40:33,263 - Local variable declared (c). line 33
+INFO  00:40:33,268 -  Formal parameter declared (x). line 35
+INFO  00:40:33,272 -  Formal parameter declared (z). line 39
+INFO  00:40:33,286 - Formal parameter detected (this) line 41
+INFO  00:40:33,286 - Member reference detected: this DOT f1 line 41
+INFO  00:40:33,286 - Formal parameter detected (z) line 42
+INFO  00:40:33,286 -  Formal parameter declared (x). line 49
+INFO  00:40:33,286 -  Formal parameter declared (x). line 53
+INFO  00:40:33,286 - Local variable declared (b). line 58
+INFO  00:40:33,286 - Local variable declared (d). line 59
+INFO  00:40:33,286 - Local variable declared (x). line 60
+INFO  00:40:33,286 - Local variable declared (iarr). line 61
+INFO  00:40:33,286 - Local variable declared (carr). line 62
+INFO  00:40:33,286 - Local variable declared (cn). line 63
+INFO  00:40:33,286 - Local variable declared (c). line 64
+INFO  00:40:33,286 - Local variable declared (a). line 65
+INFO  00:40:33,288 - Global function call detected - f1() line 73
+INFO  00:40:33,288 - Global function call detected - f2() line 74
+INFO  00:40:33,288 - Local variable detected (x) line 75
+INFO  00:40:33,288 - Local variable detected (b) line 76
+INFO  00:40:33,288 - Member reference detected: b DOT m line 76
+INFO  00:40:33,288 - Local variable detected (x) line 77
+INFO  00:40:33,288 - Local variable detected (b) line 77
+INFO  00:40:33,288 - Member reference detected: b DOT m line 77
+INFO  00:40:33,293 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
+INFO  00:40:33,323 - MJ compiler finished with success.

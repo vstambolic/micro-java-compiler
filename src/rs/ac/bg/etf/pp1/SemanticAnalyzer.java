@@ -5,6 +5,7 @@ import rs.ac.bg.etf.pp1.ast.*;
 import rs.ac.bg.etf.pp1.semantic_analyzer_utils.CurrentClass;
 import rs.ac.bg.etf.pp1.semantic_analyzer_utils.CurrentMethod;
 import rs.ac.bg.etf.pp1.semantic_analyzer_utils.Scope;
+import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
@@ -16,10 +17,11 @@ import java.util.stream.Collectors;
 public class SemanticAnalyzer extends VisitorAdaptor {
 
 	// Constants ---------------------------------
-	private static final String THIS = "this";
+	public static final String THIS = "this";
 	public static final int RECORD = 8;
-	private static final Struct RECORD_STRUCT = new Struct(RECORD);
+	public static final Struct RECORD_STRUCT = new Struct(RECORD);
 	public static final Struct BOOL_STRUCT = new Struct(Struct.Bool);
+	public static final String VIRTUAL_METHOD_TABLE = "VMT";
 
 	// Helpers -----------------------------------
 	private Stack<Scope> scopeStack = new Stack<>();
@@ -80,7 +82,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	 * @param program
 	 */
 	public void visit(Program program) {
-		globalVarCnt = Tab.currentScope.getnVars();
+		Code.dataSize = globalVarCnt = Tab.currentScope.getnVars();
 		Tab.chainLocalSymbols(program.getProgramDecl().obj); // Iz currentScopa prebacuje sve u dati cvor kao locals
 		Tab.closeScope();
 
@@ -200,7 +202,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		Obj currMethodObj = Tab.insert(Obj.Meth, identifier, Tab.noType);
 		this.currentMethod = new CurrentMethod(currMethodObj);
-		constructorDeclStart.obj = currMethodObj; // TODO koji ce mi ovo djavo
+		constructorDeclStart.obj = currMethodObj;
 
 		this.openScope(Scope.METHOD);
 		Tab.insert(Obj.Var, THIS, currentClass.getCurrClass().getType());
@@ -248,7 +250,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		Obj currMethodObj = new Obj(Obj.Meth, identifier, this.currType,0,0);
 		this.currentMethod = new CurrentMethod(currMethodObj);
-		methodDeclStart.obj = currMethodObj; // TODO koji ce mi ovo djavo
+		methodDeclStart.obj = currMethodObj;
 		Tab.openScope();
 		if (this.getCurrScope().equals(Scope.CLASS)) {
 			Tab.insert(Obj.Var, THIS, currentClass.getCurrClass().getType());
@@ -301,6 +303,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			if (superMethod != null) {
 				// change superMethod locals
 				Tab.chainLocalSymbols(superMethod);
+				this.currentMethod.setCurrMethod(superMethod);
 			}
 			else {
 				this.currentMethod.setFormalParameterCnt();
@@ -314,7 +317,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			Tab.currentScope().getOuter().addToLocals(this.currentMethod.getCurrMethod());
 		}
 		Tab.closeScope();
-		methodDecl.obj = this.currentMethod.getCurrMethod();
+		methodDecl.getMethodDeclStart().obj = methodDecl.obj = this.currentMethod.getCurrMethod();
 		this.currentMethod = null;
 	}
 
@@ -333,7 +336,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 			this.openScope(Scope.CLASS);
 
-			Tab.insert(Obj.Fld, "TVF", Tab.intType); // Table of Virtual Functions
+			Tab.insert(Obj.Fld, VIRTUAL_METHOD_TABLE, Tab.intType); // Vitual Method Table
 		}
 	}
 	public void visit(ExtendsIndeed extendsIndeed) {
@@ -352,7 +355,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		currType.getMembers()
 				.stream()
 				.filter(obj -> obj.getKind() == Obj.Fld)
-				.filter(obj -> !Objects.equals(obj.getName(), "TVF"))
+				.filter(obj -> !Objects.equals(obj.getName(), VIRTUAL_METHOD_TABLE))
 				.forEachOrdered(obj -> Tab.insert(Obj.Fld, obj.getName(), obj.getType()));
 	}
 

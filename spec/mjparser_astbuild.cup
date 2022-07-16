@@ -121,7 +121,7 @@ nonterminal FuncCallOrNothing FuncCallOrNothing;
 nonterminal ExprList ExprList;
 nonterminal VarArgs VarArgs;
 nonterminal ExprOrNothing ExprOrNothing;
-nonterminal NumConstList NumConstList;
+nonterminal PrintWidth PrintWidth;
 nonterminal FormParsOrError FormParsOrError;
 nonterminal ConditionOrError ConditionOrError;
 nonterminal DoWhileStatementStart DoWhileStatementStart;
@@ -182,10 +182,11 @@ ConstAssignmentList ::=
     (NoConstAssignmentList) {: RESULT=new NoConstAssignmentList(); :}
     /* Æ? */;
 
-NumConstList ::=
-    (NumConstListIndeed)
-    NumConstList:N1 COMMA NUMBER:N2 {: RESULT=new NumConstListIndeed(N1, N2); RESULT.setLine(N1left); :}
-    | {: RESULT=new NumConstListDerived1(); :}
+PrintWidth ::=
+    (PrintWidthIndeed)
+    COMMA NUMBER:N1 {: RESULT=new PrintWidthIndeed(N1); RESULT.setLine(N1left); :}
+    |
+    (NoPrintWidth) {: RESULT=new NoPrintWidth(); :}
     /* Æ? */;
 
 Literal ::=
@@ -397,7 +398,7 @@ MatchedStatement ::=
     READ LPAREN Designator:D1 RPAREN SEMICOLON {: RESULT=new ReadStatement(D1); RESULT.setLine(D1left); :}
     |
     (PrintStatement)
-    PRINT LPAREN Expr:E1 NumConstList:N2 RPAREN SEMICOLON {: RESULT=new PrintStatement(E1, N2); RESULT.setLine(E1left); :}
+    PRINT LPAREN Expr:E1 PrintWidth:P2 RPAREN SEMICOLON {: RESULT=new PrintStatement(E1, P2); RESULT.setLine(E1left); :}
     ;
 
 UnmatchedStatement ::=
@@ -544,8 +545,8 @@ BaseExp ::=
     ;
 
 FuncCallOrNothing ::=
-    (FuncCall)
-    LPAREN ActParsOrNothing:A1 RPAREN {: RESULT=new FuncCall(A1); RESULT.setLine(A1left); :}
+    (FuncCallIndeed)
+    LPAREN ActParsOrNothing:A1 RPAREN {: RESULT=new FuncCallIndeed(A1); RESULT.setLine(A1left); :}
     |
     (NoFuncCall) {: RESULT=new NoFuncCall(); :}
     /* Æ? */;

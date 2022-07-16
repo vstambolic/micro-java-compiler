@@ -30,4 +30,8 @@ public class CurrentMethod {
     public boolean isVoid() {
         return this.getCurrMethod().getType().equals(Tab.noType);
     }
+
+    public void setCurrMethod(Obj currMethod) {
+        this.currMethod = currMethod;
+    }
 }

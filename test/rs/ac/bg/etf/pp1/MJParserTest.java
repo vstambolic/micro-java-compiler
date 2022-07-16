@@ -49,7 +49,7 @@ public class MJParserTest {
 			SemanticAnalyzer semanticAnalyzer = new SemanticAnalyzer();
 			prog.traverseBottomUp(semanticAnalyzer);
 
-			//   Tab.dump();
+			Tab.dump();
 
 	        if (!p.errorDetected && semanticAnalyzer.semanticCheckPassed()) {
 				String objFilePath = args[0].replace(".mj",".obj");
@@ -59,9 +59,8 @@ public class MJParserTest {
 	        		objFile.delete();
 
 	        	// Code generation...
-	        	CodeGenerator codeGenerator = new CodeGenerator();
-	        	prog.traverseBottomUp(codeGenerator);
-	        	Code.dataSize = semanticAnalyzer.getGlobalVarCnt();
+	        	CodeGenerator codeGenerator = CodeGenerator.getInstance();
+				prog.traverseBottomUp(codeGenerator);
 	        	Code.mainPc = codeGenerator.getMainPc();
 	        	Code.write(Files.newOutputStream(objFile.toPath()));
 	        	log.info("MJ compiler finished with success.");

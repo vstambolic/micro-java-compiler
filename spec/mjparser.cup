@@ -121,7 +121,7 @@ nonterminal FuncCallOrNothing;
 nonterminal ExprList;
 nonterminal VarArgs;
 nonterminal ExprOrNothing;
-nonterminal NumConstList;
+nonterminal PrintWidth;
 nonterminal FormParsOrError;
 nonterminal ConditionOrError;
 nonterminal DoWhileStatementStart;
@@ -182,10 +182,11 @@ ConstAssignmentList ::=
     (NoConstAssignmentList)
     /* Ɛ */;
 
-NumConstList ::=
-    (NumConstListIndeed)
-    NumConstList COMMA NUMBER
+PrintWidth ::=
+    (PrintWidthIndeed)
+    COMMA NUMBER
     |
+    (NoPrintWidth)
     /* Ɛ */;
 
 Literal ::=
@@ -397,7 +398,7 @@ MatchedStatement ::=
     READ LPAREN Designator RPAREN SEMICOLON
     |
     (PrintStatement)
-    PRINT LPAREN Expr NumConstList RPAREN SEMICOLON
+    PRINT LPAREN Expr PrintWidth RPAREN SEMICOLON
     ;
 
 UnmatchedStatement ::=
@@ -544,7 +545,7 @@ BaseExp ::=
     ;
 
 FuncCallOrNothing ::=
-    (FuncCall)
+    (FuncCallIndeed)
     LPAREN ActParsOrNothing RPAREN
     |
     (NoFuncCall)
