@@ -1,0 +1,23 @@
+program p
+
+
+class A {
+    int i;
+}
+class B {
+    A an[];
+    char arr[];
+}
+class C {
+    B b;
+}
+
+{
+    void main()
+        C cn[]; C c; A a;
+
+    {
+        a =  cn[3].b.an[4] ;
+    }
+
+}

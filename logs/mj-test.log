@@ -1,119 +1,79 @@
-INFO  03:03:43,974 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program3.mj
-INFO  03:03:44,099 - #2 program
-INFO  03:03:44,104 - #48 p
-INFO  03:03:44,104 - #4 class
-INFO  03:03:44,104 - #48 Base
-INFO  03:03:44,104 - #46 {
-INFO  03:03:44,109 - #46 {
-INFO  03:03:44,109 - #48 Base
-INFO  03:03:44,109 - #42 (
-INFO  03:03:44,109 - #43 )
-INFO  03:03:44,109 - #46 {
-INFO  03:03:44,109 - #47 }
-INFO  03:03:44,114 - #15 void
-INFO  03:03:44,114 - #48 m1
-INFO  03:03:44,114 - #42 (
-INFO  03:03:44,114 - #43 )
-INFO  03:03:44,119 - #46 {
-INFO  03:03:44,119 - #47 }
-INFO  03:03:44,119 - #15 void
-INFO  03:03:44,119 - #48 m2
-INFO  03:03:44,119 - #42 (
-INFO  03:03:44,119 - #48 int
-INFO  03:03:44,119 - #48 x
-INFO  03:03:44,134 - #43 )
-INFO  03:03:44,134 - #46 {
-INFO  03:03:44,134 - #47 }
-INFO  03:03:44,134 - #47 }
-INFO  03:03:44,139 - #47 }
-INFO  03:03:44,139 - #4 class
-INFO  03:03:44,139 - #48 Derived
-INFO  03:03:44,139 - #16 extends
-INFO  03:03:44,139 - #48 Base
-INFO  03:03:44,139 - #46 {
-INFO  03:03:44,139 - #48 int
-INFO  03:03:44,139 - #48 x
-INFO  03:03:44,139 - #37 ;
-INFO  03:03:44,139 - #46 {
-INFO  03:03:44,139 - #48 Derived
-INFO  03:03:44,139 - #42 (
-INFO  03:03:44,139 - #43 )
-INFO  03:03:44,139 - #46 {
-INFO  03:03:44,139 - #48 super
-INFO  03:03:44,139 - #42 (
-INFO  03:03:44,144 - #43 )
-INFO  03:03:44,144 - #37 ;
-INFO  03:03:44,144 - #47 }
-INFO  03:03:44,144 - #15 void
-INFO  03:03:44,144 - #48 f
-INFO  03:03:44,144 - #42 (
-INFO  03:03:44,149 - #43 )
-INFO  03:03:44,149 - #46 {
-INFO  03:03:44,149 - #48 super
-INFO  03:03:44,149 - #42 (
-INFO  03:03:44,149 - #43 )
-INFO  03:03:44,149 - #37 ;
-INFO  03:03:44,149 - #47 }
-INFO  03:03:44,149 - #15 void
-INFO  03:03:44,149 - #48 m1
-INFO  03:03:44,149 - #42 (
-INFO  03:03:44,149 - #43 )
-INFO  03:03:44,149 - #46 {
-INFO  03:03:44,149 - #48 super
-INFO  03:03:44,149 - #42 (
-INFO  03:03:44,149 - #43 )
-INFO  03:03:44,149 - #37 ;
-INFO  03:03:44,149 - #48 this
-INFO  03:03:44,149 - #41 .
-INFO  03:03:44,149 - #48 x
-INFO  03:03:44,149 - #20 ++
-INFO  03:03:44,154 - #37 ;
-INFO  03:03:44,154 - #47 }
-INFO  03:03:44,154 - #15 void
-INFO  03:03:44,154 - #48 m2
-INFO  03:03:44,154 - #42 (
-INFO  03:03:44,154 - #48 int
-INFO  03:03:44,154 - #48 x
-INFO  03:03:44,154 - #43 )
-INFO  03:03:44,154 - #46 {
-INFO  03:03:44,154 - #48 super
-INFO  03:03:44,154 - #42 (
-INFO  03:03:44,154 - #43 )
-INFO  03:03:44,154 - #37 ;
-INFO  03:03:44,154 - #48 this
-INFO  03:03:44,154 - #41 .
-INFO  03:03:44,154 - #48 Derived
-INFO  03:03:44,154 - #42 (
-INFO  03:03:44,154 - #43 )
-INFO  03:03:44,154 - #37 ;
-INFO  03:03:44,154 - #48 this
-INFO  03:03:44,154 - #41 .
-INFO  03:03:44,154 - #48 Base
-INFO  03:03:44,154 - #42 (
-INFO  03:03:44,154 - #43 )
-INFO  03:03:44,154 - #37 ;
-INFO  03:03:44,154 - #47 }
-INFO  03:03:44,154 - #47 }
-INFO  03:03:44,154 - #47 }
-INFO  03:03:44,154 - #46 {
-INFO  03:03:44,154 - #15 void
-INFO  03:03:44,154 - #48 main
-INFO  03:03:44,154 - #42 (
-INFO  03:03:44,154 - #43 )
-INFO  03:03:44,154 - #46 {
-INFO  03:03:44,154 - #47 }
-INFO  03:03:44,154 - #47 }
-INFO  03:03:44,179 -  Formal parameter declared (x). line 12
-INFO  03:03:44,279 - Local variable declared (x). line 18
-INFO  03:03:44,304 - Super call detected inside a constructor Base() line 21
-ERROR 03:03:44,304 - Invalid 'super' reference used - Method f does not override another method. line 24
-ERROR 03:03:44,304 - Invalid method call - Identifier (noObj) ain't no method. line 24
-INFO  03:03:44,304 - Formal parameter detected (this) line 28
-INFO  03:03:44,304 - Member reference detected: this DOT x line 28
-INFO  03:03:44,304 -  Formal parameter declared (x). line 31
-ERROR 03:03:44,304 - Invalid method call - Method m2() called with invalid number of arguments. line 32
-INFO  03:03:44,309 - Formal parameter detected (this) line 33
-INFO  03:03:44,309 - Member reference detected: this DOT Derived line 33
-INFO  03:03:44,309 - Formal parameter detected (this) line 34
-ERROR 03:03:44,309 - Identifier (Base) is not a member of a class/record this line 34
-ERROR 03:03:44,309 - Invalid method call - Identifier (noObj) ain't no method. line 34
+INFO  03:45:19,552 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
+INFO  03:45:19,737 - #2 program
+INFO  03:45:19,737 - #48 p
+INFO  03:45:19,738 - #4 class
+INFO  03:45:19,740 - #48 A
+INFO  03:45:19,740 - #46 {
+INFO  03:45:19,742 - #48 int
+INFO  03:45:19,743 - #48 i
+INFO  03:45:19,744 - #37 ;
+INFO  03:45:19,749 - #47 }
+INFO  03:45:19,751 - #4 class
+INFO  03:45:19,752 - #48 B
+INFO  03:45:19,752 - #46 {
+INFO  03:45:19,752 - #48 A
+INFO  03:45:19,752 - #48 an
+INFO  03:45:19,752 - #44 [
+INFO  03:45:19,753 - #45 ]
+INFO  03:45:19,753 - #37 ;
+INFO  03:45:19,754 - #48 char
+INFO  03:45:19,754 - #48 arr
+INFO  03:45:19,754 - #44 [
+INFO  03:45:19,754 - #45 ]
+INFO  03:45:19,754 - #37 ;
+INFO  03:45:19,755 - #47 }
+INFO  03:45:19,755 - #4 class
+INFO  03:45:19,755 - #48 C
+INFO  03:45:19,755 - #46 {
+INFO  03:45:19,755 - #48 B
+INFO  03:45:19,755 - #48 b
+INFO  03:45:19,756 - #37 ;
+INFO  03:45:19,756 - #47 }
+INFO  03:45:19,756 - #46 {
+INFO  03:45:19,756 - #15 void
+INFO  03:45:19,756 - #48 main
+INFO  03:45:19,758 - #42 (
+INFO  03:45:19,759 - #43 )
+INFO  03:45:19,760 - #48 C
+INFO  03:45:19,761 - #48 cn
+INFO  03:45:19,761 - #44 [
+INFO  03:45:19,761 - #45 ]
+INFO  03:45:19,761 - #37 ;
+INFO  03:45:19,761 - #48 C
+INFO  03:45:19,761 - #48 c
+INFO  03:45:19,761 - #37 ;
+INFO  03:45:19,762 - #48 A
+INFO  03:45:19,762 - #48 a
+INFO  03:45:19,762 - #37 ;
+INFO  03:45:19,762 - #46 {
+INFO  03:45:19,762 - #48 a
+INFO  03:45:19,768 - #36 =
+INFO  03:45:19,768 - #48 cn
+INFO  03:45:19,770 - #44 [
+INFO  03:45:19,770 - #49 3
+INFO  03:45:19,771 - #45 ]
+INFO  03:45:19,779 - #41 .
+INFO  03:45:19,780 - #48 b
+INFO  03:45:19,780 - #41 .
+INFO  03:45:19,780 - #48 an
+INFO  03:45:19,780 - #44 [
+INFO  03:45:19,780 - #49 4
+INFO  03:45:19,780 - #45 ]
+INFO  03:45:19,780 - #37 ;
+INFO  03:45:19,782 - #47 }
+INFO  03:45:19,782 - #47 }
+INFO  03:45:19,814 - Local variable declared (i). line 5
+INFO  03:45:19,919 - Local variable declared (an). line 8
+INFO  03:45:19,919 - Local variable declared (arr). line 9
+INFO  03:45:19,919 - Local variable declared (b). line 12
+INFO  03:45:19,919 - Local variable declared (cn). line 17
+INFO  03:45:19,919 - Local variable declared (c). line 17
+INFO  03:45:19,919 - Local variable declared (a). line 17
+INFO  03:45:19,919 - Local variable detected (a) line 20
+INFO  03:45:19,919 - Local variable detected (cn) line 20
+INFO  03:45:19,919 - Array reference: cn[]  line 20
+INFO  03:45:19,924 - Member reference detected: cn DOT b line 20
+INFO  03:45:19,924 - Member reference detected: b DOT an line 20
+INFO  03:45:19,924 - Array reference: an[]  line 20
+INFO  03:45:19,929 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
+INFO  03:45:19,949 - MJ compiler finished with success.

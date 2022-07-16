@@ -1,35 +1,88 @@
-//package rs.ac.bg.etf.pp1;
-//
-//import rs.ac.bg.etf.pp1.CounterVisitor.FormParamCounter;
-//import rs.ac.bg.etf.pp1.CounterVisitor.VarCounter;
-//import rs.ac.bg.etf.pp1.ast.AddExpr;
-//import rs.ac.bg.etf.pp1.ast.Assignment;
-//import rs.ac.bg.etf.pp1.ast.Const;
-//import rs.ac.bg.etf.pp1.ast.Designator;
-//import rs.ac.bg.etf.pp1.ast.FormalParamDecl;
-//import rs.ac.bg.etf.pp1.ast.FuncCall;
-//import rs.ac.bg.etf.pp1.ast.MethodDecl;
-//import rs.ac.bg.etf.pp1.ast.MethodTypeName;
-//import rs.ac.bg.etf.pp1.ast.PrintStmt;
-//import rs.ac.bg.etf.pp1.ast.ReturnExpr;
-//import rs.ac.bg.etf.pp1.ast.ReturnNoExpr;
-//import rs.ac.bg.etf.pp1.ast.SyntaxNode;
-//import rs.ac.bg.etf.pp1.ast.VarDecl;
-//import rs.ac.bg.etf.pp1.ast.VisitorAdaptor;
-//import rs.etf.pp1.mj.runtime.Code;
-//import rs.etf.pp1.symboltable.concepts.Obj;
-//
-//public class CodeGenerator extends VisitorAdaptor {
-//
-//	private int varCount;
-//
-//	private int paramCnt;
-//
-//	private int mainPc;
-//
-//	public int getMainPc() {
-//		return mainPc;
-//	}
+package rs.ac.bg.etf.pp1;
+
+import rs.ac.bg.etf.pp1.ast.*;
+import rs.etf.pp1.mj.runtime.Code;
+import rs.etf.pp1.symboltable.Tab;
+import rs.etf.pp1.symboltable.concepts.Obj;
+
+public class CodeGenerator extends VisitorAdaptor {
+
+    private int varCount;
+
+    private int paramCnt;
+
+    private int mainPc;
+
+    public int getMainPc() {
+        return mainPc;
+    }
+
+    // Basic arithmetic expressions ------------------------------------------------------------------------------------
+    public void visit(BaseExpNumber baseExpNumber) {
+        Code.load(new Obj(Obj.Con, "", Tab.intType, baseExpNumber.getN1(), 0));
+    }
+
+    public void visit(BaseExpBool baseExpBool) {
+        Code.load(new Obj(Obj.Con, "", SemanticAnalyzer.BOOL_STRUCT, baseExpBool.getB1() ? 1 : 0, 0));
+    }
+
+    public void visit(BaseExpChar baseExpChar) {
+        Code.load(new Obj(Obj.Con, "", Tab.charType, baseExpChar.getC1(), 0));
+    }
+
+    public void visit(MulopFactorListIndeed mulopFactorListIndeed) {
+        Mulop mulop = mulopFactorListIndeed.getMulop();
+        if (mulop instanceof Mul)
+            Code.put(Code.mul);
+        else
+            if (mulop instanceof Div)
+                Code.put(Code.div);
+            else
+                Code.put(Code.rem);
+    }
+
+    public void visit(AddopTermListIndeed addopTermListIndeed) {
+        Addop addop = addopTermListIndeed.getAddop();
+        if (addop instanceof Add)
+            Code.put(Code.add);
+        else
+            Code.put(Code.sub);
+    }
+
+    // Designators -----------------------------------------------------------------------------------------------------
+
+    private boolean assignOpVisited = false;
+    public void visit(DesignatorIdent designator) {
+        if (/*this.assignOpVisited ||*/ !(designator.getParent() instanceof DesignatorStatement)) {
+            Code.load(designator.obj);
+        }
+    }
+    public void visit(DesignatorMemberReference designator) {
+        if (/*this.assignOpVisited ||*/ !(designator.getParent() instanceof DesignatorStatement)) {
+            Code.load(designator.obj);
+        }
+    }
+    public void visit(DesignatorArrayReference designator) {
+        if (/*this.assignOpVisited ||*/ !(designator.getParent() instanceof DesignatorStatement)) {
+            Code.load(designator.obj);
+        }
+    }
+
+    public void visit(DesignatorAssignOperation designatorAssignOperation) {
+        Code.store(((DesignatorStatement) designatorAssignOperation.getParent()).getDesignator().obj);
+    }
+    public void visit(DesignatorIncOperation designatorIncOperation) {
+        Code.put(Code.const_1);
+        Code.put(Code.add);
+        Code.store(((DesignatorStatement) designatorIncOperation.getParent()).getDesignator().obj);
+    }
+
+    public void visit(DesignatorDecOperation designatorDecOperation) {
+        Code.put(Code.const_1);
+        Code.put(Code.sub);
+        Code.store(((DesignatorStatement) designatorDecOperation.getParent()).getDesignator().obj);
+    }
+    // todo designator u klasama, negative expression, designator kao funkcijski poziv
 //
 //	@Override
 //	public void visit(MethodTypeName MethodTypeName) {
@@ -115,4 +168,4 @@
 //	public void visit(AddExpr AddExpr) {
 //		Code.put(Code.add);
 //	}
-//}
+}

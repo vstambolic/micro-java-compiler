@@ -19,24 +19,24 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	private static final String THIS = "this";
 	public static final int RECORD = 8;
 	private static final Struct RECORD_STRUCT = new Struct(RECORD);
-	private static final Struct BOOL_STRUCT = new Struct(Struct.Bool);
+	public static final Struct BOOL_STRUCT = new Struct(Struct.Bool);
 
 	// Helpers -----------------------------------
 	private Stack<Scope> scopeStack = new Stack<>();
 	private CurrentClass currentClass = null;
 	private CurrentMethod currentMethod = null;
-
 	private Struct currType = Tab.noType;
-	boolean errorDetected = false;
+	private boolean errorDetected = false;
+	private int globalVarCnt;
 
-	int nVars;
-
-	// Currents ----------------------------
-
-	Logger log = Logger.getLogger(getClass());
+	private final Logger log = Logger.getLogger(getClass());
 
 	public SemanticAnalyzer() {
 		Tab.currentScope().addToLocals(new Obj(Obj.Type,"bool", BOOL_STRUCT));
+	}
+
+	public boolean semanticCheckPassed() {
+		return !this.errorDetected;
 	}
 
 	public void report_error(String message, SyntaxNode info) {
@@ -56,10 +56,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 	private void report_info(String s, SyntaxNode syntaxNode, Obj obj) {
 		report_info(s, syntaxNode);
-
-		// todo print obj
+		report_object(obj);
 	}
 
+	private void report_object(Obj obj) {
+		// todo
+	}
 
 
 	// PROGRAM ---------------------------------------------------------------
@@ -78,7 +80,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	 * @param program
 	 */
 	public void visit(Program program) {
-		nVars = Tab.currentScope.getnVars();
+		globalVarCnt = Tab.currentScope.getnVars();
 		Tab.chainLocalSymbols(program.getProgramDecl().obj); // Iz currentScopa prebacuje sve u dati cvor kao locals
 		Tab.closeScope();
 
@@ -330,7 +332,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			classDeclStart.obj = obj;
 
 			this.openScope(Scope.CLASS);
-			// Tab.insert(Obj.Fld, "TVF", className.obj.getType()); TODO WAS IST DAS
+
+			Tab.insert(Obj.Fld, "TVF", Tab.intType); // Table of Virtual Functions
 		}
 	}
 	public void visit(ExtendsIndeed extendsIndeed) {
@@ -349,6 +352,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		currType.getMembers()
 				.stream()
 				.filter(obj -> obj.getKind() == Obj.Fld)
+				.filter(obj -> !Objects.equals(obj.getName(), "TVF"))
 				.forEachOrdered(obj -> Tab.insert(Obj.Fld, obj.getName(), obj.getType()));
 	}
 
@@ -498,8 +502,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			}
 
 	}
-
-
 
 	public void visit(DesignatorMemberReference designatorMemberReference) {
 		String identifier = designatorMemberReference.getIdent();
@@ -877,6 +879,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	private static boolean isAlreadyDeclared(String identifier) {
 		return Tab.currentScope().findSymbol(identifier) != null;
+	}
+
+	public int getGlobalVarCnt() {
+		return globalVarCnt;
 	}
 }
 
