@@ -66,7 +66,7 @@ public class MJParserTest {
 	        	log.info("MJ compiler finished with success.");
 
 				disasm.main(new String[]{objFilePath});
-				//Run.main(new String[]{objFilePath});
+				Run.main(new String[]{objFilePath});
 	        }
 	        else {
 	        	log.error("There were compile errors, no code generated.");

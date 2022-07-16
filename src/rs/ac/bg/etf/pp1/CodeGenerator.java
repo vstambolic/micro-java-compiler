@@ -87,7 +87,7 @@ public class CodeGenerator extends VisitorAdaptor {
         if (printStatement.getPrintWidth() instanceof PrintWidthIndeed)
             Code.load(new Obj(Obj.Con, "", Tab.intType, ((PrintWidthIndeed) printStatement.getPrintWidth()).getN1(), 0));
         else
-            Code.put(Code.const_1);
+            Code.put(Code.const_4);
         // Determine type
         if (printStatement.getExpr().struct.equals(Tab.charType))
             Code.put(Code.bprint);
@@ -175,12 +175,62 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
     public void visit(DesignatorIncOperation designatorIncOperation) {
+        Designator designator = ((DesignatorStatement)designatorIncOperation.getParent()).getDesignator();
+        // recursively visit designator again to get a value
+        Stack<Designator> designatorStack = new Stack<>();
+        while (!(designator instanceof DesignatorIdent)) {
+            designatorStack.push(designator);
+            if (designator instanceof DesignatorMemberReference)
+                designator = ((DesignatorMemberReference) designator).getDesignator();
+            else
+                designator = ((DesignatorArrayReference)designator).getDesignator();
+        }
+        designatorStack.push(designator);
+
+        while (!designatorStack.empty()) {
+            designator = designatorStack.pop();
+            if (designator instanceof DesignatorIdent)
+                this.visit((DesignatorIdent) designator);
+            else
+                if (designator instanceof DesignatorMemberReference)
+                    this.visit((DesignatorMemberReference) designator);
+                else
+                    if (designator instanceof DesignatorArrayReference)
+                        this.visit((DesignatorArrayReference) designator);
+        }
+
+        Code.load(designator.obj);
         Code.put(Code.const_1);
         Code.put(Code.add);
-        Code.store(((DesignatorStatement) designatorIncOperation.getParent()).getDesignator().obj);
+        Code.store(designator.obj);
     }
 
     public void visit(DesignatorDecOperation designatorDecOperation) {
+        Designator designator = ((DesignatorStatement)designatorDecOperation.getParent()).getDesignator();
+        // recursively visit designator again to get a value
+        Stack<Designator> designatorStack = new Stack<>();
+        while (!(designator instanceof DesignatorIdent)) {
+            designatorStack.push(designator);
+            if (designator instanceof DesignatorMemberReference)
+                designator = ((DesignatorMemberReference) designator).getDesignator();
+            else
+                designator = ((DesignatorArrayReference)designator).getDesignator();
+        }
+        designatorStack.push(designator);
+
+        while (!designatorStack.empty()) {
+            designator = designatorStack.pop();
+            if (designator instanceof DesignatorIdent)
+                this.visit((DesignatorIdent) designator);
+            else
+                if (designator instanceof DesignatorMemberReference)
+                    this.visit((DesignatorMemberReference) designator);
+                else
+                    if (designator instanceof DesignatorArrayReference)
+                        this.visit((DesignatorArrayReference) designator);
+        }
+
+        Code.load(designator.obj);
         Code.put(Code.const_1);
         Code.put(Code.sub);
         Code.store(((DesignatorStatement) designatorDecOperation.getParent()).getDesignator().obj);
@@ -274,7 +324,7 @@ public class CodeGenerator extends VisitorAdaptor {
         this.visitMethodCall(methodObj);
         Code.put(Code.pop);
     }
-    //
+    // todo constructors, super calls, chr, len
 //	@Override
 //	public void visit(MethodTypeName MethodTypeName) {
 //		if ("main".equalsIgnoreCase(MethodTypeName.getMethName())) {

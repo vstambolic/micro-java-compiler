@@ -1,83 +1,51 @@
-program p
+// Test301
 
-class A {
-    int i;
-}
+program test301
 
-class B {
-    A an[];
-    char arr[];
-}
+	const int nula = 0;
+	const int jedan = 1;
+	const int tri = 3;
+        const int pet = 5;
 
-class C {
-    B b;
-
-
-    {
-
-
-    }
-}
-
-class Base {
-    {
-
-        int m(int z) {
-
-        }
-    }
-}
-
-class Derived extends Base {
-    int x;
-    char c;
-    {
-        int f1(int x) {
-
-        }
-
-        int m(int z) {
-           f1(6666);
-           this.f1(777);
-           z = f1(5);
-        }
-    }
-}
+	int niz[];
+	char nizch[];
 
 {
-
-    void f1(int x) {
-
-    }
-
-    int f2(int x) {
-
-    }
-
-    void main()
-        Base b;     // 0
-        Derived d;       // 1
-        int x;     // 2
-        int iarr[];     // 03
-        char carr[];     // 04
-        C cn[];     // 05
-        C c;     // 06
-        A a;     // 07
-
-    {
-
-    //  read(carr[0]); // load 5 , const 0, bread, bastore
-    //  c.b.an[1].i = 2; // load 6,
-    // a = cn[3].b.an[4];
-    //   b = new Base;
-       f1(1234); //183
-       f2(5); //
-       x = f2(5);
-       b.m(6);
-       x = b.m(6);
+	void main()
+		int bodovi;
+		bool bt;
+	{
+		bodovi = 0;
+		bodovi++;
+		bodovi = (bodovi + jedan) * tri;
+		bodovi = bodovi * pet;
+		bodovi--;
+		print(bodovi);
 
 
+		niz = new int[3];
+		niz[nula] = jedan;
+		niz[1] = 2;
+		niz[niz[jedan] * 2 - 2] = niz[niz[0] * niz[0]] * 3;
+		bodovi = niz[2] / niz[0];
+		print(bodovi);
+		print(niz[2]);
 
-    }
 
+		nizch = new char[3];
+		nizch[0] = 'a';
+		nizch[jedan] = 'b';
+		nizch[pet - 3] = 'c';
+		print(nizch[1]);
+		print(nizch[jedan * 2]);
+
+
+		bodovi = bodovi + (pet * jedan - 1) * bodovi - (3 % 2 + 3 * 2 - 3);
+		print(bodovi);
+
+		read(bodovi);
+		print(bodovi * 2 * 2);
+	}
 }
+
+
