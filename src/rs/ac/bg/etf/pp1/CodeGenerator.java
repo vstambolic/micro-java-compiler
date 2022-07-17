@@ -183,6 +183,7 @@ public class CodeGenerator extends VisitorAdaptor {
             // if not record
             if (type.getElemType() == null || !type.getElemType().equals(RECORD_STRUCT))
                 this.newInstanceType = type;
+
         }
     }
 
@@ -232,8 +233,50 @@ public class CodeGenerator extends VisitorAdaptor {
             Code.put(Code.putfield);
             Code.put2(0);
 
+
+            Obj constructorObj = this.getConstructor(this.newInstanceType);
+            if (constructorObj != null) {
+                // visit designator again to get a value
+                designator.traverseBottomUp(this);
+                Code.load(designator.obj);
+
+                designator.traverseBottomUp(this);
+                Code.load(designator.obj);
+                Code.put(Code.getfield); // Load VMT pointer: load this, getfield 0
+                Code.put2(0);
+
+                Code.put(Code.invokevirtual);
+                constructorObj.getName().chars().forEach(Code::put4);
+                Code.put4(-1);
+            }
+
+
             this.newInstanceType = null;
+
         }
+    }
+
+    private Obj getConstructor(Struct classStruct) {
+        Obj typeObj = Tab.currentScope()
+                .getLocals()
+                .symbols()
+                .stream()
+                .filter(obj -> obj.getKind() == Obj.Prog)
+                .findFirst()
+                .get()
+                .getLocalSymbols()
+                .stream()
+                .filter(obj -> obj.getKind() == Obj.Type)
+                .filter(obj -> obj.getType().equals(classStruct))
+                .findFirst()
+                .get();
+        return typeObj.getType()
+                .getMembers()
+                .stream()
+                .filter(obj -> obj.getKind() == Obj.Meth)
+                .filter(obj -> obj.getName().equals(typeObj.getName()))
+                .findFirst()
+                .orElse(null);
     }
 
     public void visit(DesignatorIncOperation designatorIncOperation) {
@@ -287,6 +330,7 @@ public class CodeGenerator extends VisitorAdaptor {
             Code.put2(vmtPointer.getAndIncrement());
         });
     }
+
     public void visit(MethodDeclStart methodDeclStart) {
         if (methodDeclStart.getIdent().equals(MAIN))
             Code.mainPc = this.mainPc = Code.pc;
@@ -301,12 +345,26 @@ public class CodeGenerator extends VisitorAdaptor {
             this.generateVirtualMethodTable();
     }
 
-
-
     public void visit(MethodDecl methodDecl) {
         Code.put(Code.exit);
         Code.put(Code.return_);
     }
+    // Constructors -----------------------------------------------------------------------------------------------------
+
+    public void visit(ConstructorDeclStart constructorDeclStart) {
+        constructorDeclStart.obj.setAdr(Code.pc);
+
+        Code.put(Code.enter);
+        Code.put(constructorDeclStart.obj.getLevel());
+        Code.put(constructorDeclStart.obj.getLocalSymbols().size());
+    }
+
+    public void visit(ConstructorDecl constructorDecl) {
+        Code.put(Code.exit);
+        Code.put(Code.return_);
+    }
+
+    // Function calls --------------------------------------------------------------------------------------------------
 
     // function call as an expression
     public void visit(BaseExpDesignator baseExpDesignator) {
@@ -314,14 +372,22 @@ public class CodeGenerator extends VisitorAdaptor {
             this.visitMethodCall(baseExpDesignator.getDesignator());
         }
     }
-    // expression stack: argument this, [parameters],
+
+    // function call per se
+    public void visit(DesignatorFuncCallOperation designatorFuncCallOperation) {
+        Designator designator = ((DesignatorStatement) designatorFuncCallOperation.getParent()).getDesignator();
+        this.visitMethodCall(designator);
+        if (!designator.obj.getType().equals(Tab.noType))
+            Code.put(Code.pop);
+    }
+
     private void visitMethodCall(Designator methodDesignator) {
         Obj firstArgument = methodDesignator.obj.getLocalSymbols().stream().findFirst().orElse(null);
         boolean isMethod = (firstArgument != null && firstArgument.getName().equals(SemanticAnalyzer.THIS));
         if (isMethod) {
             methodDesignator.traverseBottomUp(this); // Load thisPointer
-          //   Obj thisPointer = methodDesignator.obj.getLocalSymbols().stream().findFirst().get();
-          //  Code.load(thisPointer);
+            //   Obj thisPointer = methodDesignator.obj.getLocalSymbols().stream().findFirst().get();
+            //  Code.load(thisPointer);
             Code.put(Code.getfield); // Load VMT pointer: load this, getfield 0
             Code.put2(0);
 
@@ -330,25 +396,21 @@ public class CodeGenerator extends VisitorAdaptor {
             Code.put4(-1);
         }
         else {
-            int offset =  methodDesignator.obj.getAdr() - Code.pc;
+            int offset = methodDesignator.obj.getAdr() - Code.pc;
             Code.put(Code.call);
             Code.put2(offset);
         }
     }
 
-    // function call per se
-    public void visit(DesignatorFuncCallOperation designatorFuncCallOperation) {
-        Designator designator =  ((DesignatorStatement) designatorFuncCallOperation.getParent()).getDesignator();
-        this.visitMethodCall(designator);
-        if (!designator.obj.getType().equals(Tab.noType))
-            Code.put(Code.pop);
-    }
-    // constructors, super calls
+
     /*
      * TODO
-     * chr iz metode
-     * constructors
      * super calls
+     * expr ?? expr
+     * optargs
+     * if then else
+     * do while
+     *
      */
 //	@Override
 //	public void visit(MethodTypeName MethodTypeName) {

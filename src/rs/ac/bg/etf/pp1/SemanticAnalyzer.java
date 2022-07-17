@@ -196,7 +196,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		String identifier = constructorDeclStart.getIdent();
 		if (!identifier.equals(currentClass.getCurrClass().getName())) { // error je kada se metod zove isto kao klasa
 			report_error("Constructor (" + identifier + ") must have the same identifier as its class (" + currentClass.getCurrClass().getName() + ")", constructorDeclStart);
-
 			return;
 		}
 
