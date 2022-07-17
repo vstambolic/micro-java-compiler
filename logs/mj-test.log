@@ -1,95 +1,95 @@
-INFO  00:50:30,780 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
-INFO  00:50:30,920 - #2 program
-INFO  00:50:30,920 - #48 test302
-INFO  00:50:30,920 - #4 class
-INFO  00:50:30,920 - #48 A
-INFO  00:50:30,920 - #46 {
-INFO  00:50:30,925 - #46 {
-INFO  00:50:30,925 - #48 A
-INFO  00:50:30,925 - #42 (
-INFO  00:50:30,925 - #43 )
-INFO  00:50:30,925 - #46 {
-INFO  00:50:30,925 - #12 print
-INFO  00:50:30,925 - #42 (
-INFO  00:50:30,925 - #51 a
-INFO  00:50:30,925 - #43 )
-INFO  00:50:30,935 - #37 ;
-INFO  00:50:30,940 - #47 }
-INFO  00:50:30,940 - #47 }
-INFO  00:50:30,940 - #47 }
-INFO  00:50:30,940 - #4 class
-INFO  00:50:30,940 - #48 A1
-INFO  00:50:30,940 - #16 extends
-INFO  00:50:30,940 - #48 A
-INFO  00:50:30,945 - #46 {
-INFO  00:50:30,945 - #46 {
-INFO  00:50:30,945 - #48 A1
-INFO  00:50:30,945 - #42 (
-INFO  00:50:30,945 - #43 )
-INFO  00:50:30,945 - #46 {
-INFO  00:50:30,945 - #12 print
-INFO  00:50:30,945 - #42 (
-INFO  00:50:30,945 - #51 1
-INFO  00:50:30,945 - #43 )
-INFO  00:50:30,945 - #37 ;
-INFO  00:50:30,945 - #47 }
-INFO  00:50:30,945 - #47 }
-INFO  00:50:30,945 - #47 }
-INFO  00:50:30,945 - #4 class
-INFO  00:50:30,945 - #48 B
-INFO  00:50:30,945 - #46 {
-INFO  00:50:30,945 - #48 A
-INFO  00:50:30,945 - #48 a
-INFO  00:50:30,945 - #37 ;
-INFO  00:50:30,950 - #46 {
-INFO  00:50:30,950 - #48 B
-INFO  00:50:30,950 - #42 (
-INFO  00:50:30,950 - #43 )
-INFO  00:50:30,950 - #46 {
-INFO  00:50:30,950 - #12 print
-INFO  00:50:30,955 - #42 (
-INFO  00:50:30,955 - #51 b
-INFO  00:50:30,955 - #43 )
-INFO  00:50:30,955 - #37 ;
-INFO  00:50:30,955 - #48 a
-INFO  00:50:30,955 - #36 =
-INFO  00:50:30,955 - #11 new
-INFO  00:50:30,960 - #48 A
-INFO  00:50:30,960 - #37 ;
-INFO  00:50:30,960 - #47 }
-INFO  00:50:30,960 - #47 }
-INFO  00:50:30,965 - #47 }
-INFO  00:50:30,965 - #46 {
-INFO  00:50:30,965 - #15 void
-INFO  00:50:30,965 - #48 main
-INFO  00:50:30,965 - #42 (
-INFO  00:50:30,965 - #43 )
-INFO  00:50:30,965 - #48 B
-INFO  00:50:30,965 - #48 b
-INFO  00:50:30,965 - #37 ;
-INFO  00:50:30,965 - #46 {
-INFO  00:50:30,965 - #48 b
-INFO  00:50:30,965 - #36 =
-INFO  00:50:30,965 - #11 new
-INFO  00:50:30,965 - #48 B
-INFO  00:50:30,965 - #37 ;
-INFO  00:50:30,965 - #48 b
-INFO  00:50:30,965 - #41 .
-INFO  00:50:30,965 - #48 a
-INFO  00:50:30,965 - #36 =
-INFO  00:50:30,965 - #11 new
-INFO  00:50:30,965 - #48 A
-INFO  00:50:30,965 - #37 ;
-INFO  00:50:30,965 - #47 }
-INFO  00:50:30,965 - #47 }
-INFO  00:50:31,130 - Local variable declared (a). line 24
-INFO  00:50:31,130 - Class member detected (a) line 28
-INFO  00:50:31,130 - New instance of class (A) detected. line 28
-INFO  00:50:31,130 - Local variable declared (b). line 37
-INFO  00:50:31,130 - Local variable detected (b) line 39
-INFO  00:50:31,130 - New instance of class (B) detected. line 39
-INFO  00:50:31,130 - Local variable detected (b) line 40
-INFO  00:50:31,130 - Member reference detected: b DOT a line 40
-INFO  00:50:31,130 - New instance of class (A) detected. line 40
-INFO  00:50:31,135 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
-INFO  00:50:31,170 - MJ compiler finished with success.
+INFO  01:00:18,027 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
+INFO  01:00:18,157 - #2 program
+INFO  01:00:18,157 - #47 test302
+INFO  01:00:18,157 - #4 class
+INFO  01:00:18,157 - #47 A
+INFO  01:00:18,157 - #45 {
+INFO  01:00:18,157 - #45 {
+INFO  01:00:18,167 - #47 A
+INFO  01:00:18,167 - #41 (
+INFO  01:00:18,167 - #42 )
+INFO  01:00:18,167 - #45 {
+INFO  01:00:18,167 - #12 print
+INFO  01:00:18,167 - #41 (
+INFO  01:00:18,167 - #50 a
+INFO  01:00:18,167 - #42 )
+INFO  01:00:18,177 - #36 ;
+INFO  01:00:18,177 - #46 }
+INFO  01:00:18,182 - #46 }
+INFO  01:00:18,187 - #46 }
+INFO  01:00:18,187 - #4 class
+INFO  01:00:18,187 - #47 A1
+INFO  01:00:18,187 - #16 extends
+INFO  01:00:18,192 - #47 A
+INFO  01:00:18,192 - #45 {
+INFO  01:00:18,192 - #45 {
+INFO  01:00:18,192 - #47 A1
+INFO  01:00:18,192 - #41 (
+INFO  01:00:18,192 - #42 )
+INFO  01:00:18,192 - #45 {
+INFO  01:00:18,192 - #12 print
+INFO  01:00:18,192 - #41 (
+INFO  01:00:18,192 - #50 1
+INFO  01:00:18,192 - #42 )
+INFO  01:00:18,192 - #36 ;
+INFO  01:00:18,192 - #46 }
+INFO  01:00:18,192 - #46 }
+INFO  01:00:18,192 - #46 }
+INFO  01:00:18,192 - #4 class
+INFO  01:00:18,197 - #47 B
+INFO  01:00:18,197 - #45 {
+INFO  01:00:18,197 - #47 A
+INFO  01:00:18,197 - #47 a
+INFO  01:00:18,197 - #36 ;
+INFO  01:00:18,203 - #45 {
+INFO  01:00:18,203 - #47 B
+INFO  01:00:18,203 - #41 (
+INFO  01:00:18,203 - #42 )
+INFO  01:00:18,203 - #45 {
+INFO  01:00:18,203 - #12 print
+INFO  01:00:18,207 - #41 (
+INFO  01:00:18,207 - #50 b
+INFO  01:00:18,207 - #42 )
+INFO  01:00:18,207 - #36 ;
+INFO  01:00:18,207 - #47 a
+INFO  01:00:18,207 - #35 =
+INFO  01:00:18,207 - #11 new
+INFO  01:00:18,212 - #47 A
+INFO  01:00:18,212 - #36 ;
+INFO  01:00:18,212 - #46 }
+INFO  01:00:18,212 - #46 }
+INFO  01:00:18,212 - #46 }
+INFO  01:00:18,212 - #45 {
+INFO  01:00:18,212 - #15 void
+INFO  01:00:18,212 - #47 main
+INFO  01:00:18,212 - #41 (
+INFO  01:00:18,217 - #42 )
+INFO  01:00:18,217 - #47 B
+INFO  01:00:18,217 - #47 b
+INFO  01:00:18,217 - #36 ;
+INFO  01:00:18,217 - #45 {
+INFO  01:00:18,217 - #47 b
+INFO  01:00:18,217 - #35 =
+INFO  01:00:18,217 - #11 new
+INFO  01:00:18,217 - #47 B
+INFO  01:00:18,217 - #36 ;
+INFO  01:00:18,217 - #47 b
+INFO  01:00:18,217 - #40 .
+INFO  01:00:18,217 - #47 a
+INFO  01:00:18,217 - #35 =
+INFO  01:00:18,217 - #11 new
+INFO  01:00:18,217 - #47 A
+INFO  01:00:18,217 - #36 ;
+INFO  01:00:18,217 - #46 }
+INFO  01:00:18,217 - #46 }
+INFO  01:00:18,367 - Local variable declared (a). line 24
+INFO  01:00:18,367 - Class member detected (a) line 28
+INFO  01:00:18,367 - New instance of class (A) detected. line 28
+INFO  01:00:18,367 - Local variable declared (b). line 37
+INFO  01:00:18,367 - Local variable detected (b) line 39
+INFO  01:00:18,367 - New instance of class (B) detected. line 39
+INFO  01:00:18,367 - Local variable detected (b) line 40
+INFO  01:00:18,367 - Member reference detected: b DOT a line 40
+INFO  01:00:18,367 - New instance of class (A) detected. line 40
+INFO  01:00:18,377 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
+INFO  01:00:18,407 - MJ compiler finished with success.

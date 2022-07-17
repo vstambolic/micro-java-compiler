@@ -54,7 +54,7 @@ scan with {:
 :}
 
 
-terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,EXP,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
+terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
 terminal String IDENT;
 terminal Integer NUMBER;
 terminal Boolean BOOL;
@@ -110,11 +110,9 @@ nonterminal Addop;
 nonterminal Relop;
 nonterminal Mulop;
 nonterminal Assignop;
-nonterminal Expop;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor;
 nonterminal MulopFactorList;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct BaseExp;
-nonterminal ExpopBaseExpList;
 nonterminal ActParsOrNothing;
 nonterminal BracketsWithExprOrNothing;
 nonterminal FuncCallOrNothing;
@@ -515,14 +513,7 @@ MulopFactorList ::=
 
 Factor ::=
     (Factor)
-    BaseExp ExpopBaseExpList;
-
-ExpopBaseExpList ::=
-    (ExpopBaseExpListIndeed)
-    ExpopBaseExpList Expop BaseExp
-    |
-    (NoExpopBaseExpList)
-    /* Ɛ */;
+    BaseExp;
 
 BaseExp ::=
     (BaseExpDesignator)
@@ -604,10 +595,6 @@ Mulop ::=
     |
     (Mod)
     MOD;
-
-Expop ::=
-    (Exp)
-    EXP;
 
 DoWhileStatementStart ::=
     (DoWhileStatementStart)
