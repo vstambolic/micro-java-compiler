@@ -1,28 +1,64 @@
 //Test 302
 
 program test302
-
-class B {
-
-}
 class A {
-    B b;
-    int x;
+    int aa;
+    {
+   void a() { print('x'); } // 3
+       void bb() {} // 4
+      void ccc() {} // 5
+    }
 }
+class ADerived extends A {{
+       void bb() {print(999);} // 4
+}
+}
+class C{
+A a;
+int cc;
+    {
+       void cm() {
+      print('c',1); print('m',1);
+
+        }
+    }
+}
+class CDerived extends C {
+ {
+   void cm() {
+       print('C',1); print('D',1);
+
+    }
+ }
+}
+class B {
+    C c[];
+    int bb;
+{
+    void f() {print('b',1); print('m',1);     }
+    void m() A a; {
+      a = new ADerived;
+      f();
+      a.bb();
+      this.c =new C[5];
+      this.c[0] = new C;
+      this.c[0].a = new ADerived;
+      this.c[0].a.bb();
+       //chr(65);
+    }
+}
+}
+
 {
 
 
 
-	void main() A arr[]; A a;
+	void main() B b; C c;
 	{
-	    a = new A;
-	    a.b = new B;
-
-	    arr = new A[5];
-	    arr[0] = new A;
-
-	    arr[0].b = new B;
-
+	 //   c = new C;
+	 //  c.cm();
+       b = new B;
+             b.m();
 
 	}
 }
