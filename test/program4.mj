@@ -1,51 +1,29 @@
-// Test301
+//Test 302
 
-program test301
+program test302
 
-	const int nula = 0;
-	const int jedan = 1;
-	const int tri = 3;
-        const int pet = 5;
+class B {
 
-	int niz[];
-	char nizch[];
-
+}
+class A {
+    B b;
+    int x;
+}
 {
-	void main()
-		int bodovi;
-		bool bt;
+
+
+
+	void main() A arr[]; A a;
 	{
-		bodovi = 0;
-		bodovi++;
-		bodovi = (bodovi + jedan) * tri;
-		bodovi = bodovi * pet;
-		bodovi--;
-		print(bodovi);
+	    a = new A;
+	    a.b = new B;
+
+	    arr = new A[5];
+	    arr[0] = new A;
+
+	    arr[0].b = new B;
 
 
-		niz = new int[3];
-		niz[nula] = jedan;
-		niz[1] = 2;
-		niz[niz[jedan] * 2 - 2] = niz[niz[0] * niz[0]] * 3;
-		bodovi = niz[2] / niz[0];
-		print(bodovi);
-		print(niz[2]);
-
-
-		nizch = new char[3];
-		nizch[0] = 'a';
-		nizch[jedan] = 'b';
-		nizch[pet - 3] = 'c';
-		print(nizch[1]);
-		print(nizch[jedan * 2]);
-
-
-		bodovi = bodovi + (pet * jedan - 1) * bodovi - (3 % 2 + 3 * 2 - 3);
-		print(bodovi);
-
-		read(bodovi);
-		print(bodovi * 2 * 2);
 	}
 }
-
 
