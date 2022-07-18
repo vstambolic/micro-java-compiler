@@ -1,95 +1,309 @@
-INFO  01:00:18,027 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
-INFO  01:00:18,157 - #2 program
-INFO  01:00:18,157 - #47 test302
-INFO  01:00:18,157 - #4 class
-INFO  01:00:18,157 - #47 A
-INFO  01:00:18,157 - #45 {
-INFO  01:00:18,157 - #45 {
-INFO  01:00:18,167 - #47 A
-INFO  01:00:18,167 - #41 (
-INFO  01:00:18,167 - #42 )
-INFO  01:00:18,167 - #45 {
-INFO  01:00:18,167 - #12 print
-INFO  01:00:18,167 - #41 (
-INFO  01:00:18,167 - #50 a
-INFO  01:00:18,167 - #42 )
-INFO  01:00:18,177 - #36 ;
-INFO  01:00:18,177 - #46 }
-INFO  01:00:18,182 - #46 }
-INFO  01:00:18,187 - #46 }
-INFO  01:00:18,187 - #4 class
-INFO  01:00:18,187 - #47 A1
-INFO  01:00:18,187 - #16 extends
-INFO  01:00:18,192 - #47 A
-INFO  01:00:18,192 - #45 {
-INFO  01:00:18,192 - #45 {
-INFO  01:00:18,192 - #47 A1
-INFO  01:00:18,192 - #41 (
-INFO  01:00:18,192 - #42 )
-INFO  01:00:18,192 - #45 {
-INFO  01:00:18,192 - #12 print
-INFO  01:00:18,192 - #41 (
-INFO  01:00:18,192 - #50 1
-INFO  01:00:18,192 - #42 )
-INFO  01:00:18,192 - #36 ;
-INFO  01:00:18,192 - #46 }
-INFO  01:00:18,192 - #46 }
-INFO  01:00:18,192 - #46 }
-INFO  01:00:18,192 - #4 class
-INFO  01:00:18,197 - #47 B
-INFO  01:00:18,197 - #45 {
-INFO  01:00:18,197 - #47 A
-INFO  01:00:18,197 - #47 a
-INFO  01:00:18,197 - #36 ;
-INFO  01:00:18,203 - #45 {
-INFO  01:00:18,203 - #47 B
-INFO  01:00:18,203 - #41 (
-INFO  01:00:18,203 - #42 )
-INFO  01:00:18,203 - #45 {
-INFO  01:00:18,203 - #12 print
-INFO  01:00:18,207 - #41 (
-INFO  01:00:18,207 - #50 b
-INFO  01:00:18,207 - #42 )
-INFO  01:00:18,207 - #36 ;
-INFO  01:00:18,207 - #47 a
-INFO  01:00:18,207 - #35 =
-INFO  01:00:18,207 - #11 new
-INFO  01:00:18,212 - #47 A
-INFO  01:00:18,212 - #36 ;
-INFO  01:00:18,212 - #46 }
-INFO  01:00:18,212 - #46 }
-INFO  01:00:18,212 - #46 }
-INFO  01:00:18,212 - #45 {
-INFO  01:00:18,212 - #15 void
-INFO  01:00:18,212 - #47 main
-INFO  01:00:18,212 - #41 (
-INFO  01:00:18,217 - #42 )
-INFO  01:00:18,217 - #47 B
-INFO  01:00:18,217 - #47 b
-INFO  01:00:18,217 - #36 ;
-INFO  01:00:18,217 - #45 {
-INFO  01:00:18,217 - #47 b
-INFO  01:00:18,217 - #35 =
-INFO  01:00:18,217 - #11 new
-INFO  01:00:18,217 - #47 B
-INFO  01:00:18,217 - #36 ;
-INFO  01:00:18,217 - #47 b
-INFO  01:00:18,217 - #40 .
-INFO  01:00:18,217 - #47 a
-INFO  01:00:18,217 - #35 =
-INFO  01:00:18,217 - #11 new
-INFO  01:00:18,217 - #47 A
-INFO  01:00:18,217 - #36 ;
-INFO  01:00:18,217 - #46 }
-INFO  01:00:18,217 - #46 }
-INFO  01:00:18,367 - Local variable declared (a). line 24
-INFO  01:00:18,367 - Class member detected (a) line 28
-INFO  01:00:18,367 - New instance of class (A) detected. line 28
-INFO  01:00:18,367 - Local variable declared (b). line 37
-INFO  01:00:18,367 - Local variable detected (b) line 39
-INFO  01:00:18,367 - New instance of class (B) detected. line 39
-INFO  01:00:18,367 - Local variable detected (b) line 40
-INFO  01:00:18,367 - Member reference detected: b DOT a line 40
-INFO  01:00:18,367 - New instance of class (A) detected. line 40
-INFO  01:00:18,377 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
-INFO  01:00:18,407 - MJ compiler finished with success.
+INFO  04:37:21,972 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
+INFO  04:37:22,103 - #2 program
+INFO  04:37:22,103 - #48 test301
+INFO  04:37:22,103 - #7 const
+INFO  04:37:22,108 - #48 int
+INFO  04:37:22,108 - #48 nula
+INFO  04:37:22,108 - #36 =
+INFO  04:37:22,108 - #49 0
+INFO  04:37:22,108 - #37 ;
+INFO  04:37:22,113 - #7 const
+INFO  04:37:22,113 - #48 int
+INFO  04:37:22,113 - #48 jedan
+INFO  04:37:22,113 - #36 =
+INFO  04:37:22,113 - #49 1
+INFO  04:37:22,113 - #37 ;
+INFO  04:37:22,113 - #7 const
+INFO  04:37:22,113 - #48 int
+INFO  04:37:22,113 - #48 tri
+INFO  04:37:22,113 - #36 =
+INFO  04:37:22,113 - #49 3
+INFO  04:37:22,113 - #37 ;
+INFO  04:37:22,113 - #7 const
+INFO  04:37:22,128 - #48 int
+INFO  04:37:22,128 - #48 pet
+INFO  04:37:22,128 - #36 =
+INFO  04:37:22,128 - #49 5
+INFO  04:37:22,128 - #37 ;
+INFO  04:37:22,128 - #48 int
+INFO  04:37:22,128 - #48 niz
+INFO  04:37:22,128 - #44 [
+INFO  04:37:22,128 - #45 ]
+INFO  04:37:22,128 - #37 ;
+INFO  04:37:22,133 - #48 char
+INFO  04:37:22,133 - #48 nizch
+INFO  04:37:22,133 - #44 [
+INFO  04:37:22,133 - #45 ]
+INFO  04:37:22,133 - #37 ;
+INFO  04:37:22,133 - #46 {
+INFO  04:37:22,133 - #15 void
+INFO  04:37:22,133 - #48 main
+INFO  04:37:22,133 - #42 (
+INFO  04:37:22,138 - #43 )
+INFO  04:37:22,138 - #48 int
+INFO  04:37:22,138 - #48 bodovi
+INFO  04:37:22,138 - #37 ;
+INFO  04:37:22,138 - #48 bool
+INFO  04:37:22,138 - #48 bt
+INFO  04:37:22,138 - #37 ;
+INFO  04:37:22,138 - #46 {
+INFO  04:37:22,143 - #48 bodovi
+INFO  04:37:22,148 - #36 =
+INFO  04:37:22,148 - #49 0
+INFO  04:37:22,148 - #37 ;
+INFO  04:37:22,152 - #48 bodovi
+INFO  04:37:22,152 - #20 ++
+INFO  04:37:22,152 - #37 ;
+INFO  04:37:22,158 - #48 bodovi
+INFO  04:37:22,158 - #36 =
+INFO  04:37:22,158 - #42 (
+INFO  04:37:22,158 - #48 bodovi
+INFO  04:37:22,158 - #22 +
+INFO  04:37:22,158 - #48 jedan
+INFO  04:37:22,158 - #43 )
+INFO  04:37:22,158 - #27 ??
+INFO  04:37:22,158 - #48 tri
+INFO  04:37:22,163 - #37 ;
+INFO  04:37:22,163 - #48 bodovi
+INFO  04:37:22,163 - #36 =
+INFO  04:37:22,163 - #48 bodovi
+INFO  04:37:22,163 - #24 *
+INFO  04:37:22,163 - #48 pet
+INFO  04:37:22,163 - #37 ;
+INFO  04:37:22,163 - #48 bodovi
+INFO  04:37:22,163 - #21 --
+INFO  04:37:22,163 - #37 ;
+INFO  04:37:22,163 - #12 print
+INFO  04:37:22,163 - #42 (
+INFO  04:37:22,163 - #48 bodovi
+INFO  04:37:22,163 - #43 )
+INFO  04:37:22,168 - #37 ;
+INFO  04:37:22,168 - #48 niz
+INFO  04:37:22,168 - #36 =
+INFO  04:37:22,168 - #11 new
+INFO  04:37:22,168 - #48 int
+INFO  04:37:22,168 - #44 [
+INFO  04:37:22,168 - #49 3
+INFO  04:37:22,168 - #45 ]
+INFO  04:37:22,168 - #37 ;
+INFO  04:37:22,168 - #48 niz
+INFO  04:37:22,168 - #44 [
+INFO  04:37:22,168 - #48 nula
+INFO  04:37:22,168 - #45 ]
+INFO  04:37:22,168 - #36 =
+INFO  04:37:22,168 - #48 jedan
+INFO  04:37:22,168 - #37 ;
+INFO  04:37:22,168 - #48 niz
+INFO  04:37:22,168 - #44 [
+INFO  04:37:22,168 - #49 1
+INFO  04:37:22,168 - #45 ]
+INFO  04:37:22,168 - #36 =
+INFO  04:37:22,168 - #49 2
+INFO  04:37:22,168 - #37 ;
+INFO  04:37:22,168 - #48 niz
+INFO  04:37:22,168 - #44 [
+INFO  04:37:22,168 - #48 niz
+INFO  04:37:22,168 - #44 [
+INFO  04:37:22,168 - #48 jedan
+INFO  04:37:22,168 - #45 ]
+INFO  04:37:22,168 - #27 ??
+INFO  04:37:22,168 - #23 -
+INFO  04:37:22,168 - #49 1
+INFO  04:37:22,168 - #45 ]
+INFO  04:37:22,173 - #36 =
+INFO  04:37:22,173 - #48 niz
+INFO  04:37:22,173 - #44 [
+INFO  04:37:22,173 - #42 (
+INFO  04:37:22,173 - #48 niz
+INFO  04:37:22,173 - #44 [
+INFO  04:37:22,173 - #49 0
+INFO  04:37:22,173 - #45 ]
+INFO  04:37:22,173 - #23 -
+INFO  04:37:22,173 - #48 jedan
+INFO  04:37:22,173 - #43 )
+INFO  04:37:22,173 - #27 ??
+INFO  04:37:22,173 - #42 (
+INFO  04:37:22,173 - #48 bodovi
+INFO  04:37:22,173 - #24 *
+INFO  04:37:22,173 - #48 nula
+INFO  04:37:22,173 - #27 ??
+INFO  04:37:22,173 - #48 jedan
+INFO  04:37:22,173 - #43 )
+INFO  04:37:22,173 - #45 ]
+INFO  04:37:22,173 - #24 *
+INFO  04:37:22,173 - #49 3
+INFO  04:37:22,173 - #37 ;
+INFO  04:37:22,173 - #48 bodovi
+INFO  04:37:22,173 - #36 =
+INFO  04:37:22,173 - #48 niz
+INFO  04:37:22,173 - #44 [
+INFO  04:37:22,173 - #49 2
+INFO  04:37:22,173 - #45 ]
+INFO  04:37:22,173 - #25 /
+INFO  04:37:22,173 - #48 niz
+INFO  04:37:22,178 - #44 [
+INFO  04:37:22,178 - #49 0
+INFO  04:37:22,178 - #45 ]
+INFO  04:37:22,178 - #37 ;
+INFO  04:37:22,178 - #12 print
+INFO  04:37:22,178 - #42 (
+INFO  04:37:22,178 - #48 bodovi
+INFO  04:37:22,178 - #43 )
+INFO  04:37:22,178 - #37 ;
+INFO  04:37:22,178 - #12 print
+INFO  04:37:22,178 - #42 (
+INFO  04:37:22,178 - #48 niz
+INFO  04:37:22,178 - #44 [
+INFO  04:37:22,178 - #49 2
+INFO  04:37:22,178 - #45 ]
+INFO  04:37:22,178 - #43 )
+INFO  04:37:22,178 - #37 ;
+INFO  04:37:22,178 - #48 nizch
+INFO  04:37:22,178 - #36 =
+INFO  04:37:22,178 - #11 new
+INFO  04:37:22,178 - #48 char
+INFO  04:37:22,178 - #44 [
+INFO  04:37:22,178 - #49 3
+INFO  04:37:22,178 - #45 ]
+INFO  04:37:22,178 - #37 ;
+INFO  04:37:22,178 - #48 nizch
+INFO  04:37:22,178 - #44 [
+INFO  04:37:22,178 - #49 0
+INFO  04:37:22,178 - #45 ]
+INFO  04:37:22,178 - #36 =
+INFO  04:37:22,178 - #51 a
+INFO  04:37:22,178 - #37 ;
+INFO  04:37:22,178 - #48 nizch
+INFO  04:37:22,178 - #44 [
+INFO  04:37:22,178 - #48 jedan
+INFO  04:37:22,178 - #45 ]
+INFO  04:37:22,178 - #36 =
+INFO  04:37:22,178 - #51 b
+INFO  04:37:22,178 - #37 ;
+INFO  04:37:22,178 - #48 nizch
+INFO  04:37:22,178 - #44 [
+INFO  04:37:22,178 - #48 pet
+INFO  04:37:22,178 - #23 -
+INFO  04:37:22,178 - #49 3
+INFO  04:37:22,178 - #45 ]
+INFO  04:37:22,178 - #36 =
+INFO  04:37:22,178 - #51 c
+INFO  04:37:22,178 - #37 ;
+INFO  04:37:22,178 - #12 print
+INFO  04:37:22,178 - #42 (
+INFO  04:37:22,178 - #48 nizch
+INFO  04:37:22,178 - #44 [
+INFO  04:37:22,183 - #49 1
+INFO  04:37:22,183 - #45 ]
+INFO  04:37:22,183 - #43 )
+INFO  04:37:22,183 - #37 ;
+INFO  04:37:22,183 - #12 print
+INFO  04:37:22,183 - #42 (
+INFO  04:37:22,183 - #48 nizch
+INFO  04:37:22,183 - #44 [
+INFO  04:37:22,183 - #48 jedan
+INFO  04:37:22,183 - #24 *
+INFO  04:37:22,183 - #49 2
+INFO  04:37:22,183 - #45 ]
+INFO  04:37:22,183 - #43 )
+INFO  04:37:22,183 - #37 ;
+INFO  04:37:22,183 - #48 bodovi
+INFO  04:37:22,183 - #36 =
+INFO  04:37:22,183 - #48 bodovi
+INFO  04:37:22,183 - #22 +
+INFO  04:37:22,183 - #42 (
+INFO  04:37:22,183 - #48 pet
+INFO  04:37:22,183 - #24 *
+INFO  04:37:22,183 - #48 jedan
+INFO  04:37:22,183 - #23 -
+INFO  04:37:22,183 - #49 1
+INFO  04:37:22,183 - #43 )
+INFO  04:37:22,183 - #24 *
+INFO  04:37:22,183 - #48 bodovi
+INFO  04:37:22,183 - #23 -
+INFO  04:37:22,183 - #42 (
+INFO  04:37:22,183 - #49 3
+INFO  04:37:22,183 - #26 %
+INFO  04:37:22,183 - #49 2
+INFO  04:37:22,183 - #22 +
+INFO  04:37:22,183 - #49 3
+INFO  04:37:22,183 - #24 *
+INFO  04:37:22,183 - #49 2
+INFO  04:37:22,183 - #23 -
+INFO  04:37:22,183 - #49 3
+INFO  04:37:22,183 - #43 )
+INFO  04:37:22,188 - #37 ;
+INFO  04:37:22,188 - #12 print
+INFO  04:37:22,188 - #42 (
+INFO  04:37:22,188 - #48 bodovi
+INFO  04:37:22,188 - #43 )
+INFO  04:37:22,188 - #37 ;
+INFO  04:37:22,188 - #13 read
+INFO  04:37:22,188 - #42 (
+INFO  04:37:22,188 - #48 bodovi
+INFO  04:37:22,188 - #43 )
+INFO  04:37:22,188 - #37 ;
+INFO  04:37:22,188 - #12 print
+INFO  04:37:22,188 - #42 (
+INFO  04:37:22,188 - #48 bodovi
+INFO  04:37:22,188 - #43 )
+INFO  04:37:22,188 - #37 ;
+INFO  04:37:22,188 - #47 }
+INFO  04:37:22,188 - #47 }
+INFO  04:37:22,213 - Const declared (nula) line 5
+INFO  04:37:22,213 - Const declared (jedan) line 6
+INFO  04:37:22,213 - Const declared (tri) line 7
+INFO  04:37:22,213 - Const declared (pet) line 8
+INFO  04:37:22,213 - Global variable declared (niz). line 10
+INFO  04:37:22,213 - Global variable declared (nizch). line 11
+INFO  04:37:22,218 - Local variable declared (bodovi). line 15
+INFO  04:37:22,218 - Local variable declared (bt). line 16
+INFO  04:37:22,218 - Local variable detected (bodovi) line 18
+INFO  04:37:22,218 - Local variable detected (bodovi) line 19
+INFO  04:37:22,218 - Local variable detected (bodovi) line 20
+INFO  04:37:22,218 - Local variable detected (bodovi) line 20
+INFO  04:37:22,218 - Local variable detected (bodovi) line 21
+INFO  04:37:22,218 - Local variable detected (bodovi) line 21
+INFO  04:37:22,218 - Local variable detected (bodovi) line 22
+INFO  04:37:22,218 - Local variable detected (bodovi) line 23
+INFO  04:37:22,218 - Global variable detected (niz) line 26
+INFO  04:37:22,218 - Global variable detected (niz) line 27
+INFO  04:37:22,218 - Array reference: niz[]  line 27
+INFO  04:37:22,218 - Global variable detected (niz) line 28
+INFO  04:37:22,218 - Array reference: niz[]  line 28
+INFO  04:37:22,218 - Global variable detected (niz) line 29
+INFO  04:37:22,218 - Global variable detected (niz) line 29
+INFO  04:37:22,218 - Array reference: niz[]  line 29
+INFO  04:37:22,218 - Array reference: niz[]  line 29
+INFO  04:37:22,218 - Global variable detected (niz) line 29
+INFO  04:37:22,218 - Global variable detected (niz) line 29
+INFO  04:37:22,218 - Array reference: niz[]  line 29
+INFO  04:37:22,218 - Local variable detected (bodovi) line 29
+INFO  04:37:22,218 - Array reference: niz[]  line 29
+INFO  04:37:22,218 - Local variable detected (bodovi) line 31
+INFO  04:37:22,218 - Global variable detected (niz) line 31
+INFO  04:37:22,223 - Array reference: niz[]  line 31
+INFO  04:37:22,223 - Global variable detected (niz) line 31
+INFO  04:37:22,223 - Array reference: niz[]  line 31
+INFO  04:37:22,223 - Local variable detected (bodovi) line 32
+INFO  04:37:22,223 - Global variable detected (niz) line 33
+INFO  04:37:22,223 - Array reference: niz[]  line 33
+INFO  04:37:22,223 - Global variable detected (nizch) line 36
+INFO  04:37:22,223 - Global variable detected (nizch) line 37
+INFO  04:37:22,223 - Array reference: nizch[]  line 37
+INFO  04:37:22,223 - Global variable detected (nizch) line 38
+INFO  04:37:22,223 - Array reference: nizch[]  line 38
+INFO  04:37:22,223 - Global variable detected (nizch) line 39
+INFO  04:37:22,223 - Array reference: nizch[]  line 39
+INFO  04:37:22,223 - Global variable detected (nizch) line 40
+INFO  04:37:22,223 - Array reference: nizch[]  line 40
+INFO  04:37:22,223 - Global variable detected (nizch) line 41
+INFO  04:37:22,223 - Array reference: nizch[]  line 41
+INFO  04:37:22,223 - Local variable detected (bodovi) line 44
+INFO  04:37:22,223 - Local variable detected (bodovi) line 44
+INFO  04:37:22,223 - Local variable detected (bodovi) line 44
+INFO  04:37:22,223 - Local variable detected (bodovi) line 45
+INFO  04:37:22,223 - Local variable detected (bodovi) line 47
+INFO  04:37:22,223 - Local variable detected (bodovi) line 48
+INFO  04:37:22,317 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
+INFO  04:37:22,337 - MJ compiler finished with success.

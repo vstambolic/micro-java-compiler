@@ -54,7 +54,7 @@ scan with {:
 :}
 
 
-terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
+terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,IFNULL,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
 terminal String IDENT;
 terminal Integer NUMBER;
 terminal Boolean BOOL;
@@ -101,6 +101,8 @@ nonterminal DesignatorOperation DesignatorOperation;
 nonterminal CondTerm CondTerm;
 nonterminal CondFact CondFact;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr;
+nonterminal IfNullExprOrNothing IfNullExprOrNothing;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct BasicExpr;
 nonterminal OrCondTermList OrCondTermList;
 nonterminal AndCondFactList AndCondFactList;
 nonterminal RelopExprOrNothing RelopExprOrNothing;
@@ -110,6 +112,7 @@ nonterminal Addop Addop;
 nonterminal Relop Relop;
 nonterminal Mulop Mulop;
 nonterminal Assignop Assignop;
+nonterminal IfNullOp IfNullOp;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor;
 nonterminal MulopFactorList MulopFactorList;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct BaseExp;
@@ -493,7 +496,19 @@ RelopExprOrNothing ::=
     (NoRelopExpr) {: RESULT=new NoRelopExpr(); :}
     /* Æ? */;
 
+
 Expr ::=
+      (Expr)
+      BasicExpr:B1 IfNullExprOrNothing:I2 {: RESULT=new Expr(B1, I2); RESULT.setLine(B1left); :};
+
+IfNullExprOrNothing ::=
+       (IfNullExprIndeed)
+       IfNullOp:I1 Expr:E2 {: RESULT=new IfNullExprIndeed(I1, E2); RESULT.setLine(I1left); :}
+       |
+       (NoIfNullExpr) {: RESULT=new NoIfNullExpr(); :}
+       /* Æ? */;
+
+BasicExpr ::=
     (NegativeExpr)
     SUB Term:T1 AddopTermList:A2 {: RESULT=new NegativeExpr(T1, A2); RESULT.setLine(T1left); :}
     |
@@ -595,6 +610,10 @@ Mulop ::=
     |
     (Mod)
     MOD {: RESULT=new Mod(); :};
+
+IfNullOp ::=
+    (IfNullOp)
+    IFNULL {: RESULT=new IfNullOp(); :};
 
 DoWhileStatementStart ::=
     (DoWhileStatementStart)

@@ -54,7 +54,7 @@ scan with {:
 :}
 
 
-terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
+terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,IFNULL,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
 terminal String IDENT;
 terminal Integer NUMBER;
 terminal Boolean BOOL;
@@ -101,6 +101,8 @@ nonterminal DesignatorOperation;
 nonterminal CondTerm;
 nonterminal CondFact;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr;
+nonterminal IfNullExprOrNothing;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct BasicExpr;
 nonterminal OrCondTermList;
 nonterminal AndCondFactList;
 nonterminal RelopExprOrNothing;
@@ -110,6 +112,7 @@ nonterminal Addop;
 nonterminal Relop;
 nonterminal Mulop;
 nonterminal Assignop;
+nonterminal IfNullOp;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor;
 nonterminal MulopFactorList;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct BaseExp;
@@ -493,7 +496,19 @@ RelopExprOrNothing ::=
     (NoRelopExpr)
     /* Ɛ */;
 
+
 Expr ::=
+      (Expr)
+      BasicExpr IfNullExprOrNothing;
+
+IfNullExprOrNothing ::=
+       (IfNullExprIndeed)
+       IfNullOp Expr
+       |
+       (NoIfNullExpr)
+       /* Ɛ */;
+
+BasicExpr ::=
     (NegativeExpr)
     SUB Term AddopTermList
     |
@@ -595,6 +610,10 @@ Mulop ::=
     |
     (Mod)
     MOD;
+
+IfNullOp ::=
+    (IfNullOp)
+    IFNULL;
 
 DoWhileStatementStart ::=
     (DoWhileStatementStart)

@@ -72,6 +72,7 @@ import java_cup.runtime.Symbol;
 "/"           { return new_symbol(sym.DIV, yytext()); }
 "%"           { return new_symbol(sym.MOD, yytext()); }
 //"^"           { return new_symbol(sym.EXP, yytext()); }
+"??"           { return new_symbol(sym.IFNULL, yytext()); }
 "=="          { return new_symbol(sym.EQ, yytext()); }
 "!="          { return new_symbol(sym.NEQ, yytext()); }
 ">="          { return new_symbol(sym.GTE, yytext()); }

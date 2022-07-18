@@ -798,6 +798,21 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		positiveExpr.struct = positiveExpr.getTerm().struct;
 	}
+	public void visit(Expr expr) {
+		IfNullExprOrNothing ifNullExprOrNothing = expr.getIfNullExprOrNothing();
+		if (ifNullExprOrNothing instanceof IfNullExprIndeed && !expr.getBasicExpr().struct.equals(Tab.intType)) {
+			expr.struct = Tab.noType;
+			report_error("Invalid expression - expressions inside IF NULL (??) expression must have int type.", expr.getBasicExpr());
+			return;
+		}
+		expr.struct = expr.getBasicExpr().struct;
+	}
+	public void visit(IfNullExprIndeed ifNullExprIndeed) {
+		if (!ifNullExprIndeed.getExpr().struct.equals(Tab.intType)) {
+			report_error("Invalid expression - expressions inside IF NULL (??) expression must have int type.", ifNullExprIndeed.getExpr());
+			return;
+		}
+	}
 
 	public void visit(Term term) {
 		if (term.getMulopFactorList() instanceof MulopFactorListIndeed) {

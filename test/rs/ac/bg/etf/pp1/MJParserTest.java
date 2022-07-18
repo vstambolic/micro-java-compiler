@@ -23,7 +23,7 @@ public class MJParserTest {
 		DOMConfigurator.configure(Log4JUtils.instance().findLoggerConfigFile());
 		Log4JUtils.instance().prepareLogFile(Logger.getRootLogger());
 	}
-	
+
 	public static void main(String[] args) throws Exception {
 		Logger log = Logger.getLogger(MJParserTest.class);
 		if (args.length < 1) {
@@ -66,10 +66,10 @@ public class MJParserTest {
 	        	log.info("MJ compiler finished with success.");
 
 				disasm.main(new String[]{objFilePath});
-				Run.main(new String[]{objFilePath});
+				Run.main(new String[]{objFilePath/*,"-debug"*/});
 	        }
 	        else {
-	        	log.error("There were compile errors, no code generated.");
+	        	log.error("There were compile errors, no code produced.");
 	        }
 		}
 	}

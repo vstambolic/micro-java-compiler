@@ -7,7 +7,9 @@ import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static rs.ac.bg.etf.pp1.SemanticAnalyzer.*;
@@ -120,6 +122,22 @@ public class CodeGenerator extends VisitorAdaptor {
         }
     }
 
+    private Set<Integer> ifNullAddressesThatNeedFixing = new HashSet<>();
+    public void visit(Expr expr) {
+        if (expr.getIfNullExprOrNothing() instanceof NoIfNullExpr && expr.getParent() instanceof IfNullExprIndeed) {
+            ifNullAddressesThatNeedFixing.forEach(Code::fixup);
+            ifNullAddressesThatNeedFixing = new HashSet<>();
+        }
+    }
+    public void visit(IfNullOp ifNullOp) {
+        Code.put(Code.dup);
+        Code.loadConst(0);
+        Code.put(Code.jcc + Code.ne);
+        ifNullAddressesThatNeedFixing.add(Code.pc);
+        Code.put2(0);
+        Code.put(Code.pop);
+    }
+
     public void visit(AddopTermListIndeed addopTermListIndeed) {
         Addop addop = addopTermListIndeed.getAddop();
         if (addop instanceof Add)
@@ -138,6 +156,7 @@ public class CodeGenerator extends VisitorAdaptor {
             else
                 Code.put(Code.rem);
     }
+
 
     // Print / read ----------------------------------------------------------------------------------------------------
     public void visit(PrintStatement printStatement) {
