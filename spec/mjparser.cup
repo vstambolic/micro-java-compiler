@@ -126,7 +126,12 @@ nonterminal ExprOrNothing;
 nonterminal PrintWidth;
 nonterminal FormParsOrError;
 nonterminal ConditionOrError;
-nonterminal DoWhileStatementStart;
+nonterminal DoToken;
+nonterminal And;
+nonterminal Or;
+nonterminal IfToken;
+nonterminal ElseToken;
+
 
 Program ::=
     (Program)
@@ -384,7 +389,7 @@ Statement ::=
 
 MatchedStatement ::=
     (MatchedIfStatement)
-    IF ConditionOrError MatchedStatement ELSE MatchedStatement
+    IfToken ConditionOrError MatchedStatement ElseToken MatchedStatement
     |
     (BodyStatement)
     LBRACE StatementList RBRACE
@@ -396,7 +401,7 @@ MatchedStatement ::=
     Designator Assignop error:l {: parser.report_info("SYNTAX ERROR: one or more invalid assign operations on line: " + lleft, null); :} SEMICOLON
     |
     (DoWhileStatement)
-    DoWhileStatementStart StatementList WHILE LPAREN Condition RPAREN SEMICOLON
+    DoToken StatementList WHILE LPAREN Condition RPAREN SEMICOLON
     |
     (BreakStatement)
     BREAK SEMICOLON
@@ -416,10 +421,19 @@ MatchedStatement ::=
 
 UnmatchedStatement ::=
     (UnmatchedIfStatement)
-    IF ConditionOrError Statement
+    IfToken ConditionOrError Statement // if (true) {} | ako je true -> skok nakon sto je visited unmatchedifstatement
     |
     (UnmatchedIfElseStatement)
-    IF ConditionOrError MatchedStatement ELSE UnmatchedStatement;
+    IfToken ConditionOrError MatchedStatement ElseToken UnmatchedStatement;
+
+IfToken ::=
+    (IfToken)
+    IF;
+
+ElseToken ::=
+    (ElseToken)
+    ELSE;
+
 
 ConditionOrError ::=
     (ConditionValid)
@@ -482,24 +496,32 @@ CondTerm ::=
 
 OrCondTermList ::=
     (OrCondTermListIndeed)
-    OrCondTermList OR CondTerm
+    OrCondTermList Or CondTerm
     |
     (NoOrCondTermList)
     /* Ɛ */;
 
 AndCondFactList ::=
     (AndCondFactListIndeed)
-    AndCondFactList AND CondFact
+    AndCondFactList And CondFact
     |
     (NoAndCondTermList)
     /* Ɛ */;
 
+And ::=
+    (AndDelimiter)
+    AND;
+
+Or ::=
+    (OrDelimiter)
+    OR;
+
 CondFact ::=
     (ExprCondFact)
-    Expr RelopExprOrNothing
-    |
-    (InstanceOfCondFact)
-    Designator INSTANCEOF Type:type;
+    Expr RelopExprOrNothing;
+//    |
+//    (InstanceOfCondFact)
+//    Designator INSTANCEOF Type:type;
 
 RelopExprOrNothing ::=
     (RelopExprIndeed)
@@ -627,6 +649,6 @@ IfNullOp ::=
     (IfNullOp)
     IFNULL;
 
-DoWhileStatementStart ::=
-    (DoWhileStatementStart)
+DoToken ::=
+    (DoToken)
     DO;

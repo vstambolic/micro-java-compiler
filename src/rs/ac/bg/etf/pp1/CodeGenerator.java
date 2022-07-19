@@ -463,9 +463,210 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
 
+    private Stack<Set<Integer>> addressesToUpdateAfterElseOrUnmatchedIfStack = new Stack<>();
+    private Stack<Set<Integer>> addressesToUpdateAfterMatchedIfStatement = new Stack<>();
+    public void visit(IfToken ifToken) {
+        addressesToUpdateAfterElseOrUnmatchedIfStack.push(new HashSet<>());
+        if (ifToken.getParent() instanceof MatchedIfStatement || ifToken.getParent() instanceof UnmatchedIfElseStatement)
+            addressesToUpdateAfterMatchedIfStatement.push(new HashSet<>());
+
+    }
+    public void visit(ElseToken elseToken) {
+        Code.put(Code.jmp);
+        this.addressesToUpdateAfterMatchedIfStatement.peek().add(Code.pc);
+        Code.put2(0);
+
+        addressesToUpdateAfterElseOrUnmatchedIfStack.pop().forEach(Code::fixup);
+    }
+
+    public void visit(UnmatchedIfElseStatement unmatchedIfElseStatement) {
+        this.addressesToUpdateAfterMatchedIfStatement.pop().forEach(Code::fixup);
+    }
+
+    public void visit(MatchedIfStatement matchedIfStatement) {
+        this.addressesToUpdateAfterMatchedIfStatement.pop().forEach(Code::fixup);
+    }
+
+    public void visit(UnmatchedIfStatement unmatchedIfStatement) {
+        addressesToUpdateAfterElseOrUnmatchedIfStack.pop().forEach(Code::fixup);
+    }
+
+
+    public void visit(ExprCondFact exprCondFact) {
+        int relOp;
+        if (exprCondFact.getRelopExprOrNothing() instanceof NoRelopExpr) {
+            Code.loadConst(1);
+            relOp = Code.eq;
+        }
+        else {
+            Relop relop = ((RelopExprIndeed) exprCondFact.getRelopExprOrNothing()).getRelop();
+            if (relop instanceof Eq)
+                relOp = Code.eq;
+            else
+                if (relop instanceof Neq)
+                    relOp = Code.ne;
+                else
+                    if (relop instanceof Gt)
+                        relOp = Code.gt;
+                    else
+                        if (relop instanceof Gte)
+                            relOp = Code.ge;
+                        else
+                            if (relop instanceof Lt)
+                                relOp = Code.lt;
+                            else
+                                relOp = Code.le;
+        }
+
+        if (this.isLastCondFact(exprCondFact)) { // last condFact,
+            System.out.println("last cond fact");
+              CondTerm condTerm = this.getCondTerm(exprCondFact);
+              if (this.isLastCondTerm(condTerm)) { // last condFact, last condTerm,
+                  System.out.println("last cond term");
+                  Condition condition = this.getCondition(condTerm);
+                  if (this.isDoWhileCondition(condition)) { // last condFact, last condTerm, DoWhileCondition
+                      // todo jeq na pocetak vajla -> adresu koju si pushovao na stek kada si posetio DO
+                      /*                           -> adresu koju ces popovati sa steka kada si posetio ceo dowhile
+                      *
+                      * */
+                  }
+                  else {  // last condFact, last condTerm, IfCondition
+                      // if not true, jump after Else or after Unmatched If Statement
+                      Code.put(Code.jcc + Code.inverse[relOp]);
+                      this.addressesToUpdateAfterElseOrUnmatchedIfStack.peek().add(Code.pc);
+                      Code.put2(0);
+                  }
+              }
+              else {
+
+              }
+//            1. ako je condfact poslednji u andlisti
+//                  ako je poslednji condterm
+            //          1. ako je true: nastavi u telo ifa | skoci na pocetak vajla
+            //          2. ako je false: skoci u else granu | iza ifa | iza vajla
+            //      ako nije poslednji condterm
+
+//            -> ako je true
+//            -> ako je false, skoci na prvi sledeci kondfact u oru
+//                -> ako ima orterma, nastavi dalje tu
+//                -> ako nema orterma, skoci u else|krajIfa|izaVajla
+        }
+
+    }
+
+    private boolean isDoWhileCondition(Condition condition) {
+        return condition.getParent() instanceof DoWhileStatement;
+    }
+
+    private CondTerm getCondTerm(ExprCondFact exprCondFact) {
+        SyntaxNode syntaxNode = exprCondFact.getParent();
+        while (!(syntaxNode instanceof CondTerm))
+            syntaxNode = syntaxNode.getParent();
+        return (CondTerm) syntaxNode;
+    }
+    private Condition getCondition(CondTerm condTerm) {
+        SyntaxNode syntaxNode = condTerm.getParent();
+        while (!(syntaxNode instanceof Condition))
+            syntaxNode = syntaxNode.getParent();
+        return (Condition) syntaxNode;
+    }
+
+    private boolean isLastCondTerm(CondTerm condTerm) {
+        return this.isOneAndOnlyCondTerm(condTerm) || this.isLastCondTermInList(condTerm);
+    }
+
+    private boolean isLastCondTermInList(CondTerm condTerm) {
+        return condTerm.getParent().getParent() instanceof Condition;
+    }
+
+    private boolean isOneAndOnlyCondTerm(CondTerm condTerm) {
+        return condTerm.getParent() instanceof Condition
+                && ((Condition) condTerm.getParent()).getOrCondTermList() instanceof NoOrCondTermList;
+    }
+
+    private boolean isLastCondFact(ExprCondFact condFact) {
+        return this.isOneAndOnlyCondFact(condFact) || this.isLastCondFactInList(condFact);
+    }
+
+    private boolean isLastCondFactInList(ExprCondFact condFact) {
+        return condFact.getParent().getParent() instanceof CondTerm;
+    }
+
+    private boolean isOneAndOnlyCondFact(ExprCondFact condFact) {
+        return condFact.getParent() instanceof CondTerm
+                && ((CondTerm) condFact.getParent()).getAndCondFactList() instanceof NoAndCondTermList;
+    }
+
+
+
+    public void visit(AndDelimiter and) {
+        System.out.println("AND VISITED");
+    }
+
+    /*
+
+    if (true) {
+
+    }
+
+
+    if (true && true) {
+
+    }
+
+    if (true || true) {
+
+    }
+
+
+    if (true && true || true) {
+
+    }
+
+    if (true || true && true) {
+
+    }
+
+    do {
+    }
+    while (true && true);
+
+    do {
+    }
+    while (true && true || true);
+
+    do {
+    }
+    while (true || true && true);
+
+    kada visitujes CONDFACT (true)
+       ako je true:
+            nastavi dalje bez skakanja
+       ako je false skoci:
+            -> (true)                    skoci na else | kraj ifa | iza while-a
+            -> (true && true)            skoci na else | kraj ifa | iza while-a
+            -> (true || true)            skoci na prvi sledeci kondfact u oru
+            -> (true && true || true)    skoci na prvi sledeci kondfact u oru
+            -> (true || true && true)    skoci na telo if-a | pocetak vajla
+            -> (true && true || true && true)
+
+       Dakle pravilo izvuceno prostom matematickom indukcijom:
+
+       1. ako je condfact poslednji u andlisti
+            -> ako je true, skoci u telo ifa ili pocetak vajla
+            -> ako je false, skoci na prvi sledeci kondfact u oru
+                -> ako ima orterma, nastavi dalje tu
+                -> ako nema orterma, skoci u else|krajIfa|izaVajla
+
+       1. ako condfact nije poslednji u andlisti
+            -> ako je true, nastavi dalje
+            -> ako je false, skoci na sledeci kondfact u oru
+                -> ako ga ima, nastavi dalje tu
+                -> ako ga nema skoci u else|krajIfa|izaVajla
+ */
+
     /*
      * TODO
-     * super calls // ja msm da je ovo implementirano per se
      * if then else
      * do while
      *

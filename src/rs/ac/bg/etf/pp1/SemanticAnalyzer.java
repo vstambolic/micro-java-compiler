@@ -812,7 +812,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         }
     }
 
-    public void visit(DoWhileStatementStart doWhileStatementStart) { // needed for continue and break statements
+    public void visit(DoToken doToken) { // needed for continue and break statements
         this.scopeStack.push(Scope.DO_WHILE);
     }
 

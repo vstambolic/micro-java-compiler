@@ -1,105 +1,63 @@
-INFO  03:16:31,158 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
-INFO  03:16:31,314 - #2 program
-INFO  03:16:31,314 - #47 test301
-INFO  03:16:31,314 - #4 class
-INFO  03:16:31,314 - #47 A
-INFO  03:16:31,314 - #45 {
-INFO  03:16:31,314 - #45 {
-INFO  03:16:31,314 - #47 A
-INFO  03:16:31,314 - #41 (
-INFO  03:16:31,314 - #42 )
-INFO  03:16:31,330 - #45 {
-INFO  03:16:31,330 - #12 print
-INFO  03:16:31,330 - #41 (
-INFO  03:16:31,330 - #50 A
-INFO  03:16:31,330 - #42 )
-INFO  03:16:31,330 - #37 ;
-INFO  03:16:31,330 - #46 }
-INFO  03:16:31,330 - #47 int
-INFO  03:16:31,330 - #47 f
-INFO  03:16:31,330 - #41 (
-INFO  03:16:31,345 - #47 int
-INFO  03:16:31,345 - #47 x
-INFO  03:16:31,345 - #36 =
-INFO  03:16:31,361 - #48 8
-INFO  03:16:31,361 - #42 )
-INFO  03:16:31,361 - #45 {
-INFO  03:16:31,361 - #14 return
-INFO  03:16:31,361 - #47 x
-INFO  03:16:31,361 - #37 ;
-INFO  03:16:31,377 - #46 }
-INFO  03:16:31,377 - #46 }
-INFO  03:16:31,377 - #46 }
-INFO  03:16:31,377 - #4 class
-INFO  03:16:31,377 - #47 B
-INFO  03:16:31,377 - #16 extends
-INFO  03:16:31,377 - #47 A
-INFO  03:16:31,377 - #45 {
-INFO  03:16:31,377 - #45 {
-INFO  03:16:31,377 - #47 int
-INFO  03:16:31,377 - #47 f
-INFO  03:16:31,377 - #41 (
-INFO  03:16:31,377 - #47 int
-INFO  03:16:31,377 - #47 y
-INFO  03:16:31,377 - #42 )
-INFO  03:16:31,377 - #47 int
-INFO  03:16:31,377 - #47 x
-INFO  03:16:31,377 - #37 ;
-INFO  03:16:31,392 - #45 {
-INFO  03:16:31,392 - #47 x
-INFO  03:16:31,392 - #36 =
-INFO  03:16:31,392 - #47 super
-INFO  03:16:31,392 - #41 (
-INFO  03:16:31,392 - #42 )
-INFO  03:16:31,392 - #37 ;
-INFO  03:16:31,392 - #12 print
-INFO  03:16:31,392 - #41 (
-INFO  03:16:31,392 - #47 x
-INFO  03:16:31,392 - #42 )
-INFO  03:16:31,392 - #37 ;
-INFO  03:16:31,392 - #14 return
-INFO  03:16:31,392 - #48 5
-INFO  03:16:31,408 - #37 ;
-INFO  03:16:31,408 - #46 }
-INFO  03:16:31,408 - #46 }
-INFO  03:16:31,408 - #46 }
-INFO  03:16:31,408 - #45 {
-INFO  03:16:31,408 - #15 void
-INFO  03:16:31,408 - #47 main
-INFO  03:16:31,408 - #41 (
-INFO  03:16:31,408 - #42 )
-INFO  03:16:31,408 - #47 A
-INFO  03:16:31,408 - #47 a
-INFO  03:16:31,408 - #37 ;
-INFO  03:16:31,408 - #47 B
-INFO  03:16:31,408 - #47 b
-INFO  03:16:31,408 - #37 ;
-INFO  03:16:31,408 - #45 {
-INFO  03:16:31,408 - #47 b
-INFO  03:16:31,408 - #36 =
-INFO  03:16:31,408 - #11 new
-INFO  03:16:31,408 - #47 B
-INFO  03:16:31,408 - #37 ;
-INFO  03:16:31,408 - #47 b
-INFO  03:16:31,408 - #40 .
-INFO  03:16:31,408 - #47 f
-INFO  03:16:31,408 - #41 (
-INFO  03:16:31,408 - #48 3
-INFO  03:16:31,408 - #42 )
-INFO  03:16:31,408 - #37 ;
-INFO  03:16:31,408 - #46 }
-INFO  03:16:31,408 - #46 }
-INFO  03:16:31,455 -  Optional argument declared (x). line 8
-INFO  03:16:31,455 - Formal parameter detected (x) line 10
-INFO  03:16:31,564 -  Formal parameter declared (y). line 16
-INFO  03:16:31,580 - Local variable declared (x). line 16
-INFO  03:16:31,580 - Local variable detected (x) line 17
-INFO  03:16:31,580 - Local variable detected (x) line 18
-INFO  03:16:31,580 - Local variable declared (a). line 30
-INFO  03:16:31,580 - Local variable declared (b). line 30
-INFO  03:16:31,580 - Local variable detected (b) line 32
-INFO  03:16:31,580 - New instance of class (B) detected. line 32
-INFO  03:16:31,580 - Local variable detected (b) line 33
-INFO  03:16:31,580 - Member reference detected: b DOT f line 33
-INFO  03:16:31,595 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
-INFO  03:16:31,642 - MJ compiler finished with success.
+INFO  01:17:20,457 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
+INFO  01:17:20,840 - #2 program
+INFO  01:17:20,843 - #47 test301
+INFO  01:17:20,843 - #45 {
+INFO  01:17:20,843 - #15 void
+INFO  01:17:20,843 - #47 main
+INFO  01:17:20,843 - #41 (
+INFO  01:17:20,848 - #42 )
+INFO  01:17:20,848 - #45 {
+INFO  01:17:20,878 - #8 if
+INFO  01:17:20,918 - #41 (
+INFO  01:17:20,918 - #48 5
+INFO  01:17:20,918 - #33 <
+INFO  01:17:20,928 - #48 4
+INFO  01:17:20,933 - #42 )
+INFO  01:17:20,950 - #45 {
+INFO  01:17:20,950 - #12 print
+INFO  01:17:20,950 - #41 (
+INFO  01:17:20,950 - #50 x
+INFO  01:17:20,952 - #42 )
+INFO  01:17:20,953 - #37 ;
+INFO  01:17:20,953 - #46 }
+INFO  01:17:20,953 - #6 else
+INFO  01:17:20,953 - #45 {
+INFO  01:17:20,953 - #12 print
+INFO  01:17:20,953 - #41 (
+INFO  01:17:20,953 - #50 a
+INFO  01:17:20,953 - #42 )
+INFO  01:17:20,953 - #37 ;
+INFO  01:17:20,953 - #8 if
+INFO  01:17:20,953 - #41 (
+INFO  01:17:20,953 - #49 false
+INFO  01:17:20,953 - #42 )
+INFO  01:17:20,958 - #45 {
+INFO  01:17:20,958 - #12 print
+INFO  01:17:20,958 - #41 (
+INFO  01:17:20,958 - #50 y
+INFO  01:17:20,958 - #42 )
+INFO  01:17:20,958 - #37 ;
+INFO  01:17:20,958 - #46 }
+INFO  01:17:20,958 - #6 else
+INFO  01:17:20,958 - #45 {
+INFO  01:17:20,958 - #12 print
+INFO  01:17:20,960 - #41 (
+INFO  01:17:20,960 - #50 z
+INFO  01:17:20,960 - #42 )
+INFO  01:17:20,960 - #37 ;
+INFO  01:17:20,960 - #46 }
+INFO  01:17:20,968 - #12 print
+INFO  01:17:20,968 - #41 (
+INFO  01:17:20,968 - #50 q
+INFO  01:17:20,968 - #42 )
+INFO  01:17:20,968 - #37 ;
+INFO  01:17:20,968 - #46 }
+INFO  01:17:20,968 - #12 print
+INFO  01:17:20,968 - #41 (
+INFO  01:17:20,968 - #50 w
+INFO  01:17:20,968 - #42 )
+INFO  01:17:20,970 - #37 ;
+INFO  01:17:20,970 - #46 }
+INFO  01:17:20,970 - #46 }
+INFO  01:17:21,091 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
+INFO  01:17:21,122 - MJ compiler finished with success.

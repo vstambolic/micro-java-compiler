@@ -126,7 +126,12 @@ nonterminal ExprOrNothing ExprOrNothing;
 nonterminal PrintWidth PrintWidth;
 nonterminal FormParsOrError FormParsOrError;
 nonterminal ConditionOrError ConditionOrError;
-nonterminal DoWhileStatementStart DoWhileStatementStart;
+nonterminal DoToken DoToken;
+nonterminal And And;
+nonterminal Or Or;
+nonterminal IfToken IfToken;
+nonterminal ElseToken ElseToken;
+
 
 Program ::=
     (Program)
@@ -384,7 +389,7 @@ Statement ::=
 
 MatchedStatement ::=
     (MatchedIfStatement)
-    IF ConditionOrError:C1 MatchedStatement:M2 ELSE MatchedStatement:M3 {: RESULT=new MatchedIfStatement(C1, M2, M3); RESULT.setLine(C1left); :}
+    IfToken:I1 ConditionOrError:C2 MatchedStatement:M3 ElseToken:E4 MatchedStatement:M5 {: RESULT=new MatchedIfStatement(I1, C2, M3, E4, M5); RESULT.setLine(I1left); :}
     |
     (BodyStatement)
     LBRACE StatementList:S1 RBRACE {: RESULT=new BodyStatement(S1); RESULT.setLine(S1left); :}
@@ -396,7 +401,7 @@ MatchedStatement ::=
     Designator:D1 Assignop:A2 error:l {: parser.report_info("SYNTAX ERROR: one or more invalid assign operations on line: " + lleft, null); :} SEMICOLON {: RESULT=new DesignatorAssignStatementError(D1, A2); RESULT.setLine(D1left); :}
     |
     (DoWhileStatement)
-    DoWhileStatementStart:D1 StatementList:S2 WHILE LPAREN Condition:C3 RPAREN SEMICOLON {: RESULT=new DoWhileStatement(D1, S2, C3); RESULT.setLine(D1left); :}
+    DoToken:D1 StatementList:S2 WHILE LPAREN Condition:C3 RPAREN SEMICOLON {: RESULT=new DoWhileStatement(D1, S2, C3); RESULT.setLine(D1left); :}
     |
     (BreakStatement)
     BREAK SEMICOLON {: RESULT=new BreakStatement(); :}
@@ -416,10 +421,19 @@ MatchedStatement ::=
 
 UnmatchedStatement ::=
     (UnmatchedIfStatement)
-    IF ConditionOrError:C1 Statement:S2 {: RESULT=new UnmatchedIfStatement(C1, S2); RESULT.setLine(C1left); :}
+    IfToken:I1 ConditionOrError:C2 Statement:S3 {: RESULT=new UnmatchedIfStatement(I1, C2, S3); RESULT.setLine(I1left); :} // if (true) {} | ako je true -> skok nakon sto je visited unmatchedifstatement
     |
     (UnmatchedIfElseStatement)
-    IF ConditionOrError:C1 MatchedStatement:M2 ELSE UnmatchedStatement:U3 {: RESULT=new UnmatchedIfElseStatement(C1, M2, U3); RESULT.setLine(C1left); :};
+    IfToken:I1 ConditionOrError:C2 MatchedStatement:M3 ElseToken:E4 UnmatchedStatement:U5 {: RESULT=new UnmatchedIfElseStatement(I1, C2, M3, E4, U5); RESULT.setLine(I1left); :};
+
+IfToken ::=
+    (IfToken)
+    IF {: RESULT=new IfToken(); :};
+
+ElseToken ::=
+    (ElseToken)
+    ELSE {: RESULT=new ElseToken(); :};
+
 
 ConditionOrError ::=
     (ConditionValid)
@@ -482,24 +496,32 @@ CondTerm ::=
 
 OrCondTermList ::=
     (OrCondTermListIndeed)
-    OrCondTermList:O1 OR CondTerm:C2 {: RESULT=new OrCondTermListIndeed(O1, C2); RESULT.setLine(O1left); :}
+    OrCondTermList:O1 Or:O2 CondTerm:C3 {: RESULT=new OrCondTermListIndeed(O1, O2, C3); RESULT.setLine(O1left); :}
     |
     (NoOrCondTermList) {: RESULT=new NoOrCondTermList(); :}
     /* Æ? */;
 
 AndCondFactList ::=
     (AndCondFactListIndeed)
-    AndCondFactList:A1 AND CondFact:C2 {: RESULT=new AndCondFactListIndeed(A1, C2); RESULT.setLine(A1left); :}
+    AndCondFactList:A1 And:A2 CondFact:C3 {: RESULT=new AndCondFactListIndeed(A1, A2, C3); RESULT.setLine(A1left); :}
     |
     (NoAndCondTermList) {: RESULT=new NoAndCondTermList(); :}
     /* Æ? */;
 
+And ::=
+    (AndDelimiter)
+    AND {: RESULT=new AndDelimiter(); :};
+
+Or ::=
+    (OrDelimiter)
+    OR {: RESULT=new OrDelimiter(); :};
+
 CondFact ::=
     (ExprCondFact)
-    Expr:E1 RelopExprOrNothing:R2 {: RESULT=new ExprCondFact(E1, R2); RESULT.setLine(E1left); :}
-    |
-    (InstanceOfCondFact)
-    Designator:D1 INSTANCEOF Type:type {: RESULT=new InstanceOfCondFact(D1, type); RESULT.setLine(D1left); :};
+    Expr:E1 RelopExprOrNothing:R2 {: RESULT=new ExprCondFact(E1, R2); RESULT.setLine(E1left); :};
+//    |
+//    (InstanceOfCondFact)
+//    Designator INSTANCEOF Type:type;
 
 RelopExprOrNothing ::=
     (RelopExprIndeed)
@@ -627,6 +649,6 @@ IfNullOp ::=
     (IfNullOp)
     IFNULL {: RESULT=new IfNullOp(); :};
 
-DoWhileStatementStart ::=
-    (DoWhileStatementStart)
-    DO {: RESULT=new DoWhileStatementStart(); :};
+DoToken ::=
+    (DoToken)
+    DO {: RESULT=new DoToken(); :};

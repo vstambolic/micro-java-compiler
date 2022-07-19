@@ -2,35 +2,31 @@
 
 program test301
 
-class A {
-
-    {  A() { print('A');}
-          int f(int x = 8) {
-
-            return x;
-                      }
-    }
-}
-class B extends A {
- {
-          int f(int y) int x; {
-           x = super(); // ucitava this, vmtpointer, invoke virtual // umesto toga treba call
-                      print(x);
-                      return 5;
-
-                      }
-  }
-}
-
 
 {
-
-
-
-	void main() A a; B b;
+	void main()
 	{
-	    b= new B;
-	    b.f(3);
+        if (5<4) {
+            print('x');
+        }
+        else {
+             print('a');
+             if (false) {
+                print('y');
+             }
+             else {
+                print('z');
+             }
+             print('q');
+        }
+
+                        print('w');
+
+    //            else {
+    //        if (true)  {
+    //
+    //        }
+    //    }
 	}
 }
 
