@@ -4,18 +4,19 @@ program test301
 
 class A {
 
-    {
-          void f(int x = 5) {
-                      print(x);
+    {  A() { print('A');}
+          int f(int x = 8) {
 
+            return x;
                       }
     }
 }
 class B extends A {
  {
-          void f(int x = 8) {
+          int f(int y) int x; {
+           x = super(); // ucitava this, vmtpointer, invoke virtual // umesto toga treba call
                       print(x);
-                      print(x);
+                      return 5;
 
                       }
   }
@@ -29,7 +30,7 @@ class B extends A {
 	void main() A a; B b;
 	{
 	    b= new B;
-	    b.f();
+	    b.f(3);
 	}
 }
 

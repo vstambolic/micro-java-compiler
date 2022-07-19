@@ -987,6 +987,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     private boolean insideConstructor() {
         if (!this.insideClass())
             return false;
+        if (this.currentMethod == null)
+            return false;
         return this.currentMethod.getCurrMethod().getName().equals(this.currentClass.getCurrClass().getName());
     }
 

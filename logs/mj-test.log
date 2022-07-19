@@ -1,90 +1,105 @@
-INFO  02:54:41,813 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
-INFO  02:54:41,969 - #2 program
-INFO  02:54:41,969 - #47 test301
-INFO  02:54:41,969 - #4 class
-INFO  02:54:41,969 - #47 A
-INFO  02:54:41,969 - #45 {
-INFO  02:54:41,969 - #45 {
-INFO  02:54:41,985 - #15 void
-INFO  02:54:41,985 - #47 f
-INFO  02:54:41,985 - #41 (
-INFO  02:54:41,985 - #47 int
-INFO  02:54:41,985 - #47 x
-INFO  02:54:41,985 - #36 =
-INFO  02:54:41,985 - #48 5
-INFO  02:54:41,985 - #42 )
-INFO  02:54:41,985 - #45 {
-INFO  02:54:41,985 - #12 print
-INFO  02:54:41,985 - #41 (
-INFO  02:54:41,985 - #47 x
-INFO  02:54:41,985 - #42 )
-INFO  02:54:42,000 - #37 ;
-INFO  02:54:42,000 - #46 }
-INFO  02:54:42,000 - #46 }
-INFO  02:54:42,000 - #46 }
-INFO  02:54:42,000 - #4 class
-INFO  02:54:42,016 - #47 B
-INFO  02:54:42,016 - #16 extends
-INFO  02:54:42,016 - #47 A
-INFO  02:54:42,016 - #45 {
-INFO  02:54:42,016 - #45 {
-INFO  02:54:42,016 - #15 void
-INFO  02:54:42,016 - #47 f
-INFO  02:54:42,016 - #41 (
-INFO  02:54:42,016 - #47 int
-INFO  02:54:42,016 - #47 x
-INFO  02:54:42,016 - #36 =
-INFO  02:54:42,016 - #48 8
-INFO  02:54:42,016 - #42 )
-INFO  02:54:42,016 - #45 {
-INFO  02:54:42,016 - #12 print
-INFO  02:54:42,016 - #41 (
-INFO  02:54:42,016 - #47 x
-INFO  02:54:42,016 - #42 )
-INFO  02:54:42,016 - #37 ;
-INFO  02:54:42,016 - #12 print
-INFO  02:54:42,016 - #41 (
-INFO  02:54:42,016 - #47 x
-INFO  02:54:42,016 - #42 )
-INFO  02:54:42,016 - #37 ;
-INFO  02:54:42,016 - #46 }
-INFO  02:54:42,016 - #46 }
-INFO  02:54:42,016 - #46 }
-INFO  02:54:42,016 - #45 {
-INFO  02:54:42,016 - #15 void
-INFO  02:54:42,016 - #47 main
-INFO  02:54:42,016 - #41 (
-INFO  02:54:42,016 - #42 )
-INFO  02:54:42,016 - #47 A
-INFO  02:54:42,016 - #47 a
-INFO  02:54:42,016 - #37 ;
-INFO  02:54:42,016 - #47 B
-INFO  02:54:42,016 - #47 b
-INFO  02:54:42,016 - #37 ;
-INFO  02:54:42,031 - #45 {
-INFO  02:54:42,031 - #47 b
-INFO  02:54:42,031 - #36 =
-INFO  02:54:42,031 - #11 new
-INFO  02:54:42,031 - #47 B
-INFO  02:54:42,031 - #37 ;
-INFO  02:54:42,031 - #47 b
-INFO  02:54:42,031 - #40 .
-INFO  02:54:42,031 - #47 f
-INFO  02:54:42,031 - #41 (
-INFO  02:54:42,031 - #42 )
-INFO  02:54:42,031 - #37 ;
-INFO  02:54:42,031 - #46 }
-INFO  02:54:42,031 - #46 }
-INFO  02:54:42,063 -  Optional argument declared (x). line 8
-INFO  02:54:42,063 - Formal parameter detected (x) line 9
-INFO  02:54:42,172 -  Optional argument declared (x). line 16
-INFO  02:54:42,172 - Formal parameter detected (x) line 17
-INFO  02:54:42,172 - Formal parameter detected (x) line 18
-INFO  02:54:42,188 - Local variable declared (a). line 29
-INFO  02:54:42,188 - Local variable declared (b). line 29
-INFO  02:54:42,188 - Local variable detected (b) line 31
-INFO  02:54:42,188 - New instance of class (B) detected. line 31
-INFO  02:54:42,188 - Local variable detected (b) line 32
-INFO  02:54:42,188 - Member reference detected: b DOT f line 32
-INFO  02:54:42,203 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
-INFO  02:54:42,235 - MJ compiler finished with success.
+INFO  03:16:31,158 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
+INFO  03:16:31,314 - #2 program
+INFO  03:16:31,314 - #47 test301
+INFO  03:16:31,314 - #4 class
+INFO  03:16:31,314 - #47 A
+INFO  03:16:31,314 - #45 {
+INFO  03:16:31,314 - #45 {
+INFO  03:16:31,314 - #47 A
+INFO  03:16:31,314 - #41 (
+INFO  03:16:31,314 - #42 )
+INFO  03:16:31,330 - #45 {
+INFO  03:16:31,330 - #12 print
+INFO  03:16:31,330 - #41 (
+INFO  03:16:31,330 - #50 A
+INFO  03:16:31,330 - #42 )
+INFO  03:16:31,330 - #37 ;
+INFO  03:16:31,330 - #46 }
+INFO  03:16:31,330 - #47 int
+INFO  03:16:31,330 - #47 f
+INFO  03:16:31,330 - #41 (
+INFO  03:16:31,345 - #47 int
+INFO  03:16:31,345 - #47 x
+INFO  03:16:31,345 - #36 =
+INFO  03:16:31,361 - #48 8
+INFO  03:16:31,361 - #42 )
+INFO  03:16:31,361 - #45 {
+INFO  03:16:31,361 - #14 return
+INFO  03:16:31,361 - #47 x
+INFO  03:16:31,361 - #37 ;
+INFO  03:16:31,377 - #46 }
+INFO  03:16:31,377 - #46 }
+INFO  03:16:31,377 - #46 }
+INFO  03:16:31,377 - #4 class
+INFO  03:16:31,377 - #47 B
+INFO  03:16:31,377 - #16 extends
+INFO  03:16:31,377 - #47 A
+INFO  03:16:31,377 - #45 {
+INFO  03:16:31,377 - #45 {
+INFO  03:16:31,377 - #47 int
+INFO  03:16:31,377 - #47 f
+INFO  03:16:31,377 - #41 (
+INFO  03:16:31,377 - #47 int
+INFO  03:16:31,377 - #47 y
+INFO  03:16:31,377 - #42 )
+INFO  03:16:31,377 - #47 int
+INFO  03:16:31,377 - #47 x
+INFO  03:16:31,377 - #37 ;
+INFO  03:16:31,392 - #45 {
+INFO  03:16:31,392 - #47 x
+INFO  03:16:31,392 - #36 =
+INFO  03:16:31,392 - #47 super
+INFO  03:16:31,392 - #41 (
+INFO  03:16:31,392 - #42 )
+INFO  03:16:31,392 - #37 ;
+INFO  03:16:31,392 - #12 print
+INFO  03:16:31,392 - #41 (
+INFO  03:16:31,392 - #47 x
+INFO  03:16:31,392 - #42 )
+INFO  03:16:31,392 - #37 ;
+INFO  03:16:31,392 - #14 return
+INFO  03:16:31,392 - #48 5
+INFO  03:16:31,408 - #37 ;
+INFO  03:16:31,408 - #46 }
+INFO  03:16:31,408 - #46 }
+INFO  03:16:31,408 - #46 }
+INFO  03:16:31,408 - #45 {
+INFO  03:16:31,408 - #15 void
+INFO  03:16:31,408 - #47 main
+INFO  03:16:31,408 - #41 (
+INFO  03:16:31,408 - #42 )
+INFO  03:16:31,408 - #47 A
+INFO  03:16:31,408 - #47 a
+INFO  03:16:31,408 - #37 ;
+INFO  03:16:31,408 - #47 B
+INFO  03:16:31,408 - #47 b
+INFO  03:16:31,408 - #37 ;
+INFO  03:16:31,408 - #45 {
+INFO  03:16:31,408 - #47 b
+INFO  03:16:31,408 - #36 =
+INFO  03:16:31,408 - #11 new
+INFO  03:16:31,408 - #47 B
+INFO  03:16:31,408 - #37 ;
+INFO  03:16:31,408 - #47 b
+INFO  03:16:31,408 - #40 .
+INFO  03:16:31,408 - #47 f
+INFO  03:16:31,408 - #41 (
+INFO  03:16:31,408 - #48 3
+INFO  03:16:31,408 - #42 )
+INFO  03:16:31,408 - #37 ;
+INFO  03:16:31,408 - #46 }
+INFO  03:16:31,408 - #46 }
+INFO  03:16:31,455 -  Optional argument declared (x). line 8
+INFO  03:16:31,455 - Formal parameter detected (x) line 10
+INFO  03:16:31,564 -  Formal parameter declared (y). line 16
+INFO  03:16:31,580 - Local variable declared (x). line 16
+INFO  03:16:31,580 - Local variable detected (x) line 17
+INFO  03:16:31,580 - Local variable detected (x) line 18
+INFO  03:16:31,580 - Local variable declared (a). line 30
+INFO  03:16:31,580 - Local variable declared (b). line 30
+INFO  03:16:31,580 - Local variable detected (b) line 32
+INFO  03:16:31,580 - New instance of class (B) detected. line 32
+INFO  03:16:31,580 - Local variable detected (b) line 33
+INFO  03:16:31,580 - Member reference detected: b DOT f line 33
+INFO  03:16:31,595 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
+INFO  03:16:31,642 - MJ compiler finished with success.

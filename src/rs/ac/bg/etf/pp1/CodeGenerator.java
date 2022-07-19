@@ -225,7 +225,7 @@ public class CodeGenerator extends VisitorAdaptor {
 
     // Designators -----------------------------------------------------------------------------------------------------
 
-    public void visit(DesignatorIdent designator) {
+    public void visit(DesignatorIdent designator) {// mozda ne treba ako je super && !designator.getIdent().equals("super")
         if (this.insideClass && (designator.obj.getKind() == Obj.Fld || (designator.obj.getKind() == Obj.Meth &&
                 designator.obj
                         .getLocalSymbols()
@@ -433,7 +433,7 @@ public class CodeGenerator extends VisitorAdaptor {
                         Code.loadConst(obj.getFpPos()));
 
 
-        if (isMethod) {
+        if (isMethod && (methodDesignator instanceof DesignatorIdent) && !((DesignatorIdent) methodDesignator).getIdent().equals("super")) { // todo ne treba ako je super
             methodDesignator.traverseBottomUp(this); // Load thisPointer
             //   Obj thisPointer = methodDesignator.obj.getLocalSymbols().stream().findFirst().get();
             //  Code.load(thisPointer);
@@ -465,8 +465,7 @@ public class CodeGenerator extends VisitorAdaptor {
 
     /*
      * TODO
-     * super calls
-     * optargs
+     * super calls // ja msm da je ovo implementirano per se
      * if then else
      * do while
      *
