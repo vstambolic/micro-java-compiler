@@ -34,4 +34,8 @@ public class CurrentMethod {
     public void setCurrMethod(Obj currMethod) {
         this.currMethod = currMethod;
     }
+
+    public void incOptArgsCnt() {
+        this.currMethod.setFpPos(this.currMethod.getFpPos()+1);
+    }
 }

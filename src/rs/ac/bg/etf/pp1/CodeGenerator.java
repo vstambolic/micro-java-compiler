@@ -1,15 +1,13 @@
 package rs.ac.bg.etf.pp1;
 
+import javafx.util.Pair;
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static rs.ac.bg.etf.pp1.SemanticAnalyzer.*;
@@ -23,7 +21,7 @@ public class CodeGenerator extends VisitorAdaptor {
     private int paramCnt;
 
     private int mainPc;
-    private Map<Struct, Integer> vmtMap = new HashMap<>();
+    private Map<Integer, Pair<Struct, Integer>> vmtMap = new LinkedHashMap<>(); // Maps classStruct.hashCode() to <classStruct, VMT pointer>
     private Struct newInstanceType = null;
 
     public int getMainPc() {
@@ -88,9 +86,26 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
     public void visit(ClassDeclValid classDeclValid) {
-        insideClass = false;
+        // Update inherited methods addresses
         Struct classStruct = classDeclValid.getClassDeclStart().obj.getType();
-        CodeGenerator.this.vmtMap.put(classStruct, Code.dataSize);
+        if (classStruct.getElemType() != null) {
+            Struct superClassStruct = classStruct.getElemType();
+            superClassStruct.getMembers()
+                    .stream()
+                    .filter(obj -> obj.getKind() == Obj.Meth)
+                    .forEach(superMethodObj -> {
+                        classStruct.getMembers()
+                                .stream()
+                                .filter(obj -> obj.getKind() == Obj.Meth)
+                                .filter(obj -> obj.getName().equals(superMethodObj.getName()))
+                                .filter(obj -> obj.getAdr() == 0)
+                                .findFirst()
+                                .ifPresent(obj -> obj.setAdr(superMethodObj.getAdr()));
+                    });
+        }
+
+        insideClass = false;
+        CodeGenerator.this.vmtMap.put(classStruct.hashCode(), new Pair<>(classStruct, Code.dataSize));
         Code.dataSize += this.calculateVmtSize(classStruct); // Allocate space for vmt
     }
 
@@ -123,12 +138,14 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
     private Set<Integer> ifNullAddressesThatNeedFixing = new HashSet<>();
+
     public void visit(Expr expr) {
         if (expr.getIfNullExprOrNothing() instanceof NoIfNullExpr && expr.getParent() instanceof IfNullExprIndeed) {
             ifNullAddressesThatNeedFixing.forEach(Code::fixup);
             ifNullAddressesThatNeedFixing = new HashSet<>();
         }
     }
+
     public void visit(IfNullOp ifNullOp) {
         Code.put(Code.dup);
         Code.loadConst(0);
@@ -248,7 +265,7 @@ public class CodeGenerator extends VisitorAdaptor {
             designator.traverseBottomUp(this);
 
             Code.load(designator.obj);
-            Code.loadConst(this.vmtMap.get(newInstanceType));
+            Code.loadConst(this.vmtMap.get(newInstanceType.hashCode()).getValue());
             Code.put(Code.putfield);
             Code.put2(0);
 
@@ -286,7 +303,7 @@ public class CodeGenerator extends VisitorAdaptor {
                 .getLocalSymbols()
                 .stream()
                 .filter(obj -> obj.getKind() == Obj.Type)
-                .filter(obj -> obj.getType().equals(classStruct))
+                .filter(obj -> obj.getType().hashCode() == classStruct.hashCode())
                 .findFirst()
                 .get();
         return typeObj.getType()
@@ -322,7 +339,10 @@ public class CodeGenerator extends VisitorAdaptor {
 
     // Functions and methods -------------------------------------------------------------------------------------------
     private void generateVirtualMethodTable() {
-        this.vmtMap.forEach((classStruct, vmtAddress) -> {
+        this.vmtMap.values().forEach(classStructVmtAddressPair -> {
+            Struct classStruct = classStructVmtAddressPair.getKey();
+            Integer vmtAddress = classStructVmtAddressPair.getValue();
+
             AtomicInteger vmtPointer = new AtomicInteger(vmtAddress);
             classStruct.getMembers()
                     .stream()
@@ -403,6 +423,16 @@ public class CodeGenerator extends VisitorAdaptor {
     private void visitMethodCall(Designator methodDesignator) {
         Obj firstArgument = methodDesignator.obj.getLocalSymbols().stream().findFirst().orElse(null);
         boolean isMethod = (firstArgument != null && firstArgument.getName().equals(SemanticAnalyzer.THIS));
+
+        // load default arguments
+        methodDesignator.obj
+                .getLocalSymbols()
+                .stream()
+                .skip(currActualParametersCnt + (isMethod ? 1 : 0))
+                .forEachOrdered(obj ->
+                        Code.loadConst(obj.getFpPos()));
+
+
         if (isMethod) {
             methodDesignator.traverseBottomUp(this); // Load thisPointer
             //   Obj thisPointer = methodDesignator.obj.getLocalSymbols().stream().findFirst().get();
@@ -421,98 +451,24 @@ public class CodeGenerator extends VisitorAdaptor {
         }
     }
 
+    private int currActualParametersCnt = 0;
+
+    public void visit(ActParsIndeed actParsIndeed) {
+        currActualParametersCnt = 1;
+        ExprList exprList = actParsIndeed.getExprList();
+        while (exprList instanceof ExprListIndeed) {
+            currActualParametersCnt++;
+            exprList = ((ExprListIndeed) exprList).getExprList();
+        }
+    }
+
 
     /*
      * TODO
      * super calls
-     * expr ?? expr
      * optargs
      * if then else
      * do while
      *
      */
-//	@Override
-//	public void visit(MethodTypeName MethodTypeName) {
-//		if ("main".equalsIgnoreCase(MethodTypeName.getMethName())) {
-//			mainPc = Code.pc;
-//		}
-//		MethodTypeName.obj.setAdr(Code.pc);
-//
-//		// Collect arguments and local variables.
-//		SyntaxNode methodNode = MethodTypeName.getParent();
-//		VarCounter varCnt = new VarCounter();
-//		methodNode.traverseTopDown(varCnt);
-//		FormParamCounter fpCnt = new FormParamCounter();
-//		methodNode.traverseTopDown(fpCnt);
-//
-//		// Generate the entry.
-//		Code.put(Code.enter);
-//		Code.put(fpCnt.getCount());
-//		Code.put(varCnt.getCount() + fpCnt.getCount());
-//	}
-//
-//	@Override
-//	public void visit(VarDecl VarDecl) {
-//		varCount++;
-//	}
-//
-//	@Override
-//	public void visit(FormalParamDecl FormalParam) {
-//		paramCnt++;
-//	}
-//
-//	@Override
-//	public void visit(MethodDecl MethodDecl) {
-//		Code.put(Code.exit);
-//		Code.put(Code.return_);
-//	}
-//
-//	@Override
-//	public void visit(ReturnExpr ReturnExpr) {
-//		Code.put(Code.exit);
-//		Code.put(Code.return_);
-//	}
-//
-//	@Override
-//	public void visit(ReturnNoExpr ReturnNoExpr) {
-//		Code.put(Code.exit);
-//		Code.put(Code.return_);
-//	}
-//
-//	@Override
-//	public void visit(Assignment Assignment) {
-//		Code.store(Assignment.getDesignator().obj);
-//	}
-//
-//	@Override
-//	public void visit(Const Const) {
-//		Code.load(new Obj(Obj.Con, "$", Const.struct, Const.getN1(), 0));
-//	}
-//
-//	@Override
-//	public void visit(Designator Designator) {
-//		SyntaxNode parent = Designator.getParent();
-//		if (Assignment.class != parent.getClass() && FuncCall.class != parent.getClass()) {
-//			Code.load(Designator.obj);
-//		}
-//	}
-//
-//	@Override
-//	public void visit(FuncCall FuncCall) {
-//		Obj functionObj = FuncCall.getDesignator().obj;
-//		int offset = functionObj.getAdr() - Code.pc;
-//		Code.put(Code.call);
-//		Code.put2(offset);
-//	}
-//
-//	@Override
-//	public void visit(PrintStmt PrintStmt) {
-//		Code.put(Code.const_5);
-//		Code.put(Code.print);
-//	}
-//
-//	@Override
-//	public void visit(AddExpr AddExpr) {
-//		Code.put(Code.add);
-//	}
 }

@@ -54,7 +54,7 @@ scan with {:
 :}
 
 
-terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,IFNULL,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
+terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,IFNULL,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
 terminal String IDENT;
 terminal Integer NUMBER;
 terminal Boolean BOOL;
@@ -120,7 +120,8 @@ nonterminal ActParsOrNothing;
 nonterminal BracketsWithExprOrNothing;
 nonterminal FuncCallOrNothing;
 nonterminal ExprList;
-nonterminal VarArgs;
+nonterminal OptArgs;
+nonterminal OptArg;
 nonterminal ExprOrNothing;
 nonterminal PrintWidth;
 nonterminal FormParsOrError;
@@ -326,8 +327,8 @@ FormPars ::=
     (MultipleFormPars)
     FormParList COMMA FormPar
     |
-    (MultipleFormParsAndVarArgs)
-    FormParList COMMA VarArgs
+    (MultipleFormParsAndOptArgs)
+    FormParList OptArgs
     |
     (FormParsErrorCOMMA)
     error:l {: parser.report_error("SYNTAX ERROR: one or more invalid formal parameter declarations on line: " + lleft , null); :} COMMA
@@ -335,8 +336,11 @@ FormPars ::=
     (SingleFormPar)
     FormPar
     |
-    (SingleVarArg)
-    VarArgs
+    (FormParsOptArgs)
+    OptArg OptArgs
+    |
+    (FormParsOptArg)
+    OptArg
     |
     (NoFormPars)
     /* Ɛ */;
@@ -352,9 +356,17 @@ FormPar ::=
     (FormPar)
     Type:type IDENT:ident Brackets;
 
-VarArgs ::=
-    (VarArgs)
-    Type:type VARARGS IDENT:ident;
+OptArgs ::=
+     (OptArgsOptArg)
+     COMMA OptArg
+     |
+     (OptArgsOptArgOptArgs)
+     COMMA OptArg OptArgs;
+
+
+OptArg ::=
+    (OptArg)
+    Type:type IDENT:ident Assignop Literal;
 
 StatementList ::=
     (StatementListIndeed)
@@ -430,7 +442,7 @@ DesignatorOperation ::=
     DEC;
 
 ActParsOrNothing ::=
-    (ActPars)
+    (ActParsIndeed)
     Expr ExprList
     |
     (NoActPars)

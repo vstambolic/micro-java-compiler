@@ -54,7 +54,7 @@ scan with {:
 :}
 
 
-terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,IFNULL,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,VARARGS,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
+terminal PROG,BREAK,CLASS,ENUM,ELSE,CONST,IF,DO,WHILE,NEW,PRINT,READ,RETURN,VOID,EXTENDS,CONTINUE,RECORD,INSTANCEOF,INC,DEC,ADD,SUB,MUL,DIV,MOD,IFNULL,EQ,NEQ,GTE,GT,LTE,LT,AND,OR,ASSIGN,SEMICOLON,COLON,COMMA,DOT,LPAREN,RPAREN,LBRACKET,RBRACKET,LBRACE,RBRACE;
 terminal String IDENT;
 terminal Integer NUMBER;
 terminal Boolean BOOL;
@@ -120,7 +120,8 @@ nonterminal ActParsOrNothing ActParsOrNothing;
 nonterminal BracketsWithExprOrNothing BracketsWithExprOrNothing;
 nonterminal FuncCallOrNothing FuncCallOrNothing;
 nonterminal ExprList ExprList;
-nonterminal VarArgs VarArgs;
+nonterminal OptArgs OptArgs;
+nonterminal OptArg OptArg;
 nonterminal ExprOrNothing ExprOrNothing;
 nonterminal PrintWidth PrintWidth;
 nonterminal FormParsOrError FormParsOrError;
@@ -326,8 +327,8 @@ FormPars ::=
     (MultipleFormPars)
     FormParList:F1 COMMA FormPar:F2 {: RESULT=new MultipleFormPars(F1, F2); RESULT.setLine(F1left); :}
     |
-    (MultipleFormParsAndVarArgs)
-    FormParList:F1 COMMA VarArgs:V2 {: RESULT=new MultipleFormParsAndVarArgs(F1, V2); RESULT.setLine(F1left); :}
+    (MultipleFormParsAndOptArgs)
+    FormParList:F1 OptArgs:O2 {: RESULT=new MultipleFormParsAndOptArgs(F1, O2); RESULT.setLine(F1left); :}
     |
     (FormParsErrorCOMMA)
     error:l {: parser.report_error("SYNTAX ERROR: one or more invalid formal parameter declarations on line: " + lleft , null); :} COMMA {: RESULT=new FormParsErrorCOMMA(); :}
@@ -335,8 +336,11 @@ FormPars ::=
     (SingleFormPar)
     FormPar:F1 {: RESULT=new SingleFormPar(F1); RESULT.setLine(F1left); :}
     |
-    (SingleVarArg)
-    VarArgs:V1 {: RESULT=new SingleVarArg(V1); RESULT.setLine(V1left); :}
+    (FormParsOptArgs)
+    OptArg:O1 OptArgs:O2 {: RESULT=new FormParsOptArgs(O1, O2); RESULT.setLine(O1left); :}
+    |
+    (FormParsOptArg)
+    OptArg:O1 {: RESULT=new FormParsOptArg(O1); RESULT.setLine(O1left); :}
     |
     (NoFormPars) {: RESULT=new NoFormPars(); :}
     /* Æ? */;
@@ -352,9 +356,17 @@ FormPar ::=
     (FormPar)
     Type:type IDENT:ident Brackets:B1 {: RESULT=new FormPar(type, ident, B1); RESULT.setLine(typeleft); :};
 
-VarArgs ::=
-    (VarArgs)
-    Type:type VARARGS IDENT:ident {: RESULT=new VarArgs(type, ident); RESULT.setLine(typeleft); :};
+OptArgs ::=
+     (OptArgsOptArg)
+     COMMA OptArg:O1 {: RESULT=new OptArgsOptArg(O1); RESULT.setLine(O1left); :}
+     |
+     (OptArgsOptArgOptArgs)
+     COMMA OptArg:O1 OptArgs:O2 {: RESULT=new OptArgsOptArgOptArgs(O1, O2); RESULT.setLine(O1left); :};
+
+
+OptArg ::=
+    (OptArg)
+    Type:type IDENT:ident Assignop:A1 Literal:L2 {: RESULT=new OptArg(type, ident, A1, L2); RESULT.setLine(typeleft); :};
 
 StatementList ::=
     (StatementListIndeed)
@@ -430,8 +442,8 @@ DesignatorOperation ::=
     DEC {: RESULT=new DesignatorDecOperation(); :};
 
 ActParsOrNothing ::=
-    (ActPars)
-    Expr:E1 ExprList:E2 {: RESULT=new ActPars(E1, E2); RESULT.setLine(E1left); :}
+    (ActParsIndeed)
+    Expr:E1 ExprList:E2 {: RESULT=new ActParsIndeed(E1, E2); RESULT.setLine(E1left); :}
     |
     (NoActPars) {: RESULT=new NoActPars(); :}
     /* Æ? */;
