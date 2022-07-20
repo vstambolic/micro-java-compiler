@@ -63,9 +63,20 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         report_info(s, syntaxNode);
         report_object(obj);
     }
-
+    private static String[] KIND_MAP = {"Con", "Var", "Type", "Meth", "Fld", "Elem", "Prog"};
+    private static String[] TYPE_MAP =    {"None","Int","Char","Array Type","Class Type","Bool"};
     private void report_object(Obj obj) {
-        // todo
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\t\t[ Kind: ");
+        stringBuilder.append(KIND_MAP[obj.getKind()]);
+        stringBuilder.append(" | Type: ");
+        stringBuilder.append(TYPE_MAP[obj.getType().getKind()]);
+        stringBuilder.append( " | Address: ");
+        stringBuilder.append( obj.getAdr());
+        stringBuilder.append(" | Level: ");
+        stringBuilder.append(obj.getLevel());
+        stringBuilder.append("]");
+        System.out.println(stringBuilder);
     }
 
 
