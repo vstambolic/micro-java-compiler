@@ -87,8 +87,8 @@ int tezinaK, tezinaS;
 	void ispis( Predmet p)
 	{
 		p.ispisi();
+		print(eol);
 		print(p.dohvTezinu());
-				print(eol);
 	}
 
 	void main() Predmet predmeti[]; int i; Sfera s1, s2, s3; Kvadar k1, k2, k3; int t;
