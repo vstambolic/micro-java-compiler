@@ -281,7 +281,6 @@ public class CodeGenerator extends VisitorAdaptor {
                 Code.load(designator.obj);
                 Code.put(Code.getfield); // Load VMT pointer: load this, getfield 0
                 Code.put2(0);
-
                 Code.put(Code.invokevirtual);
                 constructorObj.getName().chars().forEach(Code::put4);
                 Code.put4(-1);
@@ -435,7 +434,7 @@ public class CodeGenerator extends VisitorAdaptor {
                         Code.loadConst(obj.getFpPos()));
         currActualParametersCnt = 0;
 
-        if (isMethod && (methodDesignator instanceof DesignatorIdent) && !((DesignatorIdent) methodDesignator).getIdent().equals("super")) { // todo ne treba ako je super
+        if (isMethod && (!(methodDesignator instanceof DesignatorIdent) || !((DesignatorIdent) methodDesignator).getIdent().equals("super"))) {
             methodDesignator.traverseBottomUp(this); // Load thisPointer
             //   Obj thisPointer = methodDesignator.obj.getLocalSymbols().stream().findFirst().get();
             //  Code.load(thisPointer);
@@ -694,7 +693,8 @@ public class CodeGenerator extends VisitorAdaptor {
 
     /*
      * TODO
-     * break continue
-     *
+     * table dump
+     * todos iz semanticanalyzera
+     * procitati projekat
      */
 }

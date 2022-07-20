@@ -1,943 +1,943 @@
-INFO  04:02:09,972 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
-INFO  04:02:10,092 - #2 program
-INFO  04:02:10,092 - #47 test_303
-INFO  04:02:10,092 - #7 const
-INFO  04:02:10,092 - #47 int
-INFO  04:02:10,092 - #47 cinilac
-INFO  04:02:10,092 - #36 =
-INFO  04:02:10,092 - #48 4
-INFO  04:02:10,092 - #39 ,
-INFO  04:02:10,097 - #47 delilac
-INFO  04:02:10,097 - #36 =
-INFO  04:02:10,097 - #48 3
-INFO  04:02:10,097 - #37 ;
-INFO  04:02:10,097 - #4 class
-INFO  04:02:10,097 - #47 Predmet
-INFO  04:02:10,097 - #45 {
-INFO  04:02:10,102 - #47 int
-INFO  04:02:10,102 - #47 tezina
-INFO  04:02:10,102 - #37 ;
-INFO  04:02:10,102 - #47 int
-INFO  04:02:10,107 - #47 koefTezine
-INFO  04:02:10,107 - #37 ;
-INFO  04:02:10,122 - #47 char
-INFO  04:02:10,122 - #47 vrsta
-INFO  04:02:10,122 - #37 ;
-INFO  04:02:10,122 - #45 {
-INFO  04:02:10,122 - #47 Predmet
-INFO  04:02:10,122 - #41 (
-INFO  04:02:10,122 - #42 )
-INFO  04:02:10,122 - #45 {
-INFO  04:02:10,122 - #47 koefTezine
-INFO  04:02:10,122 - #36 =
-INFO  04:02:10,122 - #48 1
-INFO  04:02:10,127 - #37 ;
-INFO  04:02:10,132 - #46 }
-INFO  04:02:10,132 - #15 void
-INFO  04:02:10,132 - #47 postaviTezinu
-INFO  04:02:10,137 - #41 (
-INFO  04:02:10,137 - #47 int
-INFO  04:02:10,137 - #47 tezina
-INFO  04:02:10,137 - #42 )
-INFO  04:02:10,137 - #45 {
-INFO  04:02:10,137 - #47 this
-INFO  04:02:10,137 - #40 .
-INFO  04:02:10,137 - #47 tezina
-INFO  04:02:10,137 - #36 =
-INFO  04:02:10,137 - #47 tezina
-INFO  04:02:10,137 - #24 *
-INFO  04:02:10,142 - #47 koefTezine
-INFO  04:02:10,147 - #37 ;
-INFO  04:02:10,147 - #46 }
-INFO  04:02:10,147 - #15 void
-INFO  04:02:10,147 - #47 ucitajTezinu
-INFO  04:02:10,147 - #41 (
-INFO  04:02:10,147 - #42 )
-INFO  04:02:10,147 - #45 {
-INFO  04:02:10,147 - #13 read
-INFO  04:02:10,147 - #41 (
-INFO  04:02:10,147 - #47 tezina
-INFO  04:02:10,147 - #42 )
-INFO  04:02:10,147 - #37 ;
-INFO  04:02:10,147 - #46 }
-INFO  04:02:10,147 - #47 int
-INFO  04:02:10,147 - #47 zapremina
-INFO  04:02:10,147 - #41 (
-INFO  04:02:10,147 - #42 )
-INFO  04:02:10,147 - #45 {
-INFO  04:02:10,147 - #14 return
-INFO  04:02:10,147 - #48 0
-INFO  04:02:10,147 - #37 ;
-INFO  04:02:10,147 - #46 }
-INFO  04:02:10,152 - #47 int
-INFO  04:02:10,152 - #47 Q
-INFO  04:02:10,152 - #41 (
-INFO  04:02:10,152 - #42 )
-INFO  04:02:10,152 - #45 {
-INFO  04:02:10,152 - #14 return
-INFO  04:02:10,152 - #47 zapremina
-INFO  04:02:10,152 - #41 (
-INFO  04:02:10,152 - #42 )
-INFO  04:02:10,152 - #24 *
-INFO  04:02:10,152 - #47 tezina
-INFO  04:02:10,152 - #37 ;
-INFO  04:02:10,152 - #46 }
-INFO  04:02:10,152 - #15 void
-INFO  04:02:10,152 - #47 postaviVrstu
-INFO  04:02:10,152 - #41 (
-INFO  04:02:10,152 - #47 char
-INFO  04:02:10,152 - #47 vrsta
-INFO  04:02:10,152 - #42 )
-INFO  04:02:10,152 - #45 {
-INFO  04:02:10,152 - #47 this
-INFO  04:02:10,152 - #40 .
-INFO  04:02:10,152 - #47 vrsta
-INFO  04:02:10,152 - #36 =
-INFO  04:02:10,152 - #47 vrsta
-INFO  04:02:10,152 - #37 ;
-INFO  04:02:10,152 - #46 }
-INFO  04:02:10,152 - #47 char
-INFO  04:02:10,152 - #47 dohvVrstu
-INFO  04:02:10,152 - #41 (
-INFO  04:02:10,152 - #42 )
-INFO  04:02:10,152 - #45 {
-INFO  04:02:10,152 - #14 return
-INFO  04:02:10,152 - #47 vrsta
-INFO  04:02:10,152 - #37 ;
-INFO  04:02:10,152 - #46 }
-INFO  04:02:10,152 - #47 int
-INFO  04:02:10,152 - #47 dohvTezinu
-INFO  04:02:10,152 - #41 (
-INFO  04:02:10,152 - #42 )
-INFO  04:02:10,152 - #45 {
-INFO  04:02:10,152 - #14 return
-INFO  04:02:10,152 - #47 tezina
-INFO  04:02:10,152 - #37 ;
-INFO  04:02:10,152 - #46 }
-INFO  04:02:10,152 - #15 void
-INFO  04:02:10,152 - #47 ispisi
-INFO  04:02:10,152 - #41 (
-INFO  04:02:10,152 - #42 )
-INFO  04:02:10,157 - #45 {
-INFO  04:02:10,157 - #12 print
-INFO  04:02:10,157 - #41 (
-INFO  04:02:10,157 - #47 vrsta
-INFO  04:02:10,157 - #42 )
-INFO  04:02:10,157 - #37 ;
-INFO  04:02:10,157 - #12 print
-INFO  04:02:10,157 - #41 (
-INFO  04:02:10,157 - #47 Q
-INFO  04:02:10,157 - #41 (
-INFO  04:02:10,157 - #42 )
-INFO  04:02:10,157 - #42 )
-INFO  04:02:10,157 - #37 ;
-INFO  04:02:10,157 - #46 }
-INFO  04:02:10,157 - #46 }
-INFO  04:02:10,157 - #46 }
-INFO  04:02:10,157 - #4 class
-INFO  04:02:10,157 - #47 Sfera
-INFO  04:02:10,157 - #16 extends
-INFO  04:02:10,157 - #47 Predmet
-INFO  04:02:10,157 - #45 {
-INFO  04:02:10,157 - #47 int
-INFO  04:02:10,157 - #47 r
-INFO  04:02:10,157 - #37 ;
-INFO  04:02:10,157 - #45 {
-INFO  04:02:10,162 - #47 Sfera
-INFO  04:02:10,162 - #41 (
-INFO  04:02:10,162 - #42 )
-INFO  04:02:10,162 - #45 {
-INFO  04:02:10,162 - #47 super
-INFO  04:02:10,162 - #41 (
-INFO  04:02:10,162 - #42 )
-INFO  04:02:10,162 - #37 ;
-INFO  04:02:10,162 - #47 vrsta
-INFO  04:02:10,162 - #36 =
-INFO  04:02:10,162 - #50 s
-INFO  04:02:10,162 - #37 ;
-INFO  04:02:10,162 - #46 }
-INFO  04:02:10,162 - #15 void
-INFO  04:02:10,162 - #47 postaviPoluprecnik
-INFO  04:02:10,162 - #41 (
-INFO  04:02:10,162 - #47 int
-INFO  04:02:10,162 - #47 r
-INFO  04:02:10,162 - #42 )
-INFO  04:02:10,162 - #45 {
-INFO  04:02:10,162 - #47 this
-INFO  04:02:10,162 - #40 .
-INFO  04:02:10,162 - #47 r
-INFO  04:02:10,162 - #36 =
-INFO  04:02:10,162 - #47 r
-INFO  04:02:10,162 - #37 ;
-INFO  04:02:10,162 - #46 }
-INFO  04:02:10,162 - #47 int
-INFO  04:02:10,162 - #47 zapremina
-INFO  04:02:10,162 - #41 (
-INFO  04:02:10,162 - #42 )
-INFO  04:02:10,162 - #47 int
-INFO  04:02:10,162 - #47 z
-INFO  04:02:10,162 - #37 ;
-INFO  04:02:10,162 - #45 {
-INFO  04:02:10,162 - #47 z
-INFO  04:02:10,162 - #36 =
-INFO  04:02:10,162 - #47 cinilac
-INFO  04:02:10,162 - #37 ;
-INFO  04:02:10,162 - #14 return
-INFO  04:02:10,162 - #47 z
-INFO  04:02:10,162 - #24 *
-INFO  04:02:10,162 - #41 (
-INFO  04:02:10,162 - #47 r
-INFO  04:02:10,162 - #25 /
-INFO  04:02:10,162 - #47 delilac
-INFO  04:02:10,167 - #42 )
-INFO  04:02:10,167 - #37 ;
-INFO  04:02:10,167 - #46 }
-INFO  04:02:10,167 - #15 void
-INFO  04:02:10,167 - #47 ispisi
-INFO  04:02:10,167 - #41 (
-INFO  04:02:10,167 - #42 )
-INFO  04:02:10,167 - #45 {
-INFO  04:02:10,167 - #47 super
-INFO  04:02:10,167 - #41 (
-INFO  04:02:10,167 - #42 )
-INFO  04:02:10,167 - #37 ;
-INFO  04:02:10,167 - #12 print
-INFO  04:02:10,167 - #41 (
-INFO  04:02:10,167 - #47 r
-INFO  04:02:10,167 - #42 )
-INFO  04:02:10,167 - #37 ;
-INFO  04:02:10,167 - #12 print
-INFO  04:02:10,167 - #41 (
-INFO  04:02:10,167 - #47 eol
-INFO  04:02:10,167 - #42 )
-INFO  04:02:10,167 - #37 ;
-INFO  04:02:10,167 - #46 }
-INFO  04:02:10,167 - #46 }
-INFO  04:02:10,167 - #46 }
-INFO  04:02:10,167 - #4 class
-INFO  04:02:10,167 - #47 Kvadar
-INFO  04:02:10,167 - #16 extends
-INFO  04:02:10,167 - #47 Predmet
-INFO  04:02:10,167 - #45 {
-INFO  04:02:10,167 - #47 int
-INFO  04:02:10,167 - #47 a
-INFO  04:02:10,167 - #39 ,
-INFO  04:02:10,167 - #47 b
-INFO  04:02:10,167 - #39 ,
-INFO  04:02:10,167 - #47 c
-INFO  04:02:10,167 - #37 ;
-INFO  04:02:10,167 - #45 {
-INFO  04:02:10,167 - #47 Kvadar
-INFO  04:02:10,167 - #41 (
-INFO  04:02:10,167 - #42 )
-INFO  04:02:10,167 - #45 {
-INFO  04:02:10,167 - #47 super
-INFO  04:02:10,167 - #41 (
-INFO  04:02:10,167 - #42 )
-INFO  04:02:10,167 - #37 ;
-INFO  04:02:10,167 - #47 vrsta
-INFO  04:02:10,167 - #36 =
-INFO  04:02:10,167 - #50 k
-INFO  04:02:10,167 - #37 ;
-INFO  04:02:10,167 - #46 }
-INFO  04:02:10,167 - #15 void
-INFO  04:02:10,167 - #47 postaviStranice
-INFO  04:02:10,167 - #41 (
-INFO  04:02:10,167 - #47 int
-INFO  04:02:10,167 - #47 a
-INFO  04:02:10,167 - #39 ,
-INFO  04:02:10,167 - #47 int
-INFO  04:02:10,167 - #47 b
-INFO  04:02:10,167 - #39 ,
-INFO  04:02:10,167 - #47 int
-INFO  04:02:10,167 - #47 c
-INFO  04:02:10,167 - #42 )
-INFO  04:02:10,167 - #45 {
-INFO  04:02:10,167 - #47 this
-INFO  04:02:10,172 - #40 .
-INFO  04:02:10,172 - #47 a
-INFO  04:02:10,172 - #36 =
-INFO  04:02:10,172 - #47 a
-INFO  04:02:10,172 - #37 ;
-INFO  04:02:10,177 - #47 this
-INFO  04:02:10,177 - #40 .
-INFO  04:02:10,177 - #47 b
-INFO  04:02:10,177 - #36 =
-INFO  04:02:10,177 - #47 b
-INFO  04:02:10,177 - #37 ;
-INFO  04:02:10,177 - #47 this
-INFO  04:02:10,177 - #40 .
-INFO  04:02:10,177 - #47 c
-INFO  04:02:10,177 - #36 =
-INFO  04:02:10,177 - #47 c
-INFO  04:02:10,177 - #37 ;
-INFO  04:02:10,177 - #46 }
-INFO  04:02:10,177 - #47 int
-INFO  04:02:10,177 - #47 zapremina
-INFO  04:02:10,177 - #41 (
-INFO  04:02:10,177 - #42 )
-INFO  04:02:10,177 - #47 int
-INFO  04:02:10,177 - #47 z
-INFO  04:02:10,177 - #37 ;
-INFO  04:02:10,177 - #45 {
-INFO  04:02:10,177 - #47 z
-INFO  04:02:10,177 - #36 =
-INFO  04:02:10,177 - #47 a
-INFO  04:02:10,177 - #24 *
-INFO  04:02:10,177 - #47 b
-INFO  04:02:10,177 - #24 *
-INFO  04:02:10,177 - #47 c
-INFO  04:02:10,177 - #37 ;
-INFO  04:02:10,177 - #14 return
-INFO  04:02:10,177 - #47 z
-INFO  04:02:10,177 - #37 ;
-INFO  04:02:10,177 - #46 }
-INFO  04:02:10,177 - #15 void
-INFO  04:02:10,177 - #47 ispisi
-INFO  04:02:10,177 - #41 (
-INFO  04:02:10,177 - #42 )
-INFO  04:02:10,177 - #45 {
-INFO  04:02:10,177 - #47 super
-INFO  04:02:10,177 - #41 (
-INFO  04:02:10,177 - #42 )
-INFO  04:02:10,177 - #37 ;
-INFO  04:02:10,177 - #12 print
-INFO  04:02:10,177 - #41 (
-INFO  04:02:10,177 - #47 a
-INFO  04:02:10,177 - #42 )
-INFO  04:02:10,177 - #37 ;
-INFO  04:02:10,177 - #12 print
-INFO  04:02:10,177 - #41 (
-INFO  04:02:10,177 - #47 b
-INFO  04:02:10,177 - #42 )
-INFO  04:02:10,177 - #37 ;
-INFO  04:02:10,177 - #12 print
-INFO  04:02:10,177 - #41 (
-INFO  04:02:10,177 - #47 c
-INFO  04:02:10,177 - #42 )
-INFO  04:02:10,177 - #37 ;
-INFO  04:02:10,177 - #12 print
-INFO  04:02:10,177 - #41 (
-INFO  04:02:10,177 - #47 eol
-INFO  04:02:10,177 - #42 )
-INFO  04:02:10,177 - #37 ;
-INFO  04:02:10,177 - #46 }
-INFO  04:02:10,177 - #46 }
-INFO  04:02:10,177 - #46 }
-INFO  04:02:10,177 - #47 int
-INFO  04:02:10,177 - #47 zapreminaK
-INFO  04:02:10,177 - #39 ,
-INFO  04:02:10,177 - #47 zapreminaS
-INFO  04:02:10,177 - #37 ;
-INFO  04:02:10,177 - #47 int
-INFO  04:02:10,177 - #47 tezinaK
-INFO  04:02:10,177 - #39 ,
-INFO  04:02:10,177 - #47 tezinaS
-INFO  04:02:10,177 - #37 ;
-INFO  04:02:10,177 - #45 {
-INFO  04:02:10,177 - #15 void
-INFO  04:02:10,177 - #47 ispis
-INFO  04:02:10,177 - #41 (
-INFO  04:02:10,177 - #47 Predmet
-INFO  04:02:10,177 - #47 p
-INFO  04:02:10,177 - #42 )
-INFO  04:02:10,177 - #45 {
-INFO  04:02:10,177 - #47 p
-INFO  04:02:10,177 - #40 .
-INFO  04:02:10,177 - #47 ispisi
-INFO  04:02:10,182 - #41 (
-INFO  04:02:10,182 - #42 )
-INFO  04:02:10,182 - #37 ;
-INFO  04:02:10,182 - #12 print
-INFO  04:02:10,182 - #41 (
-INFO  04:02:10,182 - #47 eol
-INFO  04:02:10,182 - #42 )
-INFO  04:02:10,182 - #37 ;
-INFO  04:02:10,182 - #12 print
-INFO  04:02:10,182 - #41 (
-INFO  04:02:10,182 - #47 p
-INFO  04:02:10,182 - #40 .
-INFO  04:02:10,182 - #47 dohvTezinu
-INFO  04:02:10,182 - #41 (
-INFO  04:02:10,182 - #42 )
-INFO  04:02:10,182 - #42 )
-INFO  04:02:10,182 - #37 ;
-INFO  04:02:10,182 - #46 }
-INFO  04:02:10,182 - #15 void
-INFO  04:02:10,182 - #47 main
-INFO  04:02:10,182 - #41 (
-INFO  04:02:10,182 - #42 )
-INFO  04:02:10,182 - #47 Predmet
-INFO  04:02:10,182 - #47 predmeti
-INFO  04:02:10,182 - #43 [
-INFO  04:02:10,182 - #44 ]
-INFO  04:02:10,182 - #37 ;
-INFO  04:02:10,182 - #47 int
-INFO  04:02:10,182 - #47 i
-INFO  04:02:10,182 - #37 ;
-INFO  04:02:10,182 - #47 Sfera
-INFO  04:02:10,182 - #47 s1
-INFO  04:02:10,182 - #39 ,
-INFO  04:02:10,182 - #47 s2
-INFO  04:02:10,182 - #39 ,
-INFO  04:02:10,182 - #47 s3
-INFO  04:02:10,182 - #37 ;
-INFO  04:02:10,182 - #47 Kvadar
-INFO  04:02:10,182 - #47 k1
-INFO  04:02:10,182 - #39 ,
-INFO  04:02:10,182 - #47 k2
-INFO  04:02:10,182 - #39 ,
-INFO  04:02:10,182 - #47 k3
-INFO  04:02:10,182 - #37 ;
-INFO  04:02:10,182 - #47 int
-INFO  04:02:10,182 - #47 t
-INFO  04:02:10,182 - #37 ;
-INFO  04:02:10,182 - #45 {
-INFO  04:02:10,182 - #47 predmeti
-INFO  04:02:10,182 - #36 =
-INFO  04:02:10,182 - #11 new
-INFO  04:02:10,182 - #47 Predmet
-INFO  04:02:10,182 - #43 [
-INFO  04:02:10,182 - #48 6
-INFO  04:02:10,182 - #44 ]
-INFO  04:02:10,182 - #37 ;
-INFO  04:02:10,182 - #47 s1
-INFO  04:02:10,182 - #36 =
-INFO  04:02:10,182 - #11 new
-INFO  04:02:10,182 - #47 Sfera
-INFO  04:02:10,182 - #37 ;
-INFO  04:02:10,187 - #47 s2
-INFO  04:02:10,187 - #36 =
-INFO  04:02:10,187 - #11 new
-INFO  04:02:10,187 - #47 Sfera
-INFO  04:02:10,187 - #37 ;
-INFO  04:02:10,187 - #47 s3
-INFO  04:02:10,187 - #36 =
-INFO  04:02:10,187 - #11 new
-INFO  04:02:10,187 - #47 Sfera
-INFO  04:02:10,187 - #37 ;
-INFO  04:02:10,187 - #47 k1
-INFO  04:02:10,187 - #36 =
-INFO  04:02:10,187 - #11 new
-INFO  04:02:10,187 - #47 Kvadar
-INFO  04:02:10,187 - #37 ;
-INFO  04:02:10,187 - #47 k2
-INFO  04:02:10,187 - #36 =
-INFO  04:02:10,187 - #11 new
-INFO  04:02:10,187 - #47 Kvadar
-INFO  04:02:10,187 - #37 ;
-INFO  04:02:10,187 - #47 k3
-INFO  04:02:10,187 - #36 =
-INFO  04:02:10,187 - #11 new
-INFO  04:02:10,187 - #47 Kvadar
-INFO  04:02:10,187 - #37 ;
-INFO  04:02:10,187 - #47 s1
-INFO  04:02:10,187 - #40 .
-INFO  04:02:10,187 - #47 postaviPoluprecnik
-INFO  04:02:10,187 - #41 (
-INFO  04:02:10,187 - #48 1
-INFO  04:02:10,187 - #42 )
-INFO  04:02:10,187 - #37 ;
-INFO  04:02:10,187 - #47 s2
-INFO  04:02:10,187 - #40 .
-INFO  04:02:10,187 - #47 postaviPoluprecnik
-INFO  04:02:10,187 - #41 (
-INFO  04:02:10,187 - #48 2
-INFO  04:02:10,187 - #42 )
-INFO  04:02:10,187 - #37 ;
-INFO  04:02:10,192 - #47 s3
-INFO  04:02:10,192 - #40 .
-INFO  04:02:10,192 - #47 postaviPoluprecnik
-INFO  04:02:10,192 - #41 (
-INFO  04:02:10,192 - #48 3
-INFO  04:02:10,192 - #42 )
-INFO  04:02:10,192 - #37 ;
-INFO  04:02:10,192 - #47 k1
-INFO  04:02:10,192 - #40 .
-INFO  04:02:10,192 - #47 postaviStranice
-INFO  04:02:10,192 - #41 (
-INFO  04:02:10,192 - #48 1
-INFO  04:02:10,192 - #39 ,
-INFO  04:02:10,192 - #48 2
-INFO  04:02:10,192 - #39 ,
-INFO  04:02:10,192 - #48 3
-INFO  04:02:10,192 - #42 )
-INFO  04:02:10,192 - #37 ;
-INFO  04:02:10,192 - #47 k2
-INFO  04:02:10,192 - #40 .
-INFO  04:02:10,192 - #47 postaviStranice
-INFO  04:02:10,192 - #41 (
-INFO  04:02:10,192 - #48 2
-INFO  04:02:10,192 - #39 ,
-INFO  04:02:10,192 - #48 3
-INFO  04:02:10,192 - #39 ,
-INFO  04:02:10,192 - #48 4
-INFO  04:02:10,192 - #42 )
-INFO  04:02:10,192 - #37 ;
-INFO  04:02:10,192 - #47 k3
-INFO  04:02:10,192 - #40 .
-INFO  04:02:10,192 - #47 postaviStranice
-INFO  04:02:10,192 - #41 (
-INFO  04:02:10,192 - #48 3
-INFO  04:02:10,192 - #39 ,
-INFO  04:02:10,192 - #48 4
-INFO  04:02:10,192 - #39 ,
-INFO  04:02:10,192 - #48 5
-INFO  04:02:10,192 - #42 )
-INFO  04:02:10,192 - #37 ;
-INFO  04:02:10,192 - #47 predmeti
-INFO  04:02:10,192 - #43 [
-INFO  04:02:10,192 - #48 0
-INFO  04:02:10,192 - #44 ]
-INFO  04:02:10,192 - #36 =
-INFO  04:02:10,192 - #47 s1
-INFO  04:02:10,192 - #37 ;
-INFO  04:02:10,192 - #47 predmeti
-INFO  04:02:10,192 - #43 [
-INFO  04:02:10,192 - #48 2
-INFO  04:02:10,192 - #44 ]
-INFO  04:02:10,192 - #36 =
-INFO  04:02:10,192 - #47 s2
-INFO  04:02:10,192 - #37 ;
-INFO  04:02:10,192 - #47 predmeti
-INFO  04:02:10,197 - #43 [
-INFO  04:02:10,197 - #48 4
-INFO  04:02:10,197 - #44 ]
-INFO  04:02:10,197 - #36 =
-INFO  04:02:10,197 - #47 s3
-INFO  04:02:10,197 - #37 ;
-INFO  04:02:10,197 - #47 predmeti
-INFO  04:02:10,197 - #43 [
-INFO  04:02:10,197 - #48 1
-INFO  04:02:10,197 - #44 ]
-INFO  04:02:10,197 - #36 =
-INFO  04:02:10,197 - #47 k1
-INFO  04:02:10,197 - #37 ;
-INFO  04:02:10,197 - #47 predmeti
-INFO  04:02:10,197 - #43 [
-INFO  04:02:10,197 - #48 3
-INFO  04:02:10,197 - #44 ]
-INFO  04:02:10,197 - #36 =
-INFO  04:02:10,197 - #47 k2
-INFO  04:02:10,197 - #37 ;
-INFO  04:02:10,197 - #47 predmeti
-INFO  04:02:10,197 - #43 [
-INFO  04:02:10,197 - #48 5
-INFO  04:02:10,197 - #44 ]
-INFO  04:02:10,197 - #36 =
-INFO  04:02:10,197 - #47 k3
-INFO  04:02:10,197 - #37 ;
-INFO  04:02:10,197 - #13 read
-INFO  04:02:10,197 - #41 (
-INFO  04:02:10,197 - #47 t
-INFO  04:02:10,197 - #42 )
-INFO  04:02:10,197 - #37 ;
-INFO  04:02:10,197 - #47 i
-INFO  04:02:10,197 - #36 =
-INFO  04:02:10,197 - #48 0
-INFO  04:02:10,197 - #37 ;
-INFO  04:02:10,197 - #9 do
-INFO  04:02:10,197 - #45 {
-INFO  04:02:10,197 - #47 predmeti
-INFO  04:02:10,197 - #43 [
-INFO  04:02:10,197 - #47 i
-INFO  04:02:10,197 - #44 ]
-INFO  04:02:10,202 - #40 .
-INFO  04:02:10,202 - #47 postaviTezinu
-INFO  04:02:10,202 - #41 (
-INFO  04:02:10,202 - #47 t
-INFO  04:02:10,202 - #42 )
-INFO  04:02:10,202 - #37 ;
-INFO  04:02:10,202 - #47 i
-INFO  04:02:10,202 - #20 ++
-INFO  04:02:10,202 - #37 ;
-INFO  04:02:10,202 - #46 }
-INFO  04:02:10,202 - #10 while
-INFO  04:02:10,202 - #41 (
-INFO  04:02:10,202 - #47 i
-INFO  04:02:10,202 - #33 <
-INFO  04:02:10,202 - #48 6
-INFO  04:02:10,207 - #42 )
-INFO  04:02:10,212 - #37 ;
-INFO  04:02:10,212 - #47 zapreminaS
-INFO  04:02:10,212 - #36 =
-INFO  04:02:10,212 - #48 0
-INFO  04:02:10,212 - #37 ;
-INFO  04:02:10,212 - #47 tezinaS
-INFO  04:02:10,212 - #36 =
-INFO  04:02:10,212 - #48 0
-INFO  04:02:10,212 - #37 ;
-INFO  04:02:10,212 - #47 i
-INFO  04:02:10,212 - #36 =
-INFO  04:02:10,212 - #48 1
-INFO  04:02:10,212 - #37 ;
-INFO  04:02:10,212 - #9 do
-INFO  04:02:10,212 - #45 {
-INFO  04:02:10,212 - #8 if
-INFO  04:02:10,212 - #41 (
-INFO  04:02:10,217 - #47 i
-INFO  04:02:10,217 - #26 %
-INFO  04:02:10,217 - #48 2
-INFO  04:02:10,217 - #28 ==
-INFO  04:02:10,217 - #48 1
-INFO  04:02:10,217 - #42 )
-INFO  04:02:10,217 - #45 {
-INFO  04:02:10,217 - #47 i
-INFO  04:02:10,217 - #20 ++
-INFO  04:02:10,217 - #37 ;
-INFO  04:02:10,217 - #17 continue
-INFO  04:02:10,217 - #37 ;
-INFO  04:02:10,217 - #46 }
-INFO  04:02:10,222 - #47 zapreminaS
-INFO  04:02:10,222 - #36 =
-INFO  04:02:10,222 - #47 zapreminaS
-INFO  04:02:10,222 - #22 +
-INFO  04:02:10,222 - #47 predmeti
-INFO  04:02:10,227 - #43 [
-INFO  04:02:10,227 - #47 i
-INFO  04:02:10,227 - #23 -
-INFO  04:02:10,227 - #48 1
-INFO  04:02:10,227 - #44 ]
-INFO  04:02:10,227 - #40 .
-INFO  04:02:10,227 - #47 zapremina
-INFO  04:02:10,227 - #41 (
-INFO  04:02:10,227 - #42 )
-INFO  04:02:10,227 - #37 ;
-INFO  04:02:10,227 - #47 tezinaS
-INFO  04:02:10,227 - #36 =
-INFO  04:02:10,227 - #47 tezinaS
-INFO  04:02:10,227 - #22 +
-INFO  04:02:10,227 - #47 predmeti
-INFO  04:02:10,227 - #43 [
-INFO  04:02:10,227 - #47 i
-INFO  04:02:10,227 - #23 -
-INFO  04:02:10,227 - #48 1
-INFO  04:02:10,227 - #44 ]
-INFO  04:02:10,227 - #40 .
-INFO  04:02:10,227 - #47 Q
-INFO  04:02:10,227 - #41 (
-INFO  04:02:10,227 - #42 )
-INFO  04:02:10,227 - #37 ;
-INFO  04:02:10,227 - #47 ispis
-INFO  04:02:10,227 - #41 (
-INFO  04:02:10,227 - #47 predmeti
-INFO  04:02:10,227 - #43 [
-INFO  04:02:10,227 - #47 i
-INFO  04:02:10,227 - #23 -
-INFO  04:02:10,227 - #48 1
-INFO  04:02:10,227 - #44 ]
-INFO  04:02:10,227 - #42 )
-INFO  04:02:10,227 - #37 ;
-INFO  04:02:10,227 - #47 i
-INFO  04:02:10,227 - #20 ++
-INFO  04:02:10,227 - #37 ;
-INFO  04:02:10,227 - #46 }
-INFO  04:02:10,227 - #10 while
-INFO  04:02:10,227 - #41 (
-INFO  04:02:10,227 - #47 i
-INFO  04:02:10,227 - #32 <=
-INFO  04:02:10,227 - #48 6
-INFO  04:02:10,227 - #42 )
-INFO  04:02:10,227 - #37 ;
-INFO  04:02:10,227 - #47 zapreminaK
-INFO  04:02:10,227 - #36 =
-INFO  04:02:10,227 - #48 0
-INFO  04:02:10,227 - #37 ;
-INFO  04:02:10,232 - #47 tezinaK
-INFO  04:02:10,232 - #36 =
-INFO  04:02:10,232 - #48 0
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #47 i
-INFO  04:02:10,232 - #36 =
-INFO  04:02:10,232 - #48 1
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #9 do
-INFO  04:02:10,232 - #45 {
-INFO  04:02:10,232 - #8 if
-INFO  04:02:10,232 - #41 (
-INFO  04:02:10,232 - #47 i
-INFO  04:02:10,232 - #26 %
-INFO  04:02:10,232 - #48 2
-INFO  04:02:10,232 - #28 ==
-INFO  04:02:10,232 - #48 1
-INFO  04:02:10,232 - #42 )
-INFO  04:02:10,232 - #45 {
-INFO  04:02:10,232 - #47 i
-INFO  04:02:10,232 - #20 ++
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #17 continue
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #46 }
-INFO  04:02:10,232 - #47 zapreminaS
-INFO  04:02:10,232 - #36 =
-INFO  04:02:10,232 - #47 zapreminaS
-INFO  04:02:10,232 - #22 +
-INFO  04:02:10,232 - #47 predmeti
-INFO  04:02:10,232 - #43 [
-INFO  04:02:10,232 - #47 i
-INFO  04:02:10,232 - #23 -
-INFO  04:02:10,232 - #48 1
-INFO  04:02:10,232 - #44 ]
-INFO  04:02:10,232 - #40 .
-INFO  04:02:10,232 - #47 zapremina
-INFO  04:02:10,232 - #41 (
-INFO  04:02:10,232 - #42 )
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #47 tezinaS
-INFO  04:02:10,232 - #36 =
-INFO  04:02:10,232 - #47 tezinaS
-INFO  04:02:10,232 - #22 +
-INFO  04:02:10,232 - #47 predmeti
-INFO  04:02:10,232 - #43 [
-INFO  04:02:10,232 - #47 i
-INFO  04:02:10,232 - #23 -
-INFO  04:02:10,232 - #48 1
-INFO  04:02:10,232 - #44 ]
-INFO  04:02:10,232 - #40 .
-INFO  04:02:10,232 - #47 Q
-INFO  04:02:10,232 - #41 (
-INFO  04:02:10,232 - #42 )
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #47 ispis
-INFO  04:02:10,232 - #41 (
-INFO  04:02:10,232 - #47 predmeti
-INFO  04:02:10,232 - #43 [
-INFO  04:02:10,232 - #47 i
-INFO  04:02:10,232 - #23 -
-INFO  04:02:10,232 - #48 1
-INFO  04:02:10,232 - #44 ]
-INFO  04:02:10,232 - #42 )
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #47 i
-INFO  04:02:10,232 - #20 ++
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #46 }
-INFO  04:02:10,232 - #10 while
-INFO  04:02:10,232 - #41 (
-INFO  04:02:10,232 - #47 i
-INFO  04:02:10,232 - #32 <=
-INFO  04:02:10,232 - #48 6
-INFO  04:02:10,232 - #42 )
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #12 print
-INFO  04:02:10,232 - #41 (
-INFO  04:02:10,232 - #47 zapreminaS
-INFO  04:02:10,232 - #42 )
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #12 print
-INFO  04:02:10,232 - #41 (
-INFO  04:02:10,232 - #47 eol
-INFO  04:02:10,232 - #42 )
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #12 print
-INFO  04:02:10,232 - #41 (
-INFO  04:02:10,232 - #47 zapreminaK
-INFO  04:02:10,232 - #42 )
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #12 print
-INFO  04:02:10,232 - #41 (
-INFO  04:02:10,232 - #47 eol
-INFO  04:02:10,232 - #42 )
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #12 print
-INFO  04:02:10,232 - #41 (
-INFO  04:02:10,232 - #47 tezinaS
-INFO  04:02:10,232 - #42 )
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #12 print
-INFO  04:02:10,232 - #41 (
-INFO  04:02:10,232 - #47 eol
-INFO  04:02:10,232 - #42 )
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #12 print
-INFO  04:02:10,232 - #41 (
-INFO  04:02:10,232 - #47 tezinaK
-INFO  04:02:10,232 - #42 )
-INFO  04:02:10,232 - #37 ;
-INFO  04:02:10,232 - #12 print
-INFO  04:02:10,232 - #41 (
-INFO  04:02:10,237 - #47 eol
-INFO  04:02:10,237 - #42 )
-INFO  04:02:10,237 - #37 ;
-INFO  04:02:10,237 - #46 }
-INFO  04:02:10,237 - #46 }
-INFO  04:02:10,262 - Const declared (cinilac) line 5
-INFO  04:02:10,262 - Const declared (delilac) line 5
-INFO  04:02:10,262 - Local variable declared (tezina). line 9
-INFO  04:02:10,262 - Local variable declared (koefTezine). line 10
-INFO  04:02:10,262 - Local variable declared (vrsta). line 11
-INFO  04:02:10,262 - Class member detected (koefTezine) line 15
-INFO  04:02:10,262 -  Formal parameter declared (tezina). line 17
-INFO  04:02:10,262 - Formal parameter detected (this) line 17
-INFO  04:02:10,262 - Member reference detected: this DOT tezina line 17
-INFO  04:02:10,262 - Formal parameter detected (tezina) line 17
-INFO  04:02:10,262 - Class member detected (koefTezine) line 17
-INFO  04:02:10,262 - Class member detected (tezina) line 18
-INFO  04:02:10,262 - Class member detected (tezina) line 20
-INFO  04:02:10,267 -  Formal parameter declared (vrsta). line 21
-INFO  04:02:10,267 - Formal parameter detected (this) line 21
-INFO  04:02:10,267 - Member reference detected: this DOT vrsta line 21
-INFO  04:02:10,267 - Formal parameter detected (vrsta) line 21
-INFO  04:02:10,267 - Class member detected (vrsta) line 22
-INFO  04:02:10,267 - Class member detected (tezina) line 23
-INFO  04:02:10,267 - Class member detected (vrsta) line 25
-INFO  04:02:10,352 - Local variable declared (r). line 33
-INFO  04:02:10,367 - Super call detected inside a constructor Predmet() line 36
-INFO  04:02:10,367 - Class member detected (vrsta) line 37
-INFO  04:02:10,367 -  Formal parameter declared (r). line 40
-INFO  04:02:10,367 - Formal parameter detected (this) line 40
-INFO  04:02:10,367 - Member reference detected: this DOT r line 40
-INFO  04:02:10,367 - Formal parameter detected (r) line 40
-INFO  04:02:10,367 - Local variable declared (z). line 43
-INFO  04:02:10,367 - Local variable detected (z) line 45
-INFO  04:02:10,367 - Local variable detected (z) line 46
-INFO  04:02:10,367 - Class member detected (r) line 46
-INFO  04:02:10,372 - Class member detected (r) line 51
-INFO  04:02:10,372 - Local variable declared (a). line 59
-INFO  04:02:10,372 - Local variable declared (b). line 59
-INFO  04:02:10,372 - Local variable declared (c). line 59
-INFO  04:02:10,372 - Super call detected inside a constructor Predmet() line 62
-INFO  04:02:10,372 - Class member detected (vrsta) line 63
-INFO  04:02:10,372 -  Formal parameter declared (a). line 66
-INFO  04:02:10,372 -  Formal parameter declared (b). line 66
-INFO  04:02:10,372 -  Formal parameter declared (c). line 66
-INFO  04:02:10,372 - Formal parameter detected (this) line 66
-INFO  04:02:10,372 - Member reference detected: this DOT a line 66
-INFO  04:02:10,372 - Formal parameter detected (a) line 66
-INFO  04:02:10,372 - Formal parameter detected (this) line 66
-INFO  04:02:10,372 - Member reference detected: this DOT b line 66
-INFO  04:02:10,372 - Formal parameter detected (b) line 66
-INFO  04:02:10,372 - Formal parameter detected (this) line 66
-INFO  04:02:10,372 - Member reference detected: this DOT c line 66
-INFO  04:02:10,372 - Formal parameter detected (c) line 66
-INFO  04:02:10,372 - Local variable declared (z). line 68
-INFO  04:02:10,372 - Local variable detected (z) line 70
-INFO  04:02:10,372 - Class member detected (a) line 70
-INFO  04:02:10,372 - Class member detected (b) line 70
-INFO  04:02:10,372 - Class member detected (c) line 70
-INFO  04:02:10,372 - Local variable detected (z) line 71
-INFO  04:02:10,372 - Class member detected (a) line 75
-INFO  04:02:10,372 - Class member detected (b) line 76
-INFO  04:02:10,372 - Class member detected (c) line 77
-INFO  04:02:10,372 - Global variable declared (zapreminaK). line 83
-INFO  04:02:10,372 - Global variable declared (zapreminaS). line 83
-INFO  04:02:10,372 - Global variable declared (tezinaK). line 84
-INFO  04:02:10,372 - Global variable declared (tezinaS). line 84
-INFO  04:02:10,372 -  Formal parameter declared (p). line 87
-INFO  04:02:10,372 - Formal parameter detected (p) line 89
-INFO  04:02:10,372 - Member reference detected: p DOT ispisi line 89
-INFO  04:02:10,372 - Formal parameter detected (p) line 91
-INFO  04:02:10,372 - Member reference detected: p DOT dohvTezinu line 91
-INFO  04:02:10,372 - Local variable declared (predmeti). line 94
-INFO  04:02:10,372 - Local variable declared (i). line 94
-INFO  04:02:10,372 - Local variable declared (s1). line 94
-INFO  04:02:10,372 - Local variable declared (s2). line 94
-INFO  04:02:10,372 - Local variable declared (s3). line 94
-INFO  04:02:10,372 - Local variable declared (k1). line 94
-INFO  04:02:10,372 - Local variable declared (k2). line 94
-INFO  04:02:10,372 - Local variable declared (k3). line 94
-INFO  04:02:10,372 - Local variable declared (t). line 94
-INFO  04:02:10,372 - Local variable detected (predmeti) line 96
-INFO  04:02:10,372 - Local variable detected (s1) line 97
-INFO  04:02:10,372 - New instance of class (Sfera) detected. line 97
-INFO  04:02:10,372 - Local variable detected (s2) line 98
-INFO  04:02:10,372 - New instance of class (Sfera) detected. line 98
-INFO  04:02:10,372 - Local variable detected (s3) line 99
-INFO  04:02:10,372 - New instance of class (Sfera) detected. line 99
-INFO  04:02:10,372 - Local variable detected (k1) line 101
-INFO  04:02:10,372 - New instance of class (Kvadar) detected. line 101
-INFO  04:02:10,372 - Local variable detected (k2) line 102
-INFO  04:02:10,372 - New instance of class (Kvadar) detected. line 102
-INFO  04:02:10,377 - Local variable detected (k3) line 103
-INFO  04:02:10,377 - New instance of class (Kvadar) detected. line 103
-INFO  04:02:10,377 - Local variable detected (s1) line 105
-INFO  04:02:10,377 - Member reference detected: s1 DOT postaviPoluprecnik line 105
-INFO  04:02:10,377 - Local variable detected (s2) line 106
-INFO  04:02:10,377 - Member reference detected: s2 DOT postaviPoluprecnik line 106
-INFO  04:02:10,377 - Local variable detected (s3) line 107
-INFO  04:02:10,377 - Member reference detected: s3 DOT postaviPoluprecnik line 107
-INFO  04:02:10,377 - Local variable detected (k1) line 110
-INFO  04:02:10,377 - Member reference detected: k1 DOT postaviStranice line 110
-INFO  04:02:10,377 - Local variable detected (k2) line 111
-INFO  04:02:10,377 - Member reference detected: k2 DOT postaviStranice line 111
-INFO  04:02:10,377 - Local variable detected (k3) line 112
-INFO  04:02:10,377 - Member reference detected: k3 DOT postaviStranice line 112
-INFO  04:02:10,377 - Local variable detected (predmeti) line 114
-INFO  04:02:10,377 - Array reference: predmeti[]  line 114
-INFO  04:02:10,377 - Local variable detected (s1) line 114
-INFO  04:02:10,377 - Local variable detected (predmeti) line 115
-INFO  04:02:10,377 - Array reference: predmeti[]  line 115
-INFO  04:02:10,377 - Local variable detected (s2) line 115
-INFO  04:02:10,377 - Local variable detected (predmeti) line 116
-INFO  04:02:10,377 - Array reference: predmeti[]  line 116
-INFO  04:02:10,377 - Local variable detected (s3) line 116
-INFO  04:02:10,377 - Local variable detected (predmeti) line 117
-INFO  04:02:10,377 - Array reference: predmeti[]  line 117
-INFO  04:02:10,377 - Local variable detected (k1) line 117
-INFO  04:02:10,377 - Local variable detected (predmeti) line 118
-INFO  04:02:10,377 - Array reference: predmeti[]  line 118
-INFO  04:02:10,377 - Local variable detected (k2) line 118
-INFO  04:02:10,377 - Local variable detected (predmeti) line 119
-INFO  04:02:10,377 - Array reference: predmeti[]  line 119
-INFO  04:02:10,377 - Local variable detected (k3) line 119
-INFO  04:02:10,377 - Local variable detected (t) line 121
-INFO  04:02:10,377 - Local variable detected (i) line 122
-INFO  04:02:10,377 - Local variable detected (predmeti) line 124
-INFO  04:02:10,377 - Local variable detected (i) line 124
-INFO  04:02:10,377 - Array reference: predmeti[]  line 124
-INFO  04:02:10,377 - Member reference detected: predmeti DOT postaviTezinu line 124
-INFO  04:02:10,377 - Local variable detected (t) line 124
-INFO  04:02:10,377 - Local variable detected (i) line 125
-INFO  04:02:10,377 - Local variable detected (i) line 126
-INFO  04:02:10,377 - Global variable detected (zapreminaS) line 128
-INFO  04:02:10,377 - Global variable detected (tezinaS) line 129
-INFO  04:02:10,377 - Local variable detected (i) line 130
-INFO  04:02:10,377 - Local variable detected (i) line 132
-INFO  04:02:10,377 - Local variable detected (i) line 133
-INFO  04:02:10,377 - Global variable detected (zapreminaS) line 136
-INFO  04:02:10,377 - Global variable detected (zapreminaS) line 136
-INFO  04:02:10,377 - Local variable detected (predmeti) line 136
-INFO  04:02:10,377 - Local variable detected (i) line 136
-INFO  04:02:10,377 - Array reference: predmeti[]  line 136
-INFO  04:02:10,377 - Member reference detected: predmeti DOT zapremina line 136
-INFO  04:02:10,377 - Global variable detected (tezinaS) line 137
-INFO  04:02:10,377 - Global variable detected (tezinaS) line 137
-INFO  04:02:10,377 - Local variable detected (predmeti) line 137
-INFO  04:02:10,377 - Local variable detected (i) line 137
-INFO  04:02:10,377 - Array reference: predmeti[]  line 137
-INFO  04:02:10,377 - Member reference detected: predmeti DOT Q line 137
-INFO  04:02:10,377 - Local variable detected (predmeti) line 138
-INFO  04:02:10,377 - Local variable detected (i) line 138
-INFO  04:02:10,377 - Array reference: predmeti[]  line 138
-INFO  04:02:10,377 - Global function call detected - ispis() line 138
-INFO  04:02:10,377 - Local variable detected (i) line 139
-INFO  04:02:10,377 - Local variable detected (i) line 140
-INFO  04:02:10,377 - Global variable detected (zapreminaK) line 143
-INFO  04:02:10,377 - Global variable detected (tezinaK) line 144
-INFO  04:02:10,377 - Local variable detected (i) line 145
-INFO  04:02:10,377 - Local variable detected (i) line 147
-INFO  04:02:10,377 - Local variable detected (i) line 148
-INFO  04:02:10,377 - Global variable detected (zapreminaS) line 151
-INFO  04:02:10,377 - Global variable detected (zapreminaS) line 151
-INFO  04:02:10,377 - Local variable detected (predmeti) line 151
-INFO  04:02:10,382 - Local variable detected (i) line 151
-INFO  04:02:10,382 - Array reference: predmeti[]  line 151
-INFO  04:02:10,382 - Member reference detected: predmeti DOT zapremina line 151
-INFO  04:02:10,382 - Global variable detected (tezinaS) line 152
-INFO  04:02:10,382 - Global variable detected (tezinaS) line 152
-INFO  04:02:10,382 - Local variable detected (predmeti) line 152
-INFO  04:02:10,382 - Local variable detected (i) line 152
-INFO  04:02:10,382 - Array reference: predmeti[]  line 152
-INFO  04:02:10,382 - Member reference detected: predmeti DOT Q line 152
-INFO  04:02:10,382 - Local variable detected (predmeti) line 153
-INFO  04:02:10,382 - Local variable detected (i) line 153
-INFO  04:02:10,382 - Array reference: predmeti[]  line 153
-INFO  04:02:10,382 - Global function call detected - ispis() line 153
-INFO  04:02:10,382 - Local variable detected (i) line 154
-INFO  04:02:10,382 - Local variable detected (i) line 155
-INFO  04:02:10,382 - Global variable detected (zapreminaS) line 157
-INFO  04:02:10,382 - Global variable detected (zapreminaK) line 158
-INFO  04:02:10,382 - Global variable detected (tezinaS) line 159
-INFO  04:02:10,382 - Global variable detected (tezinaK) line 160
-INFO  04:02:10,387 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
-INFO  04:02:10,452 - MJ compiler finished with success.
+INFO  23:27:04,338 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
+INFO  23:27:04,551 - #2 program
+INFO  23:27:04,551 - #47 test_303
+INFO  23:27:04,551 - #7 const
+INFO  23:27:04,556 - #47 int
+INFO  23:27:04,556 - #47 cinilac
+INFO  23:27:04,556 - #36 =
+INFO  23:27:04,556 - #48 4
+INFO  23:27:04,556 - #39 ,
+INFO  23:27:04,561 - #47 delilac
+INFO  23:27:04,561 - #36 =
+INFO  23:27:04,561 - #48 3
+INFO  23:27:04,561 - #37 ;
+INFO  23:27:04,561 - #4 class
+INFO  23:27:04,561 - #47 Predmet
+INFO  23:27:04,561 - #45 {
+INFO  23:27:04,570 - #47 int
+INFO  23:27:04,570 - #47 tezina
+INFO  23:27:04,570 - #37 ;
+INFO  23:27:04,570 - #47 int
+INFO  23:27:04,570 - #47 koefTezine
+INFO  23:27:04,570 - #37 ;
+INFO  23:27:04,580 - #47 char
+INFO  23:27:04,580 - #47 vrsta
+INFO  23:27:04,580 - #37 ;
+INFO  23:27:04,580 - #45 {
+INFO  23:27:04,580 - #47 Predmet
+INFO  23:27:04,580 - #41 (
+INFO  23:27:04,580 - #42 )
+INFO  23:27:04,580 - #45 {
+INFO  23:27:04,580 - #47 koefTezine
+INFO  23:27:04,580 - #36 =
+INFO  23:27:04,580 - #48 1
+INFO  23:27:04,591 - #37 ;
+INFO  23:27:04,596 - #46 }
+INFO  23:27:04,601 - #15 void
+INFO  23:27:04,601 - #47 postaviTezinu
+INFO  23:27:04,601 - #41 (
+INFO  23:27:04,601 - #47 int
+INFO  23:27:04,601 - #47 tezina
+INFO  23:27:04,601 - #42 )
+INFO  23:27:04,601 - #45 {
+INFO  23:27:04,601 - #47 this
+INFO  23:27:04,601 - #40 .
+INFO  23:27:04,611 - #47 tezina
+INFO  23:27:04,611 - #36 =
+INFO  23:27:04,611 - #47 tezina
+INFO  23:27:04,611 - #24 *
+INFO  23:27:04,611 - #47 koefTezine
+INFO  23:27:04,621 - #37 ;
+INFO  23:27:04,621 - #46 }
+INFO  23:27:04,621 - #15 void
+INFO  23:27:04,621 - #47 ucitajTezinu
+INFO  23:27:04,626 - #41 (
+INFO  23:27:04,626 - #42 )
+INFO  23:27:04,626 - #45 {
+INFO  23:27:04,626 - #13 read
+INFO  23:27:04,626 - #41 (
+INFO  23:27:04,626 - #47 tezina
+INFO  23:27:04,626 - #42 )
+INFO  23:27:04,626 - #37 ;
+INFO  23:27:04,626 - #46 }
+INFO  23:27:04,626 - #47 int
+INFO  23:27:04,626 - #47 zapremina
+INFO  23:27:04,626 - #41 (
+INFO  23:27:04,626 - #42 )
+INFO  23:27:04,626 - #45 {
+INFO  23:27:04,626 - #14 return
+INFO  23:27:04,626 - #48 0
+INFO  23:27:04,626 - #37 ;
+INFO  23:27:04,626 - #46 }
+INFO  23:27:04,626 - #47 int
+INFO  23:27:04,626 - #47 Q
+INFO  23:27:04,626 - #41 (
+INFO  23:27:04,626 - #42 )
+INFO  23:27:04,626 - #45 {
+INFO  23:27:04,626 - #14 return
+INFO  23:27:04,626 - #47 zapremina
+INFO  23:27:04,626 - #41 (
+INFO  23:27:04,626 - #42 )
+INFO  23:27:04,631 - #24 *
+INFO  23:27:04,631 - #47 tezina
+INFO  23:27:04,631 - #37 ;
+INFO  23:27:04,631 - #46 }
+INFO  23:27:04,631 - #15 void
+INFO  23:27:04,631 - #47 postaviVrstu
+INFO  23:27:04,631 - #41 (
+INFO  23:27:04,631 - #47 char
+INFO  23:27:04,631 - #47 vrsta
+INFO  23:27:04,631 - #42 )
+INFO  23:27:04,631 - #45 {
+INFO  23:27:04,631 - #47 this
+INFO  23:27:04,631 - #40 .
+INFO  23:27:04,631 - #47 vrsta
+INFO  23:27:04,631 - #36 =
+INFO  23:27:04,631 - #47 vrsta
+INFO  23:27:04,631 - #37 ;
+INFO  23:27:04,636 - #46 }
+INFO  23:27:04,636 - #47 char
+INFO  23:27:04,636 - #47 dohvVrstu
+INFO  23:27:04,636 - #41 (
+INFO  23:27:04,636 - #42 )
+INFO  23:27:04,636 - #45 {
+INFO  23:27:04,636 - #14 return
+INFO  23:27:04,636 - #47 vrsta
+INFO  23:27:04,636 - #37 ;
+INFO  23:27:04,636 - #46 }
+INFO  23:27:04,636 - #47 int
+INFO  23:27:04,636 - #47 dohvTezinu
+INFO  23:27:04,636 - #41 (
+INFO  23:27:04,636 - #42 )
+INFO  23:27:04,636 - #45 {
+INFO  23:27:04,636 - #14 return
+INFO  23:27:04,636 - #47 tezina
+INFO  23:27:04,636 - #37 ;
+INFO  23:27:04,636 - #46 }
+INFO  23:27:04,636 - #15 void
+INFO  23:27:04,636 - #47 ispisi
+INFO  23:27:04,636 - #41 (
+INFO  23:27:04,636 - #42 )
+INFO  23:27:04,636 - #45 {
+INFO  23:27:04,636 - #12 print
+INFO  23:27:04,636 - #41 (
+INFO  23:27:04,636 - #47 vrsta
+INFO  23:27:04,636 - #42 )
+INFO  23:27:04,640 - #37 ;
+INFO  23:27:04,640 - #12 print
+INFO  23:27:04,640 - #41 (
+INFO  23:27:04,640 - #47 Q
+INFO  23:27:04,640 - #41 (
+INFO  23:27:04,640 - #42 )
+INFO  23:27:04,640 - #42 )
+INFO  23:27:04,640 - #37 ;
+INFO  23:27:04,640 - #46 }
+INFO  23:27:04,640 - #46 }
+INFO  23:27:04,645 - #46 }
+INFO  23:27:04,645 - #4 class
+INFO  23:27:04,645 - #47 Sfera
+INFO  23:27:04,645 - #16 extends
+INFO  23:27:04,645 - #47 Predmet
+INFO  23:27:04,645 - #45 {
+INFO  23:27:04,645 - #47 int
+INFO  23:27:04,645 - #47 r
+INFO  23:27:04,645 - #37 ;
+INFO  23:27:04,645 - #45 {
+INFO  23:27:04,645 - #47 Sfera
+INFO  23:27:04,645 - #41 (
+INFO  23:27:04,645 - #42 )
+INFO  23:27:04,645 - #45 {
+INFO  23:27:04,645 - #47 super
+INFO  23:27:04,645 - #41 (
+INFO  23:27:04,645 - #42 )
+INFO  23:27:04,645 - #37 ;
+INFO  23:27:04,645 - #47 vrsta
+INFO  23:27:04,645 - #36 =
+INFO  23:27:04,649 - #50 s
+INFO  23:27:04,649 - #37 ;
+INFO  23:27:04,649 - #46 }
+INFO  23:27:04,649 - #15 void
+INFO  23:27:04,649 - #47 postaviPoluprecnik
+INFO  23:27:04,649 - #41 (
+INFO  23:27:04,649 - #47 int
+INFO  23:27:04,649 - #47 r
+INFO  23:27:04,649 - #42 )
+INFO  23:27:04,649 - #45 {
+INFO  23:27:04,649 - #47 this
+INFO  23:27:04,650 - #40 .
+INFO  23:27:04,650 - #47 r
+INFO  23:27:04,650 - #36 =
+INFO  23:27:04,650 - #47 r
+INFO  23:27:04,650 - #37 ;
+INFO  23:27:04,650 - #46 }
+INFO  23:27:04,650 - #47 int
+INFO  23:27:04,650 - #47 zapremina
+INFO  23:27:04,650 - #41 (
+INFO  23:27:04,650 - #42 )
+INFO  23:27:04,650 - #47 int
+INFO  23:27:04,650 - #47 z
+INFO  23:27:04,650 - #37 ;
+INFO  23:27:04,650 - #45 {
+INFO  23:27:04,650 - #47 z
+INFO  23:27:04,650 - #36 =
+INFO  23:27:04,650 - #47 cinilac
+INFO  23:27:04,650 - #37 ;
+INFO  23:27:04,650 - #14 return
+INFO  23:27:04,650 - #47 z
+INFO  23:27:04,650 - #24 *
+INFO  23:27:04,650 - #41 (
+INFO  23:27:04,650 - #47 r
+INFO  23:27:04,650 - #25 /
+INFO  23:27:04,650 - #47 delilac
+INFO  23:27:04,650 - #42 )
+INFO  23:27:04,650 - #37 ;
+INFO  23:27:04,650 - #46 }
+INFO  23:27:04,650 - #15 void
+INFO  23:27:04,650 - #47 ispisi
+INFO  23:27:04,650 - #41 (
+INFO  23:27:04,650 - #42 )
+INFO  23:27:04,650 - #45 {
+INFO  23:27:04,650 - #47 super
+INFO  23:27:04,650 - #41 (
+INFO  23:27:04,650 - #42 )
+INFO  23:27:04,650 - #37 ;
+INFO  23:27:04,650 - #12 print
+INFO  23:27:04,650 - #41 (
+INFO  23:27:04,650 - #47 r
+INFO  23:27:04,650 - #42 )
+INFO  23:27:04,650 - #37 ;
+INFO  23:27:04,650 - #12 print
+INFO  23:27:04,650 - #41 (
+INFO  23:27:04,650 - #47 eol
+INFO  23:27:04,650 - #42 )
+INFO  23:27:04,650 - #37 ;
+INFO  23:27:04,650 - #46 }
+INFO  23:27:04,650 - #46 }
+INFO  23:27:04,650 - #46 }
+INFO  23:27:04,650 - #4 class
+INFO  23:27:04,650 - #47 Kvadar
+INFO  23:27:04,650 - #16 extends
+INFO  23:27:04,650 - #47 Predmet
+INFO  23:27:04,650 - #45 {
+INFO  23:27:04,650 - #47 int
+INFO  23:27:04,650 - #47 a
+INFO  23:27:04,650 - #39 ,
+INFO  23:27:04,650 - #47 b
+INFO  23:27:04,650 - #39 ,
+INFO  23:27:04,650 - #47 c
+INFO  23:27:04,650 - #37 ;
+INFO  23:27:04,650 - #45 {
+INFO  23:27:04,650 - #47 Kvadar
+INFO  23:27:04,650 - #41 (
+INFO  23:27:04,650 - #42 )
+INFO  23:27:04,650 - #45 {
+INFO  23:27:04,650 - #47 super
+INFO  23:27:04,650 - #41 (
+INFO  23:27:04,650 - #42 )
+INFO  23:27:04,650 - #37 ;
+INFO  23:27:04,650 - #47 vrsta
+INFO  23:27:04,650 - #36 =
+INFO  23:27:04,650 - #50 k
+INFO  23:27:04,650 - #37 ;
+INFO  23:27:04,650 - #46 }
+INFO  23:27:04,650 - #15 void
+INFO  23:27:04,650 - #47 postaviStranice
+INFO  23:27:04,650 - #41 (
+INFO  23:27:04,650 - #47 int
+INFO  23:27:04,650 - #47 a
+INFO  23:27:04,650 - #39 ,
+INFO  23:27:04,650 - #47 int
+INFO  23:27:04,650 - #47 b
+INFO  23:27:04,650 - #39 ,
+INFO  23:27:04,660 - #47 int
+INFO  23:27:04,660 - #47 c
+INFO  23:27:04,660 - #42 )
+INFO  23:27:04,660 - #45 {
+INFO  23:27:04,660 - #47 this
+INFO  23:27:04,660 - #40 .
+INFO  23:27:04,660 - #47 a
+INFO  23:27:04,660 - #36 =
+INFO  23:27:04,660 - #47 a
+INFO  23:27:04,660 - #37 ;
+INFO  23:27:04,670 - #47 this
+INFO  23:27:04,670 - #40 .
+INFO  23:27:04,670 - #47 b
+INFO  23:27:04,670 - #36 =
+INFO  23:27:04,670 - #47 b
+INFO  23:27:04,670 - #37 ;
+INFO  23:27:04,670 - #47 this
+INFO  23:27:04,670 - #40 .
+INFO  23:27:04,670 - #47 c
+INFO  23:27:04,670 - #36 =
+INFO  23:27:04,670 - #47 c
+INFO  23:27:04,670 - #37 ;
+INFO  23:27:04,670 - #46 }
+INFO  23:27:04,670 - #47 int
+INFO  23:27:04,670 - #47 zapremina
+INFO  23:27:04,670 - #41 (
+INFO  23:27:04,670 - #42 )
+INFO  23:27:04,670 - #47 int
+INFO  23:27:04,670 - #47 z
+INFO  23:27:04,670 - #37 ;
+INFO  23:27:04,670 - #45 {
+INFO  23:27:04,670 - #47 z
+INFO  23:27:04,670 - #36 =
+INFO  23:27:04,670 - #47 a
+INFO  23:27:04,670 - #24 *
+INFO  23:27:04,670 - #47 b
+INFO  23:27:04,670 - #24 *
+INFO  23:27:04,670 - #47 c
+INFO  23:27:04,670 - #37 ;
+INFO  23:27:04,670 - #14 return
+INFO  23:27:04,670 - #47 z
+INFO  23:27:04,670 - #37 ;
+INFO  23:27:04,670 - #46 }
+INFO  23:27:04,670 - #15 void
+INFO  23:27:04,670 - #47 ispisi
+INFO  23:27:04,670 - #41 (
+INFO  23:27:04,670 - #42 )
+INFO  23:27:04,670 - #45 {
+INFO  23:27:04,670 - #47 super
+INFO  23:27:04,670 - #41 (
+INFO  23:27:04,670 - #42 )
+INFO  23:27:04,670 - #37 ;
+INFO  23:27:04,670 - #12 print
+INFO  23:27:04,670 - #41 (
+INFO  23:27:04,670 - #47 a
+INFO  23:27:04,670 - #42 )
+INFO  23:27:04,670 - #37 ;
+INFO  23:27:04,670 - #12 print
+INFO  23:27:04,670 - #41 (
+INFO  23:27:04,670 - #47 b
+INFO  23:27:04,670 - #42 )
+INFO  23:27:04,670 - #37 ;
+INFO  23:27:04,670 - #12 print
+INFO  23:27:04,675 - #41 (
+INFO  23:27:04,675 - #47 c
+INFO  23:27:04,675 - #42 )
+INFO  23:27:04,675 - #37 ;
+INFO  23:27:04,675 - #12 print
+INFO  23:27:04,675 - #41 (
+INFO  23:27:04,675 - #47 eol
+INFO  23:27:04,675 - #42 )
+INFO  23:27:04,675 - #37 ;
+INFO  23:27:04,675 - #46 }
+INFO  23:27:04,675 - #46 }
+INFO  23:27:04,675 - #46 }
+INFO  23:27:04,675 - #47 int
+INFO  23:27:04,675 - #47 zapreminaK
+INFO  23:27:04,675 - #39 ,
+INFO  23:27:04,675 - #47 zapreminaS
+INFO  23:27:04,675 - #37 ;
+INFO  23:27:04,675 - #47 int
+INFO  23:27:04,675 - #47 tezinaK
+INFO  23:27:04,675 - #39 ,
+INFO  23:27:04,675 - #47 tezinaS
+INFO  23:27:04,675 - #37 ;
+INFO  23:27:04,675 - #45 {
+INFO  23:27:04,675 - #15 void
+INFO  23:27:04,675 - #47 ispis
+INFO  23:27:04,675 - #41 (
+INFO  23:27:04,675 - #47 Predmet
+INFO  23:27:04,675 - #47 p
+INFO  23:27:04,675 - #42 )
+INFO  23:27:04,675 - #45 {
+INFO  23:27:04,675 - #47 p
+INFO  23:27:04,675 - #40 .
+INFO  23:27:04,675 - #47 ispisi
+INFO  23:27:04,675 - #41 (
+INFO  23:27:04,675 - #42 )
+INFO  23:27:04,675 - #37 ;
+INFO  23:27:04,675 - #12 print
+INFO  23:27:04,675 - #41 (
+INFO  23:27:04,675 - #47 p
+INFO  23:27:04,675 - #40 .
+INFO  23:27:04,675 - #47 dohvTezinu
+INFO  23:27:04,675 - #41 (
+INFO  23:27:04,675 - #42 )
+INFO  23:27:04,675 - #42 )
+INFO  23:27:04,675 - #37 ;
+INFO  23:27:04,675 - #12 print
+INFO  23:27:04,675 - #41 (
+INFO  23:27:04,675 - #47 eol
+INFO  23:27:04,675 - #42 )
+INFO  23:27:04,675 - #37 ;
+INFO  23:27:04,675 - #46 }
+INFO  23:27:04,675 - #15 void
+INFO  23:27:04,675 - #47 main
+INFO  23:27:04,675 - #41 (
+INFO  23:27:04,675 - #42 )
+INFO  23:27:04,675 - #47 Predmet
+INFO  23:27:04,675 - #47 predmeti
+INFO  23:27:04,675 - #43 [
+INFO  23:27:04,675 - #44 ]
+INFO  23:27:04,675 - #37 ;
+INFO  23:27:04,681 - #47 int
+INFO  23:27:04,681 - #47 i
+INFO  23:27:04,681 - #37 ;
+INFO  23:27:04,681 - #47 Sfera
+INFO  23:27:04,681 - #47 s1
+INFO  23:27:04,681 - #39 ,
+INFO  23:27:04,681 - #47 s2
+INFO  23:27:04,681 - #39 ,
+INFO  23:27:04,681 - #47 s3
+INFO  23:27:04,681 - #37 ;
+INFO  23:27:04,681 - #47 Kvadar
+INFO  23:27:04,681 - #47 k1
+INFO  23:27:04,681 - #39 ,
+INFO  23:27:04,681 - #47 k2
+INFO  23:27:04,681 - #39 ,
+INFO  23:27:04,681 - #47 k3
+INFO  23:27:04,681 - #37 ;
+INFO  23:27:04,681 - #47 int
+INFO  23:27:04,681 - #47 t
+INFO  23:27:04,681 - #37 ;
+INFO  23:27:04,681 - #45 {
+INFO  23:27:04,681 - #47 predmeti
+INFO  23:27:04,681 - #36 =
+INFO  23:27:04,681 - #11 new
+INFO  23:27:04,681 - #47 Predmet
+INFO  23:27:04,681 - #43 [
+INFO  23:27:04,681 - #48 6
+INFO  23:27:04,681 - #44 ]
+INFO  23:27:04,681 - #37 ;
+INFO  23:27:04,681 - #47 s1
+INFO  23:27:04,681 - #36 =
+INFO  23:27:04,681 - #11 new
+INFO  23:27:04,681 - #47 Sfera
+INFO  23:27:04,681 - #37 ;
+INFO  23:27:04,686 - #47 s2
+INFO  23:27:04,686 - #36 =
+INFO  23:27:04,686 - #11 new
+INFO  23:27:04,686 - #47 Sfera
+INFO  23:27:04,686 - #37 ;
+INFO  23:27:04,686 - #47 s3
+INFO  23:27:04,686 - #36 =
+INFO  23:27:04,686 - #11 new
+INFO  23:27:04,686 - #47 Sfera
+INFO  23:27:04,686 - #37 ;
+INFO  23:27:04,686 - #47 k1
+INFO  23:27:04,686 - #36 =
+INFO  23:27:04,686 - #11 new
+INFO  23:27:04,686 - #47 Kvadar
+INFO  23:27:04,686 - #37 ;
+INFO  23:27:04,686 - #47 k2
+INFO  23:27:04,686 - #36 =
+INFO  23:27:04,686 - #11 new
+INFO  23:27:04,686 - #47 Kvadar
+INFO  23:27:04,686 - #37 ;
+INFO  23:27:04,686 - #47 k3
+INFO  23:27:04,686 - #36 =
+INFO  23:27:04,686 - #11 new
+INFO  23:27:04,686 - #47 Kvadar
+INFO  23:27:04,686 - #37 ;
+INFO  23:27:04,686 - #47 s1
+INFO  23:27:04,686 - #40 .
+INFO  23:27:04,686 - #47 postaviPoluprecnik
+INFO  23:27:04,686 - #41 (
+INFO  23:27:04,686 - #48 1
+INFO  23:27:04,686 - #42 )
+INFO  23:27:04,686 - #37 ;
+INFO  23:27:04,686 - #47 s2
+INFO  23:27:04,686 - #40 .
+INFO  23:27:04,686 - #47 postaviPoluprecnik
+INFO  23:27:04,686 - #41 (
+INFO  23:27:04,691 - #48 2
+INFO  23:27:04,691 - #42 )
+INFO  23:27:04,691 - #37 ;
+INFO  23:27:04,691 - #47 s3
+INFO  23:27:04,691 - #40 .
+INFO  23:27:04,691 - #47 postaviPoluprecnik
+INFO  23:27:04,691 - #41 (
+INFO  23:27:04,691 - #48 3
+INFO  23:27:04,691 - #42 )
+INFO  23:27:04,691 - #37 ;
+INFO  23:27:04,691 - #47 k1
+INFO  23:27:04,691 - #40 .
+INFO  23:27:04,691 - #47 postaviStranice
+INFO  23:27:04,691 - #41 (
+INFO  23:27:04,691 - #48 1
+INFO  23:27:04,691 - #39 ,
+INFO  23:27:04,691 - #48 2
+INFO  23:27:04,691 - #39 ,
+INFO  23:27:04,691 - #48 3
+INFO  23:27:04,691 - #42 )
+INFO  23:27:04,691 - #37 ;
+INFO  23:27:04,691 - #47 k2
+INFO  23:27:04,691 - #40 .
+INFO  23:27:04,691 - #47 postaviStranice
+INFO  23:27:04,691 - #41 (
+INFO  23:27:04,691 - #48 2
+INFO  23:27:04,691 - #39 ,
+INFO  23:27:04,691 - #48 3
+INFO  23:27:04,691 - #39 ,
+INFO  23:27:04,691 - #48 4
+INFO  23:27:04,691 - #42 )
+INFO  23:27:04,691 - #37 ;
+INFO  23:27:04,691 - #47 k3
+INFO  23:27:04,691 - #40 .
+INFO  23:27:04,691 - #47 postaviStranice
+INFO  23:27:04,691 - #41 (
+INFO  23:27:04,691 - #48 3
+INFO  23:27:04,691 - #39 ,
+INFO  23:27:04,691 - #48 4
+INFO  23:27:04,691 - #39 ,
+INFO  23:27:04,691 - #48 5
+INFO  23:27:04,691 - #42 )
+INFO  23:27:04,691 - #37 ;
+INFO  23:27:04,691 - #47 predmeti
+INFO  23:27:04,691 - #43 [
+INFO  23:27:04,691 - #48 0
+INFO  23:27:04,691 - #44 ]
+INFO  23:27:04,691 - #36 =
+INFO  23:27:04,691 - #47 s1
+INFO  23:27:04,691 - #37 ;
+INFO  23:27:04,691 - #47 predmeti
+INFO  23:27:04,691 - #43 [
+INFO  23:27:04,691 - #48 2
+INFO  23:27:04,691 - #44 ]
+INFO  23:27:04,691 - #36 =
+INFO  23:27:04,691 - #47 s2
+INFO  23:27:04,691 - #37 ;
+INFO  23:27:04,691 - #47 predmeti
+INFO  23:27:04,691 - #43 [
+INFO  23:27:04,691 - #48 4
+INFO  23:27:04,691 - #44 ]
+INFO  23:27:04,696 - #36 =
+INFO  23:27:04,696 - #47 s3
+INFO  23:27:04,696 - #37 ;
+INFO  23:27:04,696 - #47 predmeti
+INFO  23:27:04,696 - #43 [
+INFO  23:27:04,696 - #48 1
+INFO  23:27:04,696 - #44 ]
+INFO  23:27:04,696 - #36 =
+INFO  23:27:04,696 - #47 k1
+INFO  23:27:04,696 - #37 ;
+INFO  23:27:04,696 - #47 predmeti
+INFO  23:27:04,696 - #43 [
+INFO  23:27:04,696 - #48 3
+INFO  23:27:04,696 - #44 ]
+INFO  23:27:04,696 - #36 =
+INFO  23:27:04,696 - #47 k2
+INFO  23:27:04,696 - #37 ;
+INFO  23:27:04,696 - #47 predmeti
+INFO  23:27:04,696 - #43 [
+INFO  23:27:04,696 - #48 5
+INFO  23:27:04,696 - #44 ]
+INFO  23:27:04,696 - #36 =
+INFO  23:27:04,696 - #47 k3
+INFO  23:27:04,696 - #37 ;
+INFO  23:27:04,696 - #13 read
+INFO  23:27:04,696 - #41 (
+INFO  23:27:04,696 - #47 t
+INFO  23:27:04,696 - #42 )
+INFO  23:27:04,696 - #37 ;
+INFO  23:27:04,696 - #47 i
+INFO  23:27:04,696 - #36 =
+INFO  23:27:04,696 - #48 0
+INFO  23:27:04,696 - #37 ;
+INFO  23:27:04,696 - #9 do
+INFO  23:27:04,696 - #45 {
+INFO  23:27:04,701 - #47 predmeti
+INFO  23:27:04,701 - #43 [
+INFO  23:27:04,701 - #47 i
+INFO  23:27:04,701 - #44 ]
+INFO  23:27:04,701 - #40 .
+INFO  23:27:04,701 - #47 postaviTezinu
+INFO  23:27:04,701 - #41 (
+INFO  23:27:04,701 - #47 t
+INFO  23:27:04,701 - #42 )
+INFO  23:27:04,701 - #37 ;
+INFO  23:27:04,701 - #47 i
+INFO  23:27:04,701 - #20 ++
+INFO  23:27:04,701 - #37 ;
+INFO  23:27:04,706 - #46 }
+INFO  23:27:04,706 - #10 while
+INFO  23:27:04,706 - #41 (
+INFO  23:27:04,706 - #47 i
+INFO  23:27:04,706 - #33 <
+INFO  23:27:04,706 - #48 6
+INFO  23:27:04,706 - #42 )
+INFO  23:27:04,716 - #37 ;
+INFO  23:27:04,716 - #47 zapreminaS
+INFO  23:27:04,716 - #36 =
+INFO  23:27:04,716 - #48 0
+INFO  23:27:04,716 - #37 ;
+INFO  23:27:04,716 - #47 tezinaS
+INFO  23:27:04,716 - #36 =
+INFO  23:27:04,716 - #48 0
+INFO  23:27:04,716 - #37 ;
+INFO  23:27:04,716 - #47 i
+INFO  23:27:04,721 - #36 =
+INFO  23:27:04,721 - #48 1
+INFO  23:27:04,721 - #37 ;
+INFO  23:27:04,721 - #9 do
+INFO  23:27:04,721 - #45 {
+INFO  23:27:04,721 - #8 if
+INFO  23:27:04,721 - #41 (
+INFO  23:27:04,721 - #47 i
+INFO  23:27:04,721 - #26 %
+INFO  23:27:04,721 - #48 2
+INFO  23:27:04,725 - #28 ==
+INFO  23:27:04,725 - #48 0
+INFO  23:27:04,725 - #42 )
+INFO  23:27:04,725 - #45 {
+INFO  23:27:04,725 - #47 i
+INFO  23:27:04,725 - #20 ++
+INFO  23:27:04,725 - #37 ;
+INFO  23:27:04,725 - #17 continue
+INFO  23:27:04,725 - #37 ;
+INFO  23:27:04,725 - #46 }
+INFO  23:27:04,725 - #47 zapreminaS
+INFO  23:27:04,725 - #36 =
+INFO  23:27:04,725 - #47 zapreminaS
+INFO  23:27:04,725 - #22 +
+INFO  23:27:04,725 - #47 predmeti
+INFO  23:27:04,730 - #43 [
+INFO  23:27:04,730 - #47 i
+INFO  23:27:04,730 - #23 -
+INFO  23:27:04,730 - #48 1
+INFO  23:27:04,735 - #44 ]
+INFO  23:27:04,735 - #40 .
+INFO  23:27:04,735 - #47 zapremina
+INFO  23:27:04,735 - #41 (
+INFO  23:27:04,735 - #42 )
+INFO  23:27:04,735 - #37 ;
+INFO  23:27:04,735 - #47 tezinaS
+INFO  23:27:04,735 - #36 =
+INFO  23:27:04,735 - #47 tezinaS
+INFO  23:27:04,735 - #22 +
+INFO  23:27:04,735 - #47 predmeti
+INFO  23:27:04,735 - #43 [
+INFO  23:27:04,735 - #47 i
+INFO  23:27:04,735 - #23 -
+INFO  23:27:04,735 - #48 1
+INFO  23:27:04,735 - #44 ]
+INFO  23:27:04,735 - #40 .
+INFO  23:27:04,735 - #47 Q
+INFO  23:27:04,735 - #41 (
+INFO  23:27:04,735 - #42 )
+INFO  23:27:04,735 - #37 ;
+INFO  23:27:04,735 - #47 ispis
+INFO  23:27:04,735 - #41 (
+INFO  23:27:04,735 - #47 predmeti
+INFO  23:27:04,735 - #43 [
+INFO  23:27:04,735 - #47 i
+INFO  23:27:04,735 - #23 -
+INFO  23:27:04,735 - #48 1
+INFO  23:27:04,735 - #44 ]
+INFO  23:27:04,735 - #42 )
+INFO  23:27:04,735 - #37 ;
+INFO  23:27:04,735 - #47 i
+INFO  23:27:04,735 - #20 ++
+INFO  23:27:04,735 - #37 ;
+INFO  23:27:04,735 - #46 }
+INFO  23:27:04,735 - #10 while
+INFO  23:27:04,735 - #41 (
+INFO  23:27:04,735 - #47 i
+INFO  23:27:04,735 - #32 <=
+INFO  23:27:04,735 - #48 5
+INFO  23:27:04,735 - #42 )
+INFO  23:27:04,740 - #37 ;
+INFO  23:27:04,740 - #47 zapreminaK
+INFO  23:27:04,740 - #36 =
+INFO  23:27:04,740 - #48 0
+INFO  23:27:04,740 - #37 ;
+INFO  23:27:04,740 - #47 tezinaK
+INFO  23:27:04,740 - #36 =
+INFO  23:27:04,740 - #48 0
+INFO  23:27:04,740 - #37 ;
+INFO  23:27:04,740 - #47 i
+INFO  23:27:04,740 - #36 =
+INFO  23:27:04,740 - #48 1
+INFO  23:27:04,740 - #37 ;
+INFO  23:27:04,740 - #9 do
+INFO  23:27:04,740 - #45 {
+INFO  23:27:04,740 - #8 if
+INFO  23:27:04,740 - #41 (
+INFO  23:27:04,740 - #47 i
+INFO  23:27:04,740 - #26 %
+INFO  23:27:04,740 - #48 2
+INFO  23:27:04,740 - #28 ==
+INFO  23:27:04,740 - #48 1
+INFO  23:27:04,740 - #42 )
+INFO  23:27:04,740 - #45 {
+INFO  23:27:04,740 - #47 i
+INFO  23:27:04,740 - #20 ++
+INFO  23:27:04,740 - #37 ;
+INFO  23:27:04,740 - #17 continue
+INFO  23:27:04,740 - #37 ;
+INFO  23:27:04,740 - #46 }
+INFO  23:27:04,740 - #47 zapreminaK
+INFO  23:27:04,740 - #36 =
+INFO  23:27:04,740 - #47 zapreminaK
+INFO  23:27:04,740 - #22 +
+INFO  23:27:04,740 - #47 predmeti
+INFO  23:27:04,740 - #43 [
+INFO  23:27:04,740 - #47 i
+INFO  23:27:04,740 - #23 -
+INFO  23:27:04,740 - #48 1
+INFO  23:27:04,740 - #44 ]
+INFO  23:27:04,740 - #40 .
+INFO  23:27:04,740 - #47 zapremina
+INFO  23:27:04,740 - #41 (
+INFO  23:27:04,740 - #42 )
+INFO  23:27:04,740 - #37 ;
+INFO  23:27:04,740 - #47 tezinaK
+INFO  23:27:04,740 - #36 =
+INFO  23:27:04,740 - #47 tezinaK
+INFO  23:27:04,740 - #22 +
+INFO  23:27:04,740 - #47 predmeti
+INFO  23:27:04,740 - #43 [
+INFO  23:27:04,740 - #47 i
+INFO  23:27:04,740 - #23 -
+INFO  23:27:04,740 - #48 1
+INFO  23:27:04,740 - #44 ]
+INFO  23:27:04,740 - #40 .
+INFO  23:27:04,740 - #47 Q
+INFO  23:27:04,740 - #41 (
+INFO  23:27:04,740 - #42 )
+INFO  23:27:04,740 - #37 ;
+INFO  23:27:04,740 - #47 ispis
+INFO  23:27:04,740 - #41 (
+INFO  23:27:04,740 - #47 predmeti
+INFO  23:27:04,740 - #43 [
+INFO  23:27:04,740 - #47 i
+INFO  23:27:04,740 - #23 -
+INFO  23:27:04,740 - #48 1
+INFO  23:27:04,740 - #44 ]
+INFO  23:27:04,740 - #42 )
+INFO  23:27:04,740 - #37 ;
+INFO  23:27:04,740 - #47 i
+INFO  23:27:04,740 - #20 ++
+INFO  23:27:04,740 - #37 ;
+INFO  23:27:04,740 - #46 }
+INFO  23:27:04,740 - #10 while
+INFO  23:27:04,740 - #41 (
+INFO  23:27:04,740 - #47 i
+INFO  23:27:04,740 - #32 <=
+INFO  23:27:04,740 - #48 6
+INFO  23:27:04,740 - #42 )
+INFO  23:27:04,740 - #37 ;
+INFO  23:27:04,740 - #12 print
+INFO  23:27:04,740 - #41 (
+INFO  23:27:04,740 - #47 zapreminaS
+INFO  23:27:04,740 - #42 )
+INFO  23:27:04,745 - #37 ;
+INFO  23:27:04,745 - #12 print
+INFO  23:27:04,745 - #41 (
+INFO  23:27:04,745 - #47 eol
+INFO  23:27:04,745 - #42 )
+INFO  23:27:04,745 - #37 ;
+INFO  23:27:04,745 - #12 print
+INFO  23:27:04,745 - #41 (
+INFO  23:27:04,745 - #47 zapreminaK
+INFO  23:27:04,745 - #42 )
+INFO  23:27:04,745 - #37 ;
+INFO  23:27:04,745 - #12 print
+INFO  23:27:04,745 - #41 (
+INFO  23:27:04,745 - #47 eol
+INFO  23:27:04,745 - #42 )
+INFO  23:27:04,745 - #37 ;
+INFO  23:27:04,745 - #12 print
+INFO  23:27:04,745 - #41 (
+INFO  23:27:04,745 - #47 tezinaS
+INFO  23:27:04,745 - #42 )
+INFO  23:27:04,745 - #37 ;
+INFO  23:27:04,745 - #12 print
+INFO  23:27:04,745 - #41 (
+INFO  23:27:04,745 - #47 eol
+INFO  23:27:04,745 - #42 )
+INFO  23:27:04,745 - #37 ;
+INFO  23:27:04,745 - #12 print
+INFO  23:27:04,745 - #41 (
+INFO  23:27:04,745 - #47 tezinaK
+INFO  23:27:04,745 - #42 )
+INFO  23:27:04,745 - #37 ;
+INFO  23:27:04,745 - #12 print
+INFO  23:27:04,745 - #41 (
+INFO  23:27:04,745 - #47 eol
+INFO  23:27:04,745 - #42 )
+INFO  23:27:04,745 - #37 ;
+INFO  23:27:04,745 - #46 }
+INFO  23:27:04,745 - #46 }
+INFO  23:27:04,771 - Const declared (cinilac) line 5
+INFO  23:27:04,771 - Const declared (delilac) line 5
+INFO  23:27:04,771 - Local variable declared (tezina). line 9
+INFO  23:27:04,771 - Local variable declared (koefTezine). line 10
+INFO  23:27:04,771 - Local variable declared (vrsta). line 11
+INFO  23:27:04,771 - Class member detected (koefTezine) line 15
+INFO  23:27:04,771 -  Formal parameter declared (tezina). line 17
+INFO  23:27:04,771 - Formal parameter detected (this) line 17
+INFO  23:27:04,771 - Member reference detected: this DOT tezina line 17
+INFO  23:27:04,771 - Formal parameter detected (tezina) line 17
+INFO  23:27:04,771 - Class member detected (koefTezine) line 17
+INFO  23:27:04,771 - Class member detected (tezina) line 18
+INFO  23:27:04,780 - Class member detected (tezina) line 20
+INFO  23:27:04,780 -  Formal parameter declared (vrsta). line 21
+INFO  23:27:04,780 - Formal parameter detected (this) line 21
+INFO  23:27:04,780 - Member reference detected: this DOT vrsta line 21
+INFO  23:27:04,780 - Formal parameter detected (vrsta) line 21
+INFO  23:27:04,780 - Class member detected (vrsta) line 22
+INFO  23:27:04,780 - Class member detected (tezina) line 23
+INFO  23:27:04,780 - Class member detected (vrsta) line 25
+INFO  23:27:04,921 - Local variable declared (r). line 33
+INFO  23:27:04,946 - Super call detected inside a constructor Predmet() line 36
+INFO  23:27:04,946 - Class member detected (vrsta) line 37
+INFO  23:27:04,946 -  Formal parameter declared (r). line 40
+INFO  23:27:04,946 - Formal parameter detected (this) line 40
+INFO  23:27:04,946 - Member reference detected: this DOT r line 40
+INFO  23:27:04,946 - Formal parameter detected (r) line 40
+INFO  23:27:04,951 - Local variable declared (z). line 43
+INFO  23:27:04,951 - Local variable detected (z) line 45
+INFO  23:27:04,951 - Local variable detected (z) line 46
+INFO  23:27:04,951 - Class member detected (r) line 46
+INFO  23:27:04,951 - Class member detected (r) line 51
+INFO  23:27:04,956 - Local variable declared (a). line 59
+INFO  23:27:04,956 - Local variable declared (b). line 59
+INFO  23:27:04,956 - Local variable declared (c). line 59
+INFO  23:27:04,956 - Super call detected inside a constructor Predmet() line 62
+INFO  23:27:04,956 - Class member detected (vrsta) line 63
+INFO  23:27:04,956 -  Formal parameter declared (a). line 66
+INFO  23:27:04,956 -  Formal parameter declared (b). line 66
+INFO  23:27:04,956 -  Formal parameter declared (c). line 66
+INFO  23:27:04,956 - Formal parameter detected (this) line 66
+INFO  23:27:04,956 - Member reference detected: this DOT a line 66
+INFO  23:27:04,956 - Formal parameter detected (a) line 66
+INFO  23:27:04,956 - Formal parameter detected (this) line 66
+INFO  23:27:04,956 - Member reference detected: this DOT b line 66
+INFO  23:27:04,956 - Formal parameter detected (b) line 66
+INFO  23:27:04,956 - Formal parameter detected (this) line 66
+INFO  23:27:04,956 - Member reference detected: this DOT c line 66
+INFO  23:27:04,956 - Formal parameter detected (c) line 66
+INFO  23:27:04,956 - Local variable declared (z). line 68
+INFO  23:27:04,956 - Local variable detected (z) line 70
+INFO  23:27:04,956 - Class member detected (a) line 70
+INFO  23:27:04,956 - Class member detected (b) line 70
+INFO  23:27:04,956 - Class member detected (c) line 70
+INFO  23:27:04,956 - Local variable detected (z) line 71
+INFO  23:27:04,956 - Class member detected (a) line 75
+INFO  23:27:04,956 - Class member detected (b) line 76
+INFO  23:27:04,959 - Class member detected (c) line 77
+INFO  23:27:04,959 - Global variable declared (zapreminaK). line 83
+INFO  23:27:04,959 - Global variable declared (zapreminaS). line 83
+INFO  23:27:04,959 - Global variable declared (tezinaK). line 84
+INFO  23:27:04,960 - Global variable declared (tezinaS). line 84
+INFO  23:27:04,960 -  Formal parameter declared (p). line 87
+INFO  23:27:04,960 - Formal parameter detected (p) line 89
+INFO  23:27:04,961 - Member reference detected: p DOT ispisi line 89
+INFO  23:27:04,961 - Formal parameter detected (p) line 90
+INFO  23:27:04,961 - Member reference detected: p DOT dohvTezinu line 90
+INFO  23:27:04,961 - Local variable declared (predmeti). line 94
+INFO  23:27:04,961 - Local variable declared (i). line 94
+INFO  23:27:04,961 - Local variable declared (s1). line 94
+INFO  23:27:04,961 - Local variable declared (s2). line 94
+INFO  23:27:04,961 - Local variable declared (s3). line 94
+INFO  23:27:04,961 - Local variable declared (k1). line 94
+INFO  23:27:04,961 - Local variable declared (k2). line 94
+INFO  23:27:04,961 - Local variable declared (k3). line 94
+INFO  23:27:04,961 - Local variable declared (t). line 94
+INFO  23:27:04,961 - Local variable detected (predmeti) line 96
+INFO  23:27:04,961 - Local variable detected (s1) line 97
+INFO  23:27:04,961 - New instance of class (Sfera) detected. line 97
+INFO  23:27:04,961 - Local variable detected (s2) line 98
+INFO  23:27:04,961 - New instance of class (Sfera) detected. line 98
+INFO  23:27:04,961 - Local variable detected (s3) line 99
+INFO  23:27:04,961 - New instance of class (Sfera) detected. line 99
+INFO  23:27:04,961 - Local variable detected (k1) line 101
+INFO  23:27:04,961 - New instance of class (Kvadar) detected. line 101
+INFO  23:27:04,961 - Local variable detected (k2) line 102
+INFO  23:27:04,961 - New instance of class (Kvadar) detected. line 102
+INFO  23:27:04,961 - Local variable detected (k3) line 103
+INFO  23:27:04,961 - New instance of class (Kvadar) detected. line 103
+INFO  23:27:04,961 - Local variable detected (s1) line 105
+INFO  23:27:04,961 - Member reference detected: s1 DOT postaviPoluprecnik line 105
+INFO  23:27:04,961 - Local variable detected (s2) line 106
+INFO  23:27:04,961 - Member reference detected: s2 DOT postaviPoluprecnik line 106
+INFO  23:27:04,961 - Local variable detected (s3) line 107
+INFO  23:27:04,961 - Member reference detected: s3 DOT postaviPoluprecnik line 107
+INFO  23:27:04,961 - Local variable detected (k1) line 110
+INFO  23:27:04,961 - Member reference detected: k1 DOT postaviStranice line 110
+INFO  23:27:04,961 - Local variable detected (k2) line 111
+INFO  23:27:04,961 - Member reference detected: k2 DOT postaviStranice line 111
+INFO  23:27:04,961 - Local variable detected (k3) line 112
+INFO  23:27:04,965 - Member reference detected: k3 DOT postaviStranice line 112
+INFO  23:27:04,965 - Local variable detected (predmeti) line 114
+INFO  23:27:04,965 - Array reference: predmeti[]  line 114
+INFO  23:27:04,965 - Local variable detected (s1) line 114
+INFO  23:27:04,965 - Local variable detected (predmeti) line 115
+INFO  23:27:04,965 - Array reference: predmeti[]  line 115
+INFO  23:27:04,965 - Local variable detected (s2) line 115
+INFO  23:27:04,965 - Local variable detected (predmeti) line 116
+INFO  23:27:04,965 - Array reference: predmeti[]  line 116
+INFO  23:27:04,965 - Local variable detected (s3) line 116
+INFO  23:27:04,965 - Local variable detected (predmeti) line 117
+INFO  23:27:04,965 - Array reference: predmeti[]  line 117
+INFO  23:27:04,965 - Local variable detected (k1) line 117
+INFO  23:27:04,965 - Local variable detected (predmeti) line 118
+INFO  23:27:04,965 - Array reference: predmeti[]  line 118
+INFO  23:27:04,965 - Local variable detected (k2) line 118
+INFO  23:27:04,965 - Local variable detected (predmeti) line 119
+INFO  23:27:04,965 - Array reference: predmeti[]  line 119
+INFO  23:27:04,965 - Local variable detected (k3) line 119
+INFO  23:27:04,965 - Local variable detected (t) line 121
+INFO  23:27:04,965 - Local variable detected (i) line 122
+INFO  23:27:04,965 - Local variable detected (predmeti) line 124
+INFO  23:27:04,965 - Local variable detected (i) line 124
+INFO  23:27:04,965 - Array reference: predmeti[]  line 124
+INFO  23:27:04,965 - Member reference detected: predmeti DOT postaviTezinu line 124
+INFO  23:27:04,965 - Local variable detected (t) line 124
+INFO  23:27:04,965 - Local variable detected (i) line 125
+INFO  23:27:04,965 - Local variable detected (i) line 126
+INFO  23:27:04,970 - Global variable detected (zapreminaS) line 128
+INFO  23:27:04,970 - Global variable detected (tezinaS) line 129
+INFO  23:27:04,970 - Local variable detected (i) line 130
+INFO  23:27:04,970 - Local variable detected (i) line 132
+INFO  23:27:04,970 - Local variable detected (i) line 133
+INFO  23:27:04,971 - Global variable detected (zapreminaS) line 136
+INFO  23:27:04,971 - Global variable detected (zapreminaS) line 136
+INFO  23:27:04,971 - Local variable detected (predmeti) line 136
+INFO  23:27:04,971 - Local variable detected (i) line 136
+INFO  23:27:04,971 - Array reference: predmeti[]  line 136
+INFO  23:27:04,971 - Member reference detected: predmeti DOT zapremina line 136
+INFO  23:27:04,971 - Global variable detected (tezinaS) line 137
+INFO  23:27:04,971 - Global variable detected (tezinaS) line 137
+INFO  23:27:04,971 - Local variable detected (predmeti) line 137
+INFO  23:27:04,971 - Local variable detected (i) line 137
+INFO  23:27:04,971 - Array reference: predmeti[]  line 137
+INFO  23:27:04,971 - Member reference detected: predmeti DOT Q line 137
+INFO  23:27:04,971 - Local variable detected (predmeti) line 138
+INFO  23:27:04,971 - Local variable detected (i) line 138
+INFO  23:27:04,971 - Array reference: predmeti[]  line 138
+INFO  23:27:04,975 - Global function call detected - ispis() line 138
+INFO  23:27:04,975 - Local variable detected (i) line 139
+INFO  23:27:04,975 - Local variable detected (i) line 140
+INFO  23:27:04,975 - Global variable detected (zapreminaK) line 143
+INFO  23:27:04,975 - Global variable detected (tezinaK) line 144
+INFO  23:27:04,975 - Local variable detected (i) line 145
+INFO  23:27:04,975 - Local variable detected (i) line 147
+INFO  23:27:04,975 - Local variable detected (i) line 148
+INFO  23:27:04,975 - Global variable detected (zapreminaK) line 151
+INFO  23:27:04,975 - Global variable detected (zapreminaK) line 151
+INFO  23:27:04,975 - Local variable detected (predmeti) line 151
+INFO  23:27:04,975 - Local variable detected (i) line 151
+INFO  23:27:04,975 - Array reference: predmeti[]  line 151
+INFO  23:27:04,975 - Member reference detected: predmeti DOT zapremina line 151
+INFO  23:27:04,975 - Global variable detected (tezinaK) line 152
+INFO  23:27:04,975 - Global variable detected (tezinaK) line 152
+INFO  23:27:04,975 - Local variable detected (predmeti) line 152
+INFO  23:27:04,975 - Local variable detected (i) line 152
+INFO  23:27:04,975 - Array reference: predmeti[]  line 152
+INFO  23:27:04,975 - Member reference detected: predmeti DOT Q line 152
+INFO  23:27:04,975 - Local variable detected (predmeti) line 153
+INFO  23:27:04,975 - Local variable detected (i) line 153
+INFO  23:27:04,975 - Array reference: predmeti[]  line 153
+INFO  23:27:04,975 - Global function call detected - ispis() line 153
+INFO  23:27:04,975 - Local variable detected (i) line 154
+INFO  23:27:04,975 - Local variable detected (i) line 155
+INFO  23:27:04,975 - Global variable detected (zapreminaS) line 157
+INFO  23:27:04,975 - Global variable detected (zapreminaK) line 158
+INFO  23:27:04,975 - Global variable detected (tezinaS) line 159
+INFO  23:27:04,975 - Global variable detected (tezinaK) line 160
+INFO  23:27:05,006 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
+INFO  23:27:05,091 - MJ compiler finished with success.
