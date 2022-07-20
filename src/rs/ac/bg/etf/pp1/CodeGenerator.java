@@ -690,11 +690,4 @@ public class CodeGenerator extends VisitorAdaptor {
         return condFact.getParent() instanceof CondTerm
                 && ((CondTerm) condFact.getParent()).getAndCondFactList() instanceof NoAndCondTermList;
     }
-
-    /*
-     * TODO
-     * table dump
-     * todos iz semanticanalyzera
-     * procitati projekat
-     */
 }

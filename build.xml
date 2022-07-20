@@ -8,6 +8,7 @@
                 <exclude name="semantic_analyzer_utils/*"/>
                 <exclude name="SemanticAnalyzer.java"/>
                 <exclude name="CodeGenerator.java"/>
+                <exclude name="Compiler.java"/>
             </fileset>
         </delete>
         <delete>
