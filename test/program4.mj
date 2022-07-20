@@ -4,23 +4,29 @@ program test301
 
 
 {
+
+    bool a() {
+        print('a');
+        return false;
+    }
+    bool b() {
+        print('b');
+        return true;
+    }
+    bool c() {
+        print('c');
+        return false;
+    }
+
+
 	void main()
 	{
-        if (5<4) {
+        if (a() && b() || c()) {
             print('x');
         }
         else {
-             print('a');
-             if (false) {
-                print('y');
-             }
-             else {
-                print('z');
-             }
-             print('q');
+            print('y');
         }
-
-                        print('w');
 
     //            else {
     //        if (true)  {

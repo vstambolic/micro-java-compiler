@@ -1,6 +1,7 @@
 package rs.ac.bg.etf.pp1;
 
 import javafx.util.Pair;
+import jdk.nashorn.internal.runtime.ListAdapter;
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
@@ -465,12 +466,15 @@ public class CodeGenerator extends VisitorAdaptor {
 
     private Stack<Set<Integer>> addressesToUpdateAfterElseOrUnmatchedIfStack = new Stack<>();
     private Stack<Set<Integer>> addressesToUpdateAfterMatchedIfStatement = new Stack<>();
+    private Set<Integer> addressesToUpdateAfterCondition = new HashSet<>();
+    private Set<Integer> addressesToUpdateAfterOrDelimiter = new HashSet<>();
+
     public void visit(IfToken ifToken) {
         addressesToUpdateAfterElseOrUnmatchedIfStack.push(new HashSet<>());
         if (ifToken.getParent() instanceof MatchedIfStatement || ifToken.getParent() instanceof UnmatchedIfElseStatement)
             addressesToUpdateAfterMatchedIfStatement.push(new HashSet<>());
-
     }
+
     public void visit(ElseToken elseToken) {
         Code.put(Code.jmp);
         this.addressesToUpdateAfterMatchedIfStatement.peek().add(Code.pc);
@@ -488,10 +492,57 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
     public void visit(UnmatchedIfStatement unmatchedIfStatement) {
-        addressesToUpdateAfterElseOrUnmatchedIfStack.pop().forEach(Code::fixup);
+        this.addressesToUpdateAfterElseOrUnmatchedIfStack.pop().forEach(Code::fixup);
     }
 
+    public void visit(ConditionValid conditionValid) {
+        this.addressesToUpdateAfterCondition.forEach(Code::fixup);
+        this.addressesToUpdateAfterCondition = new HashSet<>();
+    }
 
+    public void visit(OrDelimiter orDelimiter) {
+        this.addressesToUpdateAfterOrDelimiter.forEach(Code::fixup);
+        this.addressesToUpdateAfterOrDelimiter = new HashSet<>();
+    }
+
+    /*            WORKFLOW
+                -> ako je CondFact poslednji CondFact
+                    -> ako je CondTerm poslednji CondTerm (y || Z)
+                        -> ako je if condition
+                            -> ako je true: treba nastaviti dalje
+                            -> ako je false: treba nastaviti nakon Else ili UnmatchedIf
+                            ==== jeq na pocetak if tela, i.e. na adresu dobijenu nakon sto se obisao ConditionValid
+                        -> ako je do_while condition
+                            -> ako je true: treba skociti na pocetak vajla
+                            -> ako je false: nasatviti dalje
+                            ==== jeq na pocetak vajla, i.e. na adresu dobijenu nakon sto se obisao DoToken
+                    -> ako nije CondTerm poslednji CondTerm (Y || z)
+                        -> ako je if condition
+                            -> ako je true: treba skociti na pocetak tela if-a
+                            -> ako je false: nastaviti dalje
+                            ==== jeq na pocetak if tela, i.e. na adresu dobijenu nakon sto se obisao ConditionValid
+                        -> ako je do_while condition
+                            -> ako je true: treba skociti na pocetak vajla
+                            -> ako je false: nasatviti dalje
+                            ==== jeq na pocetak vajla, i.e. na adresu dobijenu nakon sto se obisao DoToken
+                -> ako nije CondFact poslednji CondFact
+                    -> ako je CondTerm poslednji CondTerm (x || Y && z)
+                        -> ako je if condition
+                            -> ako je true: treba nastaviti dalje
+                            -> ako je false: treba nastaviti nakon Else ili kraj UnmatchedIf
+                            ==== jne na kraju unmatchedIf-a ili Elsa
+                        -> ako je do_while condition
+                            -> ako je true: treba nastaviti dalje
+                            -> ako je false: treba nastaviti nakon vajla, i.e. na adresu koju si dobio nakon obilaska DoWhile-a
+                    -> ako nije CondTerm poslednji CondTerm (X && y || z)
+                        -> ako je if condition
+                            -> ako je true: nastaviti dalje
+                            -> ako je false: skociti na adresu nakon Or-a
+                            ==== jne na sledeci condterm tj. adresu koja se dobija kada se obidje OR
+                        -> ako je do_while condition
+                            -> ako je true: nastaviti dalje
+                            -> ako je false: skociti na adresu nakon Or-a
+*/
     public void visit(ExprCondFact exprCondFact) {
         int relOp;
         if (exprCondFact.getRelopExprOrNothing() instanceof NoRelopExpr) {
@@ -519,39 +570,56 @@ public class CodeGenerator extends VisitorAdaptor {
         }
 
         if (this.isLastCondFact(exprCondFact)) { // last condFact,
-            System.out.println("last cond fact");
-              CondTerm condTerm = this.getCondTerm(exprCondFact);
-              if (this.isLastCondTerm(condTerm)) { // last condFact, last condTerm,
-                  System.out.println("last cond term");
-                  Condition condition = this.getCondition(condTerm);
-                  if (this.isDoWhileCondition(condition)) { // last condFact, last condTerm, DoWhileCondition
-                      // todo jeq na pocetak vajla -> adresu koju si pushovao na stek kada si posetio DO
-                      /*                           -> adresu koju ces popovati sa steka kada si posetio ceo dowhile
-                      *
-                      * */
-                  }
-                  else {  // last condFact, last condTerm, IfCondition
-                      // if not true, jump after Else or after Unmatched If Statement
-                      Code.put(Code.jcc + Code.inverse[relOp]);
-                      this.addressesToUpdateAfterElseOrUnmatchedIfStack.peek().add(Code.pc);
-                      Code.put2(0);
-                  }
-              }
-              else {
+            CondTerm condTerm = this.getCondTerm(exprCondFact);
+            if (this.isLastCondTerm(condTerm)) { //  (x || Y) last condFact, last condTerm,
+                Condition condition = this.getCondition(condTerm);
+                if (this.isDoWhileCondition(condition)) { // last condFact, last condTerm, DoWhileCondition
 
-              }
-//            1. ako je condfact poslednji u andlisti
-//                  ako je poslednji condterm
-            //          1. ako je true: nastavi u telo ifa | skoci na pocetak vajla
-            //          2. ako je false: skoci u else granu | iza ifa | iza vajla
-            //      ako nije poslednji condterm
+                }
+                else {  // last condFact, last condTerm, IfCondition
+                    // if not true, jump after Else or after Unmatched If Statement
+                    Code.put(Code.jcc + Code.inverse[relOp]);
+                    this.addressesToUpdateAfterElseOrUnmatchedIfStack.peek().add(Code.pc);
+                    Code.put2(0);
+                }
+            }
+            else { // (X || y)
+                Condition condition = this.getCondition(condTerm);
+                if (this.isDoWhileCondition(condition)) {
 
-//            -> ako je true
-//            -> ako je false, skoci na prvi sledeci kondfact u oru
-//                -> ako ima orterma, nastavi dalje tu
-//                -> ako nema orterma, skoci u else|krajIfa|izaVajla
+                }
+                else {
+                    Code.put(Code.jcc + relOp);
+                    this.addressesToUpdateAfterCondition.add(Code.pc);
+                    Code.put2(0);
+                }
+            }
         }
+        else {
+            CondTerm condTerm = this.getCondTerm(exprCondFact);
+            if (this.isLastCondTerm(condTerm)) { // (x || Y && z)
+                Condition condition = this.getCondition(condTerm);
+                if (this.isDoWhileCondition(condition)) {
 
+                }
+                else {
+                    Code.put(Code.jcc + Code.inverse[relOp]);
+                    this.addressesToUpdateAfterElseOrUnmatchedIfStack.peek().add(Code.pc);
+                    Code.put2(0);
+                }
+            }
+            else { //
+                Condition condition = this.getCondition(condTerm);
+                if (this.isDoWhileCondition(condition)) {
+
+                }
+                else {
+                    Code.put(Code.jcc + Code.inverse[relOp]);
+                    this.addressesToUpdateAfterOrDelimiter.add(Code.pc);
+                    Code.put2(0);
+                }
+            }
+        }
     }
 
     private boolean isDoWhileCondition(Condition condition) {
@@ -564,6 +632,7 @@ public class CodeGenerator extends VisitorAdaptor {
             syntaxNode = syntaxNode.getParent();
         return (CondTerm) syntaxNode;
     }
+
     private Condition getCondition(CondTerm condTerm) {
         SyntaxNode syntaxNode = condTerm.getParent();
         while (!(syntaxNode instanceof Condition))
@@ -597,77 +666,8 @@ public class CodeGenerator extends VisitorAdaptor {
                 && ((CondTerm) condFact.getParent()).getAndCondFactList() instanceof NoAndCondTermList;
     }
 
-
-
-    public void visit(AndDelimiter and) {
-        System.out.println("AND VISITED");
-    }
-
-    /*
-
-    if (true) {
-
-    }
-
-
-    if (true && true) {
-
-    }
-
-    if (true || true) {
-
-    }
-
-
-    if (true && true || true) {
-
-    }
-
-    if (true || true && true) {
-
-    }
-
-    do {
-    }
-    while (true && true);
-
-    do {
-    }
-    while (true && true || true);
-
-    do {
-    }
-    while (true || true && true);
-
-    kada visitujes CONDFACT (true)
-       ako je true:
-            nastavi dalje bez skakanja
-       ako je false skoci:
-            -> (true)                    skoci na else | kraj ifa | iza while-a
-            -> (true && true)            skoci na else | kraj ifa | iza while-a
-            -> (true || true)            skoci na prvi sledeci kondfact u oru
-            -> (true && true || true)    skoci na prvi sledeci kondfact u oru
-            -> (true || true && true)    skoci na telo if-a | pocetak vajla
-            -> (true && true || true && true)
-
-       Dakle pravilo izvuceno prostom matematickom indukcijom:
-
-       1. ako je condfact poslednji u andlisti
-            -> ako je true, skoci u telo ifa ili pocetak vajla
-            -> ako je false, skoci na prvi sledeci kondfact u oru
-                -> ako ima orterma, nastavi dalje tu
-                -> ako nema orterma, skoci u else|krajIfa|izaVajla
-
-       1. ako condfact nije poslednji u andlisti
-            -> ako je true, nastavi dalje
-            -> ako je false, skoci na sledeci kondfact u oru
-                -> ako ga ima, nastavi dalje tu
-                -> ako ga nema skoci u else|krajIfa|izaVajla
- */
-
     /*
      * TODO
-     * if then else
      * do while
      *
      */

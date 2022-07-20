@@ -854,7 +854,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
         }
     }
 
-
     public void visit(AddopTermListIndeed addopTermListIndeed) {
         if (!addopTermListIndeed.getTerm().struct.equals(Tab.intType)) {
             report_error("Invalid expression - term in add operation must have int type.", addopTermListIndeed);
