@@ -7,7 +7,7 @@ program test301
 
     bool a() {
         print('a');
-        return false;
+        return true;
     }
     bool b() {
         print('b');
@@ -19,14 +19,22 @@ program test301
     }
 
 
-	void main()
+	void main() int i; int j;
 	{
-        if (a() && b() || c()) {
-            print('x');
-        }
-        else {
-            print('y');
-        }
+       i = 0;
+       j = 0;
+
+        do {
+         i = 0;
+       do {
+
+            print(i); print (j); print('|');
+            i++;
+       } while (i < 5);
+       print(eol);
+       j++;
+} while ( j<5);
+
 
     //            else {
     //        if (true)  {

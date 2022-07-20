@@ -465,37 +465,48 @@ public class CodeGenerator extends VisitorAdaptor {
 
 
     private Stack<Set<Integer>> addressesToUpdateAfterElseOrUnmatchedIfStack = new Stack<>();
-    private Stack<Set<Integer>> addressesToUpdateAfterMatchedIfStatement = new Stack<>();
+    private Stack<Set<Integer>> addressesToUpdateAfterMatchedIfStatementStack = new Stack<>();
     private Set<Integer> addressesToUpdateAfterCondition = new HashSet<>();
     private Set<Integer> addressesToUpdateAfterOrDelimiter = new HashSet<>();
+
+    private Stack<Integer> doTokenAddressStack = new Stack<>();
+    private Stack<Set<Integer>> addressesToUpdateAfterDoWhileStatementStack = new Stack<>();
+
+    public void visit(DoToken doToken) {
+        addressesToUpdateAfterDoWhileStatementStack.push(new HashSet<>());
+        doTokenAddressStack.push(Code.pc);
+    }
+    public void visit(DoWhileStatement doWhileStatement) {
+        addressesToUpdateAfterDoWhileStatementStack.pop().forEach(Code::fixup);
+        doTokenAddressStack.pop();
+    }
 
     public void visit(IfToken ifToken) {
         addressesToUpdateAfterElseOrUnmatchedIfStack.push(new HashSet<>());
         if (ifToken.getParent() instanceof MatchedIfStatement || ifToken.getParent() instanceof UnmatchedIfElseStatement)
-            addressesToUpdateAfterMatchedIfStatement.push(new HashSet<>());
+            addressesToUpdateAfterMatchedIfStatementStack.push(new HashSet<>());
     }
 
     public void visit(ElseToken elseToken) {
         Code.put(Code.jmp);
-        this.addressesToUpdateAfterMatchedIfStatement.peek().add(Code.pc);
+        this.addressesToUpdateAfterMatchedIfStatementStack.peek().add(Code.pc);
         Code.put2(0);
-
         addressesToUpdateAfterElseOrUnmatchedIfStack.pop().forEach(Code::fixup);
     }
 
     public void visit(UnmatchedIfElseStatement unmatchedIfElseStatement) {
-        this.addressesToUpdateAfterMatchedIfStatement.pop().forEach(Code::fixup);
+        this.addressesToUpdateAfterMatchedIfStatementStack.pop().forEach(Code::fixup);
     }
 
     public void visit(MatchedIfStatement matchedIfStatement) {
-        this.addressesToUpdateAfterMatchedIfStatement.pop().forEach(Code::fixup);
+        this.addressesToUpdateAfterMatchedIfStatementStack.pop().forEach(Code::fixup);
     }
 
     public void visit(UnmatchedIfStatement unmatchedIfStatement) {
         this.addressesToUpdateAfterElseOrUnmatchedIfStack.pop().forEach(Code::fixup);
     }
 
-    public void visit(ConditionValid conditionValid) {
+    public void visit(ConditionValid condition) {
         this.addressesToUpdateAfterCondition.forEach(Code::fixup);
         this.addressesToUpdateAfterCondition = new HashSet<>();
     }
@@ -514,13 +525,13 @@ public class CodeGenerator extends VisitorAdaptor {
                             ==== jeq na pocetak if tela, i.e. na adresu dobijenu nakon sto se obisao ConditionValid
                         -> ako je do_while condition
                             -> ako je true: treba skociti na pocetak vajla
-                            -> ako je false: nasatviti dalje
+                            -> ako je false: nastaviti dalje
                             ==== jeq na pocetak vajla, i.e. na adresu dobijenu nakon sto se obisao DoToken
                     -> ako nije CondTerm poslednji CondTerm (Y || z)
                         -> ako je if condition
                             -> ako je true: treba skociti na pocetak tela if-a
                             -> ako je false: nastaviti dalje
-                            ==== jeq na pocetak if tela, i.e. na adresu dobijenu nakon sto se obisao ConditionValid
+                            ==== jeq na pocetak if tela, i.e. na adresu dobijenu nakon sto se obisao ConditionValid, then
                         -> ako je do_while condition
                             -> ako je true: treba skociti na pocetak vajla
                             -> ako je false: nasatviti dalje
@@ -533,7 +544,8 @@ public class CodeGenerator extends VisitorAdaptor {
                             ==== jne na kraju unmatchedIf-a ili Elsa
                         -> ako je do_while condition
                             -> ako je true: treba nastaviti dalje
-                            -> ako je false: treba nastaviti nakon vajla, i.e. na adresu koju si dobio nakon obilaska DoWhile-a
+                            -> ako je false: treba nastaviti nakon vajla, i.e. na adresu dobijenu nakon sto se obisao Condition ili do_while
+                            ==== jne na adresu nakon do_while statementa
                     -> ako nije CondTerm poslednji CondTerm (X && y || z)
                         -> ako je if condition
                             -> ako je true: nastaviti dalje
@@ -542,6 +554,7 @@ public class CodeGenerator extends VisitorAdaptor {
                         -> ako je do_while condition
                             -> ako je true: nastaviti dalje
                             -> ako je false: skociti na adresu nakon Or-a
+                            ==== jne na sledeci condterm tj. adresu koja se dobija kada se obidje OR
 */
     public void visit(ExprCondFact exprCondFact) {
         int relOp;
@@ -574,7 +587,9 @@ public class CodeGenerator extends VisitorAdaptor {
             if (this.isLastCondTerm(condTerm)) { //  (x || Y) last condFact, last condTerm,
                 Condition condition = this.getCondition(condTerm);
                 if (this.isDoWhileCondition(condition)) { // last condFact, last condTerm, DoWhileCondition
-
+                   // ==== jeq na pocetak vajla, i.e. na adresu dobijenu nakon sto se obisao DoToken
+                    Code.put(Code.jcc + relOp);
+                    Code.put2(this.doTokenAddressStack.peek()-Code.pc+1);
                 }
                 else {  // last condFact, last condTerm, IfCondition
                     // if not true, jump after Else or after Unmatched If Statement
@@ -586,7 +601,9 @@ public class CodeGenerator extends VisitorAdaptor {
             else { // (X || y)
                 Condition condition = this.getCondition(condTerm);
                 if (this.isDoWhileCondition(condition)) {
-
+                    // ==== jeq na pocetak vajla, i.e. na adresu dobijenu nakon sto se obisao DoToken
+                    Code.put(Code.jcc + relOp);
+                    Code.put2(this.doTokenAddressStack.peek()-Code.pc+1);
                 }
                 else {
                     Code.put(Code.jcc + relOp);
@@ -600,7 +617,10 @@ public class CodeGenerator extends VisitorAdaptor {
             if (this.isLastCondTerm(condTerm)) { // (x || Y && z)
                 Condition condition = this.getCondition(condTerm);
                 if (this.isDoWhileCondition(condition)) {
-
+                    // ==== jne na adresu nakon do_while statementa
+                    Code.put(Code.jcc + Code.inverse[relOp]);
+                    this.addressesToUpdateAfterDoWhileStatementStack.peek().add(Code.pc);
+                    Code.put2(0);
                 }
                 else {
                     Code.put(Code.jcc + Code.inverse[relOp]);
@@ -608,16 +628,10 @@ public class CodeGenerator extends VisitorAdaptor {
                     Code.put2(0);
                 }
             }
-            else { //
-                Condition condition = this.getCondition(condTerm);
-                if (this.isDoWhileCondition(condition)) {
-
-                }
-                else {
-                    Code.put(Code.jcc + Code.inverse[relOp]);
-                    this.addressesToUpdateAfterOrDelimiter.add(Code.pc);
-                    Code.put2(0);
-                }
+            else { // (X && y || z)
+                Code.put(Code.jcc + Code.inverse[relOp]);
+                this.addressesToUpdateAfterOrDelimiter.add(Code.pc);
+                Code.put2(0);
             }
         }
     }
@@ -668,7 +682,7 @@ public class CodeGenerator extends VisitorAdaptor {
 
     /*
      * TODO
-     * do while
+     * break continue
      *
      */
 }
