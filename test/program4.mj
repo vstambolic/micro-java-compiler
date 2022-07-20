@@ -1,108 +1,163 @@
-//Test 302
+//Test 303
 
-program test302
+program test_303
 
-const int jedan = 1;
+const int cinilac = 4, delilac = 3;
 
-int i;
-bool ibool;
-
-int niz2;
-
-int niz[];
-int a;
-
+class Predmet
 {
+	 int tezina;
+	 int koefTezine;
+	 char vrsta;
 
-	int sum(int z = 1, int d = 2)
 	{
-		return z + d;
-	}
-
-
-	int inkrement(int a, int inc = 1)
-		int pom;
-	{
-		if(inc == jedan) pom = 1;
-		else if(inc == 2) pom = a;
-
-		return sum(a,pom);
-	}
-
-	bool verify() {
-		print('v');
-		return false;
-	}
-
-	void main()
-	{
-
-		print(sum());
-		print(sum(2));
-		if(1!=1) print(-6);
-		else print(0);
-
-		ibool = false;
-		i = 0;
-		do{
-			if(i == 2) ibool = true;
-			i++;
-		}while(i < 5);
-
-		if(ibool)
-			if(i == 5) print(1);
-			else print(-1);
-		a = 2;
-		niz = new int[3];
-		niz[0] = 1 * a;
-		niz[1] = 2 * a;
-		niz[2] = sum(niz[1], niz[0]) * a + 1;
-		if(verify() || niz[2] == 4) print(ord('A'));
-		else print(ord('a'));
-
-		print(eol);
-		i = 0;
-		do{
-			if(i == 3)
-			{
-				i++;
-				continue;
-			}
-			if(i == 4) break;
-			i = inkrement(i);
-		}while(i < 10);
-
-		if(i == 3 && verify()) print(-4);
-		else print(4);
-
-		read(niz[0]);
-		read(niz[1]);
-		read(niz[2]);
-		print(eol);
-		print(sum (sum(niz[0], niz[1]), niz[2]));
-
-		print(eol);
-		print(inkrement(niz[2], 2));
-
-		a = 3;
-		i = 0;
-		do{
-			niz[i] = niz[i] * 2 * a;
-			i++;
-		}while (i < 3);
-		print(niz[0]);
-		print(niz[1]);
-		print(niz[2]);
-		print(eol);
-
-		i = 0;
-		niz2 = 0;
-		do{
-			niz2 = niz2 + niz[i] * niz[i];
-			i++;
-		}while (i < 3);
-		print(niz2);
-
+		 Predmet(){
+		   koefTezine = 1;	
+		 }
+		 void postaviTezinu(int tezina) {this.tezina = tezina * koefTezine;}  
+		 void ucitajTezinu() { read(tezina); }
+		 int zapremina() { return 0;}
+		 int Q() {return zapremina() * tezina;}
+		 void postaviVrstu(char vrsta) {this.vrsta = vrsta;}
+		 char dohvVrstu() { return vrsta; }
+		 int dohvTezinu() { return tezina; }
+		 void ispisi() {
+		 	print(vrsta);
+		 	print(Q());
+		 }
 	}
 }
 
+class Sfera extends Predmet
+{
+	int r;
+	{
+		Sfera() {
+		  super();
+		  vrsta = 's';
+		}
+		
+		 void postaviPoluprecnik(int r) {this.r = r; }
+		 
+		 int zapremina()
+			int z;
+		{
+			z = cinilac;
+			return z *(r/delilac);
+		}
+		
+		void ispisi(){
+			super();
+			print(r);
+			print(eol);
+		}
+	}
+}
+
+class Kvadar extends Predmet
+{
+	 int a, b, c;
+	{
+		Kvadar() {
+		  super();
+		  vrsta = 'k';
+		}
+		
+		 void postaviStranice(int a, int b, int c) {this.a = a; this.b = b; this.c = c;}
+		 int zapremina()
+			int z;
+		{
+			z = a * b * c;
+			return z;
+		}
+		void ispisi(){
+			super();
+			print(a);
+			print(b);
+			print(c);
+			print(eol);
+		}
+	}
+}
+
+int zapreminaK, zapreminaS;
+int tezinaK, tezinaS;
+{
+
+	void ispis( Predmet p)
+	{
+		p.ispisi();
+		print(eol); 
+		print(p.dohvTezinu());
+	}
+		
+	void main() Predmet predmeti[]; int i; Sfera s1, s2, s3; Kvadar k1, k2, k3; int t;
+	{	
+		predmeti = new Predmet[6];
+		s1 = new Sfera;
+		s2 = new Sfera;
+		s3 = new Sfera;
+		
+		k1 = new Kvadar;
+		k2 = new Kvadar;
+		k3 = new Kvadar;
+		
+		s1.postaviPoluprecnik(1);
+		s2.postaviPoluprecnik(2);
+		s3.postaviPoluprecnik(3);
+		
+
+		k1.postaviStranice(1,2,3);
+		k2.postaviStranice(2,3,4);
+		k3.postaviStranice(3,4,5);
+		
+		predmeti[0] = s1;
+		predmeti[2] = s2;
+		predmeti[4] = s3;
+		predmeti[1] = k1;
+		predmeti[3] = k2;
+		predmeti[5] = k3;
+
+		read(t);
+		i=0;
+		do{
+			predmeti[i].postaviTezinu(t); 	
+			i++;
+		}while(i<6);
+		
+		zapreminaS = 0;
+		tezinaS = 0;
+		i = 1;
+		do{
+			if(i % 2 == 1) {
+				i++;
+				continue; 
+			}
+			zapreminaS = zapreminaS + predmeti[i - 1].zapremina();
+			tezinaS = tezinaS + predmeti[i - 1].Q();
+			ispis(predmeti[i - 1]);
+			i++;
+		}while(i<=6);
+		
+		
+		zapreminaK = 0; 
+		tezinaK = 0;
+		i = 1;
+		do{
+			if(i % 2 == 1) {
+				i++;
+				continue; 
+			}
+			zapreminaS = zapreminaS + predmeti[i - 1].zapremina();
+			tezinaS = tezinaS + predmeti[i - 1].Q();
+			ispis(predmeti[i - 1]);
+			i++;
+		}while(i<=6);
+		
+		print(zapreminaS); print(eol);
+		print(zapreminaK); print(eol);
+		print(tezinaS); print(eol);
+		print(tezinaK); print(eol);
+
+	}
+}

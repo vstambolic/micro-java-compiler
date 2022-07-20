@@ -429,10 +429,11 @@ public class CodeGenerator extends VisitorAdaptor {
         methodDesignator.obj
                 .getLocalSymbols()
                 .stream()
+                .limit(methodDesignator.obj.getLevel())
                 .skip(currActualParametersCnt + (isMethod ? 1 : 0))
                 .forEachOrdered(obj ->
                         Code.loadConst(obj.getFpPos()));
-
+        currActualParametersCnt = 0;
 
         if (isMethod && (methodDesignator instanceof DesignatorIdent) && !((DesignatorIdent) methodDesignator).getIdent().equals("super")) { // todo ne treba ako je super
             methodDesignator.traverseBottomUp(this); // Load thisPointer
@@ -522,7 +523,9 @@ public class CodeGenerator extends VisitorAdaptor {
     }
 
     public void visit(BreakStatement breakStatement) {
+        Code.put(Code.jmp);
         this.addressesToUpdateAfterDoWhileStatementStack.peek().add(Code.pc);
+        Code.put2(0);
     }
 
     /*            WORKFLOW
