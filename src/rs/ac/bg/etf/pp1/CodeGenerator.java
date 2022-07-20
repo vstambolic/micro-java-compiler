@@ -516,6 +516,15 @@ public class CodeGenerator extends VisitorAdaptor {
         this.addressesToUpdateAfterOrDelimiter = new HashSet<>();
     }
 
+    public void visit(ContinueStatement continueStatement) {
+        Code.put(Code.jmp);
+        Code.put2(this.doTokenAddressStack.peek()-Code.pc+1);
+    }
+
+    public void visit(BreakStatement breakStatement) {
+        this.addressesToUpdateAfterDoWhileStatementStack.peek().add(Code.pc);
+    }
+
     /*            WORKFLOW
                 -> ako je CondFact poslednji CondFact
                     -> ako je CondTerm poslednji CondTerm (y || Z)

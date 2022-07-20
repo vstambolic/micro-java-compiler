@@ -1,130 +1,624 @@
-INFO  03:02:19,511 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
-INFO  03:02:19,646 - #2 program
-INFO  03:02:19,646 - #47 test301
-INFO  03:02:19,646 - #45 {
-INFO  03:02:19,651 - #47 bool
-INFO  03:02:19,651 - #47 a
-INFO  03:02:19,651 - #41 (
-INFO  03:02:19,651 - #42 )
-INFO  03:02:19,656 - #45 {
-INFO  03:02:19,656 - #12 print
-INFO  03:02:19,656 - #41 (
-INFO  03:02:19,656 - #50 a
-INFO  03:02:19,656 - #42 )
-INFO  03:02:19,666 - #37 ;
-INFO  03:02:19,666 - #14 return
-INFO  03:02:19,666 - #49 true
-INFO  03:02:19,666 - #37 ;
-INFO  03:02:19,666 - #46 }
-INFO  03:02:19,666 - #47 bool
-INFO  03:02:19,666 - #47 b
-INFO  03:02:19,666 - #41 (
-INFO  03:02:19,666 - #42 )
-INFO  03:02:19,671 - #45 {
-INFO  03:02:19,686 - #12 print
-INFO  03:02:19,686 - #41 (
-INFO  03:02:19,686 - #50 b
-INFO  03:02:19,686 - #42 )
-INFO  03:02:19,686 - #37 ;
-INFO  03:02:19,686 - #14 return
-INFO  03:02:19,686 - #49 true
-INFO  03:02:19,686 - #37 ;
-INFO  03:02:19,686 - #46 }
-INFO  03:02:19,686 - #47 bool
-INFO  03:02:19,686 - #47 c
-INFO  03:02:19,686 - #41 (
-INFO  03:02:19,686 - #42 )
-INFO  03:02:19,686 - #45 {
-INFO  03:02:19,686 - #12 print
-INFO  03:02:19,686 - #41 (
-INFO  03:02:19,686 - #50 c
-INFO  03:02:19,686 - #42 )
-INFO  03:02:19,686 - #37 ;
-INFO  03:02:19,686 - #14 return
-INFO  03:02:19,686 - #49 false
-INFO  03:02:19,686 - #37 ;
-INFO  03:02:19,686 - #46 }
-INFO  03:02:19,686 - #15 void
-INFO  03:02:19,686 - #47 main
-INFO  03:02:19,686 - #41 (
-INFO  03:02:19,692 - #42 )
-INFO  03:02:19,692 - #47 int
-INFO  03:02:19,692 - #47 i
-INFO  03:02:19,692 - #37 ;
-INFO  03:02:19,697 - #47 int
-INFO  03:02:19,697 - #47 j
-INFO  03:02:19,697 - #37 ;
-INFO  03:02:19,697 - #45 {
-INFO  03:02:19,697 - #47 i
-INFO  03:02:19,701 - #36 =
-INFO  03:02:19,701 - #48 0
-INFO  03:02:19,701 - #37 ;
-INFO  03:02:19,701 - #47 j
-INFO  03:02:19,706 - #36 =
-INFO  03:02:19,706 - #48 0
-INFO  03:02:19,706 - #37 ;
-INFO  03:02:19,706 - #9 do
-INFO  03:02:19,706 - #45 {
-INFO  03:02:19,706 - #47 i
-INFO  03:02:19,706 - #36 =
-INFO  03:02:19,706 - #48 0
-INFO  03:02:19,706 - #37 ;
-INFO  03:02:19,706 - #9 do
-INFO  03:02:19,706 - #45 {
-INFO  03:02:19,706 - #12 print
-INFO  03:02:19,706 - #41 (
-INFO  03:02:19,706 - #47 i
-INFO  03:02:19,706 - #42 )
-INFO  03:02:19,706 - #37 ;
-INFO  03:02:19,706 - #12 print
-INFO  03:02:19,706 - #41 (
-INFO  03:02:19,706 - #47 j
-INFO  03:02:19,706 - #42 )
-INFO  03:02:19,706 - #37 ;
-INFO  03:02:19,706 - #12 print
-INFO  03:02:19,706 - #41 (
-INFO  03:02:19,706 - #50 |
-INFO  03:02:19,706 - #42 )
-INFO  03:02:19,706 - #37 ;
-INFO  03:02:19,706 - #47 i
-INFO  03:02:19,706 - #20 ++
-INFO  03:02:19,706 - #37 ;
-INFO  03:02:19,711 - #46 }
-INFO  03:02:19,711 - #10 while
-INFO  03:02:19,711 - #41 (
-INFO  03:02:19,711 - #47 i
-INFO  03:02:19,711 - #33 <
-INFO  03:02:19,711 - #48 5
-INFO  03:02:19,711 - #42 )
-INFO  03:02:19,716 - #37 ;
-INFO  03:02:19,716 - #12 print
-INFO  03:02:19,716 - #41 (
-INFO  03:02:19,716 - #47 eol
-INFO  03:02:19,716 - #42 )
-INFO  03:02:19,716 - #37 ;
-INFO  03:02:19,716 - #47 j
-INFO  03:02:19,716 - #20 ++
-INFO  03:02:19,716 - #37 ;
-INFO  03:02:19,716 - #46 }
-INFO  03:02:19,716 - #10 while
-INFO  03:02:19,716 - #41 (
-INFO  03:02:19,716 - #47 j
-INFO  03:02:19,716 - #33 <
-INFO  03:02:19,716 - #48 5
-INFO  03:02:19,721 - #42 )
-INFO  03:02:19,721 - #37 ;
-INFO  03:02:19,721 - #46 }
-INFO  03:02:19,721 - #46 }
-INFO  03:02:19,746 - Local variable declared (i). line 22
-INFO  03:02:19,746 - Local variable declared (j). line 22
-INFO  03:02:19,746 - Local variable detected (i) line 24
-INFO  03:02:19,746 - Local variable detected (j) line 25
-INFO  03:02:19,746 - Local variable detected (i) line 28
-INFO  03:02:19,746 - Local variable detected (i) line 31
-INFO  03:02:19,746 - Local variable detected (j) line 31
-INFO  03:02:19,746 - Local variable detected (i) line 32
-INFO  03:02:19,746 - Local variable detected (i) line 33
-INFO  03:02:19,751 - Local variable detected (j) line 35
-INFO  03:02:19,751 - Local variable detected (j) line 36
-INFO  03:02:19,861 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
-INFO  03:02:19,886 - MJ compiler finished with success.
+INFO  03:09:01,550 - Compiling source file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.mj
+INFO  03:09:01,766 - #2 program
+INFO  03:09:01,766 - #47 test302
+INFO  03:09:01,766 - #7 const
+INFO  03:09:01,771 - #47 int
+INFO  03:09:01,771 - #47 jedan
+INFO  03:09:01,771 - #36 =
+INFO  03:09:01,771 - #48 1
+INFO  03:09:01,771 - #37 ;
+INFO  03:09:01,771 - #47 int
+INFO  03:09:01,771 - #47 i
+INFO  03:09:01,771 - #37 ;
+INFO  03:09:01,777 - #47 bool
+INFO  03:09:01,782 - #47 ibool
+INFO  03:09:01,782 - #37 ;
+INFO  03:09:01,782 - #47 int
+INFO  03:09:01,782 - #47 niz2
+INFO  03:09:01,782 - #37 ;
+INFO  03:09:01,782 - #47 int
+INFO  03:09:01,782 - #47 niz
+INFO  03:09:01,782 - #43 [
+INFO  03:09:01,782 - #44 ]
+INFO  03:09:01,782 - #37 ;
+INFO  03:09:01,782 - #47 int
+INFO  03:09:01,782 - #47 a
+INFO  03:09:01,782 - #37 ;
+INFO  03:09:01,782 - #45 {
+INFO  03:09:01,782 - #47 int
+INFO  03:09:01,782 - #47 sum
+INFO  03:09:01,782 - #41 (
+INFO  03:09:01,787 - #47 int
+INFO  03:09:01,787 - #47 z
+INFO  03:09:01,787 - #36 =
+INFO  03:09:01,787 - #48 1
+INFO  03:09:01,787 - #39 ,
+INFO  03:09:01,787 - #47 int
+INFO  03:09:01,792 - #47 d
+INFO  03:09:01,792 - #36 =
+INFO  03:09:01,792 - #48 2
+INFO  03:09:01,792 - #42 )
+INFO  03:09:01,792 - #45 {
+INFO  03:09:01,792 - #14 return
+INFO  03:09:01,792 - #47 z
+INFO  03:09:01,792 - #22 +
+INFO  03:09:01,797 - #47 d
+INFO  03:09:01,802 - #37 ;
+INFO  03:09:01,802 - #46 }
+INFO  03:09:01,802 - #47 int
+INFO  03:09:01,807 - #47 inkrement
+INFO  03:09:01,812 - #41 (
+INFO  03:09:01,812 - #47 int
+INFO  03:09:01,812 - #47 a
+INFO  03:09:01,812 - #39 ,
+INFO  03:09:01,812 - #47 int
+INFO  03:09:01,812 - #47 inc
+INFO  03:09:01,812 - #36 =
+INFO  03:09:01,812 - #48 1
+INFO  03:09:01,812 - #42 )
+INFO  03:09:01,812 - #47 int
+INFO  03:09:01,812 - #47 pom
+INFO  03:09:01,812 - #37 ;
+INFO  03:09:01,812 - #45 {
+INFO  03:09:01,812 - #8 if
+INFO  03:09:01,812 - #41 (
+INFO  03:09:01,812 - #47 inc
+INFO  03:09:01,812 - #28 ==
+INFO  03:09:01,812 - #47 jedan
+INFO  03:09:01,812 - #42 )
+INFO  03:09:01,821 - #47 pom
+INFO  03:09:01,821 - #36 =
+INFO  03:09:01,821 - #48 1
+INFO  03:09:01,821 - #37 ;
+INFO  03:09:01,821 - #6 else
+INFO  03:09:01,821 - #8 if
+INFO  03:09:01,826 - #41 (
+INFO  03:09:01,826 - #47 inc
+INFO  03:09:01,826 - #28 ==
+INFO  03:09:01,826 - #48 2
+INFO  03:09:01,826 - #42 )
+INFO  03:09:01,826 - #47 pom
+INFO  03:09:01,826 - #36 =
+INFO  03:09:01,826 - #47 a
+INFO  03:09:01,826 - #37 ;
+INFO  03:09:01,826 - #14 return
+INFO  03:09:01,826 - #47 sum
+INFO  03:09:01,826 - #41 (
+INFO  03:09:01,826 - #47 a
+INFO  03:09:01,826 - #39 ,
+INFO  03:09:01,826 - #47 pom
+INFO  03:09:01,826 - #42 )
+INFO  03:09:01,826 - #37 ;
+INFO  03:09:01,826 - #46 }
+INFO  03:09:01,826 - #47 bool
+INFO  03:09:01,826 - #47 verify
+INFO  03:09:01,826 - #41 (
+INFO  03:09:01,826 - #42 )
+INFO  03:09:01,831 - #45 {
+INFO  03:09:01,831 - #12 print
+INFO  03:09:01,831 - #41 (
+INFO  03:09:01,831 - #50 v
+INFO  03:09:01,831 - #42 )
+INFO  03:09:01,831 - #37 ;
+INFO  03:09:01,831 - #14 return
+INFO  03:09:01,831 - #49 false
+INFO  03:09:01,831 - #37 ;
+INFO  03:09:01,831 - #46 }
+INFO  03:09:01,831 - #15 void
+INFO  03:09:01,831 - #47 main
+INFO  03:09:01,831 - #41 (
+INFO  03:09:01,831 - #42 )
+INFO  03:09:01,831 - #45 {
+INFO  03:09:01,831 - #12 print
+INFO  03:09:01,831 - #41 (
+INFO  03:09:01,831 - #47 sum
+INFO  03:09:01,831 - #41 (
+INFO  03:09:01,831 - #42 )
+INFO  03:09:01,836 - #42 )
+INFO  03:09:01,836 - #37 ;
+INFO  03:09:01,836 - #12 print
+INFO  03:09:01,836 - #41 (
+INFO  03:09:01,836 - #47 sum
+INFO  03:09:01,836 - #41 (
+INFO  03:09:01,836 - #48 2
+INFO  03:09:01,836 - #42 )
+INFO  03:09:01,836 - #42 )
+INFO  03:09:01,836 - #37 ;
+INFO  03:09:01,836 - #8 if
+INFO  03:09:01,836 - #41 (
+INFO  03:09:01,836 - #48 1
+INFO  03:09:01,836 - #29 !=
+INFO  03:09:01,836 - #48 1
+INFO  03:09:01,836 - #42 )
+INFO  03:09:01,836 - #12 print
+INFO  03:09:01,836 - #41 (
+INFO  03:09:01,836 - #23 -
+INFO  03:09:01,836 - #48 6
+INFO  03:09:01,836 - #42 )
+INFO  03:09:01,836 - #37 ;
+INFO  03:09:01,836 - #6 else
+INFO  03:09:01,836 - #12 print
+INFO  03:09:01,836 - #41 (
+INFO  03:09:01,836 - #48 0
+INFO  03:09:01,836 - #42 )
+INFO  03:09:01,836 - #37 ;
+INFO  03:09:01,836 - #47 ibool
+INFO  03:09:01,836 - #36 =
+INFO  03:09:01,836 - #49 false
+INFO  03:09:01,836 - #37 ;
+INFO  03:09:01,836 - #47 i
+INFO  03:09:01,836 - #36 =
+INFO  03:09:01,836 - #48 0
+INFO  03:09:01,836 - #37 ;
+INFO  03:09:01,836 - #9 do
+INFO  03:09:01,841 - #45 {
+INFO  03:09:01,841 - #8 if
+INFO  03:09:01,841 - #41 (
+INFO  03:09:01,841 - #47 i
+INFO  03:09:01,841 - #28 ==
+INFO  03:09:01,841 - #48 2
+INFO  03:09:01,841 - #42 )
+INFO  03:09:01,841 - #47 ibool
+INFO  03:09:01,841 - #36 =
+INFO  03:09:01,841 - #49 true
+INFO  03:09:01,841 - #37 ;
+INFO  03:09:01,841 - #47 i
+INFO  03:09:01,841 - #20 ++
+INFO  03:09:01,841 - #37 ;
+INFO  03:09:01,841 - #46 }
+INFO  03:09:01,841 - #10 while
+INFO  03:09:01,841 - #41 (
+INFO  03:09:01,841 - #47 i
+INFO  03:09:01,841 - #33 <
+INFO  03:09:01,841 - #48 5
+INFO  03:09:01,841 - #42 )
+INFO  03:09:01,846 - #37 ;
+INFO  03:09:01,846 - #8 if
+INFO  03:09:01,846 - #41 (
+INFO  03:09:01,846 - #47 ibool
+INFO  03:09:01,846 - #42 )
+INFO  03:09:01,846 - #8 if
+INFO  03:09:01,846 - #41 (
+INFO  03:09:01,846 - #47 i
+INFO  03:09:01,846 - #28 ==
+INFO  03:09:01,846 - #48 5
+INFO  03:09:01,846 - #42 )
+INFO  03:09:01,846 - #12 print
+INFO  03:09:01,846 - #41 (
+INFO  03:09:01,846 - #48 1
+INFO  03:09:01,846 - #42 )
+INFO  03:09:01,846 - #37 ;
+INFO  03:09:01,846 - #6 else
+INFO  03:09:01,846 - #12 print
+INFO  03:09:01,846 - #41 (
+INFO  03:09:01,846 - #23 -
+INFO  03:09:01,846 - #48 1
+INFO  03:09:01,846 - #42 )
+INFO  03:09:01,846 - #37 ;
+INFO  03:09:01,846 - #47 a
+INFO  03:09:01,846 - #36 =
+INFO  03:09:01,846 - #48 2
+INFO  03:09:01,846 - #37 ;
+INFO  03:09:01,846 - #47 niz
+INFO  03:09:01,846 - #36 =
+INFO  03:09:01,846 - #11 new
+INFO  03:09:01,846 - #47 int
+INFO  03:09:01,846 - #43 [
+INFO  03:09:01,846 - #48 3
+INFO  03:09:01,846 - #44 ]
+INFO  03:09:01,846 - #37 ;
+INFO  03:09:01,846 - #47 niz
+INFO  03:09:01,846 - #43 [
+INFO  03:09:01,846 - #48 0
+INFO  03:09:01,846 - #44 ]
+INFO  03:09:01,846 - #36 =
+INFO  03:09:01,851 - #48 1
+INFO  03:09:01,851 - #24 *
+INFO  03:09:01,851 - #47 a
+INFO  03:09:01,851 - #37 ;
+INFO  03:09:01,851 - #47 niz
+INFO  03:09:01,851 - #43 [
+INFO  03:09:01,851 - #48 1
+INFO  03:09:01,851 - #44 ]
+INFO  03:09:01,851 - #36 =
+INFO  03:09:01,851 - #48 2
+INFO  03:09:01,851 - #24 *
+INFO  03:09:01,851 - #47 a
+INFO  03:09:01,851 - #37 ;
+INFO  03:09:01,851 - #47 niz
+INFO  03:09:01,851 - #43 [
+INFO  03:09:01,851 - #48 2
+INFO  03:09:01,851 - #44 ]
+INFO  03:09:01,851 - #36 =
+INFO  03:09:01,851 - #47 sum
+INFO  03:09:01,851 - #41 (
+INFO  03:09:01,851 - #47 niz
+INFO  03:09:01,851 - #43 [
+INFO  03:09:01,851 - #48 1
+INFO  03:09:01,851 - #44 ]
+INFO  03:09:01,851 - #39 ,
+INFO  03:09:01,851 - #47 niz
+INFO  03:09:01,851 - #43 [
+INFO  03:09:01,851 - #48 0
+INFO  03:09:01,851 - #44 ]
+INFO  03:09:01,851 - #42 )
+INFO  03:09:01,851 - #24 *
+INFO  03:09:01,851 - #47 a
+INFO  03:09:01,851 - #22 +
+INFO  03:09:01,851 - #48 1
+INFO  03:09:01,851 - #37 ;
+INFO  03:09:01,851 - #8 if
+INFO  03:09:01,851 - #41 (
+INFO  03:09:01,851 - #47 verify
+INFO  03:09:01,851 - #41 (
+INFO  03:09:01,851 - #42 )
+INFO  03:09:01,851 - #35 ||
+INFO  03:09:01,851 - #47 niz
+INFO  03:09:01,856 - #43 [
+INFO  03:09:01,856 - #48 2
+INFO  03:09:01,856 - #44 ]
+INFO  03:09:01,856 - #28 ==
+INFO  03:09:01,856 - #48 4
+INFO  03:09:01,856 - #42 )
+INFO  03:09:01,856 - #12 print
+INFO  03:09:01,856 - #41 (
+INFO  03:09:01,856 - #47 ord
+INFO  03:09:01,856 - #41 (
+INFO  03:09:01,856 - #50 A
+INFO  03:09:01,856 - #42 )
+INFO  03:09:01,856 - #42 )
+INFO  03:09:01,856 - #37 ;
+INFO  03:09:01,856 - #6 else
+INFO  03:09:01,856 - #12 print
+INFO  03:09:01,856 - #41 (
+INFO  03:09:01,856 - #47 ord
+INFO  03:09:01,856 - #41 (
+INFO  03:09:01,856 - #50 a
+INFO  03:09:01,856 - #42 )
+INFO  03:09:01,856 - #42 )
+INFO  03:09:01,856 - #37 ;
+INFO  03:09:01,856 - #12 print
+INFO  03:09:01,856 - #41 (
+INFO  03:09:01,856 - #47 eol
+INFO  03:09:01,856 - #42 )
+INFO  03:09:01,856 - #37 ;
+INFO  03:09:01,856 - #47 i
+INFO  03:09:01,856 - #36 =
+INFO  03:09:01,856 - #48 0
+INFO  03:09:01,856 - #37 ;
+INFO  03:09:01,856 - #9 do
+INFO  03:09:01,856 - #45 {
+INFO  03:09:01,856 - #8 if
+INFO  03:09:01,856 - #41 (
+INFO  03:09:01,856 - #47 i
+INFO  03:09:01,856 - #28 ==
+INFO  03:09:01,856 - #48 3
+INFO  03:09:01,856 - #42 )
+INFO  03:09:01,856 - #45 {
+INFO  03:09:01,856 - #47 i
+INFO  03:09:01,856 - #20 ++
+INFO  03:09:01,856 - #37 ;
+INFO  03:09:01,856 - #17 continue
+INFO  03:09:01,856 - #37 ;
+INFO  03:09:01,856 - #46 }
+INFO  03:09:01,861 - #8 if
+INFO  03:09:01,861 - #41 (
+INFO  03:09:01,861 - #47 i
+INFO  03:09:01,861 - #28 ==
+INFO  03:09:01,861 - #48 4
+INFO  03:09:01,861 - #42 )
+INFO  03:09:01,861 - #3 break
+INFO  03:09:01,861 - #37 ;
+INFO  03:09:01,861 - #47 i
+INFO  03:09:01,861 - #36 =
+INFO  03:09:01,861 - #47 inkrement
+INFO  03:09:01,861 - #41 (
+INFO  03:09:01,861 - #47 i
+INFO  03:09:01,861 - #42 )
+INFO  03:09:01,861 - #37 ;
+INFO  03:09:01,861 - #46 }
+INFO  03:09:01,861 - #10 while
+INFO  03:09:01,861 - #41 (
+INFO  03:09:01,861 - #47 i
+INFO  03:09:01,861 - #33 <
+INFO  03:09:01,861 - #48 10
+INFO  03:09:01,861 - #42 )
+INFO  03:09:01,861 - #37 ;
+INFO  03:09:01,861 - #8 if
+INFO  03:09:01,861 - #41 (
+INFO  03:09:01,861 - #47 i
+INFO  03:09:01,861 - #28 ==
+INFO  03:09:01,861 - #48 3
+INFO  03:09:01,861 - #34 &&
+INFO  03:09:01,861 - #47 verify
+INFO  03:09:01,866 - #41 (
+INFO  03:09:01,866 - #42 )
+INFO  03:09:01,866 - #42 )
+INFO  03:09:01,866 - #12 print
+INFO  03:09:01,866 - #41 (
+INFO  03:09:01,866 - #23 -
+INFO  03:09:01,866 - #48 4
+INFO  03:09:01,866 - #42 )
+INFO  03:09:01,866 - #37 ;
+INFO  03:09:01,866 - #6 else
+INFO  03:09:01,866 - #12 print
+INFO  03:09:01,866 - #41 (
+INFO  03:09:01,866 - #48 4
+INFO  03:09:01,866 - #42 )
+INFO  03:09:01,866 - #37 ;
+INFO  03:09:01,866 - #13 read
+INFO  03:09:01,866 - #41 (
+INFO  03:09:01,866 - #47 niz
+INFO  03:09:01,866 - #43 [
+INFO  03:09:01,866 - #48 0
+INFO  03:09:01,866 - #44 ]
+INFO  03:09:01,866 - #42 )
+INFO  03:09:01,866 - #37 ;
+INFO  03:09:01,866 - #13 read
+INFO  03:09:01,866 - #41 (
+INFO  03:09:01,866 - #47 niz
+INFO  03:09:01,866 - #43 [
+INFO  03:09:01,866 - #48 1
+INFO  03:09:01,866 - #44 ]
+INFO  03:09:01,866 - #42 )
+INFO  03:09:01,866 - #37 ;
+INFO  03:09:01,866 - #13 read
+INFO  03:09:01,866 - #41 (
+INFO  03:09:01,866 - #47 niz
+INFO  03:09:01,866 - #43 [
+INFO  03:09:01,866 - #48 2
+INFO  03:09:01,866 - #44 ]
+INFO  03:09:01,866 - #42 )
+INFO  03:09:01,866 - #37 ;
+INFO  03:09:01,866 - #12 print
+INFO  03:09:01,866 - #41 (
+INFO  03:09:01,866 - #47 eol
+INFO  03:09:01,866 - #42 )
+INFO  03:09:01,866 - #37 ;
+INFO  03:09:01,866 - #12 print
+INFO  03:09:01,866 - #41 (
+INFO  03:09:01,866 - #47 sum
+INFO  03:09:01,866 - #41 (
+INFO  03:09:01,866 - #47 sum
+INFO  03:09:01,866 - #41 (
+INFO  03:09:01,866 - #47 niz
+INFO  03:09:01,866 - #43 [
+INFO  03:09:01,866 - #48 0
+INFO  03:09:01,866 - #44 ]
+INFO  03:09:01,866 - #39 ,
+INFO  03:09:01,866 - #47 niz
+INFO  03:09:01,866 - #43 [
+INFO  03:09:01,866 - #48 1
+INFO  03:09:01,866 - #44 ]
+INFO  03:09:01,866 - #42 )
+INFO  03:09:01,866 - #39 ,
+INFO  03:09:01,866 - #47 niz
+INFO  03:09:01,866 - #43 [
+INFO  03:09:01,866 - #48 2
+INFO  03:09:01,866 - #44 ]
+INFO  03:09:01,866 - #42 )
+INFO  03:09:01,866 - #42 )
+INFO  03:09:01,866 - #37 ;
+INFO  03:09:01,866 - #12 print
+INFO  03:09:01,866 - #41 (
+INFO  03:09:01,866 - #47 eol
+INFO  03:09:01,866 - #42 )
+INFO  03:09:01,866 - #37 ;
+INFO  03:09:01,866 - #12 print
+INFO  03:09:01,866 - #41 (
+INFO  03:09:01,866 - #47 inkrement
+INFO  03:09:01,866 - #41 (
+INFO  03:09:01,866 - #47 niz
+INFO  03:09:01,866 - #43 [
+INFO  03:09:01,866 - #48 2
+INFO  03:09:01,866 - #44 ]
+INFO  03:09:01,866 - #39 ,
+INFO  03:09:01,866 - #48 2
+INFO  03:09:01,871 - #42 )
+INFO  03:09:01,871 - #42 )
+INFO  03:09:01,871 - #37 ;
+INFO  03:09:01,871 - #47 a
+INFO  03:09:01,871 - #36 =
+INFO  03:09:01,871 - #48 3
+INFO  03:09:01,871 - #37 ;
+INFO  03:09:01,871 - #47 i
+INFO  03:09:01,871 - #36 =
+INFO  03:09:01,871 - #48 0
+INFO  03:09:01,871 - #37 ;
+INFO  03:09:01,871 - #9 do
+INFO  03:09:01,871 - #45 {
+INFO  03:09:01,871 - #47 niz
+INFO  03:09:01,871 - #43 [
+INFO  03:09:01,871 - #47 i
+INFO  03:09:01,871 - #44 ]
+INFO  03:09:01,871 - #36 =
+INFO  03:09:01,871 - #47 niz
+INFO  03:09:01,871 - #43 [
+INFO  03:09:01,871 - #47 i
+INFO  03:09:01,871 - #44 ]
+INFO  03:09:01,871 - #24 *
+INFO  03:09:01,871 - #48 2
+INFO  03:09:01,871 - #24 *
+INFO  03:09:01,871 - #47 a
+INFO  03:09:01,871 - #37 ;
+INFO  03:09:01,871 - #47 i
+INFO  03:09:01,871 - #20 ++
+INFO  03:09:01,871 - #37 ;
+INFO  03:09:01,871 - #46 }
+INFO  03:09:01,871 - #10 while
+INFO  03:09:01,871 - #41 (
+INFO  03:09:01,871 - #47 i
+INFO  03:09:01,871 - #33 <
+INFO  03:09:01,871 - #48 3
+INFO  03:09:01,871 - #42 )
+INFO  03:09:01,871 - #37 ;
+INFO  03:09:01,871 - #12 print
+INFO  03:09:01,871 - #41 (
+INFO  03:09:01,871 - #47 niz
+INFO  03:09:01,871 - #43 [
+INFO  03:09:01,871 - #48 0
+INFO  03:09:01,871 - #44 ]
+INFO  03:09:01,871 - #42 )
+INFO  03:09:01,871 - #37 ;
+INFO  03:09:01,871 - #12 print
+INFO  03:09:01,871 - #41 (
+INFO  03:09:01,871 - #47 niz
+INFO  03:09:01,871 - #43 [
+INFO  03:09:01,871 - #48 1
+INFO  03:09:01,871 - #44 ]
+INFO  03:09:01,871 - #42 )
+INFO  03:09:01,871 - #37 ;
+INFO  03:09:01,871 - #12 print
+INFO  03:09:01,871 - #41 (
+INFO  03:09:01,871 - #47 niz
+INFO  03:09:01,871 - #43 [
+INFO  03:09:01,871 - #48 2
+INFO  03:09:01,871 - #44 ]
+INFO  03:09:01,871 - #42 )
+INFO  03:09:01,871 - #37 ;
+INFO  03:09:01,871 - #12 print
+INFO  03:09:01,871 - #41 (
+INFO  03:09:01,871 - #47 eol
+INFO  03:09:01,871 - #42 )
+INFO  03:09:01,871 - #37 ;
+INFO  03:09:01,871 - #47 i
+INFO  03:09:01,871 - #36 =
+INFO  03:09:01,871 - #48 0
+INFO  03:09:01,871 - #37 ;
+INFO  03:09:01,871 - #47 niz2
+INFO  03:09:01,871 - #36 =
+INFO  03:09:01,871 - #48 0
+INFO  03:09:01,871 - #37 ;
+INFO  03:09:01,871 - #9 do
+INFO  03:09:01,871 - #45 {
+INFO  03:09:01,871 - #47 niz2
+INFO  03:09:01,871 - #36 =
+INFO  03:09:01,871 - #47 niz2
+INFO  03:09:01,871 - #22 +
+INFO  03:09:01,871 - #47 niz
+INFO  03:09:01,871 - #43 [
+INFO  03:09:01,871 - #47 i
+INFO  03:09:01,871 - #44 ]
+INFO  03:09:01,871 - #24 *
+INFO  03:09:01,871 - #47 niz
+INFO  03:09:01,871 - #43 [
+INFO  03:09:01,871 - #47 i
+INFO  03:09:01,871 - #44 ]
+INFO  03:09:01,871 - #37 ;
+INFO  03:09:01,871 - #47 i
+INFO  03:09:01,876 - #20 ++
+INFO  03:09:01,876 - #37 ;
+INFO  03:09:01,876 - #46 }
+INFO  03:09:01,876 - #10 while
+INFO  03:09:01,876 - #41 (
+INFO  03:09:01,876 - #47 i
+INFO  03:09:01,876 - #33 <
+INFO  03:09:01,876 - #48 3
+INFO  03:09:01,876 - #42 )
+INFO  03:09:01,876 - #37 ;
+INFO  03:09:01,876 - #12 print
+INFO  03:09:01,876 - #41 (
+INFO  03:09:01,876 - #47 niz2
+INFO  03:09:01,876 - #42 )
+INFO  03:09:01,876 - #37 ;
+INFO  03:09:01,876 - #46 }
+INFO  03:09:01,876 - #46 }
+INFO  03:09:01,891 - Const declared (jedan) line 5
+INFO  03:09:01,891 - Global variable declared (i). line 7
+INFO  03:09:01,891 - Global variable declared (ibool). line 8
+INFO  03:09:01,891 - Global variable declared (niz2). line 10
+INFO  03:09:01,891 - Global variable declared (niz). line 12
+INFO  03:09:01,891 - Global variable declared (a). line 13
+INFO  03:09:01,891 -  Optional argument declared (z). line 17
+INFO  03:09:01,891 -  Optional argument declared (d). line 17
+INFO  03:09:01,891 - Formal parameter detected (z) line 19
+INFO  03:09:01,891 - Formal parameter detected (d) line 19
+INFO  03:09:01,891 -  Formal parameter declared (a). line 23
+INFO  03:09:01,891 -  Optional argument declared (inc). line 23
+INFO  03:09:01,891 - Local variable declared (pom). line 24
+INFO  03:09:01,891 - Formal parameter detected (inc) line 26
+INFO  03:09:01,891 - Local variable detected (pom) line 26
+INFO  03:09:01,891 - Formal parameter detected (inc) line 27
+INFO  03:09:01,891 - Local variable detected (pom) line 27
+INFO  03:09:01,891 - Formal parameter detected (a) line 27
+INFO  03:09:01,891 - Formal parameter detected (a) line 29
+INFO  03:09:01,891 - Local variable detected (pom) line 29
+INFO  03:09:01,891 - Global variable detected (ibool) line 45
+INFO  03:09:01,891 - Global variable detected (i) line 46
+INFO  03:09:01,891 - Global variable detected (i) line 48
+INFO  03:09:01,891 - Global variable detected (ibool) line 48
+INFO  03:09:01,891 - Global variable detected (i) line 49
+INFO  03:09:01,900 - Global variable detected (i) line 50
+INFO  03:09:01,900 - Global variable detected (ibool) line 52
+INFO  03:09:01,900 - Global variable detected (i) line 53
+INFO  03:09:01,900 - Global variable detected (a) line 55
+INFO  03:09:01,900 - Global variable detected (niz) line 56
+INFO  03:09:01,900 - Global variable detected (niz) line 57
+INFO  03:09:01,900 - Array reference: niz[]  line 57
+INFO  03:09:01,900 - Global variable detected (a) line 57
+INFO  03:09:01,900 - Global variable detected (niz) line 58
+INFO  03:09:01,900 - Array reference: niz[]  line 58
+INFO  03:09:01,900 - Global variable detected (a) line 58
+INFO  03:09:01,900 - Global variable detected (niz) line 59
+INFO  03:09:01,900 - Array reference: niz[]  line 59
+INFO  03:09:01,900 - Global variable detected (niz) line 59
+INFO  03:09:01,900 - Array reference: niz[]  line 59
+INFO  03:09:01,900 - Global variable detected (niz) line 59
+INFO  03:09:01,900 - Array reference: niz[]  line 59
+INFO  03:09:01,900 - Global variable detected (a) line 59
+INFO  03:09:01,900 - Global variable detected (niz) line 60
+INFO  03:09:01,900 - Array reference: niz[]  line 60
+INFO  03:09:01,900 - Global variable detected (i) line 64
+INFO  03:09:01,900 - Global variable detected (i) line 66
+INFO  03:09:01,900 - Global variable detected (i) line 68
+INFO  03:09:01,900 - Global variable detected (i) line 71
+INFO  03:09:01,900 - Global variable detected (i) line 72
+INFO  03:09:01,900 - Global variable detected (i) line 72
+INFO  03:09:01,900 - Global variable detected (i) line 73
+INFO  03:09:01,900 - Global variable detected (i) line 75
+INFO  03:09:01,900 - Global variable detected (niz) line 78
+INFO  03:09:01,900 - Array reference: niz[]  line 78
+INFO  03:09:01,900 - Global variable detected (niz) line 79
+INFO  03:09:01,900 - Array reference: niz[]  line 79
+INFO  03:09:01,900 - Global variable detected (niz) line 80
+INFO  03:09:01,900 - Array reference: niz[]  line 80
+INFO  03:09:01,900 - Global variable detected (niz) line 82
+INFO  03:09:01,900 - Array reference: niz[]  line 82
+INFO  03:09:01,900 - Global variable detected (niz) line 82
+INFO  03:09:01,900 - Array reference: niz[]  line 82
+INFO  03:09:01,900 - Global variable detected (niz) line 82
+INFO  03:09:01,900 - Array reference: niz[]  line 82
+INFO  03:09:01,900 - Global variable detected (niz) line 85
+INFO  03:09:01,900 - Array reference: niz[]  line 85
+INFO  03:09:01,900 - Global variable detected (a) line 87
+INFO  03:09:01,900 - Global variable detected (i) line 88
+INFO  03:09:01,900 - Global variable detected (niz) line 90
+INFO  03:09:01,900 - Global variable detected (i) line 90
+INFO  03:09:01,900 - Array reference: niz[]  line 90
+INFO  03:09:01,900 - Global variable detected (niz) line 90
+INFO  03:09:01,900 - Global variable detected (i) line 90
+INFO  03:09:01,900 - Array reference: niz[]  line 90
+INFO  03:09:01,900 - Global variable detected (a) line 90
+INFO  03:09:01,900 - Global variable detected (i) line 91
+INFO  03:09:01,900 - Global variable detected (i) line 92
+INFO  03:09:01,900 - Global variable detected (niz) line 93
+INFO  03:09:01,900 - Array reference: niz[]  line 93
+INFO  03:09:01,900 - Global variable detected (niz) line 94
+INFO  03:09:01,900 - Array reference: niz[]  line 94
+INFO  03:09:01,900 - Global variable detected (niz) line 95
+INFO  03:09:01,900 - Array reference: niz[]  line 95
+INFO  03:09:01,900 - Global variable detected (i) line 98
+INFO  03:09:01,900 - Global variable detected (niz2) line 99
+INFO  03:09:01,900 - Global variable detected (niz2) line 101
+INFO  03:09:01,900 - Global variable detected (niz2) line 101
+INFO  03:09:01,900 - Global variable detected (niz) line 101
+INFO  03:09:01,900 - Global variable detected (i) line 101
+INFO  03:09:01,900 - Array reference: niz[]  line 101
+INFO  03:09:01,900 - Global variable detected (niz) line 101
+INFO  03:09:01,900 - Global variable detected (i) line 101
+INFO  03:09:01,900 - Array reference: niz[]  line 101
+INFO  03:09:01,900 - Global variable detected (i) line 102
+INFO  03:09:01,900 - Global variable detected (i) line 103
+INFO  03:09:01,900 - Global variable detected (niz2) line 104
+INFO  03:09:01,981 - Generating bytecode file: C:\Users\vasil\Desktop\micro-java-compiler\test\program4.obj
+INFO  03:09:02,021 - MJ compiler finished with success.
